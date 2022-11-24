@@ -1,4 +1,4 @@
-# Second Edition's support for .NET 9
+# Eighth Edition's support for .NET 9
 
 Microsoft will release previews of .NET 9 regularly starting in February 2024 until the final version on Tuesday, November 12, 2024.
 
