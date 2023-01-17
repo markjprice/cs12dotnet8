@@ -1,3 +1,5 @@
+> [Information for Technical Reviewers](docs/reviewers.md)
+
 [Improvements & Errata - list of corrections](docs/errata)
 
 # C# 12 and .NET 8 - Modern Cross-Platform Development Fundamentals, Eighth Edition
