@@ -16,3 +16,17 @@ I will add a comment to the top of each Word document for a chapter that specifi
 
 Inevitably there will be differences in .NET on different operating systems. The majority of readers use Visual Studio 2022 on Windows so that is the primary code editor and OS that I use while writing. I often do not test on macOS until final drafts. 
 
+## dotnet ef tool
+
+Make sure you are using the latest EF Core command-line tool. 
+
+For example, to upgrade to the latest released version:
+```
+C:\>dotnet tool update --global dotnet-ef
+Tool 'dotnet-ef' was successfully updated from version '7.0.0' to version '7.0.3'.
+```
+To upgrade to the latest .NET 8 preview version:
+```
+C:\>dotnet tool update --global dotnet-ef --version 8.0.0-*
+Tool 'dotnet-ef' was successfully updated from version '7.0.3' to version '8.0.0-preview.1.23111.4'.
+```
