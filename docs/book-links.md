@@ -152,6 +152,7 @@
 
 ## .NET
 - [Download .NET SDK](https://dotnet.microsoft.com/en-us/download)
+- [What's new in .NET 8](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8)
 - [.NET Conf 2022 Keynote: Welcome to .NET 7 | .NET Conf 2022](https://www.youtube.com/watch?v=8V_BUGFKdaI)
 - [Stack Overflow survey 2021 - Most loved frameworks and libraries](https://insights.stackoverflow.com/survey/2021#section-most-loved-dreaded-and-wanted-other-frameworks-and-libraries)
 - [Themes of .NET](https://themesof.net/)
@@ -413,6 +414,7 @@
 
 ## .NET versions
 The official announcement links are useful because they describe the most important new features in each release.
+- [What's new in .NET 8](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8)
 - [Announcing .NET 7](https://devblogs.microsoft.com/dotnet/announcing-net-7/)
 - [Performance Improvements in .NET 7 | .NET Conf 2022](https://www.youtube.com/watch?v=yNPEdaxkTZw)
 - [Announcing .NET 6 — The Fastest .NET Yet](https://devblogs.microsoft.com/dotnet/announcing-net-6/)
