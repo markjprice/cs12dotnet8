@@ -19,6 +19,10 @@ If you have Visual Studio 2022 and Visual Studio Code and its C# extension insta
 - [/vs](/vs): Visual Studio 2022 (for Windows or Mac) solution files and projects for each chapter.
 - [/vscode](/vscode): Visual Studio Code workspace files and projects for each chapter.
 
+## Command-Lines
+
+To make it easier to enter commands at the prompt, the [Command-Lines](docs/command-lines.md) page lists all commands as a single line that can be copied and pasted.
+
 ## Chapters
 - Chapter 1 Hello C#, Welcome .NET!
 - Chapter 2 Speaking C#
