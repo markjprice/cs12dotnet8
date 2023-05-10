@@ -12,12 +12,12 @@ My author page on Amazon: https://www.amazon.com/Mark-J-Price/e/B071DW3QGN/
 
 All of my books on Packt's website: https://subscription.packtpub.com/search?query=mark+j.+price
 
-## Code solutions for Visual Studio 2022 and Visual Studio Code
+## Code solutions
 
-If you have Visual Studio 2022 for Windows and Visual Studio Code and its C# extension installed on the same computer, the build process can sometimes conflict. This is because Visual Studio has its own non-standard build server that is different from the standard build server used by .NET SDK. Visual Studio 2022 and Visual Studio Code also use different file types to group projects. So I have duplicated and separated solution code for each product:
+If you have Visual Studio 2022 and Visual Studio Code and its C# extension installed on the same computer, the build process can sometimes conflict. This is because Visual Studio 2022 has its own non-standard build server that is different from the standard build server used by .NET SDK. Visual Studio 2022 and Visual Studio Code also use different file types to group projects. So I have duplicated and separated solution code for each product:
 
-- [/vs4win](/vs4win): Visual Studio 2022 for Windows solution files and projects for each chapter
-- [/vscode](/vscode): Visual Studio Code workspace files and projects for each chapter
+- [/vs](/vs): Visual Studio 2022 (for Windows or Mac) solution files and projects for each chapter.
+- [/vscode](/vscode): Visual Studio Code workspace files and projects for each chapter.
 
 ## Chapters
 - Chapter 1 Hello C#, Welcome .NET!
