@@ -122,6 +122,7 @@
   - [Windows shortcuts PDF](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
   - [macOS shortcuts PDF](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
   - [Linux shortcuts PDF](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
+- [How can I do a 'clean' uninstall of VS Code?](https://code.visualstudio.com/docs/setup/setup-overview#_how-can-i-do-a-clean-uninstall-of-vs-code)
 - [Microsoft's roadmap for Visual Studio Code](https://github.com/Microsoft/vscode/wiki/Roadmap)
 - [Visual Studio Code for C# Developers | .NET Conf 2022](https://www.youtube.com/watch?v=fuBi4d7k1-M)
 - [Learning with VS Code on Chromebooks](https://code.visualstudio.com/blogs/2020/12/03/chromebook-get-started)
