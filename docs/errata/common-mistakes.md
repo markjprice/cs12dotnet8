@@ -2,13 +2,13 @@
 
 If you have suggestions for other common mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
-- [Missing types and members in a utlity class](#missing-types-and-members-in-a-utlity-class)
+- [Missing types and members in a utility class](#missing-types-and-members-in-a-utility-class)
   - [CS0103 The name 'DoSomething' does not exist in the current context](#cs0103-the-name-dosomething-does-not-exist-in-the-current-context)
   - [CS0122 'Util.DoSomething()' is inaccessible due to its protection level](#cs0122-utildosomething-is-inaccessible-due-to-its-protection-level)
 - [Missing types and members in the Program class](#missing-types-and-members-in-the-program-class)
 - [Microsoft introduces a bug in a later version](#microsoft-introduces-a-bug-in-a-later-version)
 
-# Missing types and members in a utlity class
+# Missing types and members in a utility class
 
 ## CS0103 The name 'DoSomething' does not exist in the current context
 
