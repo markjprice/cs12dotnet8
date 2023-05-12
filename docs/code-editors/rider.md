@@ -25,7 +25,7 @@ If you have not already installed it, let's do so now:
 
 1. Download JetBrains Rider version 2021.2.2 or later from the following link: https://www.jetbrains.com/rider/download/, as shown in *Figure 1.1*:
 
-![Download JetBrains Rider](B17442_01_01_Rider.png)
+![Download JetBrains Rider](assets/B17442_01_01_Rider.png)
 *Figure 1.1: Download JetBrains Rider*
 
 2. If you’re on Ubuntu 16.04 or later, you can install Rider from the command line: `sudo snap install rider --classic`
@@ -46,7 +46,7 @@ Let's get started writing code!
 1.	Start **JetBrains Rider**.
 2.	In the **Welcome to JetBrains Rider** window, click the **New Solution** button, as shown in *Figure 1.4*:
 
-![Welcome to JetBrains Rider dialog box with the New Solution button](B17442_01_04_Rider.png)
+![Welcome to JetBrains Rider dialog box with the New Solution button](assets/B17442_01_04_Rider.png)
 *Figure 1.4: Welcome to JetBrains Rider dialog box with the New Solution button*
 
 We are deliberately going to use the older project template for .NET 5.0 to see what a full console application looks like. In the next section, you will create a console application using .NET 6.0 and see what has changed.
@@ -58,13 +58,13 @@ We are deliberately going to use the older project template for .NET 5.0 to see 
     3. For **Language**, select **C#**.
     4. For **Framework**, select **net5.0**.
 
-![Configuring names and options for a .NET 5.0 Console Application project template](B17442_01_05_Rider.png)
+![Configuring names and options for a .NET 5.0 Console Application project template](assets/B17442_01_05_Rider.png)
 *Figure 1.5: Configuring names and options for a .NET 5.0 Console Application project template*
 
 4.	Click **Create**.
 5.	In the **Explorer** pane, in its **Solution** view, double-click to open the file named `Program.cs`, and note the code imports the `System` namespace, defines a namespace named `HelloCS`, with a class named `Program`, and a method named `Main`, as shown in *Figure 1.6*:
 
-![Rider's Explorer pane and edit window](B17442_01_06_Rider.png) 
+![Rider's Explorer pane and edit window](assets/B17442_01_06_Rider.png) 
 *Figure 1.6: Editing Program.cs in JetBrains Rider*
 
 6.	In `Program.cs`, modify line 9 so that the text that is being written to the console says, `Hello, C#!`.
@@ -76,12 +76,12 @@ The next task is to compile and run the code.
 1.	In **JetBrains Rider**, navigate to **Run** | **Run 'HelloCS'**. 
 2.	The output in the **Run** pane will show the result of running your application, as shown in *Figure 1.7*:
 
-![Output of the console application in the Run pane](B17442_01_07_Rider.png)
+![Output of the console application in the Run pane](assets/B17442_01_07_Rider.png)
 *Figure 1.7: Output of the console application in the Run pane*
 
 3.	Select the `HelloCS` project and then in the **Explorer** pane's toolbar, toggle on the **Show All Files** button, and note the compiler-generated `bin` and `obj` folders are visible, as shown in *Figure 1.8*:
 
-![Showing the compiler-generated folders and files](B17442_01_08_Rider.png)
+![Showing the compiler-generated folders and files](assets/B17442_01_08_Rider.png)
 *Figure 1.8: Showing the compiler-generated folders and files*
 
 ## Understanding the compiler-generated folders and files
@@ -138,7 +138,7 @@ Let's add a second project to our solution to explore top-level programs.
 2. For the **.NET / .NET Core SDK**, select **6.0**, and then click **OK**.
 2. In the **Explorer** pane, right-click the solution named `Chapter01` and navigate to **Add** | **New Project**, as shown in *Figure 1.9*:
 
-![Adding a new project to the solution](B17442_01_09_Rider.png)
+![Adding a new project to the solution](assets/B17442_01_09_Rider.png)
 *Figure 1.9: Adding a new project to the solution*
 
 2.	In the **New Project** dialog, in the **.NET / .NET Core** section, select **Console App**, for the **Project name**, enter `TopLevelProgram`, leave the **Project directory** as it is, set the **Framework** to **net6.0**, and then click **Create**.
@@ -175,7 +175,7 @@ Console.WriteLine(Environment.OSVersion.VersionString);
 ```
 5.	In **Explorer**, right-click the `TopLevelProgram` project, navigate to **Run 'TopLevelProgram'**, and note the result, as shown in *Figure 1.10*:
  
-![Running a top-level program in a Rider solution with two projects on Windows](B17442_01_10_Rider.png)
+![Running a top-level program in a Rider solution with two projects on Windows](assets/B17442_01_10_Rider.png)
 *Figure 1.10: Running a top-level program in a Rider solution with two projects on Windows*
 
 # Chapter 4 (coming soon)

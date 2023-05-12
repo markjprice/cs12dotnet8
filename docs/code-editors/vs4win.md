@@ -22,7 +22,7 @@ If you have not already installed Visual Studio 2022 for Windows, let's do so no
 
 1.	Download Microsoft Visual Studio 2022 version 17.0 or later for Windows from the following link: https://visualstudio.microsoft.com/downloads/, as shown in *Figure 1.1*:
 
-![Download Microsoft Visual Studio 2022 version 17.0 or later](B17442_01_01_vs2022.png)
+![Download Microsoft Visual Studio 2022 version 17.0 or later](assets/B17442_01_01_vs2022.png)
 *Figure 1.1: Download Microsoft Visual Studio 2022 version 17.0 or later*
 
 2.	Start the installer.
@@ -37,13 +37,13 @@ If you have not already installed Visual Studio 2022 for Windows, let's do so no
 - Git for Windows
 - PreEmptive Protection - Dotfuscator
 
-![Selecting workloads and individual components](B17442_01_02_vs2022.png)
+![Selecting workloads and individual components](assets/B17442_01_02_vs2022.png)
 *Figure 1.2: Selecting workloads and individual components*
 
 5.	Click the **Install** button, and then wait for the installer to acquire the selected software and install it.
 6.	When the installation is complete, click **Launch**, as shown in *Figure 1.3*:
 
-![Click the Launch button](B17442_01_03_vs2022.png)
+![Click the Launch button](assets/B17442_01_03_vs2022.png)
 *Figure 1.3: Click the Launch button*
 
 7.	The first time that you run Visual Studio 2022, you will be prompted to sign in. If you have a Microsoft account, you can use that account. If you don't, then register for a new one at the following link: https://signup.live.com/
@@ -65,18 +65,18 @@ Let's get started writing code!
 1.	Start **Visual Studio 2022 Current**.
 2.	In the **Start** window, click **Create a new project**, as shown in *Figure 1.4*:
 
-![Creating a new project in Visual Studio 2022](B17442_01_04_vs2022.png)
+![Creating a new project in Visual Studio 2022](assets/B17442_01_04_vs2022.png)
 *Figure 1.4: Creating a new project in Visual Studio 2022*
 
 3.	In the **Create a new project** dialog, enter `console` in the **Search for templates** box, and select **Console App**, making sure that you have chosen the **C#** project template rather than another language like F# or Visual Basic, as shown in *Figure 1.5*:
 
-![Selecting the Console App project template](B17442_01_05_vs2022.png) 
+![Selecting the Console App project template](assets/B17442_01_05_vs2022.png) 
 *Figure 1.5: Selecting the Console App project template*
 
 4.	Click **Next**.
 5.	In the **Configure your new project** dialog, enter `HelloCS` for the project name, enter `C:\Code` for the location, and enter `Chapter01` for the solution name, as shown in *Figure 1.6*:
 
- ![Configuring names and locations for your new project](B17442_01_06_vs2022.png)
+ ![Configuring names and locations for your new project](assets/B17442_01_06_vs2022.png)
 *Figure 1.6: Configuring names and locations for your new project*
 
 6.	Click **Next**.
@@ -85,12 +85,12 @@ We are deliberately going to use the older project template for .NET 5.0 to see 
 
 7.	In the **Additional information** dialog, in the **Target Framework** dropdown list, note the choices of **Current** and **Long-term support** versions of .NET, and then select **.NET 5.0 (Current)** and click the **Create** button, as shown in *Figure 1.7*:
 
- ![Configuring the target framework for your new project](B17442_01_07_vs2022.png)
+ ![Configuring the target framework for your new project](assets/B17442_01_07_vs2022.png)
 *Figure 1.7: Configuring the target framework for your new project*
 
 8.	In **Solution Explorer**, note it shows the `HelloCS` project and code files, and if necessary double-click to open the file named `Program.cs`, as shown in *Figure 1.8*:
  
-![Editing Program.cs in Visual Studio 2022](B17442_01_08_vs2022.png)
+![Editing Program.cs in Visual Studio 2022](assets/B17442_01_08_vs2022.png)
 *Figure 1.8: Editing Program.cs in Visual Studio 2022*
 
 9.	In `Program.cs`, modify line 9 so that the text that is being written to the console says, `Hello, C#!`
@@ -102,13 +102,13 @@ The next task is to compile and run the code.
 1.	In Visual Studio, navigate to **Debug** | **Start Without Debugging**. 
 2.	The output in the console window will show the result of running your application, as shown in *Figure 1.9*: 
  
-![Running the console app on Windows](B17442_01_09_vs2022.png)
+![Running the console app on Windows](assets/B17442_01_09_vs2022.png)
 *Figure 1.9: Running the console app on Windows*
 
 3.	Press any key to close the console window and return to Visual Studio 2022.
 4.	Select the `HelloCS` project and then in the **Solution Explorer** mini-toolbar, toggle on the **Show All Files** button, and note the compiler-generated `bin` and `obj` folders are visible, as shown in *Figure 1.10*: 
 
-![Showing the compiler-generated folders and files](B17442_01_10_vs2022.png)
+![Showing the compiler-generated folders and files](assets/B17442_01_10_vs2022.png)
 *Figure 1.10: Showing the compiler-generated folders and files*
 
 ## Understanding the compiler-generated folders and files
@@ -165,12 +165,12 @@ Let's add a second project to our solution to explore top-level programs.
 2.	In the **Add a new project** dialog, in **Recent project templates**, select **Console App [C#]** and then click **Next**.
 3.	In the **Configure your new project** dialog, for the **Project name**, enter `TopLevelProgram`, leave the location as `C:\Code\Chapter01`, and then click **Next**, as shown in *Figure 1.11*:
 
-![Configuring a name and location for your second project](B17442_01_11_vs2022.png)
+![Configuring a name and location for your second project](assets/B17442_01_11_vs2022.png)
 *Figure 1.11: Configuring a name and location for your second project*
 
 4.	In the **Additional information** dialog, select **.NET 6.0 (Long-term support)**, and then click **Create**, as shown in *Figure 1.12*:
 
-![Configuring the target framework for your new project](B17442_01_12_vs2022.png)
+![Configuring the target framework for your new project](assets/B17442_01_12_vs2022.png)
 *Figure 1.12: Configuring the target framework for your new project*
 
 5.	In **Solution Explorer**, in the `TopLevelProgram` project, double-click `Program.cs` to open it.
@@ -180,7 +180,7 @@ Let's add a second project to our solution to explore top-level programs.
 Console.WriteLine("Hello, World!");
 ```
 
-![Top-level program for .NET 6 console app](B17442_01_13_vs2022.png)
+![Top-level program for .NET 6 console app](assets/B17442_01_13_vs2022.png)
 *Figure 1.13: Top-level program for .NET 6 console app*
 
 But when I introduced the concept of top-level programs earlier, we needed a `using System;` statement. Why don't we need that here?
@@ -191,7 +191,7 @@ The trick is that we do still need to import the `System` namespace, but it is n
 1.	In **Solution Explorer**, select the `TopLevelProgram` project and toggle on the **Show All Files** button, and note the compiler-generated `bin` and `obj` folders are visible.
 2.	Expand the `obj` folder, expand the `Debug` folder, expand the `net6.0` folder, and open the file named `TopLevelProgram.GlobalUsings.g.cs`, as shown in *Figure 1.14*:
 
-![Revealing the secret of implicit imports aka global usings](B17442_01_14_vs2022.png)
+![Revealing the secret of implicit imports aka global usings](assets/B17442_01_14_vs2022.png)
 *Figure 1.14: Revealing the secret of implicit imports aka global usings*
 
 3.	Note this file is automatically created by the compiler for projects that target .NET 6, and that it uses a feature introduced in C# 10 called **global usings** and **implicit imports** that imports some commonly used namespaces like `System` for use in all code files, as shown in the following code:
@@ -214,13 +214,13 @@ Console.WriteLine(Environment.OSVersion.VersionString);
 ```
 5.	In **Solution Explorer**, right-click the `Chapter01` solution, select **Set Startup Projects…**, set **Current selection**, and then click **OK**, as shown in *Figure 1.15*:
 
-![Setting the startup project to the current selection](B17442_01_15_vs2022.png)
+![Setting the startup project to the current selection](assets/B17442_01_15_vs2022.png)
 *Figure 1.15: Setting the startup project to the current selection*
 
 6.	In **Solution Explorer**, click the `TopLevelProgram` project (or any file or folder within it), and note that Visual Studio indicates that `TopLevelProgram` is now the startup project by making the project name bold.
 7.	Navigate to **Debug** | **Start Without Debugging** to run the `TopLevelProgram` project, and note the result, as shown in *Figure 1.16*:
 
-![Running a top-level program in a Visual Studio 2022 solution with two projects on Windows](B17442_01_16_vs2022.png)
+![Running a top-level program in a Visual Studio 2022 solution with two projects on Windows](assets/B17442_01_16_vs2022.png)
 *Figure 1.16: Running a top-level program in a Visual Studio 2022 solution with two projects on Windows*
 
 
