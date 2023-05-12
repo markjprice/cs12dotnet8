@@ -112,7 +112,7 @@ partial class Program
 
 Although rare, it is possible that by using a later version of a NuGet package than the one I used to write the book, you experience different behavior, especially negative behavior if it is due to a bug. 
 
-For example, in the `Microsoft.Extensions.Configuration.Binder` package, version `7.0.3` has a bug. Previous versions from `7.0.0` to `7.0.0` do not have the bug.
+For example, in the `Microsoft.Extensions.Configuration.Binder` package, version `7.0.3` has a bug. Previous versions from `7.0.0` to `7.0.2` do not have the bug.
 
 You can read more here: https://github.com/markjprice/cs11dotnet7/blob/main/docs/errata/errata.md#page-178---reviewing-project-packages
 
