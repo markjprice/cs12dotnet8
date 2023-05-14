@@ -234,7 +234,7 @@ C:\cs12dotnet8\Chapter01\AboutMyEnvironment\bin\Debug\net8.0
 Microsoft Windows NT 10.0.22621.0
 ```
 
-![](assets/vs4win/B19586_01_10.png)
+![Running a top-level program in a Visual Studio solution with two projects](assets/vs4win/B19586_01_10.png)
 *Figure 1.10: Running a top-level program in a Visual Studio solution with two projects*
 
 > Windows 11 is just branding. Its official name is Windows NT, and its major version number is still 10! But its patch version is 22000 or higher.
