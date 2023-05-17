@@ -195,12 +195,12 @@ Let's add a second project to our solution to work with multiple projects.
 
 2.	In the **Add a new project** dialog, in **Recent project templates**, select **Console App [C#]** and then click **Next**.
 3.	In the **Configure your new project** dialog, for the **Project name**, enter `AboutMyEnvironment`, leave the location as `C:\cs12dotnet8\Chapter01`, and then click **Next**.
-4.	In the **Additional information** dialog, select **.NET 8.0 (Long Term Support)**, select the Do not use top-level statements check box.
+4.	In the **Additional information** dialog, select **.NET 8.0 (Long Term Support)**, select the **Do not use top-level statements** check box.
 
 > **Warning!** Make sure you have selected the check box, so we get to see the older style of `Program.cs`.
 
 5. Click **Create**.
-6.	In **Solution Explorer**, in the `TopLevelProgram` project, double-click `Program.cs` to open it.
+6.	In **Solution Explorer**, in the `AboutMyEnvironment` project, double-click `Program.cs` to open it.
 7.	In the `AboutMyEnvironment` project, in `Program.cs`, note the statements to define a namespace that matches the project name, a class named `Program`, and a method named `Main` with a parameter named `args`, as shown highlighted in the following code:
 ```cs
 namespace AboutMyEnvironment
