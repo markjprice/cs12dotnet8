@@ -191,7 +191,7 @@ Let's add a second project to our solution to work with multiple projects.
 
 1.	In Visual Studio 2022, navigate to **File** | **Add** | **New Project**.
 
-> **Warning!** The above step adds a new project to the existing solution. Do NOT navigate to **File** | **New** | **Project…*** which instead is meant to be used to create a new project and solution (although the dialog box has a dropdown to choose to add to an existing solution too).
+> **Warning!** The above step adds a new project to the existing solution. Do NOT navigate to **File** | **New** | **Project…** which instead is meant to be used to create a new project and solution (although the dialog box has a dropdown to choose to add to an existing solution too).
 
 2.	In the **Add a new project** dialog, in **Recent project templates**, select **Console App [C#]** and then click **Next**.
 3.	In the **Configure your new project** dialog, for the **Project name**, enter `AboutMyEnvironment`, leave the location as `C:\cs12dotnet8\Chapter01`, and then click **Next**.
