@@ -143,7 +143,7 @@ Key points to remember about top-level programs include the following:
 - There can be only one file like this in a project.
 - Any using statements must go at the top of the file.
 - If you declare any classes or other types, they must go at the bottom of the file.
-- Although you should name the method Main if you explicitly define it, the method is named <Main>$ when created by the compiler.
+- Although you should name the method `Main` if you explicitly define it, the method is named `<Main>$` when created by the compiler.
 
 ### Implicitly imported namespaces
 
@@ -181,7 +181,7 @@ throw new Exception();
 3. The output in the console window will show the result of running your application, including that a hidden `Program` class was defined by the compiler with a method named `<Main>$` that has a parameter named `args` for passing in arguments, as shown in *Figure 1.9*:
  
 ![Throwing an exception to reveal the hidden Program.<Main>$ method](assets/vs4win/B19586_01_09.png)
-*Figure 1.9: Throwing an exception to reveal the hidden Program.<Main>$ method*
+*Figure 1.9: Throwing an exception to reveal the hidden `Program.<Main>$` method*
 
 4. Press any key to close the console app window and return to Visual Studio.
 
