@@ -1,6 +1,6 @@
 > [Information for Technical Reviewers](docs/reviewers.md)
 
-[Improvements & Errata - list of corrections](docs/errata)
+[Common Mistakes, Improvements, and Errata aka list of corrections](docs/errata/README.md)
 
 # C# 12 and .NET 8 - Modern Cross-Platform Development Fundamentals, Eighth Edition
 
@@ -24,17 +24,25 @@ If you have Visual Studio 2022 and Visual Studio Code and its C# extension insta
 To make it easier to enter commands at the prompt, the [Command-Lines](docs/command-lines.md) page lists all commands as a single line that can be copied and pasted.
 
 ## Chapters
+
+**Introduction**
 - Chapter 1 Hello C#, Welcome .NET!
+
+**Language**
 - Chapter 2 Speaking C#
 - Chapter 3 Controlling Flow, Converting Types, and Handling Exceptions
 - Chapter 4 Writing, Debugging, and Testing Functions
 - Chapter 5 Building Your Own Types with Object-Oriented Programming
 - Chapter 6 Implementing Interfaces and Inheriting Classes
+
+**Libraries**
 - Chapter 7 Packaging and Distributing .NET Types
 - Chapter 8 Working with Common .NET Types
 - Chapter 9 Working with Files, Streams, and Serialization
 - Chapter 10 Working with Data Using Entity Framework Core
 - Chapter 11 Querying and Manipulating Data Using LINQ
+
+**ASP.NET Core web development**
 - Chapter 12 Introducing Web Development Using ASP.NET Core
 - Chapter 13 Building Websites Using ASP.NET Core Razor Pages
 - Chapter 14 Building Websites Using the Model-View-Controller Pattern
@@ -51,7 +59,7 @@ The appendix and color figures are available to download as PDFs:
 ## Important
 Corrections for typos and other mistakes and improvements like refactoring code. Useful links to other related material. 
 - [Book Links](docs/book-links.md)
-- [Improvements & Errata - list of corrections](docs/errata)
+- [Common Mistakes, Improvements, and Errata aka list of corrections](docs/errata/README.md)
 - [Eighth edition's support for .NET 9](docs/dotnet9.md)
 
 ## Microsoft Certifications
