@@ -19,10 +19,6 @@ If you have Visual Studio 2022 and Visual Studio Code and its C# extension insta
 - [/vs](/vs): Visual Studio 2022 (for Windows or Mac) solution files and projects for each chapter.
 - [/vscode](/vscode): Visual Studio Code workspace files and projects for each chapter.
 
-## Command-Lines
-
-To make it easier to enter commands at the prompt, the [Command-Lines](docs/command-lines.md) page lists all commands as a single line that can be copied and pasted.
-
 ## Chapters
 
 **Introduction**
@@ -58,6 +54,7 @@ The appendix and color figures are available to download as PDFs:
 
 ## Important
 Corrections for typos and other mistakes and improvements like refactoring code. Useful links to other related material. 
+- [Command-Lines](docs/command-lines.md) page lists all commands as a single line that can be copied and pasted to make it easier to enter commands at the prompt.
 - [Book Links](docs/book-links.md)
 - [Common Mistakes, Improvements, and Errata aka list of corrections](docs/errata/README.md)
 - [Eighth edition's support for .NET 9](docs/dotnet9.md)
