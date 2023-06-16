@@ -1,4 +1,4 @@
-> [Information for Technical Reviewers](docs/reviewers.md)
+> **IMPORTANT!** [Information for Technical Reviewers](docs/reviewers.md)
 
 [Common Mistakes, Improvements, and Errata aka list of corrections](docs/errata/README.md)
 
@@ -6,18 +6,19 @@
 
 Repository for the Packt Publishing book titled "C# 12 and .NET 8 - Modern Cross-Platform Development Fundamentals" by Mark J. Price
 
-This book is expected to publish on Tuesday, November 7, 2023.
+This book is expected to publish in November 2023.
 
 My author page on Amazon: https://www.amazon.com/Mark-J-Price/e/B071DW3QGN/ 
 
 All of my books on Packt's website: https://subscription.packtpub.com/search?query=mark+j.+price
 
-## Code solutions
+## Code solutions for Visual Studio 2022 and Visual Studio Code
 
-If you have Visual Studio 2022 and Visual Studio Code and its C# extension installed on the same computer, the build process can sometimes conflict. This is because Visual Studio 2022 has its own non-standard build server that is different from the standard build server used by .NET SDK. Visual Studio 2022 and Visual Studio Code also use different file types to group projects. So I have duplicated and separated solution code for each product:
+Visual Studio Code now has an extension named **C# Dev Kit** that includes a Solution Explorer so it can better work with Visual Studio 2022 solution files. All three Microsoft code editors/IDEs, Visual Studio 2022 for Windows, Visual Studio 2022 for Mac, and Visual Studio Code + C# Dev Kit can now use the same code solution files and projects for each chapter: [/code](/code). 
 
-- [/vs](/vs): Visual Studio 2022 (for Windows or Mac) solution files and projects for each chapter.
-- [/vscode](/vscode): Visual Studio Code workspace files and projects for each chapter.
+> **For Visual Studio Code:** To use the chapter solution files with Visual Studio Code, install the **C# Dev Kit** extension. Then open the `ChapterNN` folder that contains a `ChapterNN.sln` solution file and wait for the **SOLUTION EXPLORER** pane to appear at the bottom of the **EXPLORER**. You can drag and drop to reorder the panes to put **SOLUTION EXPLORER** at the top. Learn more about the C# Dev Kit at the following link: https://devblogs.microsoft.com/visualstudio/announcing-csharp-dev-kit-for-visual-studio-code/
+
+> **Warning!** If you use both Visual Studio 2022 and Visual Studio Code to open these solutions, be aware that the build process can conflict. This is because Visual Studio 2022 has its own non-standard build server that is different from the standard build server used by .NET SDK CLI. My recommendation is to only have a solution open in one code editor at any time. You should also clean the solutions between opening in different code editors. For example, after closing the solution in one code editor, I delete the `bin` and `obj` folders before then opening in a different code editor.
 
 ## Chapters
 
