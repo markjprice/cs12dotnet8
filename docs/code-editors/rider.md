@@ -102,7 +102,7 @@ Two compiler-generated folders were created, named `obj` and `bin`. You do not n
 
 If you have seen older .NET projects before then you might have expected more code, even just to output a simple message. This project has minimal statements because some of the required code is written for you by the compiler when you target .NET 6 or later. 
 
-If you had created the project with .NET SDK 5.0 or earlier, or if you had selected the check box labelled **Do not use top-level statements**, then the `Program.cs` file would have more statements, as shown in the following code:
+If you had created the project with .NET SDK 5.0 or earlier, or if you had used Visual Studio 2022 or the `dotnet new` command with options to use the older style, then the `Program.cs` file would have more statements, as shown in the following code:
 ```cs
 using System;
 
@@ -122,7 +122,7 @@ During compilation with .NET SDK 6.0 or later, all the boilerplate code to defin
 
 This uses a feature introduced in .NET 5 called top-level programs, but it was not until .NET 6 that Microsoft updated the project template for console apps to use it by default.
 
-> **Warning!** One functional difference is that the auto-generated code does not define a namespace, so the `Program` class is implicitly defined in an empty namespace with no name instead of a namespace that matches the name of the project.
+> **Warning!** One functional difference is that the auto-generated code does not define a namespace, so the `Program` class is implicitly defined in a `null` namespace with no name instead of a namespace that matches the name of the project.
 
 ## Requirements for top-level programs
 
