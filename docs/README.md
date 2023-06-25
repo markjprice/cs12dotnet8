@@ -1,5 +1,10 @@
 **Docs**
 
+# Chapter 1 Online Only sections
+
+- [.NET History](ch01-dotnet-history.md)
+- [Polyglot Notebooks](ch01-polyglot-notebooks.md)
+
 # Errata and Improvements
 
 If you find any mistakes in the eighth edition, *C# 12 and .NET 8 - Modern Cross-Platform Development Fundamentals*, or if you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
@@ -8,7 +13,7 @@ If you find any mistakes in the eighth edition, *C# 12 and .NET 8 - Modern Cross
 
 [**Improvements** (0 items)](errata/improvements.md): Optional changes to text or code that would improve the content.
 
-[**Common Mistakes** (3 items)](errata/common-mistakes.md): These are some of the most common mistakes that a reader might make when trying to get code in book tasks to work, or when trying to write your own code. 
+[**Common Mistakes** (6 items)](errata/common-mistakes.md): These are some of the most common mistakes that a reader might make when trying to get code in book tasks to work, or when trying to write your own code. 
 
 All errata and improvements will be included in the 9th edition planned for publishing in November 2024. To be included they must be submitted by mid-September 2024.
 
