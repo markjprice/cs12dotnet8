@@ -14,37 +14,37 @@ All of my books on Packt's website: https://subscription.packtpub.com/search?que
 
 ## Code solutions for Visual Studio 2022 and Visual Studio Code
 
-Visual Studio Code now has an extension named **C# Dev Kit** that includes a Solution Explorer so it can better work with Visual Studio 2022 solution files. All three Microsoft code editors/IDEs, Visual Studio 2022 for Windows, Visual Studio 2022 for Mac, and Visual Studio Code + C# Dev Kit can now use the same code solution files and projects for each chapter: [/code](/code). 
+Visual Studio Code now has an extension named **C# Dev Kit** that includes a solution explorer so it can better work with Visual Studio 2022 solution files. Visual Studio 2022 for Windows, Visual Studio 2022 for Mac, and Visual Studio Code + C# Dev Kit can now use the same code solution files and projects for each chapter, found here: [/code](/code). 
 
-> **For Visual Studio Code:** To use the chapter solution files with Visual Studio Code, install the **C# Dev Kit** extension. Then open the `ChapterNN` folder that contains a `ChapterNN.sln` solution file and wait for the **SOLUTION EXPLORER** pane to appear at the bottom of the **EXPLORER**. You can drag and drop to reorder the panes to put **SOLUTION EXPLORER** at the top. Learn more about the C# Dev Kit at the following link: https://devblogs.microsoft.com/visualstudio/announcing-csharp-dev-kit-for-visual-studio-code/
+> **For Visual Studio Code:** To use the chapter solution files with Visual Studio Code, install the **C# Dev Kit** extension. Then in Visual Studio Code, open the `ChapterNN` folder that contains a `ChapterNN.sln` solution file and wait for the **SOLUTION EXPLORER** pane to appear at the bottom of the **EXPLORER**. You can drag and drop to reorder the panes to put **SOLUTION EXPLORER** at the top. Learn more about C# Dev Kit at the following link: https://devblogs.microsoft.com/visualstudio/announcing-csharp-dev-kit-for-visual-studio-code/
 
 > **Warning!** If you use both Visual Studio 2022 and Visual Studio Code to open these solutions, be aware that the build process can conflict. This is because Visual Studio 2022 has its own non-standard build server that is different from the standard build server used by .NET SDK CLI. My recommendation is to only have a solution open in one code editor at any time. You should also clean the solutions between opening in different code editors. For example, after closing the solution in one code editor, I delete the `bin` and `obj` folders before then opening in a different code editor.
 
-## Chapters
+## Chapters and code solutions
 
 **Introduction**
-- Chapter 1 Hello C#, Welcome .NET!
+- Chapter 1 Hello C#, Welcome .NET! [code/Chapter01](code/Chapter01)
 
 **Language**
-- Chapter 2 Speaking C#
-- Chapter 3 Controlling Flow, Converting Types, and Handling Exceptions
-- Chapter 4 Writing, Debugging, and Testing Functions
-- Chapter 5 Building Your Own Types with Object-Oriented Programming
-- Chapter 6 Implementing Interfaces and Inheriting Classes
+- Chapter 2 Speaking C#: [code/Chapter02](code/Chapter02)
+- Chapter 3 Controlling Flow, Converting Types, and Handling Exceptions: [code/Chapter03](code/Chapter03)
+- Chapter 4 Writing, Debugging, and Testing Functions: [code/Chapter04](code/Chapter04)
+- Chapter 5 Building Your Own Types with Object-Oriented Programming: [code/Chapter05](code/Chapter05)
+- Chapter 6 Implementing Interfaces and Inheriting Classes: [code/Chapter06](code/Chapter06)
 
 **Libraries**
-- Chapter 7 Packaging and Distributing .NET Types
-- Chapter 8 Working with Common .NET Types
-- Chapter 9 Working with Files, Streams, and Serialization
-- Chapter 10 Working with Data Using Entity Framework Core
-- Chapter 11 Querying and Manipulating Data Using LINQ
+- Chapter 7 Packaging and Distributing .NET Types: [code/Chapter07](code/Chapter07)
+- Chapter 8 Working with Common .NET Types: [code/Chapter08](code/Chapter08)
+- Chapter 9 Working with Files, Streams, and Serialization: [code/Chapter09](code/Chapter09)
+- Chapter 10 Working with Data Using Entity Framework Core: [code/Chapter10](code/Chapter10)
+- Chapter 11 Querying and Manipulating Data Using LINQ: [code/Chapter11](code/Chapter11)
 
 **ASP.NET Core web development**
-- Chapter 12 Introducing Web Development Using ASP.NET Core
-- Chapter 13 Building Websites Using ASP.NET Core Razor Pages
-- Chapter 14 Building Websites Using the Model-View-Controller Pattern
-- Chapter 15 Building and Consuming Web Services
-- Chapter 16 Building User Interface Components Using Blazor
+- Chapter 12 Introducing Web Development Using ASP.NET Core: [code/Chapter12](code/Chapter12)
+- Chapter 13 Building Websites Using ASP.NET Core Razor Pages: [code/Chapter13](code/Chapter13)
+- Chapter 14 Building Websites Using the Model-View-Controller Pattern: [code/Chapter14](code/Chapter14)
+- Chapter 15 Building and Consuming Web Services: [code/Chapter15](code/Chapter15)
+- Chapter 16 Building User Interface Components Using Blazor: [code/Chapter16](code/Chapter16)
 
 ## Bonus content
 
