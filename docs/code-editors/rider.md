@@ -4,14 +4,16 @@ In this article, I provide detailed step-by-step instuctions for using JetBrains
 
 - [Chapter 1 - Hello, C#! Welcome, .NET!](#chapter-1---hello-c-welcome-net)
   - [Downloading and installing JetBrains Rider](#downloading-and-installing-jetbrains-rider)
-  - [Building console apps using JetBrains Rider](#building-console-apps-using-jetbrains-rider)
   - [Managing multiple projects using JetBrains Rider](#managing-multiple-projects-using-jetbrains-rider)
   - [Writing code using JetBrains Rider](#writing-code-using-jetbrains-rider)
   - [Compiling and running code using JetBrains Rider](#compiling-and-running-code-using-jetbrains-rider)
   - [Understanding the compiler-generated folders and files](#understanding-the-compiler-generated-folders-and-files)
-  - [Writing top-level programs](#writing-top-level-programs)
-  - [Adding a second project using JetBrains Rider](#adding-a-second-project-using-jetbrains-rider)
+  - [Understanding top-level programs](#understanding-top-level-programs)
+  - [Requirements for top-level programs](#requirements-for-top-level-programs)
   - [Implicitly imported namespaces](#implicitly-imported-namespaces)
+  - [Revealing the hidden code by throwing an exception](#revealing-the-hidden-code-by-throwing-an-exception)
+  - [Revealing the namespace for the Program class](#revealing-the-namespace-for-the-program-class)
+  - [Adding a second project using JetBrains Rider](#adding-a-second-project-using-jetbrains-rider)
 - [Chapter 4 (coming soon)](#chapter-4-coming-soon)
 
 
@@ -23,17 +25,14 @@ According to the Stackoveflow Survey 2021, about 20% of professional C# and .NET
 
 If you have not already installed it, let's do so now:
 
-1. Download JetBrains Rider version 2021.2.2 or later from the following link: https://www.jetbrains.com/rider/download/, as shown in *Figure 1.1*:
+1. Download the latest version of JetBrains Rider from the following link: https://www.jetbrains.com/rider/download/, as shown in *Figure 1.1*:
 
-![Download JetBrains Rider](assets/B17442_01_01_Rider.png)
+![Download JetBrains Rider](assets/rider/B19586_01_01_Rider.png)
 *Figure 1.1: Download JetBrains Rider*
 
-2. If you’re on Ubuntu 16.04 or later, you can install Rider from the command line: `sudo snap install rider --classic`
-3. Run the installer.
+> If you're on Ubuntu 16.04 or later, you can install Rider from the command promptor terminal, as shown in the following command: `sudo snap install rider --classic`
 
-## Building console apps using JetBrains Rider
-
-The goal of this section is to showcase how to build a console app using JetBrains Rider. 
+2. Run the installer.
 
 ## Managing multiple projects using JetBrains Rider
 
@@ -44,30 +43,38 @@ JetBrains Rider uses the same concept of a solution that Visual Studio 2022 does
 Let's get started writing code!
 
 1.	Start **JetBrains Rider**.
-2.	In the **Welcome to JetBrains Rider** window, click the **New Solution** button, as shown in *Figure 1.4*:
+2.	In the **Welcome to JetBrains Rider** window, click the **New Solution** button, as shown in *Figure 1.3*:
 
-![Welcome to JetBrains Rider dialog box with the New Solution button](assets/B17442_01_04_Rider.png)
-*Figure 1.4: Welcome to JetBrains Rider dialog box with the New Solution button*
+![Welcome to JetBrains Rider dialog box with the New Solution button](assets/rider/B19586_01_03_Rider.png)
+*Figure 1.3: Welcome to JetBrains Rider dialog box with the New Solution button*
 
-We are deliberately going to use the older project template for .NET 5.0 to see what a full console application looks like. In the next section, you will create a console application using .NET 6.0 and see what has changed.
+3.	In the **New Solution** dialog, in the left-side list of project templates, in the **.NET / .NET Core** section, select **Console Application**, and set additional names and options as shown in *Figure 1.4*:
+    - **Solution name**: `Chapter01`
+    - **Project name**: `HelloCS`
+    - **Solution directory**: `C:\Code` or `C:\Users\<user>\RiderProjects`
+    - **SDK**: 8.0
+    - **Language**: C#
+    - **Framework**: net8.0
+    - **Docker Support**: Disabled
 
-3.	In the **New Solution** dialog, for **SDK**, click **Change** and set it to **5.0**.
-4. In the **.NET / .NET Core** section of the project template list, select **Console Application**, and set additional names and options as shown in *Figure 1.5*:
-    1. For **Solution name**, enter `Chapter01`.
-    2. For **Project name**, enter `HelloWorld`.    3. 
-    3. For **Language**, select **C#**.
-    4. For **Framework**, select **net5.0**.
-
-![Configuring names and options for a .NET 5.0 Console Application project template](assets/B17442_01_05_Rider.png)
-*Figure 1.5: Configuring names and options for a .NET 5.0 Console Application project template*
+![Configuring names and options for a Console Application project template](assets/rider/B19586_01_04_Rider.png)
+*Figure 1.4: Configuring names and options for a Console Application project template*
 
 4.	Click **Create**.
-5.	In the **Explorer** pane, in its **Solution** view, double-click to open the file named `Program.cs`, and note the code imports the `System` namespace, defines a namespace named `HelloCS`, with a class named `Program`, and a method named `Main`, as shown in *Figure 1.6*:
+5.	If code is not shown, then in the **Explorer** pane, in its **Solution** view, double-click to open the file named `Program.cs`, and note the code, as shown in *Figure 1.6*:
 
-![Rider's Explorer pane and edit window](assets/B17442_01_06_Rider.png) 
+![Rider's Explorer pane and edit window](assets/rider/B19586_01_06_Rider.png) 
 *Figure 1.6: Editing Program.cs in JetBrains Rider*
 
-6.	In `Program.cs`, modify line 9 so that the text that is being written to the console says, `Hello, C#!`.
+6.	In `Program.cs`, note the code consists of only a comment and a single statement. This is because it uses the top-level program feature introduced in C# 9, as shown in the following code:
+```cs
+// See https://aka.ms/new-console-template for more information
+Console.WriteLine("Hello, World!");
+```
+
+> As the comment in the code says, you can read more about this template at the following link: https://aka.ms/new-console-template.
+
+7.	In `Program.cs`, modify line 9 so that the text that is being written to the console says, `Hello, C#!`.
 
 ## Compiling and running code using JetBrains Rider
 
@@ -76,12 +83,12 @@ The next task is to compile and run the code.
 1.	In **JetBrains Rider**, navigate to **Run** | **Run 'HelloCS'**. 
 2.	The output in the **Run** pane will show the result of running your application, as shown in *Figure 1.7*:
 
-![Output of the console application in the Run pane](assets/B17442_01_07_Rider.png)
+![Output of the console application in the Run pane](assets/rider/B19586_01_07_Rider.png)
 *Figure 1.7: Output of the console application in the Run pane*
 
 3.	Select the `HelloCS` project and then in the **Explorer** pane's toolbar, toggle on the **Show All Files** button, and note the compiler-generated `bin` and `obj` folders are visible, as shown in *Figure 1.8*:
 
-![Showing the compiler-generated folders and files](assets/B17442_01_08_Rider.png)
+![Showing the compiler-generated folders and files](assets/rider/B19586_01_08_Rider.png)
 *Figure 1.8: Showing the compiler-generated folders and files*
 
 ## Understanding the compiler-generated folders and files
@@ -91,16 +98,12 @@ Two compiler-generated folders were created, named `obj` and `bin`. You do not n
 - The `obj` folder contains one compiled object file for each source code file. These objects haven't been linked together into a final executable yet. 
 - The `bin` folder contains the binary executable for the application or class library. We will look at this in more detail in *Chapter 7, Packaging and Distributing .NET Types*.
 
-## Writing top-level programs
+## Understanding top-level programs
 
-You might be thinking that was a lot of code just to output `Hello, C#!`
+If you have seen older .NET projects before then you might have expected more code, even just to output a simple message. This project has minimal statements because some of the required code is written for you by the compiler when you target .NET 6 or later. 
 
-Although the boilerplate code is written for you by the project template, is there a simpler way?
-
-Well, in C# 9 or later there is, and it is known as **top-level programs**.
-
-Let's compare the console application created by the .NET 5.0 project template, as shown in the following code:
-```
+If you had created the project with .NET SDK 5.0 or earlier, or if you had selected the check box labelled **Do not use top-level statements**, then the `Program.cs` file would have more statements, as shown in the following code:
+```cs
 using System;
 
 namespace HelloCS
@@ -109,54 +112,35 @@ namespace HelloCS
   {
     static void Main(string[] args)
     {
-      Console.WriteLine("Hello World!");
+      Console.WriteLine("Hello, World!");
     }
   }
 }
 ```
-To the new top-level program minimum console app that it could create, as shown in the following code:
-```
-using System;
 
-Console.WriteLine("Hello World!");
-```
-That is a lot simpler, right? If you had to start with a blank file and write all the statements yourself, this is better. But how does it work? 
+During compilation with .NET SDK 6.0 or later, all the boilerplate code to define the `Program` class and its `Main` method is generated and wrapped around the statements you write.
 
-During compilation, all the boilerplate code to define a namespace, the `Program` class and its `Main` method, is generated and wrapped around the statements you write. 
+This uses a feature introduced in .NET 5 called top-level programs, but it was not until .NET 6 that Microsoft updated the project template for console apps to use it by default.
 
-Key points to remember about top-level programs include the following list:
-- Any `using` statements still have to go at the top of the file. 
+> **Warning!** One functional difference is that the auto-generated code does not define a namespace, so the `Program` class is implicitly defined in an empty namespace with no name instead of a namespace that matches the name of the project.
+
+## Requirements for top-level programs
+
+Key points to remember about top-level programs include the following:
 - There can be only one file like this in a project.
-
-The `using System;` statement at the top of the file imports the `System` namespace. This enables the `Console.WriteLine` statement to work. You will learn more about namespaces in the next chapter. 
-
-## Adding a second project using JetBrains Rider
-
-Let's add a second project to our solution to explore top-level programs.
-
-1. In the **Explorer** pane, right-click the solution named `Chapter01` and navigate to **Manage .NET SDK...**. 
-2. For the **.NET / .NET Core SDK**, select **6.0**, and then click **OK**.
-2. In the **Explorer** pane, right-click the solution named `Chapter01` and navigate to **Add** | **New Project**, as shown in *Figure 1.9*:
-
-![Adding a new project to the solution](assets/B17442_01_09_Rider.png)
-*Figure 1.9: Adding a new project to the solution*
-
-2.	In the **New Project** dialog, in the **.NET / .NET Core** section, select **Console App**, for the **Project name**, enter `TopLevelProgram`, leave the **Project directory** as it is, set the **Framework** to **net6.0**, and then click **Create**.
-3.	In `Program.cs`, note the code consists of only a comment and a single statement because it uses the top-level program feature introduced in C# 9, as shown in the following code:
-```
-// See https://aka.ms/new-console-template for more information
-
-Console.WriteLine("Hello, World!");
-```
-But when I introduced the concept of top-level programs earlier, we needed a `using System;` statement. Why don't we need that here?
+- Any `using` statements must go at the top of the file.
+- If you declare any classes or other types, they must go at the bottom of the file.
+- Although you should name the method `Main` if you explicitly define it, the method is named `<Main>$` when created by the compiler.
 
 ## Implicitly imported namespaces
 
-The trick is that we do still need to import the `System` namespace, but it is now done for us using a feature introduced in C# 10. Let's see how:
+A `using System;` statement at the top of a C# class file imports the `System` namespace. This enables the `Console.WriteLine` statement to work. Why do we not have to import it in our project? 
 
-1.	In Explorer, expand the `obj` folder, expand the `Debug` folder, expand the `net6.0` folder, and open the file named `TopLevelProgram.GlobalUsings.g.cs.`
-3.	Note this file is automatically created by the compiler for projects that target .NET 6, and that it uses a feature introduced in C# 10 called **global imports** that imports some commonly used namespaces like `System` for use in all code files, as shown in the following code:
-```
+The trick is that we *do* still need to import the `System` namespace, but it is now done for us using a combination of features introduced in C# 10 and .NET 6. Let's see how:
+
+1.	In the **Explorer**, **Solution**, expand the `obj` folder, expand the `Debug` folder, expand the `net8.0` folder, and open the file named `HelloCS.GlobalUsings.g.cs`.
+2.	Note that this file is automatically created by the compiler for projects that target .NET 6 or later, and that it uses a feature introduced in C# 10 called global namespace imports that imports some commonly used namespaces like System for use in all code files, as shown in the following code:
+```cs
 // <autogenerated />
 global using global::System;
 global using global::System.Collections.Generic;
@@ -166,16 +150,91 @@ global using global::System.Net.Http;
 global using global::System.Threading;
 global using global::System.Threading.Tasks;
 ```
-I will explain more about this feature in the next chapter. For now, just note that a significant change between .NET 5 and .NET 6 is that many of the project templates like the one for console applications use new language features to hide what is really happening.
 
-4.	In the `TopLevelProgram` project, in `Program.cs`, modify the statement to output a different message and the version of the operating system, as shown in the following code:
+3.	In the **Explorer**, **Solution** pane, click the **Show All Files** button to hide the `bin` and `obj` folders. 
+
+I will explain more about the implicit imports feature in the next chapter. For now, just note that a significant change that happened between .NET 5 and .NET 6 is that many of the project templates, like the one for console apps, use new SDK and language features to hide what is really happening.
+
+## Revealing the hidden code by throwing an exception
+
+Now let's discover how the hidden code has been written:
+
+1.	In `Program.cs`, after the statement that outputs the message, add a statement to throw a new exception, as shown in the following code:
+```cs
+throw new Exception();
 ```
-Console.WriteLine("Hello from a Top Level Program!");
+
+2.	Navigate to **Run** | **Run HelloCS**. (Do not start the project with debugging or the exception will be caught by the debugger!)
+3.	The output in the console window will show the result of running your application, including that a hidden `Program` class was defined by the compiler with a method named `<Main>$` that has a parameter named `args` for passing in arguments, as shown in *Figure 1.9*:
+
+![Throwing an exception to reveal the hidden Program.<Main>$ method](assets/rider/B19586_01_09_Rider.png)
+*Figure 1.9: Throwing an exception to reveal the hidden `Program.<Main>$` method*
+
+4.	Press any key to close the console app window and return to Visual Studio.
+
+## Revealing the namespace for the Program class
+
+Now, let's discover what namespace the `Program` class has been defined within:
+
+1.	In `Program.cs`, after the statement that outputs the message, add statements to get the name of the namespace of the `Program` class, and then write it to the console, as shown in the following code:
+```cs
+string name = typeof(Program).Namespace ?? "None!";
+Console.WriteLine($"Namespace: {name}");
+```
+
+> `??` is the null-coalescing operator. The first statement means, "if the namespace of `Program` is `null` then return `None!` otherwise return the name." You will see more explanations of these keywords and operators throughout the book.
+
+2.	In Visual Studio, navigate to **Run** | **Run HelloCS**.
+3.	The output in the console window will show the result of running your application, including that the hidden `Program` class was defined without a namespace, as shown in the following output:
+```
+Namespace: None!
+```
+
+## Adding a second project using JetBrains Rider
+
+Let's add a second project to our solution to explore top-level programs.
+
+1. In the **Explorer** pane, right-click the solution named `Chapter01` and navigate to **Add** | **New Project**, as shown in *Figure 1.10*:
+
+![Adding a new project to the solution](assets/rider/B19586_01_10_Rider.png)
+*Figure 1.10: Adding a new project to the solution*
+
+2.	In the **New Project** dialog, in the **.NET / .NET Core** section, select **Console Application**, and complete the project information:
+    - **Project name**: `AboutMyEnvironment`
+    - Other options: leave as they are.
+
+> **Note:** Unlike Visual Studio 2022 which has a check box named **Do not use top-level statements** or the `dotnet new` command that has a switch named `--use-program-main`, Rider does not yet support the ability to use the old style project template.
+
+3. Click **Create**.
+4. In `Program.cs`, replace the new style template code with the older style, as shown in the following code:
+```cs
+namespace AboutMyEnvironment
+{
+  internal class Program
+  {
+    static void Main(string[] args)
+    {
+      Console.WriteLine("Hello, World!");
+    }
+  }
+}
+```
+
+4.	In `Program.cs`, in the `Main` method, delete the existing `Console.WriteLine` statement and then add statements to output the current directory, the version of the operating system, and the namespace of the `Program` class, as shown in the following code:
+```cs
+Console.WriteLine(Environment.CurrentDirectory);
 Console.WriteLine(Environment.OSVersion.VersionString);
+Console.WriteLine("Namespace: {0}", typeof(Program).Namespace);
 ```
-5.	In **Explorer**, right-click the `TopLevelProgram` project, navigate to **Run 'TopLevelProgram'**, and note the result, as shown in *Figure 1.10*:
- 
-![Running a top-level program in a Rider solution with two projects on Windows](assets/B17442_01_10_Rider.png)
-*Figure 1.10: Running a top-level program in a Rider solution with two projects on Windows*
+
+5.	Navigate to **Run** | **Run...***, select **AboutMyEnvironment**, and note the result, as shown the following output and in *Figure 1.11*:
+```
+C:\Users\markj\RiderProjects\Chapter01\AboutMyEnvironment\bin\Debug\net8.0
+Microsoft Windows NT 10.0.22621.0
+Namespace: AboutMyEnvironment
+```
+
+![Running a top-level program in a Rider solution with two projects on Windows](assets/rider/B19586_01_11_Rider.png)
+*Figure 1.11: Running a top-level program in a Rider solution with two projects on Windows*
 
 # Chapter 4 (coming soon)
