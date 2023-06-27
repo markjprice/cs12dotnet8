@@ -21,7 +21,7 @@ All errata and improvements will be included in the 9th edition planned for publ
 
 [**Book Links**](book-links.md): All links in the published book.
 
-[**Eighth Edition's support for .NET 9**](dotnet9.md): How to use the 8th edition of this book with .NET 9 previews starting in February 2024.
+[**Eighth Edition's support for .NET 9 and 10**](dotnet9.md): How to use the 8th edition of this book with .NET 9 previews starting in February 2024 and .NET 10 previews starting in February 2025.
 
 [**Information for Technical Reviewers**](reviewers.md): If you are a Technical Reviewer for this book, then you will find useful information on this page.
 
