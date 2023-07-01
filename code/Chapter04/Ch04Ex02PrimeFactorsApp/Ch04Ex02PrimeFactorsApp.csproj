@@ -8,6 +8,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Ch04Ex02PrimeFactorsLib\Ch04Ex02PrimeFactorsLib.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<Using Include="System.Console" Static="true" />
 	</ItemGroup>
 
