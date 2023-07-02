@@ -3,181 +3,262 @@
 In this article, I provide detailed step-by-step instuctions for using Visual Studio Code for topics like creating a solution with multiple projects and using debugging tools.
 
 - [Chapter 1](#chapter-1)
+  - [Downloading and installing Visual Studio Code](#downloading-and-installing-visual-studio-code)
+    - [Installing other extensions](#installing-other-extensions)
+    - [Managing Visual Studio Code extensions at the command prompt](#managing-visual-studio-code-extensions-at-the-command-prompt)
+    - [Understanding Microsoft Visual Studio Code versions](#understanding-microsoft-visual-studio-code-versions)
+    - [Keyboard shortcuts for Visual Studio Code](#keyboard-shortcuts-for-visual-studio-code)
   - [Building console apps using Visual Studio Code](#building-console-apps-using-visual-studio-code)
-  - [Managing multiple projects using Visual Studio Code](#managing-multiple-projects-using-visual-studio-code)
     - [Writing code using Visual Studio Code](#writing-code-using-visual-studio-code)
-  - [Compiling and running code using the dotnet CLI](#compiling-and-running-code-using-the-dotnet-cli)
+    - [Compiling and running code using the dotnet CLI](#compiling-and-running-code-using-the-dotnet-cli)
   - [Adding a second project using Visual Studio Code](#adding-a-second-project-using-visual-studio-code)
+  - [Summary of steps for Visual Studio Code](#summary-of-steps-for-visual-studio-code)
 - [Chapter 4](#chapter-4)
 - [Chapter 7 - Packaging and Distributing .NET Types](#chapter-7---packaging-and-distributing-net-types)
   - [Decompiling using the ILSpy extension for Visual Studio Code](#decompiling-using-the-ilspy-extension-for-visual-studio-code)
 
 # Chapter 1
 
+## Downloading and installing Visual Studio Code
+
+Visual Studio Code has rapidly improved over the past couple of years and has pleasantly surprised Microsoft with its popularity. If you are brave and like to live on the bleeding edge, then there is an **Insiders** edition, which is a daily build of the next version.
+
+Even if you plan to only use Visual Studio 2022 for Windows for development, I recommend that you download and install Visual Studio Code and try the coding tasks in this chapter using it, and then decide if you want to stick with just using Visual Studio 2022 for the rest of the book.
+
+Let's now download and install Visual Studio Code, the .NET SDK, and the C# Dev Kit extension:
+1.	Download and install either the Stable build or the Insiders edition of Visual Studio Code from the following link: https://code.visualstudio.com/.
+
+> **More Information**: If you need more help installing Visual Studio Code, you can read the official setup guide at the following link: https://code.visualstudio.com/docs/setup/setup-overview.
+
+2.	Download and install the .NET SDKs for version 8.0 and at least one other version like 6.0 or 7.0 from the following link: https://www.microsoft.com/net/download.
+
+> To fully learn how to control .NET SDKs, we need multiple versions installed. .NET 6, .NET 7, and .NET 8 are supported versions at the time of publishing in November 2023. You can safely install multiple SDKs side by side. The most recent SDK will be used to build your projects.
+
+3.	To install the **C# Dev Kit** extension, you must first launch the Visual Studio Code application.
+4.	In Visual Studio Code, click the **Extensions** icon or navigate to **View** | **Extensions**.
+5.	**C# Dev Kit** is one of the most popular extensions available, so you should see it at the top of the list, and you can enter C# in the search box.
+
+> **C# Dev Kit** has a dependency on the **C#** extension version 2.x, so you do not have to install the C# extension separately. Note that C# extension version 2.x no longer uses OmniSharp since it has a new **Language Service Protocol (LSP)** host. **C# Dev Kit** also has dependencies on the **.NET Install Tool for Extension Authors** and **IntelliCode for C# Dev Kit** extensions so they will be installed too.
+
+6.	Click **Install** and wait for supporting packages to download and install.
+
+> **Good Practice**: Be sure to read the license agreement for the **C# Dev Kit**. It has a more restrictive license than the **C#** extension: https://aka.ms/vs/csdevkit/license.
+
+### Installing other extensions
+
+In later chapters of this book, you will use more Visual Studio Code extensions. If you want to install them now, all the extensions that we will use are shown in the following table:
+
+Extension name and identifier|Description
+---|---
+C# Dev Kit<br/>`ms-dotnettools.csdevkit`|Official C# extension from Microsoft. Manage your code with a solution explorer and test your code with integrated unit test discovery and execution. Includes the C# and IntelliCode for C# Dev Kit extensions.
+C#<br/>`ms-dotnettools.csharp`|C# editing support, including syntax highlighting, IntelliSense, Go To Definition, Find All References, debugging support for .NET, and support for csproj projects on Windows, macOS, and Linux.
+IntelliCode for C# Dev Kit<br/>`ms-dotnettools.vscodeintellicode-csharp`|Provides AI-assisted development features for Python, TypeScript/JavaScript, C# and Java developers.
+MSBuild project tools<br/>`tintoy.msbuild-project-tools`|Provides IntelliSense for MSBuild project files, including autocomplete for <PackageReference> elements.
+Polyglot Notebooks<br/>`ms-dotnettools.dotnet-interactive-vscode`|This extension adds support for using .NET and other languages in a notebook. It has a dependency on the Jupyter extension (`ms-toolsai.jupyter`) that itself has dependencies.
+ilspy-vscode<br/>`icsharpcode.ilspy-vscode`|Decompile MSIL assemblies – support for modern .NET, .NET Framework, .NET Core, and .NET Standard.
+REST Client<br/>`humao.rest-client`|Send an HTTP request and view the response directly in Visual Studio Code.
+
+### Managing Visual Studio Code extensions at the command prompt
+
+You can install a Visual Studio Code extension at the command prompt or terminal, as shown in the following table:
+
+Command|Description
+---|---
+`code --list-extensions`|List installed extensions.
+`code --install-extension <extension-id>`|Install the specified extension.
+`code --uninstall-extension <extension-id>`|Uninstall the specified extension.
+
+For example, to install the **C# Dev Kit** extension, enter the following at the command prompt:
+```
+code --install-extension ms-dotnettools.csdevkit
+```
+
+I have created PowerShell scripts to install and uninstall the Visual Studio Code extensions in the preceding table. You can find them at the following link: https://github.com/markjprice/cs12dotnet8/tree/main/scripts/extension-scripts/.
+
+### Understanding Microsoft Visual Studio Code versions
+
+Microsoft releases a new feature version of Visual Studio Code (almost) every month and bug fix versions more frequently. For example:
+
+- Version 1.79.0, May 2023 feature release
+- Version 1.79.1, May 2023 bug fix release
+
+The version used in this book is 1.82.0, August 2023 feature release, but the version of Visual Studio Code is less important than the version of the C# Dev Kit or C# extension that you install. I recommend C# extension v2.0.238 or later.
+
+While the C# extension is not required, it provides IntelliSense as you type, code navigation, and debugging features, so it's something that's very handy to install and keep updated to support the latest C# language features.
+
+### Keyboard shortcuts for Visual Studio Code
+
+If you want to customize your keyboard shortcuts for Visual Studio Code, then you can, as shown at the following link: https://code.visualstudio.com/docs/getstarted/keybindings.
+
+I recommend that you download a PDF of Visual Studio Code keyboard shortcuts for your operating system from the following list:
+
+- Windows: https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
+- macOS: https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf
+- Linux: https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf
+
 ## Building console apps using Visual Studio Code
 
 The goal of this section is to showcase how to build a console app using Visual Studio Code and the `dotnet` command-line interface (CLI).
-
-If you never want to try Visual Studio Code, then please feel free to skip this section, and then continue with the *Reviewing the folders and files for projects* section.
 
 Both the instructions and screenshots in this section are for Windows, but the same actions will work with Visual Studio Code on the macOS and Linux variants.
 
 The main differences will be native command-line actions such as deleting a file: both the command and the path are likely to be different on Windows or macOS and Linux. Luckily, the `dotnet` CLI tool itself and its commands are identical on all platforms.
 
-## Managing multiple projects using Visual Studio Code
-
-Visual Studio Code has a concept named a workspace that allows you to open and manage multiple projects simultaneously. We will use a workspace to manage the two projects that you will create in this chapter.
-
 ### Writing code using Visual Studio Code
 
 Let's get started writing code!
 
-1. Start Visual Studio Code.
-2. Make sure that you do not have any open files, folders, or workspaces.
-3. Navigate to **File** | **Save Workspace As…**.
-4. In the dialog box, navigate to your `C:` drive on Windows, your user folder on macOS (mine is named `markjprice`), or any directory or drive in which you want to save your projects.
-5. Click the **New Folder** button and name the folder `cs12dotnet8`. (If you completed the section for Visual Studio 2022, then this folder will already exist.)
-6. In the `cs12dotnet8` folder, create a new folder named `Chapter01-vscode`.
-7. In the `Chapter01-vscode` folder, save the workspace as `Chapter01.code-workspace`.
-8. Navigate to **File** | **Add Folder to Workspace…** or click the **Add Folder** button.
-9. In the `Chapter01-vscode` folder, create a new folder named `HelloCS`.
-10. Select the `HelloCS` folder and click the **Add** button.
-11. When you see the dialog asking if you trust the authors of the files in this folder, click **Yes**, as shown in *Figure 1.11*:
+1. Start your favorite tool for working with the filesystem, for example, **File Explorer** on Windows or **Finder** on Mac.
+2.	Navigate to your `C:` drive on Windows, your user folder on macOS (mine is named `markjprice`), or any directory or drive in which you want to save your projects.
+3.	Create a new folder named `cs12dotnet8`. (If you completed the section for Visual Studio 2022, then this folder will already exist.)
+4.	In the `cs12dotnet8` folder, create a new folder named `Chapter01-vscode`.
 
-![Trusting a folder in Visual Studio Code](assets/vscode/B19586_01_11.png)
-*Figure 1.11: Trusting a folder in Visual Studio Code*
+> If you did not complete the section for Visual Studio 2022, then you could name this folder `Chapter01`, but I will assume you will want to complete both sections and therefore need to use a non-conflicting name.
 
-12.  Under the menu bar, note the blue bar that explains **Restricted Mode**, and click **Manage**.
-13.  In the **Workspace Trust** tab, click the **Trust** button, as shown in *Figure 1.12*:
-
-![Trusting a workspace in Visual Studio Code](assets/vscode/B19586_01_12.png)
-*Figure 1.12: Trusting a workspace in Visual Studio Code*
-
-When working with Visual Studio Code in the future, if some features seem to be broken, it might be because your workspace or folder is in restricted mode. You can scroll down the **Workspace Trust** window and manually manage which folders and workspaces you currently trust.
-
-14. Close the **Workspace Trust** tab.
-15. Navigate to **View** | **Terminal**.
-16. In **TERMINAL**, make sure that you are in the `HelloCS` folder, and then use the `dotnet` CLI to create a new console app, as shown in the following command:
+5.	In the `Chapter01-vscode` folder, open the command prompt or terminal.
+6.	At the command prompt or terminal, use the dotnet CLI to create a new solution named `Chapter01`, as shown in the following command:
 ```
-dotnet new console
-```
-> The `dotnet new console` command targets your latest .NET SDK version by default. To target a different version, use the `-f` switch to specify a target framework, as shown in the following command: `dotnet new console -f net6.0`
-
-17. You will see that the `dotnet` command-line tool creates a new console app project for you in the current folder, and the **EXPLORER** window shows the two files created, `HelloCS.csproj` and `Program.cs`, and the `obj` folder, as shown in *Figure 1.13*:
-
-![The EXPLORER window will show that two files and a folder have been created](assets/vscode/B19586_01_13.png) 
-*Figure 1.13: The EXPLORER window will show that two files and a folder have been created*
-
-> By default, the name of the project will match the folder name. The `dotnet new console` command created a project file named `HelloCS.csproj` in the `HelloCS` folder. If you want to create a folder and project simultaneously, then you can use the `-o` switch. For example, if you are in the `Chapter01-vscode` folder and you want to create a subfolder and project named `HelloCS`, then you enter the following command: `dotnet new console -o HelloCS`.
-
-1. In **EXPLORER**, click on the file named `Program.cs` to open it in the editor window. The first time that you do this, Visual Studio Code may have to download and install C# dependencies like OmniSharp, .NET Core Debugger, and Razor Language Server, if it did not do this when you installed the C# extension or if they need updating. Visual Studio Code will show progress in the **Output** window and eventually the message `Finished`, as shown in the following output:
-```
-Installing C# dependencies...
-Platform: win32, x86_64
-Downloading package 'OmniSharp for Windows (.NET 4.6 / x64)' (36150 KB).................... Done!
-Validating download...
-Integrity Check succeeded.
-Installing package 'OmniSharp for Windows (.NET 4.6 / x64)'
-Downloading package '.NET Core Debugger (Windows / x64)' (45048 KB).................... Done!
-Validating download...
-Integrity Check succeeded.
-Installing package '.NET Core Debugger (Windows / x64)'
-Downloading package 'Razor Language Server (Windows / x64)' (52344 KB).................... Done!
-Installing package 'Razor Language Server (Windows / x64)'
-Finished
+dotnet new sln --name Chapter01
 ```
 
-> The preceding output is from Visual Studio Code on Windows. When run on macOS or Linux, the output will look slightly different, but the equivalent components for your operating system will be downloaded and installed.
+> You can use either `-n` or `--name` as the switch to specify a name. The default would match the name of the folder, for example, `Chapter01-vscode`.
 
-2. Folders named `obj` and `bin` will have been created and when you see a notification saying that required assets are missing, click **Yes**, as shown *in Figure 1.14*:
+7.	Note the result, as shown in the following output:
+```
+The template "Solution File" was created successfully.
+```
 
-![Warning message to add required build and debug assets](assets/vscode/B19586_01_14.png) 
-*Figure 1.14: Warning message to add required build and debug assets*
+8.	At the command prompt or terminal, use the `dotnet` CLI to create a new subfolder and project for a console app named `HelloCS`, as shown in the following command:
+```
+dotnet new console --output HelloCS
+```
 
-3. If the notification disappears before you can interact with it, then you can click the bell icon in the far-right corner of the status bar to show it again.
-4. After a few seconds, another folder named `.vscode` will be created with some files that are used by Visual Studio Code to provide features like IntelliSense during debugging, which you will learn more about in *Chapter 4, Writing, Debugging, and Testing Functions*.
-5. In `Program.cs`, modify line 2 so that the text that is being written to the console says `Hello, C#!`
+> You can use either `-o` or `--output` as the switch. The `dotnet new console` command targets your latest .NET SDK version by default. To target a different version, use the `-f` or `--framework` switch to specify a target framework, for example .NET 6, as shown in the following command: `dotnet new console -f net6.0`.
+
+9.	At the command prompt or terminal, use the dotnet CLI to add the project to the solution, as shown in the following command:
+```
+dotnet sln add HelloCS
+```
+
+10.	Note the results, as shown in the following output:
+```
+Project `HelloCS\HelloCS.csproj` added to the solution.
+```
+
+11.	At the command prompt or terminal, start Visual Studio Code and open the current folder indicated with a `.` (dot), as shown in the following command:
+```
+code .
+```
+
+12.	In Visual Studio Code, in **EXPLORER**, in the **CHAPTER01-VSCODE** folder view, expand the **HelloCS** project, and you will see that the `dotnet` command-line tool created a new console app project for you, with two files created, `HelloCS.csproj` and `Program.cs`, and `bin` and `obj` folders, as shown in *Figure 1.11*:
+
+![EXPLORER shows that two files and a folder have been created](assets/vscode/B19586_01_11.png) 
+*Figure 1.11: EXPLORER shows that two files and a folder have been created*
+
+13.	Navigate to **View** | **Output**.
+14.	In the **OUTPUT** pane, select **C# Dev Kit** and note the tool has recognized and processed the solution, as shown in *Figure 1.12*:
+
+![C# Dev Kit processing a solution file](assets/vscode/B19586_01_12.png) 
+*Figure 1.12: C# Dev Kit processing a solution file*
+
+15.	At the bottom of **EXPLORER**, note the **SOLUTION EXPLORER**.
+16.	Drag **SOLUTION EXPLORER** to the top of the **EXPLORER** pane and expand it.
+17.	In **SOLUTION EXPLORER**, click on the file named `Program.cs` to open it in the editor window.
+18.	In `Program.cs`, modify line 2 so that the text that is being written to the console says `Hello, C#!`
 
 > **Good Practice**: Navigate to **File** | **Auto Save**. This toggle will save the annoyance of remembering to save before rebuilding your application each time.
 
-## Compiling and running code using the dotnet CLI
+### Compiling and running code using the dotnet CLI
 
 The next task is to compile and run the code:
+1.	In **SOLUTION EXPLORER**, right-click on any file in the `HelloCS` project and choose **Open in Integrated Terminal**.
+2.	In **TERMINAL**, enter the following command: `dotnet run`.
+3.	The output in the **TERMINAL** window will show the result of running your application, as shown in *Figure 1.13*:
 
-1.	Navigate to **View** | **Terminal** and enter the following command:
-```
-dotnet run
-```
-2. The output in the **TERMINAL** window will show the result of running your application, as shown in *Figure 1.15*:
+![The output of running your first console app](assets/vscode/B19586_01_13.png) 
+*Figure 1.13: The output of running your first console app*
 
-![The output of running your first console app](assets/vscode/B19586_01_15.png) 
-*Figure 1.15: The output of running your first console app*
-
-3. In `Program.cs`, after the statement that outputs the message, add a statement to throw a new exception, as shown in the following code:
+4.	In `Program.cs`, after the statement that outputs the message, add statements to get the name of the namespace of the `Program` class, write it to the console, and then throw a new exception, as shown in the following code:
 ```cs
+string name = typeof(Program).Namespace ?? "None!";
+Console.WriteLine($"Namespace: {name}");
+
 throw new Exception();
 ```
-4.	Navigate to **View** | **Terminal** and enter the following command:
-```
-dotnet run
-```
-5. In **TERMINAL**, you can press the up and down arrows to loop through previous commands and then press the left and right arrows to edit the command before pressing *Enter* to run them.
-6. The output in the **TERMINAL** window will show the result of running your application, including that a hidden `Program` class was defined by the compiler with a method named `<Main>$` that has a parameter named `args` for passing in arguments, as shown in the following output:
+
+5.	In **TERMINAL**, enter the following command: `dotnet run`.
+
+> In **TERMINAL**, you can press the up and down arrows to loop through previous commands and then press the left and right arrows to edit the command before pressing *Enter* to run them.
+
+6.	The output in the **TERMINAL** window will show the result of running your application, including that a hidden `Program` class was defined by the compiler with a method named `<Main>$` that has a parameter named `args` for passing in arguments, and that it does not have a namespace, as shown in the following output:
 ```
 Hello, C#!
-   at Program.<Main>$(String[] args) in C:\cs12dotnet8\Chapter01-vscode\HelloCS\Program.cs:line 3
+Namespace: None!
+Unhandled exception. System.Exception: Exception of type 'System.Exception' was thrown.
+   at Program.<Main>$(String[] args) in C:\cs12dotnet8\Chapter01-vscode\HelloCS\Program.cs:line 7
 ```
 
 ## Adding a second project using Visual Studio Code
 
-Let's add a second project to our workspace to explore how to work with multiple projects:
-1.	In Visual Studio Code, navigate to **File** | **Add Folder to Workspace…**.
-2. In the `Chapter01-vscode` folder, use the **New Folder** button to create a new folder named `AboutMyEnvironment`, select it, and click **Add**.
-3. When asked if you trust the folder, click **Yes**.
-4. Navigate to **Terminal** | **New Terminal**, and in the drop-down list that appears, select `AboutMyEnvironment`. 
-
-> Alternatively, in **EXPLORER**, right-click the `AboutMyEnvironment` folder and then select **Open in Integrated Terminal**.
-
-5. In **TERMINAL**, confirm that you are in the `AboutMyEnvironment` folder, and then enter the command to create a new console app using the older style with an explicitly defined namespace, `Program` class, and `Main` method, as shown in the following command:
+Let's add a second project to explore how to work with multiple projects:
+1.	In **TERMINAL**, switch to a terminal in the `Chapter01-vscode` folder, and then enter the command to create a new console app project named `AboutMyEnvironment` using the older non-top-level program style, as shown in the following command:
 ```
-dotnet new console --use-program-main
+dotnet new console -o AboutMyEnvironment --use-program-main
 ```
 
-> **Good Practice**: When using workspaces, be careful when entering commands in **TERMINAL**. Be sure that you are in the correct folder before entering potentially destructive commands! That is why I got you to create a new terminal for `AboutMyEnvironment` before issuing the command to create a new console app.
+> **Good Practice**: Be careful when entering commands in **TERMINAL**. Be sure that you are in the correct folder before entering potentially destructive commands!
 
-6. Navigate to **View** | **Command Palette**.
-7. Enter `omni`, and then, in the drop-down list that appears, select **OmniSharp: Select Project**.
-8. In the drop-down list of two projects, select the `AboutMyEnvironment` project, and when prompted, click **Yes** to add required assets to debug.
+2.	In **TERMINAL**, use the `dotnet` CLI to add the new project folder to the solution, as shown in the following command:
+```
+dotnet sln add AboutMyEnvironment
+```
 
-> **Good Practice**: To enable debugging and other useful features, like code formatting and Go To Definition, you must tell OmniSharp which project you are actively working on in Visual Studio Code. You can quickly toggle active projects by clicking the project/folder to the right of the flame icon on the left side of the status bar.
+3.	Note the results, as shown in the following output:
+```
+Project `AboutMyEnvironment\AboutMyEnvironment.csproj` added to the solution.
+```
 
-
-9. In **EXPLORER**, in the `AboutMyEnvironment` folder, select `Program.cs` and then change the existing statement to output the current directory and the operating system version string, as shown in the following code:
+4.	In **SOLUTION EXPLORER**, in the `AboutMyEnvironment` project, open `Program.cs` and then in the `Main` method, change the existing statement to output the current directory, the operating system version string, and the namespace of the `Program` class, as shown in the following code:
 ```cs
 Console.WriteLine(Environment.CurrentDirectory);
 Console.WriteLine(Environment.OSVersion.VersionString);
+Console.WriteLine("Namespace: {0}", typeof(Program).Namespace);
 ```
 
-10. In **TERMINAL**, enter the command to run a program, as shown in the following command:
-```
-dotnet run
-```
-
-11. Note the output in the **TERMINAL** window, as shown in the following output and in *Figure 1.16*:
+5.	In **SOLUTION EXPLORER**, right-click on any file in the `AboutMyEnvironment` project and choose **Open in Integrated Terminal**.
+6.	In **TERMINAL**, enter the command to run the project, as shown in the following command: `dotnet run`.
+7.	Note the output in the **TERMINAL** window, as shown in the following output and in *Figure 1.14*:
 ```
 C:\cs12dotnet8\Chapter01-vscode\AboutMyEnvironment
 Microsoft Windows NT 10.0.22621.0
+Namespace: AboutMyEnvironment
 ```
-![Running a console app in a Visual Studio Code workspace with two projects](assets/vscode/B19586_01_16.png)
 
-*Figure 1.16: Running a console app in a Visual Studio Code workspace with two projects*
+![Running a console app in Visual Studio Code with two projects](assets/vscode/B19586_01_14.png)
+*Figure 1.14: Running a console app in Visual Studio Code with two projects*
 
-When using Visual Studio Code, or more accurately, the dotnet CLI, to run a console app, it executes the app from the `<projectname>` folder. When using Visual Studio 2022 for Windows, it executes the app from the `<projectname>\bin\Debug\net8.0` folder. It will be important to remember this when we work with the filesystem in later chapters. 
+Note that once you open multiple terminal windows, you can toggle between them by clicking their names in the panel on the right-side of **TERMINAL**. By default, the name will be `pwsh` (PowerShell) followed by the active folder. Right-click and choose rename to assign something else.
+
+When using Visual Studio Code, or more accurately, the `dotnet` CLI, to run a console app, it executes the app from the `<projectname>` folder. When using Visual Studio 2022 for Windows, it executes the app from the `<projectname>\bin\Debug\net8.0` folder. It will be important to remember this when we work with the filesystem in later chapters. 
 
 If you were to run the program on macOS Big Sur, the environment operating system would be different, as shown in the following output:
 ```
 Unix 11.2.3
 ```
+
+> **Good Practice**: Although the source code, like the `.csproj` and `.cs` files, is identical, the `bin` and `obj` folders that are automatically generated by the compiler could have content mismatches that give you errors. If you want to open the same project in both Visual Studio 2022 and Visual Studio Code, delete the temporary `bin` and `obj` folders before opening the project in the other code editor. This potential problem is why I asked you to create a different folder for the Visual Studio Code projects in this chapter.
+
+## Summary of steps for Visual Studio Code
+
+Follow these steps to create a solution and projects using Visual Studio Code:
+1.	Create a folder for the solution, for example, `Chapter01`.
+2.	Create a solution file in the folder: `dotnet new sln`.
+3.	Create a folder and project: `dotnet new console -o HelloCS`.
+4.	Add the folder to the solution: `dotnet sln add HelloCS`.
+5.	Repeat steps 4 and 5 to create and add any other projects.
+6.	Open the folder containing the solution using Visual Studio Code: `code .`
+
+**Console Apps** (`dotnet new console`) are just one type of project template. In this book you will also create **Class Libraries** (`dotnet new classlib`), empty websites (`dotnet new web`), MVC websites (`dotnet new mvc`), Web API services (`dotnet new webapi`), Blazor websites (`dotnet new blazor`), and so on.
 
 # Chapter 4
 
