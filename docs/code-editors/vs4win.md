@@ -14,7 +14,19 @@ In this article, I provide detailed step-by-step instuctions for using Visual St
     - [Implicitly imported namespaces](#implicitly-imported-namespaces)
     - [Revealing the hidden code by throwing an exception](#revealing-the-hidden-code-by-throwing-an-exception)
   - [Adding a second project using Visual Studio 2022](#adding-a-second-project-using-visual-studio-2022)
-- [Chapter 4 (coming soon)](#chapter-4-coming-soon)
+- [Chapter 4 - Writing, Debugging, and Testing Functions](#chapter-4---writing-debugging-and-testing-functions)
+  - [Debugging during development](#debugging-during-development)
+    - [Creating code with a deliberate bug](#creating-code-with-a-deliberate-bug)
+    - [Setting a breakpoint and starting debugging](#setting-a-breakpoint-and-starting-debugging)
+    - [Using Visual Studio 2022](#using-visual-studio-2022)
+    - [Navigating with the debugging toolbar](#navigating-with-the-debugging-toolbar)
+    - [Debugging windows](#debugging-windows)
+    - [Stepping through code](#stepping-through-code)
+    - [Customizing breakpoints](#customizing-breakpoints)
+  - [Hot reloading during development](#hot-reloading-during-development)
+    - [Hot reloading using Visual Studio 2022](#hot-reloading-using-visual-studio-2022)
+- [Chapter 7 - Packaging and Distributing .NET Types](#chapter-7---packaging-and-distributing-net-types)
+  - [Decompiling using the ILSpy extension for Visual Studio 2022 (coming soon)](#decompiling-using-the-ilspy-extension-for-visual-studio-2022-coming-soon)
 
 # Chapter 1 - Hello, C#! Welcome, .NET!
 
@@ -243,5 +255,174 @@ Microsoft Windows NT 10.0.22621.0
 
 > When using Visual Studio 2022 for Windows to run a console app, it executes the app from the `<projectname>\bin\Debug\net8.0` folder. It will be important to remember this when we work with the filesystem in later chapters. When using Visual Studio Code, or more accurately, the dotnet CLI, it has different behavior.
 
-# Chapter 4 (coming soon)
+# Chapter 4 - Writing, Debugging, and Testing Functions
 
+## Debugging during development
+
+In this section, you will learn how to debug problems at development time. You must use a code editor that has debugging tools, such as Visual Studio 2022 or Visual Studio Code.
+
+### Creating code with a deliberate bug
+
+Let's explore debugging by creating a console app with a deliberate bug that we will then use the debugger tools in your code editor to track down and fix:
+1.	Use your preferred coding tool to add a new **Console App** / `console` project named `Debugging` to the `Chapter04` solution.
+2.	Modify `Debugging.csproj` to statically import `System.Console` for all code files.
+3.	In `Program.cs`, delete any existing statements and then at the bottom of the file, add a function with a deliberate bug, as shown in the following code:
+```cs
+// Functions in Program.cs must be at the bottom of the file.
+double Add(double a, double b)
+{
+  return a * b; // deliberate bug!
+}
+```
+
+4.	Above the `Add` function, write statements to declare and set some variables and then add them together using the buggy function, as shown in the following code:
+```cs
+double a = 4.5;
+double b = 2.5;
+double answer = Add(a, b);
+
+WriteLine($"{a} + {b} = {answer}");
+WriteLine("Press Enter to end the app.");
+ReadLine(); // Wait for user to press Enter.
+```
+
+5.	Run the console application and view the result, as shown in the following output:
+```
+4.5 + 2.5 = 11.25
+Press Enter to end the app.
+```
+
+But wait, there's a bug! 4.5 added to 2.5 should be 7, not 11.25!
+
+We will use the debugging tools to hunt for and squish the bug.
+
+### Setting a breakpoint and starting debugging
+
+Breakpoints allow us to mark a line of code that we want to pause at to inspect the program state and find bugs.
+
+### Using Visual Studio 2022
+Let's set a breakpoint and then start debugging using Visual Studio 2022:
+
+1.	Click in line 1, which is the statement that declares the variable named `a`.
+2.	Navigate to **Debug** | **Toggle Breakpoint** or press *F9*. A red circle will appear in the margin bar on the left-hand side and the statement will be highlighted in red to indicate that a breakpoint has been set, as shown in *Figure 4.3*:
+
+![Toggling breakpoints using Visual Studio 2022](assets/vs4win/B19586_04_03.png)
+*Figure 4.3: Toggling breakpoints using Visual Studio 2022*
+
+Breakpoints can be toggled off with the same action. You can also left-click in the margin to toggle a breakpoint on and off, or right-click a breakpoint to see more options, such as delete, disable, or edit conditions or actions for an existing breakpoint.
+
+3.	Navigate to **Debug** | **Start Debugging** or press *F5*. Visual Studio starts the console application and then pauses when it hits the breakpoint. This is known as break mode. Extra windows titled **Locals** (showing current values of local variables), **Watch 1** (showing any watch expressions you have defined), **Call Stack**, **Exception Settings**, and **Immediate Window** may appear. The **Debugging** toolbar appears. The line that will be executed next is highlighted in yellow, and a yellow arrow points at the line from the margin bar, as shown in *Figure 4.4*:
+
+![](assets/vs4win/B19586_04_04.png)
+*Figure 4.4: Break mode in Visual Studio 2022*
+
+### Navigating with the debugging toolbar
+
+Visual Studio Code shows a floating toolbar with buttons to make it easy to access debugging features, as shown in *Figure 4.7* and as described in the following list:
+
+![Debugging toolbars in Visual Studio 2022 and Visual Studio Code](assets/vscode/B19586_04_07.png) 
+*Figure 4.7: Debugging toolbars in Visual Studio 2022 and Visual Studio Code*
+
+- **Start**/**Continue**/*F5*: This button is context sensitive. It will either start a project running or continue running the project from the current position until it ends or hits a breakpoint.
+- **Hot Reload**: This button will reload compiled code changes without needing to restart the app.
+- **Break All**: This button will break into the next available line of code in a running app.
+- **Stop Debugging**/**Stop**/*Shift* + *F5* (red square): This button will stop the debugging session.
+- **Restart**/*Ctrl* or *Cmd* + *Shift* + *F5* (circular arrow): This button will stop and then immediately restart the program with the debugger attached again.
+- **Show Next Statement**: This button will move the current cursor to the next statement that will execute.
+- **Step Into**/*F11*, **Step Over**/*F10*, and **Step Out**/*Shift* + *F11* (blue arrows over dots): These buttons step through the code statements in various ways, as you will see in a moment.
+- **Show Threads in Source**: This button allows you to examine and work with threads in the application that you're debugging.
+
+### Debugging windows
+
+While debugging, both Visual Studio 2022 and Visual Studio Code show extra windows that allow you to monitor useful information, such as variables, while you step through your code.
+
+The most useful windows are described in the following list:
+
+- **VARIABLES**, including **Locals**, which shows the name, value, and type for any local variables automatically. Keep an eye on this window while you step through your code.
+- **WATCH**, or **Watch 1**, which shows the value of variables and expressions that you manually enter.
+- **CALL STACK**, which shows the stack of function calls.
+- **BREAKPOINTS**, which shows all your breakpoints and allows finer control over them.
+
+When in break mode, there is also a useful window at the bottom of the edit area:
+- **DEBUG CONSOLE** or **Immediate Window** enables live interaction with your code. You can interrogate the program state, for example, by entering the name of a variable. For example, you can ask a question such as "What is 1+2?" by typing `1+2` and pressing *Enter*.
+
+### Stepping through code
+
+Let's explore some ways to step through the code using Visual Studio 2022:
+
+1.	Navigate to **Debug** | **Step Into**, click on the **Step Into** button in the toolbar, or press *F11*. The yellow highlight steps forward one line.
+2.	Navigate to **Debug** | **Step Over**, click on the **Step Over** button in the toolbar, or press *F10*. The yellow highlight steps forward one line. At the moment, you can see that there is no difference between using **Step Into** or **Step Over** because we are executing single statements.
+3.	You should now be on the line that calls the `Add` method.
+
+The difference between **Step Into** and **Step Over** can be seen when you are about to execute a method call:
+- If you click on **Step Into**, the debugger steps into the method so that you can step through every line in that method.
+- If you click on **Step Over**, the whole method is executed in one go; it does not skip over the method without executing it.
+
+4.	Click on **Step Into** to step inside the `Add` method.
+5.	Hover your mouse pointer over the `a` or `b` parameters in the code editing window and note that a tooltip appears showing their current value.
+6.	Select the expression `a * b`, right-click the expression, and select **Add Watch**. The expression is added to the **Watch 1** window, showing that this operator is multiplying `a` by `b` to give the result `11.25`.
+7.	In the **Watch 1** window, right-click the expression and choose **Delete Watch**.
+8.	Fix the bug by changing `*` to `+` in the `Add` function.
+9.	Restart debugging by clicking the circular arrow **Restart** button or pressing *Ctrl* or *Cmd* + *Shift* + *F5*.
+10.	Step over the function, take a minute to note how it now calculates correctly, and click the **Continue** button or press *F5*.
+
+### Customizing breakpoints
+
+It is easy to make more complex breakpoints:
+1.	If you are still debugging, click the **Stop** button in the debugging toolbar, navigate to **Debug** | **Stop Debugging**, or press *Shift* + *F5*.
+2.	Navigate to **Debug** | **Delete All Breakpoints**.
+3.	Click on the `WriteLine` statement that outputs the answer.
+4.	Set a breakpoint by pressing *F9* or navigating to **Debug** | **Toggle Breakpoint**.
+5.	Right-click the breakpoint and choose **Conditions...**.
+6.	Type an expression, such as the answer variable must be greater than 9, and then press *Enter* to accept it, and note the expression must evaluate to true for the breakpoint to activate.
+7.	Start debugging and note the breakpoint is not hit.
+8.	Stop debugging.
+9.	Edit the breakpoint or its conditions and change its expression to less than 9.
+10.	Start debugging and note the breakpoint is hit.
+11.	Stop debugging.
+12.	Edit the breakpoint or its conditions (in Visual Studio 2022 click Add condition), select **Hit Count**, then enter a number such as 3, meaning that you would have to hit the breakpoint three times before it activates, as shown in *Figure 4.13*:
+
+![Customizing a breakpoint with an expression and hot count using Visual Studio 2022](assets/vs4win/B19586_04_13.png) 
+*Figure 4.13: Customizing a breakpoint with an expression and hot count using Visual Studio 2022*
+
+13.	Hover your mouse over the breakpoint's red circle to see a summary.
+
+You have now fixed a bug using some debugging tools and seen some advanced possibilities for setting breakpoints.
+
+## Hot reloading during development
+
+**Hot Reload** is a feature that allows a developer to apply changes to code while the app is running and immediately see the effect. This is great for fixing bugs quickly. **Hot Reload** is also known as **Edit and Continue**. A list of the types of changes that you can make that support Hot Reload is found at the following link: https://aka.ms/dotnet/hot-reload.
+
+Just before the release of .NET 6, a high-level Microsoft employee caused controversy by attempting to make the feature Visual Studio-only. Luckily the open-source contingent within Microsoft successfully had the decision overturned. Hot Reload remains available using the command-line tool as well.
+
+Let's see it in action:
+1.	Use your preferred coding tool to add a new **Console App** / `console` project named `HotReloading` to the `Chapter04` solution.
+2.	Modify `HotReloading.csproj` to statically import `System.Console` for all code files.
+3.	In `Program.cs`, delete the existing statements and then write a message to the console every two seconds, as shown in the following code:
+```cs
+/* Visual Studio 2022: run the app, change the message, click Hot Reload.
+ * Visual Studio Code: run the app using dotnet watch, change the message. */
+
+while (true)
+{
+  WriteLine("Hello, Hot Reload!");
+  await Task.Delay(2000);
+}
+```
+
+### Hot reloading using Visual Studio 2022
+If you are using Visual Studio, Hot Reload is built into the user interface:
+1.	In Visual Studio 2022, start the project and note that the message is output every two seconds.
+2.	Leave the project running.
+3.	In `Program.cs`, change `Hello` to `Goodbye`.
+4.	Navigate to **Debug** | **Apply Code Changes** or click the **Hot Reload** button in the toolbar as shown in *Figure 4.15*, and note the change is applied without needing to restart the console app.
+5.	Drop down the Hot Reload button menu and select Hot Reload on File Save, as shown in *Figure 4.15*:
+
+![Changing Hot Reload options](assets/vs4win/B19586_04_15.png)
+*Figure 4.15: Changing Hot Reload options*
+
+6.	Change the message again, save the file, and note the console app updates automatically.
+
+# Chapter 7 - Packaging and Distributing .NET Types
+
+## Decompiling using the ILSpy extension for Visual Studio 2022 (coming soon)

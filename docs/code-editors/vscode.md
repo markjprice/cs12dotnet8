@@ -2,7 +2,7 @@
 
 In this article, I provide detailed step-by-step instuctions for using Visual Studio Code for topics like creating a solution with multiple projects and using debugging tools.
 
-- [Chapter 1](#chapter-1)
+- [Chapter 1 - Hello, C#! Welcome, .NET!](#chapter-1---hello-c-welcome-net)
   - [Downloading and installing Visual Studio Code](#downloading-and-installing-visual-studio-code)
     - [Installing other extensions](#installing-other-extensions)
     - [Managing Visual Studio Code extensions at the command prompt](#managing-visual-studio-code-extensions-at-the-command-prompt)
@@ -13,11 +13,21 @@ In this article, I provide detailed step-by-step instuctions for using Visual St
     - [Compiling and running code using the dotnet CLI](#compiling-and-running-code-using-the-dotnet-cli)
   - [Adding a second project using Visual Studio Code](#adding-a-second-project-using-visual-studio-code)
   - [Summary of steps for Visual Studio Code](#summary-of-steps-for-visual-studio-code)
-- [Chapter 4](#chapter-4)
+- [Chapter 4 - Writing, Debugging, and Testing Functions](#chapter-4---writing-debugging-and-testing-functions)
+  - [Debugging during development](#debugging-during-development)
+    - [Creating code with a deliberate bug](#creating-code-with-a-deliberate-bug)
+    - [Setting a breakpoint and starting debugging Using Visual Studio Code](#setting-a-breakpoint-and-starting-debugging-using-visual-studio-code)
+    - [Navigating with the debugging toolbar](#navigating-with-the-debugging-toolbar)
+    - [Debugging windows](#debugging-windows)
+    - [Stepping through code](#stepping-through-code)
+    - [Using the Visual Studio Code integrated terminal during debugging](#using-the-visual-studio-code-integrated-terminal-during-debugging)
+    - [Customizing breakpoints](#customizing-breakpoints)
+  - [Hot reloading during development](#hot-reloading-during-development)
+    - [Hot reloading using Visual Studio Code and dotnet watch](#hot-reloading-using-visual-studio-code-and-dotnet-watch)
 - [Chapter 7 - Packaging and Distributing .NET Types](#chapter-7---packaging-and-distributing-net-types)
   - [Decompiling using the ILSpy extension for Visual Studio Code](#decompiling-using-the-ilspy-extension-for-visual-studio-code)
 
-# Chapter 1
+# Chapter 1 - Hello, C#! Welcome, .NET!
 
 ## Downloading and installing Visual Studio Code
 
@@ -260,7 +270,275 @@ Follow these steps to create a solution and projects using Visual Studio Code:
 
 **Console Apps** (`dotnet new console`) are just one type of project template. In this book you will also create **Class Libraries** (`dotnet new classlib`), empty websites (`dotnet new web`), MVC websites (`dotnet new mvc`), Web API services (`dotnet new webapi`), Blazor websites (`dotnet new blazor`), and so on.
 
-# Chapter 4
+# Chapter 4 - Writing, Debugging, and Testing Functions
+
+## Debugging during development
+
+In this section, you will learn how to debug problems at development time. You must use a code editor that has debugging tools, such as Visual Studio 2022 or Visual Studio Code.
+
+### Creating code with a deliberate bug
+
+Let's explore debugging by creating a console app with a deliberate bug that we will then use the debugger tools in your code editor to track down and fix:
+1.	Use your preferred coding tool to add a new **Console App** / `console` project named `Debugging` to the `Chapter04` solution.
+2.	Modify `Debugging.csproj` to statically import `System.Console` for all code files.
+3.	In `Program.cs`, delete any existing statements and then at the bottom of the file, add a function with a deliberate bug, as shown in the following code:
+```cs
+// Functions in Program.cs must be at the bottom of the file.
+double Add(double a, double b)
+{
+  return a * b; // deliberate bug!
+}
+```
+
+4.	Above the `Add` function, write statements to declare and set some variables and then add them together using the buggy function, as shown in the following code:
+```cs
+double a = 4.5;
+double b = 2.5;
+double answer = Add(a, b);
+
+WriteLine($"{a} + {b} = {answer}");
+WriteLine("Press Enter to end the app.");
+ReadLine(); // Wait for user to press Enter.
+```
+
+5.	Run the console application and view the result, as shown in the following output:
+```
+4.5 + 2.5 = 11.25
+Press Enter to end the app.
+```
+
+But wait, there's a bug! 4.5 added to 2.5 should be 7, not 11.25!
+
+We will use the debugging tools to hunt for and squish the bug.
+
+### Setting a breakpoint and starting debugging Using Visual Studio Code
+
+Breakpoints allow us to mark a line of code that we want to pause at to inspect the program state and find bugs.
+
+Let's set a breakpoint and then start debugging using Visual Studio Code:
+
+1.	Click in line 1, which is the statement that declares the variable named `a`.
+2.	Navigate to **Run** | **Toggle Breakpoint** or press *F9*. A red circle will appear in the margin bar on the left-hand side to indicate that a breakpoint has been set.
+
+Breakpoints can be toggled off with the same action. You can also left-click in the margin to toggle a breakpoint on and off, or right-click to see more options, such as remove, edit, or disable an existing breakpoint; or add a breakpoint, conditional breakpoint, or logpoint when a breakpoint does not yet exist.
+
+Logpoints, also known as tracepoints, indicate that you want to record some information without having to stop executing the code at that point.
+
+3.	Navigate to **View** | **Run**, or in the left navigation bar you can click the **Run and Debug** icon (the triangle "play" button and "bug") or press *Ctrl* + *Shift* + *D* (on Windows).
+4.	At the top of the **RUN AND DEBUG** window, click the **Run and Debug** button, and then select the `Debugging` project, as shown in *Figure 4.5*:
+
+![Selecting the project to debug using Visual Studio Code](assets/vscode/B19586_04_05.png) 
+*Figure 4.5: Selecting the project to debug using Visual Studio Code*
+
+> If you are first prompted to choose a debugger, select **C#**, not **.NET 5+ or .NET Core**.
+
+5.	Visual Studio Code starts the console app and then pauses when it hits the breakpoint. This is known as break mode. The line that will be executed next is highlighted in yellow, and a yellow block points at the line from the margin bar, as shown in *Figure 4.6*:
+ 
+![Break mode in Visual Studio Code](assets/vscode/B19586_04_06.png)
+*Figure 4.6: Break mode in Visual Studio Code*
+
+### Navigating with the debugging toolbar
+
+Visual Studio Code shows a floating toolbar with buttons to make it easy to access debugging features, as shown in *Figure 4.7* and as described in the following list:
+
+![Debugging toolbars in Visual Studio 2022 and Visual Studio Code](assets/vscode/B19586_04_07.png) 
+*Figure 4.7: Debugging toolbars in Visual Studio 2022 and Visual Studio Code*
+
+- **Start**/**Continue**/*F5*: This button is context sensitive. It will either start a project running or continue running the project from the current position until it ends or hits a breakpoint.
+- **Hot Reload**: This button will reload compiled code changes without needing to restart the app.
+- **Break All**: This button will break into the next available line of code in a running app.
+- **Stop Debugging**/**Stop**/*Shift* + *F5* (red square): This button will stop the debugging session.
+- **Restart**/*Ctrl* or *Cmd* + *Shift* + *F5* (circular arrow): This button will stop and then immediately restart the program with the debugger attached again.
+- **Show Next Statement**: This button will move the current cursor to the next statement that will execute.
+- **Step Into**/*F11*, **Step Over**/*F10*, and **Step Out**/*Shift* + *F11* (blue arrows over dots): These buttons step through the code statements in various ways, as you will see in a moment.
+- **Show Threads in Source**: This button allows you to examine and work with threads in the application that you're debugging.
+
+### Debugging windows
+
+While debugging, Visual Studio Code shows extra windows that allow you to monitor useful information, such as variables, while you step through your code.
+
+The most useful windows are described in the following list:
+
+- **VARIABLES**, including **Locals**, which shows the name, value, and type for any local variables automatically. Keep an eye on this window while you step through your code.
+- **WATCH**, or **Watch 1**, which shows the value of variables and expressions that you manually enter.
+- **CALL STACK**, which shows the stack of function calls.
+- **BREAKPOINTS**, which shows all your breakpoints and allows finer control over them.
+
+When in break mode, there is also a useful window at the bottom of the edit area:
+- **DEBUG CONSOLE** enables live interaction with your code. You can interrogate the program state, for example, by entering the name of a variable. For example, you can ask a question such as "What is 1+2?" by typing `1+2` and pressing *Enter*.
+
+### Stepping through code
+
+Let's explore some ways to step through the code using Visual Studio Code:
+
+1.	Navigate to **Run** | **Step Into**, click on the **Step Into** button in the toolbar, or press *F11*. The yellow highlight steps forward one line.
+2.	Navigate to **Run** | **Step Over**, click on the **Step Over** button in the toolbar, or press *F10*. The yellow highlight steps forward one line. At the moment, you can see that there is no difference between using **Step Into** or **Step Over** because we are executing single statements.
+3.	You should now be on the line that calls the `Add` method.
+
+The difference between **Step Into** and **Step Over** can be seen when you are about to execute a method call:
+- If you click on **Step Into**, the debugger steps into the method so that you can step through every line in that method.
+- If you click on **Step Over**, the whole method is executed in one go; it does not skip over the method without executing it.
+
+4.	Click on **Step Into** to step inside the `Add` method.
+5.	Hover your mouse pointer over the `a` or `b` parameters in the code editing window and note that a tooltip appears showing their current value.
+6.	Select the expression `a * b`, right-click the expression, and select **Add to Watch**. The expression is added to the **WATCH** window, showing that this operator is multiplying `a` by `b` to give the result `11.25`.
+7.	In the **WATCH** window, right-click the expression and choose **Remove Expression**.
+8.	Fix the bug by changing `*` to `+` in the `Add` function.
+9.	Restart debugging by clicking the circular arrow **Restart** button or pressing *Ctrl* or *Cmd* + *Shift* + *F5*.
+10.	Step over the function, take a minute to note how it now calculates correctly, and click the **Continue** button or press *F5*.
+11.	Note that when writing to the console during debugging, the output appears in the **DEBUG CONSOLE** window instead of the **TERMINAL** window, as shown in *Figure 4.8*:
+
+![Writing to the DEBUG CONSOLE during debugging](assets/vscode/B19586_04_08.png)
+*Figure 4.8: Writing to the DEBUG CONSOLE during debugging*
+
+### Using the Visual Studio Code integrated terminal during debugging
+
+By default, the console is set to use the internal **DEBUG CONSOLE** during debugging, which does not allow interactions like entering text from the `ReadLine` method.
+
+To improve the experience, we can change a setting to use the integrated terminal instead. First, let's modify the code to require interaction with the user:
+1.	At the top of `Program.cs`, add statements to prompt to user to enter a number and parse that as a `double` into the variable `a`, as shown highlighted in the following code:
+```cs
+Write("Enter a number: ");
+string number = ReadLine()!;
+
+double a = double.Parse(number);
+```
+
+2.	Set a breakpoint on line 1 that writes the prompt, `Enter a number`.
+3.	At the top of the **RUN AND DEBUG** window, click the **Run and Debug** button, and then select the `Debugging` project.
+4.	Note that the `Enter a number` prompt is not written to either **TERMINAL** or **DEBUG CONSOLE** and neither window is waiting for the user to enter a number and press *Enter*.
+5.	Stop debugging.
+6.	At the top of the **RUN AND DEBUG** window, click the **create a launch.json file** link, and then when prompted for the debugger select **C#**, as shown in *Figure 4.9*:
+ 
+![Selecting a debugger for the launch.json file](assets/vscode/B19586_04_09.png)
+*Figure 4.9: Selecting a debugger for the launch.json file*
+
+7.	In the `launch.json` file editor, click the **Add Configuration...** button, and then select **.NET: Launch .NET Core Console App**, as shown in *Figure 4.10*:
+
+![Adding a launch configuration for a .NET Console App](assets/vscode/B19586_04_10.png) 
+*Figure 4.10: Adding a launch configuration for a .NET Console App*
+
+8.	In `launch.json`, make the following additions and changes, as shown highlighted in the following configuration:
+    - Comment out the `preLaunchTask` setting.
+    - In the program path, add the `Debugging` project folder after the workspace folder variable.
+    - In the program path, change `<target-framework>` to `net8.0`.
+    - In the program path, change `<project-name.dll>` to `Debugging.dll`.
+    - Change the console setting from `internalConsole` to `integratedTerminal`.
+
+```json
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": ".NET Core Launch (console)",
+      "type": "coreclr",
+      "request": "launch",
+      //"preLaunchTask": "build",
+      "program": "${workspaceFolder}/Debugging/bin/Debug/net8.0/Debugging.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "stopAtEntry": false,
+      "console": "integratedTerminal"
+    }
+  ]
+}
+```
+
+> Remember that with Visual Studio Code, we open the `Chapter04` folder to process the solution file, so the workspace folder is `Chapter04`, not the `Debugging` project.
+
+9.	At the top of the **RUN AND DEBUG** window, note the dropdown list of launch configurations, and click the **Start Debugging** button (green triangle), as shown in *Figure 4.11*.
+10.	Navigate to **View** | **Terminal** and note the **TERMINAL** window is attached to the **Debugging.dll**, as shown in *Figure 4.11*.
+11.	Step over the statement that writes `Enter a number:` to the console.
+12.	Step over the statement that calls `ReadLine`.
+13.	Type `5.5` and press *Enter*.
+14.	Continue stepping through the statements or press *F5* or click **Continue**, and note the output written to the integrated terminal, as shown in *Figure 4.11*:
+
+![A launch configuration set to use the integrated terminal for user interaction](assets/vscode/B19586_04_11.png) 
+*Figure 4.11: A launch configuration set to use the integrated terminal for user interaction*
+
+### Customizing breakpoints
+
+It is easy to make more complex breakpoints:
+1.	If you are still debugging, click the **Stop** button in the debugging toolbar, navigate to **Run** | **Stop Debugging**, or press *Shift* + *F5*.
+2.	Navigate to **Run** | **Remove All Breakpoints**.
+3.	Click on the `WriteLine` statement that outputs the answer.
+4.	Set a breakpoint by pressing *F9* or navigating to **Run** | **Toggle Breakpoint**.
+5.	Right-click the breakpoint and choose **Edit Breakpoint...**.
+6.	Type an expression, such as the answer variable must be greater than 9, and then press *Enter* to accept it, and note the expression must evaluate to true for the breakpoint to activate, as shown in *Figure 4.12*:
+
+![Customizing a breakpoint with an expression using Visual Studio Code](assets/vscode/B19586_04_12.png) 
+*Figure 4.12: Customizing a breakpoint with an expression using Visual Studio Code*
+
+7.	Start debugging and note the breakpoint is not hit.
+8.	Stop debugging.
+9.	Edit the breakpoint or its conditions and change its expression to less than 9.
+10.	Start debugging and note the breakpoint is hit.
+11.	Stop debugging.
+12.	Edit the breakpoint or its conditions (in Visual Studio 2022 click Add condition), select **Hit Count**, then enter a number such as 3, meaning that you would have to hit the breakpoint three times before it activates.
+13.	Hover your mouse over the breakpoint's red circle to see a summary, as shown in *Figure 4.14*:
+
+![A summary of a customized breakpoint in Visual Studio Code](assets/vscode/B19586_04_14.png) 
+*Figure 4.14: A summary of a customized breakpoint in Visual Studio Code*
+
+You have now fixed a bug using some debugging tools and seen some advanced possibilities for setting breakpoints.
+
+## Hot reloading during development
+
+**Hot Reload** is a feature that allows a developer to apply changes to code while the app is running and immediately see the effect. This is great for fixing bugs quickly. **Hot Reload** is also known as **Edit and Continue**. A list of the types of changes that you can make that support Hot Reload is found at the following link: https://aka.ms/dotnet/hot-reload.
+
+Just before the release of .NET 6, a high-level Microsoft employee caused controversy by attempting to make the feature Visual Studio-only. Luckily the open-source contingent within Microsoft successfully had the decision overturned. Hot Reload remains available using the command-line tool as well.
+
+Let's see it in action:
+1.	Use your preferred coding tool to add a new **Console App** / `console` project named `HotReloading` to the `Chapter04` solution.
+2.	Modify `HotReloading.csproj` to statically import `System.Console` for all code files.
+3.	In `Program.cs`, delete the existing statements and then write a message to the console every two seconds, as shown in the following code:
+```cs
+/* Visual Studio 2022: run the app, change the message, click Hot Reload.
+ * Visual Studio Code: run the app using dotnet watch, change the message. */
+
+while (true)
+{
+  WriteLine("Hello, Hot Reload!");
+  await Task.Delay(2000);
+}
+```
+
+### Hot reloading using Visual Studio Code and dotnet watch
+
+If you are using Visual Studio Code, you must issue a special command when starting the console app to activate Hot Reload:
+1.	In Visual Studio Code, in **TERMINAL**, start the console app using `dotnet watch`, and note the output that shows that hot reload is active, as shown in the following output:
+```
+dotnet watch 🔥 Hot reload enabled. For a list of supported edits, see https://aka.ms/dotnet/hot-reload.
+  💡 Press "Ctrl + R" to restart.
+dotnet watch 🔧 Building...
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  HotReloading -> C:\cs12dotnet8\Chapter04\HotReloading\bin\Debug\net8.0\HotReloading.dll
+dotnet watch 🚀 Started
+Hello, Hot Reload!
+Hello, Hot Reload!
+Hello, Hot Reload!
+```
+
+2.	In Visual Studio Code, change `Hello` to `Goodbye`, and note that after a couple of seconds the change is applied without needing to restart the console app, as shown in the following output:
+```
+Hello, Hot Reload!
+dotnet watch ⌚ File changed: .\Program.cs.
+Hello, Hot Reload!
+Hello, Hot Reload!
+dotnet watch 🔥 Hot reload of changes succeeded.
+Goodbye, Hot Reload!
+Goodbye, Hot Reload!
+```
+
+3.	Press *Ctrl* + *C* to stop it running, as shown in the following output:
+```
+Goodbye, Hot Reload!
+dotnet watch 🛑 Shutdown requested. Press Ctrl+C again to force exit.
+```
 
 # Chapter 7 - Packaging and Distributing .NET Types
 
