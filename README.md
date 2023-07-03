@@ -46,6 +46,12 @@ Visual Studio Code now has an extension named **C# Dev Kit** that includes a sol
 - Chapter 15 Building and Consuming Web Services: [code/Chapter15](code/Chapter15)
 - Chapter 16 Building User Interface Components Using Blazor: [code/Chapter16](code/Chapter16)
 
+## Companion Book
+
+I have written a companion book titled, *[Apps and Services with .NET 8](https://github.com/markjprice/apps-services-net8)*, that is designed to follow on from where this book ends. You can also jump to related chapters in the second book to go deeper in topics of interest to go beyond the fundamentals, as shown in the following diagram:
+
+![Relationships between companion book chapters](docs/assets/B19586_17_03.png)
+
 ## Bonus content
 
 The appendix and color figures are available to download as PDFs:
@@ -59,12 +65,6 @@ Corrections for typos and other mistakes and improvements like refactoring code.
 - [Book Links](docs/book-links.md)
 - [Common Mistakes, Improvements, and Errata aka list of corrections](docs/errata/README.md)
 - [Eighth edition's support for .NET 9](docs/dotnet9.md)
-
-## Companion Book
-
-I have written a componanion book titled, *[Apps and Services with .NET 8](https://github.com/markjprice/apps-services-net8)*, that is designed to follow on from where this book ends. You can also jump to chapters in the second book, as shown in the following diagram:
-
-![](docs/assets/B19586_17_03.png)
 
 ## Microsoft Certifications
 Microsoft used to have exams and certifications for developers that covered skills like C# and ASP.NET. Sadly, they have retired them all. These days, the only developer-adjacent exams and certifications are for Azure or Power Platform, as you can see from the certification poster: https://aka.ms/traincertposter
