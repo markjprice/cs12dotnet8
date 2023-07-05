@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!--.NET Standard 2.0 class library can be used by:
+        .NET Framework, Xamarin, modern .NET. -->
+    <TargetFramework>netstandard2.0</TargetFramework>
+
+    <!--Compile this library using C# 12 so we can use most
+        modern compiler features. -->
+    <LangVersion>preview</LangVersion> <!--change to 12 after GA-->
+
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Using Include="System.Console" Static="true" />
+  </ItemGroup>
+
+</Project>
