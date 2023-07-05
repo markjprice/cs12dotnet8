@@ -5,6 +5,10 @@
 - [.NET History](ch01-dotnet-history.md)
 - [Polyglot Notebooks](ch01-polyglot-notebooks.md)
 
+# Chapter 6 Online Only sections
+
+- [Writing Better Code](ch06-writing-better-code.md)
+
 # Errata and Improvements
 
 If you find any mistakes in the eighth edition, *C# 12 and .NET 8 - Modern Cross-Platform Development Fundamentals*, or if you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
