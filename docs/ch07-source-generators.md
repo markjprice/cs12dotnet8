@@ -90,16 +90,16 @@ DateTimeOffset today = DateTimeOffset.Now;
 
 WriteLine($"Today, {today:D}, the price is {price:C}.");
 ```
-4.  Run the GeneratingCodeApp project and note the result, as shown in the following output:
+4.  Run the `GeneratingCodeApp` project and note the result, as shown in the following output:
 ```
 Today, 07 July 2023, the price is £19.99.
 ```
 
-> My computer is configured to use English (British) culture which is why the currency symbol is British Pounds. When you run this console app on your computer, the date format and currency will match your local culture. This is a problem with a book where you want the output in the book to match the output on the readers screen. But we also want to see how it would look in our own culture or a specified culture. Also, by default, some command prompts and terminals do not show special symbols like the Euro currency symbol. We want to see those too.
+> My computer is configured to use English (British) culture which is why the currency symbol is British pounds £. When you run this console app on your computer, the date format and currency will match your local culture. This can be a problem with a book where you want the output in the book to match the output on the readers screen. But we also want to see how it would look in our own culture or a specified culture. And, by default, some command prompts and terminals do not show special symbols like the Euro currency symbol. We want to see those too.
 
 # Creating a source generator class library
 
-Second, we will create a class library that implements the source generator:
+Next, we will create a class library that implements the source generator:
 
 1.	Use your preferred code editor to add a new **Class Library** / `classlib` project named `GeneratingCodeLib` that targets .NET Standard 2.0 to the `Chapter07` solution.
 
@@ -116,6 +116,7 @@ Second, we will create a class library that implements the source generator:
     <LangVersion>10</LangVersion>
 
     <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 	
   <ItemGroup>
@@ -133,8 +134,6 @@ Second, we will create a class library that implements the source generator:
 </Project>
 ```
 
-> This project delierately does not enable `null` warnings by leaving out the usual `<Nullable>enable</Nullable>` element. If you add it, then you will see some `null` warnings later.
-
 3.	Build the `GeneratingCodeLib` project to restore packages.
 4.	Rename `Class1.cs` to `ConfigureConsoleSourceGenerator.cs`.
 5.	In `ConfigureConsoleSourceGenerator.cs`, define a class that implements `ISourceGenerator` and is decorated with the `[Generator]` attribute, as shown in the following code:
@@ -149,7 +148,7 @@ public class ConfigureConsoleSourceGenerator : ISourceGenerator
 {
   public void Execute(GeneratorExecutionContext execContext)
   {
-    IMethodSymbol mainMethod = execContext.Compilation
+    IMethodSymbol? mainMethod = execContext.Compilation
       .GetEntryPoint(execContext.CancellationToken);
 
     string sourceCode = $@"// Source-generated class.
@@ -157,7 +156,7 @@ public class ConfigureConsoleSourceGenerator : ISourceGenerator
 
 using System.Globalization; // To use CultureInfo.
 
-partial class {mainMethod.ContainingType.Name}
+partial class {mainMethod?.ContainingType.Name}
 {{
   private static CultureInfo? _computerCulture = null;
 
@@ -192,8 +191,8 @@ partial class {mainMethod.ContainingType.Name}
 }}
 ";
 
-    string typeName = mainMethod.ContainingType.Name;
-    execContext.AddSource($"{typeName}.Methods.g.cs", sourceCode);
+    string fileName = $"{mainMethod?.ContainingType.Name}.Methods.g.cs";
+    execContext.AddSource(fileName, sourceCode);
   }
 
   public void Initialize(GeneratorInitializationContext initContext)
@@ -207,7 +206,7 @@ partial class {mainMethod.ContainingType.Name}
 
 # Using the source generator
 
-Third, we will use the source generator in our console app:
+Finally, we will use the source generator in our console app:
 
 1.	In `GeneratingCodeApp.csproj`, in the `<PropertyGroup>`, add an entry to enable the generation of the code file, as shown in the following markup:
 ```xml
