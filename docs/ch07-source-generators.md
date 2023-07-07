@@ -24,18 +24,33 @@ An example source generator from Microsoft is the `System.Text.Json` source gene
 We will create a source generator that programmatically creates a code file that adds a `ConfigureConsole` method to the `Program` class, as shown in the following code:
 ```cs
 // Source-generated class.
+#nullable enable
+
 using System.Globalization; // To use CultureInfo.
 
 partial class Program
 {
+  private static CultureInfo? _computerCulture = null;
+
   public static void ConfigureConsole(
     string culture = "en-US",
     bool useComputerCulture = false,
     bool showCulture = true)
   {
+    // Store the original computer culture so we can reset it later.
+    if (_computerCulture is null)
+    {
+      _computerCulture = CultureInfo.CurrentCulture;
+    }
+
+    // Enable special characters like Euro currency symbol.
     OutputEncoding = System.Text.Encoding.UTF8;
 
-    if (!useComputerCulture)
+    if (useComputerCulture)
+    {
+      CultureInfo.CurrentCulture = _computerCulture;
+    }
+    else
     {
       CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo(culture);
     }
@@ -83,6 +98,8 @@ Today, 07 July 2023, the price is £19.99.
 > My computer is configured to use English (British) culture which is why the currency symbol is British Pounds. When you run this console app on your computer, the date format and currency will match your local culture. This is a problem with a book where you want the output in the book to match the output on the readers screen. But we also want to see how it would look in our own culture or a specified culture. Also, by default, some command prompts and terminals do not show special symbols like the Euro currency symbol. We want to see those too.
 
 # Creating a source generator class library
+
+Second, we will create a class library that implements the source generator:
 
 1.	Use your preferred code editor to add a new **Class Library** / `classlib` project named `GeneratingCodeLib` that targets .NET Standard 2.0 to the `Chapter07` solution.
 
@@ -142,14 +159,27 @@ using System.Globalization; // To use CultureInfo.
 
 partial class {mainMethod.ContainingType.Name}
 {{
+  private static CultureInfo? _computerCulture = null;
+
   public static void ConfigureConsole(
     string culture = ""en-US"",
     bool useComputerCulture = false,
     bool showCulture = true)
   {{
+    // Store the original computer culture so we can reset it later.
+    if (_computerCulture is null)
+    {{
+      _computerCulture = CultureInfo.CurrentCulture;
+    }}
+
+    // Enable special characters like Euro currency symbol.
     OutputEncoding = System.Text.Encoding.UTF8;
 
-    if (!useComputerCulture)
+    if (useComputerCulture)
+    {{
+      CultureInfo.CurrentCulture = _computerCulture;
+    }}
+    else
     {{
       CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo(culture);
     }}
@@ -176,6 +206,8 @@ partial class {mainMethod.ContainingType.Name}
 > **Good Practice**: Include `.g.` or `.generated.` in the filename of source generated files. The source code should explicitly enable nullability checks in the file since we do not know if the containing project will enable nullability at the project level or not.
 
 # Using the source generator
+
+Third, we will use the source generator in our console app:
 
 1.	In `GeneratingCodeApp.csproj`, in the `<PropertyGroup>`, add an entry to enable the generation of the code file, as shown in the following markup:
 ```xml
