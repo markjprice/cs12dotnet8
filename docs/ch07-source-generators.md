@@ -6,15 +6,18 @@ Source generators were introduced with C# 9 and .NET 5. They allow a programmer 
 
 Source generators are like code analyzers that can add more code to the compilation process.
 
-An example is the `System.Text.Json` source generator. The classic method for serializing JSON uses reflection at runtime to dynamically analyze an object model, but this is slow and cannot use native ahead-of-time (AOT) compilation. The better method uses source generators to create source code that is then compiled to give improved performance. 
-
-> You can read more about the `System.Text.Json` source generator at the following link: https://devblogs.microsoft.com/dotnet/try-the-new-system-text-json-source-generator/
-
+- [Example source generator from Microsoft](#example-source-generator-from-microsoft)
 - [What will our source generator do?](#what-will-our-source-generator-do)
 - [Creating a console app that outputs culture-specific variables](#creating-a-console-app-that-outputs-culture-specific-variables)
 - [Creating a source generator class library](#creating-a-source-generator-class-library)
 - [Using the source generator](#using-the-source-generator)
 - [Doing more with source generators](#doing-more-with-source-generators)
+
+# Example source generator from Microsoft
+
+An example source generator from Microsoft is the `System.Text.Json` source generator. The classic method for serializing JSON uses reflection at runtime to dynamically analyze an object model, but this is slow and cannot use native ahead-of-time (AOT) compilation. The better method uses source generators to create source code that is then compiled to give improved performance. 
+
+> You can read more about the `System.Text.Json` source generator at the following link: https://devblogs.microsoft.com/dotnet/try-the-new-system-text-json-source-generator/
 
 # What will our source generator do?
 
