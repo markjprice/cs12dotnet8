@@ -135,8 +135,8 @@ Next, we will create a class library that implements the source generator:
 ```
 
 3.	Build the `Packt.SourceGeneration` project to restore packages.
-4.	Rename `Class1.cs` to `ConfigureConsoleSourceGenerator.cs`.
-5.	In `ConfigureConsoleSourceGenerator.cs`, define a class that implements `ISourceGenerator` and is decorated with the `[Generator]` attribute, as shown in the following code:
+4.	Rename `Class1.cs` to `ProgramSourceGenerator.cs`.
+5.	In `ProgramSourceGenerator.cs`, define a class that implements `ISourceGenerator` and is decorated with the `[Generator]` attribute, as shown in the following code:
 ```cs
 // To use [Generator], ISourceGenerator, and so on.
 using Microsoft.CodeAnalysis;
@@ -144,7 +144,7 @@ using Microsoft.CodeAnalysis;
 namespace Packt.Shared;
 
 [Generator]
-public class ConfigureConsoleSourceGenerator : ISourceGenerator
+public class ProgramSourceGenerator : ISourceGenerator
 {
   public void Execute(GeneratorExecutionContext execContext)
   {
@@ -228,7 +228,7 @@ Finally, we will use the source generator in our console app:
 
 3.  Build the `ConsoleApp.SourceGeneration` project.
 4.  Note the auto-generated class file:
-- In Visual Studio 2022, close and reopen the solution to trigger analyzers to be run, and then in **Solution Explorer**, expand the **Dependencies** | **Analyzers** | **Packt.SourceGeneration** | **Packt.Shared.ConfigureConsoleSourceGenerator** nodes, and then open the `Program.Methods.g.cs` file, as shown in Figure 7B.1:
+- In Visual Studio 2022, close and reopen the solution to trigger analyzers to be run, and then in **Solution Explorer**, expand the **Dependencies** | **Analyzers** | **Packt.SourceGeneration** | **Packt.Shared.ProgramSourceGenerator** nodes, and then open the `Program.Methods.g.cs` file, as shown in Figure 7B.1:
  
 ![The Program.Methods.g.cs file in Visual Studio 2022](assets/B19586_07B_01.png)
 
@@ -236,7 +236,7 @@ Finally, we will use the source generator in our console app:
 
 > **Good Practice**: Microsoft's naming convention for proejcts that implement source generators seems to be to suffix with either `.SourceGeneration` or `.Generator`. That is why I told you to use `Packt.SourceGeneration` for the class library project name.
 
-- In Visual Studio Code, in **EXPLORER** | **CHAPTER07**, in the `obj/Debug/net8.0` folder, note the `generated` folder and its subfolder `Packt.SourceGeneration/Packt.Shared.ConfigureConsoleSourceGenerator`folder, and then open the `Program.Methods.g.cs` file, as shown in *Figure 7B.2*:
+- In Visual Studio Code, in **EXPLORER** | **CHAPTER07**, in the `obj/Debug/net8.0` folder, note the `generated` folder and its subfolder `Packt.SourceGeneration/Packt.Shared.ProgramSourceGenerator`folder, and then open the `Program.Methods.g.cs` file, as shown in *Figure 7B.2*:
 
 ![The Program.Methods.g.cs file in Visual Studio Code](assets/B19586_07B_02.png)
 
