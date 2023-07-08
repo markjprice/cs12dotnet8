@@ -3,7 +3,7 @@
 In this article, I provide detailed step-by-step instuctions for using JetBrains Rider for topics like creating a solution with multiple projects and using debugging tools.
 
 - [Chapter 1 - Hello, C#! Welcome, .NET!](#chapter-1---hello-c-welcome-net)
-  - [Downloading and installing JetBrains Rider](#downloading-and-installing-jetbrains-rider)
+  - [Downloading and installing JetBrains Rider and Toolbox App](#downloading-and-installing-jetbrains-rider-and-toolbox-app)
   - [Managing multiple projects using JetBrains Rider](#managing-multiple-projects-using-jetbrains-rider)
   - [Writing code using JetBrains Rider](#writing-code-using-jetbrains-rider)
   - [Compiling and running code using JetBrains Rider](#compiling-and-running-code-using-jetbrains-rider)
@@ -19,9 +19,11 @@ In this article, I provide detailed step-by-step instuctions for using JetBrains
 
 # Chapter 1 - Hello, C#! Welcome, .NET!
 
-## Downloading and installing JetBrains Rider
+## Downloading and installing JetBrains Rider and Toolbox App
 
 According to the Stackoveflow Survey 2021, about 20% of professional C# and .NET developers use JetBrains Rider in their day-to-day development work. Rider is cross-platform so you can install and run it on Windows, macOS, and varieties of Linux. You can use an evaluation license key for a free 30-day trial. 
+
+JetBrains also offers a Toolbox App to manage your IDEs the easy way. It's free. It is especially useful for Linux users because Rider does not update through `apt` like normal Linux programs. It also gives you access to Early Access Programs for software like JetBrains Fleet, a next-generation code editor.
 
 If you have not already installed it, let's do so now:
 
@@ -33,6 +35,8 @@ If you have not already installed it, let's do so now:
 > If you're on Ubuntu 16.04 or later, you can install Rider from the command promptor terminal, as shown in the following command: `sudo snap install rider --classic`
 
 2. Run the installer.
+3. Download the latest version of JetBrains Toolbox App from the following link: https://www.jetbrains.com/toolbox-app/.
+4. Run the installer.
 
 ## Managing multiple projects using JetBrains Rider
 
