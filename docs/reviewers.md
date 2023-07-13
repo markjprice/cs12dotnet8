@@ -6,7 +6,7 @@ If you are a Technical Reviewer for this book, then you will find useful informa
 - [Updating workloads](#updating-workloads)
 - [dotnet ef tool](#dotnet-ef-tool)
 - [Word document files](#word-document-files)
-  - [Operating systems and code editors](#operating-systems-and-code-editors)
+- [Operating systems and code editors](#operating-systems-and-code-editors)
 - [Lifetime of .NET 8 and the book](#lifetime-of-net-8-and-the-book)
 
 
@@ -48,7 +48,7 @@ Tool 'dotnet-ef' was successfully updated from version '7.0.3' to version '8.0.0
 
 I will add a comment to the top of each Word document for a chapter that specifies the version of .NET 8 preview that I used. You can either use exactly the same version or a newer version but be aware that there may be differences in behavior. This could be temporary (new bugs are sometimes added and later removed) or permanent so it is always useful to add a comment about any unexpected behavior that you experience. 
 
-## Operating systems and code editors
+# Operating systems and code editors
 
 Inevitably there will be differences in .NET on different operating systems. Historically about 70% of readers use Visual Studio 2022 on Windows so that is the code editor and OS that I use while writing preliminary drafts (PDs) from May to July. 
 
@@ -73,5 +73,3 @@ Although the book is written for .NET 8, I'd like the reader to know how to use 
 |From November 2025|Hopefully the reader would buy and read the third edition* for .NET 10.|
 
 I plan to add a notes in Chapter 1 to help the readers who want to use previews and release versions of .NET 9 to be successful too.
-
-*Packt will likely only publish a .NET 9 edition of the *C# 13 and .NET 9 - Modern Cross-Platform Development Fundamentals* book. The third edition of the *Apps and Services with .NET* book is likely to be for .NET 10. So the second edition *Apps and Services with .NET 8* will need to be in the market for two years before being updated for .NET 10.
