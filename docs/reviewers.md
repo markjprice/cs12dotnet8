@@ -62,14 +62,14 @@ I may not test on Linux at all, so if you're willing to, that'd be awesome!
 
 For example, I write the step-by-step instructions in the PDs today as if they are to be read after November 2023. For example, .NET packages references like `Microsoft.EntityFramework.SqlServer` are `8.0.0` instead of `8.0.0-preview.5.23303.2` and so on. 
 
-Although the book is written for .NET 8, I'd like the reader to know how to use later version that will be released during .NET 8's lifetime, as shown in the following table:
+Although the book is written for .NET 8, I'd like the reader to know how to use later versions that will be released during .NET 8's lifetime, as shown in the following table:
 
-|Period|Description|
+|Time Period|Description|
 |---|---|
 |November 2023 to February 2024|A third of potential readers will consume the book in the first three months of .NET 8's lifetime. They will download and use .NET 8 GA.|
 |February 2024 to October 2024|A reader might want to use .NET 9 previews.|
 |November 2024 to November 2025|A reader might want to use .NET 9 GA.|
 |February 2025 to October 2025|A reader might want to use .NET 10 previews.|
-|From November 2025|Hopefully the reader would buy and read the third edition* for .NET 10.|
+|From November 2025|A reader might want to use .NET 10 GA. But hopefully the reader would buy and read the tenth edition for .NET 10 instead.|
 
-I plan to add a notes in Chapter 1 to help the readers who want to use previews and release versions of .NET 9 to be successful too.
+I plan to add a notes throughout the book when relevant to help the readers who want to use previews and release versions of .NET 9 to be successful too.
