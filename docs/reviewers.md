@@ -88,3 +88,10 @@ For example, in Chapter 7, I explain how a reader can target .NET 8 throughout i
 
 ![Figure 7.2](assets/B19586_07_02.png)
 *Figure 7.2: Targeting .NET 8 and using newer C# compilers*
+
+You can easily continue to target the .NET 8 runtime while installing and using future C# compilers, as shown in the following list:
+1.	**November 2023**: Install .NET SDK 8.0.100 and use it to build projects that target .NET 8 and use the C# 12 compiler by default. Every month, update to .NET 8 SDK patches on the development computer and update to .NET 8 runtime patches on any deployment computers.
+2.	**February 2024**: Optionally, install .NET SDK 9 Preview 1 to explore new C# language and .NET library features. Note that you won't be able to use new library features while targeting .NET 8. Previews are released monthly between February and October each year. Read the monthly announcement blog posts to find out about the new features in that preview.
+3.	**November 2024**: Install .NET SDK 9.0.100 and use it to build projects that continue to target .NET 8 and use the C# 13 compiler for its new features. You will be using a fully supported SDK and fully supported runtime. You can also use new features in EF Core 9 because it will continue to target .NET 8.
+4.	**February 2025**: Optionally, install .NET 10 previews to explore new C# language and .NET library features. Start planning if any new library and ASP.NET Core features in .NET 9 and .NET 10 can be applied to your .NET 8 projects when you are ready to migrate.
+5.	**November 2025**: Install .NET 10.0.100 SDK and use it to build projects that target .NET 8 and use the C# 14 compiler. Migrate your .NET 8 projects to .NET 10 since it is an LTS release. You have until November 2026 to complete the migration when .NET 8 reaches end-of-life.
