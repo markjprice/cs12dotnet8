@@ -1,13 +1,26 @@
 **Docs**
 
-# Chapter 1 Online Only sections
+# Chapter 1 Online-only sections
 
 - [.NET History](ch01-dotnet-history.md)
 - [Polyglot Notebooks](ch01-polyglot-notebooks.md)
 
-# Chapter 6 Online Only sections
+# Chapter 6 Online-only sections
 
 - [Writing Better Code](ch06-writing-better-code.md)
+
+# Chapter 7 Online-only sections
+
+- [Porting from .NET Framework to modern .NET](ch07-porting.md)
+- [Introducing source generators](ch07-source-generators.md)
+
+# Chapter 8 Online-only sections
+
+- [Working with Network Resources](ch08-network-resources.md)
+
+# Chapter 9 Online-only sections
+
+- [Working with Tar archives](ch09-tar-archives.md)
 
 # Errata and Improvements
 
