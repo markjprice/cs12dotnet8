@@ -76,13 +76,13 @@ Although the book is written for .NET 8, I'd like the reader to know how to use 
 
 |Time Period|Description|
 |---|---|
-|November 2023 to February 2024|A third of potential readers will consume the book in the first three months of .NET 8's lifetime. They will download and use .NET 8 GA.|
+|November 2023 to February 2024|A third of potential readers will consume the book in the first three months of .NET 8's lifetime. They will download and use .NET SDK 8.0.100 GA or a monthly patch release like 8.0.101.|
 |February 2024 to October 2024|A reader might want to use .NET 9 previews.|
-|November 2024 to November 2025|A reader might want to use .NET 9 GA. Some readers might buy and read the ninth edition for .NET 9 but many will skip the ninth edition if they bought the eighth which is fair enough.|
+|November 2024 to November 2025|A reader might want to use .NET SDK 9.0.100 GA. Some readers might buy and read the ninth edition for .NET 9 but many will skip the ninth edition if they bought the eighth which is fair enough. They will be able to read the eighth edition to learn 99% of what they want, and read the official Microsoft documentation for [What's New in .NET 9](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9) for the new features.|
 |February 2025 to October 2025|A reader might want to use .NET 10 previews.|
-|From November 2025|A reader might want to use .NET 10 GA. But hopefully the reader would buy and read the tenth edition for .NET 10 instead.|
+|From November 2025|A reader might want to use .NET SDK 10.0.100 GA. But hopefully the reader would buy and read the tenth edition for .NET 10 instead. They can also read the official Microsoft documentation for [What's New in .NET 10](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-10) for the new features.|
 
-I plan to add notes throughout the book when relevant to help the readers who want to use previews and release versions of .NET 9 to be successful too.
+I plan to add notes throughout the book when relevant to help the readers who want to use previews and release versions of .NET 9 and .NET 10 to be successful with those versions too. (Although the book won't cover their new features, obviously!)
 
 For example, in Chapter 7, I explain how a reader can target .NET 8 throughout it's lifetime while still installing future .NET SDKs and benefiting from compiler improvements in the C# 13 and 14 languages, as shown in *Figure 7.2*:
 
