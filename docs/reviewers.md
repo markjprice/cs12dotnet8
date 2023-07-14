@@ -6,6 +6,8 @@ If you are a Technical Reviewer for this book, then you will find useful informa
 - [Updating workloads](#updating-workloads)
 - [dotnet ef tool](#dotnet-ef-tool)
 - [Word document files](#word-document-files)
+  - [Links in the Word documents](#links-in-the-word-documents)
+  - [Please add comments about anything you think of](#please-add-comments-about-anything-you-think-of)
 - [Operating systems and code editors](#operating-systems-and-code-editors)
 - [Lifetime of .NET 8 and the book](#lifetime-of-net-8-and-the-book)
 
@@ -47,6 +49,14 @@ Tool 'dotnet-ef' was successfully updated from version '7.0.3' to version '8.0.0
 # Word document files
 
 I will add a comment to the top of each Word document for a chapter that specifies the version of .NET 8 preview that I used. You can either use exactly the same version or a newer version but be aware that there may be differences in behavior. This could be temporary (new bugs are sometimes added and later removed) or permanent so it is always useful to add a comment about any unexpected behavior that you experience. 
+
+## Links in the Word documents
+
+Please do check that the links work. Initially in the Word document they are not clickable so you will have to copy and paste them. They become clickable once the review and edit process is complete and the final PDF is created.
+
+## Please add comments about anything you think of
+
+One of the challenges as an author is predicting how a reader will interpret the content. If any content produces any unexpected positive or negative feelings like confusion, annoyance, puzzlement, happiness, excitement, joy, curiosity, and so on, then please do add even a brief comment. If you feel it, at least some others likely will too. I would much rather read "too many" comments than "too few". Curiosity is a good one to discover related topics that could be added in future editions. If you feel, "I want to know more about that!" then please let me know.
 
 # Operating systems and code editors
 
