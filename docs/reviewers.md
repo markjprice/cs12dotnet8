@@ -52,7 +52,11 @@ I will add a comment to the top of each Word document for a chapter that specifi
 
 ## Links in the Word documents
 
-Please do check that the links work and go to the correct place. Initially in the Word document they are not clickable so you will have to copy and paste them. They become clickable once the review and edit process is complete and the final PDF is created. Some links will not be available until later in the process, for example, a link to the color figure PDF or a link to the Discord channel for the book.
+Please do check that the links work and go to the correct place. Initially in the Word document they are not clickable so you will have to copy and paste them. They become clickable once the review and edit process is complete and the final PDF is created. 
+
+Some links will not be available until later in the process, for example, a link to the color figure PDF or a link to the Discord channel for the book.
+
+If you find any "live" links then please let me know so that I can right-click them and choose **Remove Hyperlink**.
 
 ## Please add comments about anything you think of
 
