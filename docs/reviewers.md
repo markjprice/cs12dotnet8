@@ -64,7 +64,7 @@ Inevitably there will be differences in .NET on different operating systems. His
 
 I often do not test on macOS with Visual Studio Code until final drafts (FDs) with Release Candidates 1 and 2 in September (RC1) and October (RC2). 
 
-I may not test on Linux at all, so if you're willing to, that'd be awesome! 
+I may not test on Linux at all, so if you're willing to, that'd be awesome! Luckily, developers who choose Linux or a non-Microsoft code editor are much more likely to enjoy figuring things out on their own anyway.
 
 # Lifetime of .NET 8 and the book
 
