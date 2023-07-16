@@ -99,6 +99,8 @@ For backward compatibility, there are multiple possible keywords we can use in a
 - `Data Source` or `server` or `addr`: These keywords are the name of the server (and an optional instance). You can use a dot `.` to mean the local server.
 - `Initial Catalog` or `database`: These keywords are the name of the database.
 - `Integrated Security` or `trusted_connection`: These keywords are set to `true` or `SSPI` to pass the thread's current Windows user credentials.
+- `Encrypt`: This keyword enables SSL/TLS encryption of the transmitted data if set to `true`. Default is `false`. On a local computer it will use the local developer certificate to encrypt so this must be trusted.
+- `TrustServerCertificate`: This keyword enables trusting the local certificate if set to `true`.
 - `MultipleActiveResultSets`: This keyword is set to `true` to enable a single connection to be used to work with multiple tables simultaneously to improve efficiency. It is used for lazy loading rows from related tables.
 
 As described in the list above, when you write code to connect to an SQL Server database, you need to know its server name. The server name depends on the edition and version of SQL Server that you will connect to, as shown in the following table:
@@ -116,58 +118,62 @@ As described in the list above, when you write code to connect to an SQL Server 
 
 # Defining the Northwind database context class
 
-1.	In the `WorkingWithEFCore` project, add a package reference to the EF Core data provider for SQL Server and globally and statically import the `System.Console` class for all C# files, as shown in the following markup:
+1.	In the `WorkingWithEFCore` project, add package references to the EF Core data provider for SQL Server and the ADO.NET Provider for SQL Server, and globally and statically import the `System.Console` class for all C# files, as shown in the following markup:
 ```xml
 <ItemGroup>
 	<Using Include="System.Console" Static="true" />
 </ItemGroup>
 
 <ItemGroup>
+  <PackageReference Version="5.1.1" Include="Microsoft.Data.SqlClient" />
   <PackageReference Version="8.0.0"
     Include="Microsoft.EntityFrameworkCore.SqlServer" />
 </ItemGroup>
 ```
+
 2.	Build the `WorkingWithEFCore` project to restore packages.
-3.	Add a new class file named `Northwind.cs`.
-4.	In `Northwind.cs`, define a class named `Northwind`, import the main namespace for EF Core, make the class inherit from `DbContext`, and in an `OnConfiguring` method, configure the options builder to use SQL Server, as shown in the following code:
+3.	Add a new class file named `NorthwindDb.cs`.
+4.	In `NorthwindDb.cs`, define a class named `NorthwindDb`, import the main namespace for EF Core, make the class inherit from `DbContext`, and in an `OnConfiguring` method, configure the options builder to use SQL Server, as shown in the following code:
 ```cs
+using Microsoft.Data.SqlClient; // To use SqlConnectionStringBuilder.
 using Microsoft.EntityFrameworkCore; // To use DbContext and so on.
 
-namespace Packt.Shared;
+namespace Northwind.EntityModels;
 
 // This manages the connection to the database.
-public class Northwind : DbContext
+public class NorthwindDb : DbContext
 {
   protected override void OnConfiguring(
     DbContextOptionsBuilder optionsBuilder)
   {
-    string connection = "Data Source=.;" +
-      "Initial Catalog=Northwind;" +
-      "Integrated Security=true;" +
-      "TrustServerCertificate=true;" +
-      "MultipleActiveResultSets=true;";
-	
-    ConsoleColor previousColor = ForegroundColor;
-    ForegroundColor = ConsoleColor.DarkYellow;
-    WriteLine($"Connection: {connection}");
-    ForegroundColor = previousColor;
+    SqlConnectionStringBuilder builder = new();
 
-    optionsBuilder.UseSqlServer(connection);
+    builder.DataSource = "."; // "ServerName\InstanceName" e.g. @".\sqlexpress"
+    builder.InitialCatalog = "Northwind";
+    builder.IntegratedSecurity = true;
+    builder.Encrypt = true;
+    builder.TrustServerCertificate = true;
+    builder.MultipleActiveResultSets = true;
+    builder.ConnectTimeout = 3; // Because we want to fail fast. Default is 15 seconds.
+
+    string? connectionString = builder.ConnectionString;
+    WriteLine($"Connection: {connectionString}");
+    optionsBuilder.UseSqlServer(connectionString);
   }
 }
 ```
 
 5.	In `Program.cs`, delete the existing statements and then import the `Packt.Shared` namespace and output the database provider, as shown in the following code:
 ```cs
-using Packt.Shared;
+using Northwind.EntityModels; // To use NorthwindDb.
 
-Northwind db = new();
+NorthwindDb db = new();
 WriteLine($"Provider: {db.Database.ProviderName}");
 ```
 
 6.	Run the console app and note the output showing the database connection string and which database provider you are using, as shown in the following output:
 ```
-Connection string: Data Source=.;Initial Catalog=Northwind;Integrated Security=true;TrustServerCertificate=true;MultipleActiveResultSets=true;
+Connection: Data Source=.;Initial Catalog=Northwind;Integrated Security=true;Encrypt=true;TrustServerCertificate=true;MultipleActiveResultSets=true;
 Provider: Microsoft.EntityFrameworkCore.SqlServer
 ```
 
@@ -175,5 +181,5 @@ Provider: Microsoft.EntityFrameworkCore.SqlServer
 
 For SQL Server, change the database provider and connection string, as shown in the following command:
 ```
-dotnet ef dbcontext scaffold "Data Source=.;Initial Catalog=Northwind;Integrated Security=true;TrustServerCertificate=true;" Microsoft.EntityFrameworkCore.SqlServer --table Categories --table Products --output-dir AutoGenModels --namespace WorkingWithEFCore.AutoGen --data-annotations --context Northwind
+dotnet ef dbcontext scaffold "Data Source=.;Initial Catalog=Northwind;Integrated Security=true;Encrypt=true;TrustServerCertificate=true;" Microsoft.EntityFrameworkCore.SqlServer --table Categories --table Products --output-dir AutoGenModels --namespace WorkingWithEFCore.AutoGen --data-annotations --context NorthwindDb
 ```
