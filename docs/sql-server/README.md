@@ -5,6 +5,7 @@
 - [Creating the Northwind sample database for SQL Server](#creating-the-northwind-sample-database-for-sql-server)
 - [Managing the Northwind sample database with Server Explorer](#managing-the-northwind-sample-database-with-server-explorer)
 - [Connecting to a database](#connecting-to-a-database)
+- [Encrypting communication](#encrypting-communication)
 - [Defining the Northwind database context class](#defining-the-northwind-database-context-class)
 - [Scaffolding models using an existing database](#scaffolding-models-using-an-existing-database)
 
@@ -115,6 +116,25 @@ As described in the list above, when you write code to connect to an SQL Server 
 | Full/Developer (named instance) | `.\csdotnetbook` |
 
 > **Good Practice**: Use a dot `.` as shorthand for the local computer name. Remember that server names for SQL Server are made of two parts: the name of the computer and the name of an SQL Server instance. You provide instance names during custom installation.
+
+# Encrypting communication
+
+If you get the error, `The certificate chain was issued by an authority that is not trusted.`, then it is because the connection to the SQL Server database is trying to encrypt the transmission using the local development server certificate but the OS and therefore the app does not (yet) trust it.
+
+You have three choices to fix this issue:
+
+1. Add the following to the database connection string to make the local development server certicate trusted for this connection:
+```
+TrustServerCertificate=true;
+```
+1. Add the following to the database connection string to disable encryption so it does not *need* to trust the certificate for this connection:
+```
+Encrypt=false;
+```
+1. Run the following at the command prompt to trust the certificate for all .NET apps in future:
+```
+dotnet dev-certs https --trust
+```
 
 # Defining the Northwind database context class
 
