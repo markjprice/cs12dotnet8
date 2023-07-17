@@ -1,12 +1,13 @@
 **Polyglot Notebooks**
 
+> Solution notebooks for all chapters can be found here: [../code/notebooks](../code/notebooks)
+
 - [Exploring code using Polyglot Notebooks](#exploring-code-using-polyglot-notebooks)
 - [Creating a notebook](#creating-a-notebook)
 - [Writing and running code in a notebook](#writing-and-running-code-in-a-notebook)
 - [Saving a notebook](#saving-a-notebook)
 - [Adding Markdown and special commands to a notebook](#adding-markdown-and-special-commands-to-a-notebook)
 - [Executing code in multiple cells](#executing-code-in-multiple-cells)
-
 
 # Exploring code using Polyglot Notebooks
 
