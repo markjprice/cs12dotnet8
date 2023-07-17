@@ -2,8 +2,6 @@
 
 In this exercise, you are tasked to "extend the `Northwind.Mvc` website project to have pages where a visitor can fill in a form to create a new customer, or search for a customer and then delete them. The MVC controller should make calls to the Northwind web service to create and delete customers." 
 
-The project already has a page to show customers, either all of them or only those in a specified country. To avoid work, we will use this existing functionality. We just need to add a button in the `Customers.cshtml` view to **Add Customer**, a **Delete** button in a new column for each customer in the table, and areas to output success and errors messages, as shown in the following code:
-
 - [At the top of the Customers.cshtml Razor view](#at-the-top-of-the-customerscshtml-razor-view)
 - [In the table of customers, a blank header and a new column for delete buttons](#in-the-table-of-customers-a-blank-header-and-a-new-column-for-delete-buttons)
   - [Table of customers with add and delete buttons](#table-of-customers-with-add-and-delete-buttons)
@@ -16,6 +14,8 @@ The project already has a page to show customers, either all of them or only tho
   - [Deleting a customer, bottom of form](#deleting-a-customer-bottom-of-form)
 
 # At the top of the Customers.cshtml Razor view
+
+The project already has a page to show customers, either all of them or only those in a specified country. To avoid work, we will use this existing functionality. We just need to add a button in the `Customers.cshtml` view to **Add Customer**, a **Delete** button in a new column for each customer in the table, and areas to output success and errors messages, as shown in the following code:
 
 ```html
 @if (TempData["error-message"] is not null)
