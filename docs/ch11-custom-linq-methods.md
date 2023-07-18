@@ -132,7 +132,7 @@ IQueryable<Product> filteredProducts = processedProducts
 
 # Trying the mode and median methods
 
-Next, we will try using the Mode and Median methods to calculate other kinds of average:
+Next, we will try using the `Mode` and `Median` methods to calculate other kinds of average:
 
 1.	In `Program.Functions.cs`, add a method to output the mean, median, and mode for the `UnitsInStock` and `UnitPrice` for products, using your custom extension methods and the built-in `Average` extension method, as shown in the following code:
 ```cs
@@ -180,4 +180,4 @@ Mode units in stock:               0
 Mode unit price:              $18.00
 ```
 
-> There are four products with a unit price of $18.00. There are five products with 0 units in stock.
+> To understand the `Mode` results remember that the *mode* is the most popular value. There are four products with a unit price of $18.00, more than any other unit price. There are five products with 0 units in stock, more than any other number of units in stock.
