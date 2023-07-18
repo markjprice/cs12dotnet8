@@ -13,14 +13,18 @@ LINQ to XML is a LINQ provider that allows you to query and manipulate XML.
 
 Let's create a method to convert the Products table into XML:
 
-1.	In the `LinqWithEFCore` project, in `Program.Functions.cs`, import the `System.Xml.Linq` namespace.
+1.	In the `LinqWithEFCore` project, in `Program.Functions.cs`, import the `System.Xml.Linq` namespace, as shown in the following code:
+```cs
+using System.Xml.Linq; // To use XElement, XAttribute.
+```
+
 2.	In `Program.Functions.cs`, add a method to output the products in XML format, as shown in the following code:
 ```cs
 static void OutputProductsAsXml()
 {
   SectionTitle("Output products as XML");
 
-  using (Northwind db = new())
+  using (NorthwindDb db = new())
   {
     Product[] productsArray = db.Products.ToArray();
 
@@ -28,7 +32,7 @@ static void OutputProductsAsXml()
       from p in productsArray
       select new XElement("product",
         new XAttribute("id",  p.ProductId),
-        new XAttribute("price", p.UnitPrice),
+        new XAttribute("price", p.UnitPrice ?? 0),
        new XElement("name", p.ProductName)));
 
     WriteLine(xml.ToString());
