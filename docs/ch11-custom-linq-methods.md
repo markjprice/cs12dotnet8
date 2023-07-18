@@ -127,7 +127,7 @@ IQueryable<Product> filteredProducts = processedProducts
   .Where(product => product.UnitPrice < 10M);
 ```
 
-4.	In `Program.cs``, uncomment the `FilterAndSort`` method and comment out any calls to other methods.
+4.	In `Program.cs`, uncomment the `FilterAndSort` method and comment out any calls to other methods.
 5.	Run the code and note that you see the same output as before because your method doesn't modify the sequence. But you now know how to extend a LINQ expression with your own functionality.
 
 # Trying the mode and median methods
