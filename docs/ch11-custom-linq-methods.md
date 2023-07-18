@@ -109,7 +109,15 @@ Since this class is in a separate class library, to use your LINQ extension meth
 
 First, we will try chaining the ProcessSequence method with other extension methods:
 
-1.	In the `LinqToEFCore` project, in `Program.Functions.cs`, in the `FilterAndSort` method, modify the LINQ query for `Products` to call your custom chainable extension method, as shown highlighted in the following code:
+1.	In the `LinqWithEFCore` project, add a reference to the `PacktLinqExtensions` project, as shown in the following markup:
+```xml
+<ItemGroup>
+  <ProjectReference Include="..\PacktLinqExtensions\PacktLinqExtensions.csproj" />
+</ItemGroup>
+```
+
+2.  Build the `LinqWithEFCore` project.
+3.	In the `LinqWithEFCore` project, in `Program.Functions.cs`, in the `FilterAndSort` method, modify the LINQ query for `Products` to call your custom chainable extension method, as shown highlighted in the following code:
 ```cs
 DbSet<Product> allProducts = db.Products;
 
@@ -119,8 +127,8 @@ IQueryable<Product> filteredProducts = processedProducts
   .Where(product => product.UnitPrice < 10M);
 ```
 
-2.	In `Program.cs``, uncomment the `FilterAndSort`` method and comment out any calls to other methods.
-3.	Run the code and note that you see the same output as before because your method doesn't modify the sequence. But you now know how to extend a LINQ expression with your own functionality.
+4.	In `Program.cs``, uncomment the `FilterAndSort`` method and comment out any calls to other methods.
+5.	Run the code and note that you see the same output as before because your method doesn't modify the sequence. But you now know how to extend a LINQ expression with your own functionality.
 
 # Trying the mode and median methods
 
