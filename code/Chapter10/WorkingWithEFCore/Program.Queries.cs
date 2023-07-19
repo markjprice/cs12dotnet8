@@ -6,216 +6,211 @@ partial class Program
 {
   static void QueryingCategories()
   {
-    using (NorthwindDb db = new())
+    // Data context will be disposed at the end of the method.
+    using NorthwindDb db = new();
+
+    SectionTitle("Categories and how many products they have");
+
+    // A query to get all categories and their related products.
+    IQueryable<Category>? categories;
+    //= db.Categories;
+    //.Include(c => c.Products);
+
+    db.ChangeTracker.LazyLoadingEnabled = false;
+
+    Write("Enable eager loading? (Y/N): ");
+    bool eagerLoading = (ReadKey().Key == ConsoleKey.Y);
+    bool explicitLoading = false;
+    WriteLine();
+
+    if (eagerLoading)
     {
-      SectionTitle("Categories and how many products they have");
-
-      // A query to get all categories and their related products.
-      IQueryable<Category>? categories;
-      //= db.Categories;
-      //.Include(c => c.Products);
-
-      db.ChangeTracker.LazyLoadingEnabled = false;
-
-      Write("Enable eager loading? (Y/N): ");
-      bool eagerLoading = (ReadKey().Key == ConsoleKey.Y);
-      bool explicitLoading = false;
+      categories = db.Categories?.Include(c => c.Products);
+    }
+    else
+    {
+      categories = db.Categories;
+      Write("Enable explicit loading? (Y/N): ");
+      explicitLoading = (ReadKey().Key == ConsoleKey.Y);
       WriteLine();
+    }
 
-      if (eagerLoading)
+    if ((categories is null) || (!categories.Any()))
+    {
+      Fail("No categories found.");
+      return;
+    }
+
+    // Execute query and enumerate results.
+    foreach (Category c in categories)
+    {
+      if (explicitLoading)
       {
-        categories = db.Categories?.Include(c => c.Products);
-      }
-      else
-      {
-        categories = db.Categories;
-        Write("Enable explicit loading? (Y/N): ");
-        explicitLoading = (ReadKey().Key == ConsoleKey.Y);
+        Write($"Explicitly load products for {c.CategoryName}? (Y/N): ");
+        ConsoleKeyInfo key = ReadKey();
         WriteLine();
-      }
 
-      if ((categories is null) || (!categories.Any()))
-      {
-        Fail("No categories found.");
-        return;
-      }
-
-      // Execute query and enumerate results.
-      foreach (Category c in categories)
-      {
-        if (explicitLoading)
+        if (key.Key == ConsoleKey.Y)
         {
-          Write($"Explicitly load products for {c.CategoryName}? (Y/N): ");
-          ConsoleKeyInfo key = ReadKey();
-          WriteLine();
+          CollectionEntry<Category, Product> products =
+            db.Entry(c).Collection(c2 => c2.Products);
 
-          if (key.Key == ConsoleKey.Y)
-          {
-            CollectionEntry<Category, Product> products =
-              db.Entry(c).Collection(c2 => c2.Products);
-
-            if (!products.IsLoaded) products.Load();
-          }
+          if (!products.IsLoaded) products.Load();
         }
-
-        WriteLine($"{c.CategoryName} has {c.Products.Count} products.");
       }
+
+      WriteLine($"{c.CategoryName} has {c.Products.Count} products.");
     }
   }
 
   static void FilteredIncludes()
   {
-    using (NorthwindDb db = new())
+    using NorthwindDb db = new();
+
+    SectionTitle("Products with a minimum number of units in stock");
+
+    string? input;
+    int stock;
+
+    do
     {
-      SectionTitle("Products with a minimum number of units in stock");
+      Write("Enter a minimum for units in stock: ");
+      input = ReadLine();
+    } while (!int.TryParse(input, out stock));
 
-      string? input;
-      int stock;
+    IQueryable<Category>? categories = db.Categories?
+      .Include(c => c.Products.Where(p => p.Stock >= stock));
 
-      do
+    if ((categories is null) || (!categories.Any()))
+    {
+      Fail("No categories found.");
+      return;
+    }
+
+    Info($"ToQueryString: {categories.ToQueryString()}");
+
+    foreach (Category c in categories)
+    {
+      WriteLine("{0} has {1} products with a minimum {2} units in stock.",
+        arg0: c.CategoryName, arg1: c.Products.Count, arg2: stock);
+
+      foreach (Product p in c.Products)
       {
-        Write("Enter a minimum for units in stock: ");
-        input = ReadLine();
-      } while (!int.TryParse(input, out stock));
-
-      IQueryable<Category>? categories = db.Categories?
-        .Include(c => c.Products.Where(p => p.Stock >= stock));
-
-      if ((categories is null) || (!categories.Any()))
-      {
-        Fail("No categories found.");
-        return;
-      }
-
-      Info($"ToQueryString: {categories.ToQueryString()}");
-
-      foreach (Category c in categories)
-      {
-        WriteLine("{0} has {1} products with a minimum {2} units in stock.",
-          arg0: c.CategoryName, arg1: c.Products.Count, arg2: stock);
-
-        foreach (Product p in c.Products)
-        {
-          WriteLine($"  {p.ProductName} has {p.Stock} units in stock.");
-        }
+        WriteLine($"  {p.ProductName} has {p.Stock} units in stock.");
       }
     }
   }
 
   static void QueryingProducts()
   {
-    using (NorthwindDb db = new())
+    using NorthwindDb db = new();
+
+    SectionTitle("Products that cost more than a price, highest at top");
+
+    string? input;
+    decimal price;
+
+    do
     {
-      SectionTitle("Products that cost more than a price, highest at top");
+      Write("Enter a product price: ");
+      input = ReadLine();
+    } while (!decimal.TryParse(input, out price));
 
-      string? input;
-      decimal price;
+    IQueryable<Product>? products = db.Products?
+      .Where(product => product.Cost > price)
+      .OrderByDescending(product => product.Cost);
 
-      do
-      {
-        Write("Enter a product price: ");
-        input = ReadLine();
-      } while (!decimal.TryParse(input, out price));
+    if ((products is null) || (!products.Any()))
+    {
+      Fail("No products found.");
+      return;
+    }
 
-      IQueryable<Product>? products = db.Products?
-        .Where(product => product.Cost > price)
-        .OrderByDescending(product => product.Cost);
+    Info($"ToQueryString: {products.ToQueryString()}");
 
-      if ((products is null) || (!products.Any()))
-      {
-        Fail("No products found.");
-        return;
-      }
-
-      Info($"ToQueryString: {products.ToQueryString()}");
-
-      foreach (Product p in products)
-      {
-        WriteLine(
-          "{0}: {1} costs {2:$#,##0.00} and has {3} in stock.",
-          p.ProductId, p.ProductName, p.Cost, p.Stock);
-      }
+    foreach (Product p in products)
+    {
+      WriteLine(
+        "{0}: {1} costs {2:$#,##0.00} and has {3} in stock.",
+        p.ProductId, p.ProductName, p.Cost, p.Stock);
     }
   }
 
   static void QueryingWithLike()
   {
-    using (NorthwindDb db = new())
+    using NorthwindDb db = new();
+
+    SectionTitle("Pattern matching with LIKE");
+
+    Write("Enter part of a product name: ");
+    string? input = ReadLine();
+
+    if (string.IsNullOrWhiteSpace(input))
     {
-      SectionTitle("Pattern matching with LIKE");
+      Fail("You did not enter part of a product name.");
+      return;
+    }
 
-      Write("Enter part of a product name: ");
-      string? input = ReadLine();
+    IQueryable<Product>? products = db.Products?
+      .Where(p => EF.Functions.Like(p.ProductName, $"%{input}%"));
 
-      if (string.IsNullOrWhiteSpace(input))
-      {
-        Fail("You did not enter part of a product name.");
-        return;
-      }
+    if ((products is null) || (!products.Any()))
+    {
+      Fail("No products found.");
+      return;
+    }
 
-      IQueryable<Product>? products = db.Products?
-        .Where(p => EF.Functions.Like(p.ProductName, $"%{input}%"));
-
-      if ((products is null) || (!products.Any()))
-      {
-        Fail("No products found.");
-        return;
-      }
-
-      foreach (Product p in products)
-      {
-        WriteLine("{0} has {1} units in stock. Discontinued: {2}",
-          p.ProductName, p.Stock, p.Discontinued);
-      }
+    foreach (Product p in products)
+    {
+      WriteLine("{0} has {1} units in stock. Discontinued: {2}",
+        p.ProductName, p.Stock, p.Discontinued);
     }
   }
 
   static void GetRandomProduct()
   {
-    using (NorthwindDb db = new())
+    using NorthwindDb db = new();
+
+    SectionTitle("Get a random product");
+
+    int? rowCount = db.Products?.Count();
+
+    if (rowCount == null)
     {
-      SectionTitle("Get a random product");
-
-      int? rowCount = db.Products?.Count();
-
-      if (rowCount == null)
-      {
-        Fail("Products table is empty.");
-        return;
-      }
-
-      Product? p = db.Products?.FirstOrDefault(
-        p => p.ProductId == (int)(EF.Functions.Random() * rowCount));
-
-      if (p == null)
-      {
-        Fail("Product not found.");
-        return;
-      }
-
-      WriteLine($"Random product: {p.ProductId} - {p.ProductName}");
+      Fail("Products table is empty.");
+      return;
     }
+
+    Product? p = db.Products?.FirstOrDefault(
+      p => p.ProductId == (int)(EF.Functions.Random() * rowCount));
+
+    if (p == null)
+    {
+      Fail("Product not found.");
+      return;
+    }
+
+    WriteLine($"Random product: {p.ProductId} - {p.ProductName}");
   }
 
   static void LazyLoadingWithNoTracking()
   {
-    using (NorthwindDb db = new())
+    using NorthwindDb db = new();
+
+    SectionTitle("Lazy-loading with no tracking");
+
+    IQueryable<Product>? products = db.Products?.AsNoTracking();
+
+    if ((products is null) || (!products.Any()))
     {
-      SectionTitle("Lazy-loading with no tracking");
+      Fail("No products found.");
+      return;
+    }
 
-      IQueryable<Product>? products = db.Products?.AsNoTracking();
-
-      if ((products is null) || (!products.Any()))
-      {
-        Fail("No products found.");
-        return;
-      }
-
-      foreach (Product p in products)
-      {
-        WriteLine("{0} is in category named {1}.",
-          p.ProductName, p.Category.CategoryName);
-      }
+    foreach (Product p in products)
+    {
+      WriteLine("{0} is in category named {1}.",
+        p.ProductName, p.Category.CategoryName);
     }
   }
 }

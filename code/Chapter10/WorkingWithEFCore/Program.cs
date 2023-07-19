@@ -1,7 +1,8 @@
 ﻿using Northwind.EntityModels; // To use Northwind.
 
-//NorthwindDb db = new();
+//using NorthwindDb db = new();
 //WriteLine($"Provider: {db.Database.ProviderName}");
+// Disposes the database context at the end of Main.
 
 ConfigureConsole();
 //QueryingCategories();
