@@ -214,7 +214,7 @@ When you work with SQL Server it can be useful to know that as well as a **user 
 - `master`: This system database contains meta data about all the other databases. Avoid adding your own objects to this database.
 - `model`: This system database is a template for new user databases. If you add objects to the `model` and then create a new database, it will have all the same objects in it.
 - `msdb`: This system database contains data used by **SQL Server Agent** for jobs and alerts.
-- `tempdb`: This system database is reset automatically on restart. You can create objects in it knowing they will disappear eventually.
+- `tempdb`: This system database is reset automatically on restart. You can create objects like tables in it knowing they will be dropped automatically when you disconnect.
 
 > **More Information**: You can learn more about system databases at the following link: https://learn.microsoft.com/en-us/sql/relational-databases/databases/system-databases.
 
