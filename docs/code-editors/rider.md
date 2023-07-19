@@ -14,6 +14,8 @@ In this article, I provide detailed step-by-step instuctions for using JetBrains
   - [Revealing the hidden code by throwing an exception](#revealing-the-hidden-code-by-throwing-an-exception)
   - [Revealing the namespace for the Program class](#revealing-the-namespace-for-the-program-class)
   - [Adding a second project using JetBrains Rider](#adding-a-second-project-using-jetbrains-rider)
+- [Chapter 2 - Speaking C#](#chapter-2---speaking-c)
+  - [Passing arguments to a console app](#passing-arguments-to-a-console-app)
 - [Chapter 4 (coming soon)](#chapter-4-coming-soon)
 
 
@@ -239,4 +241,15 @@ Namespace: AboutMyEnvironment
 ![Running a top-level program in a Rider solution with two projects on Windows](assets/rider/B19586_01_11_Rider.png)
 *Figure 1.11: Running a top-level program in a Rider solution with two projects on Windows*
 
+# Chapter 2 - Speaking C#
+
+## Passing arguments to a console app
+
+1. Right-click the `Arguments` project. 
+2. In the popup menu, select **More Run/Debug** | **Modify Run Configuration...**.
+3. In the **Program arguments** box, enter the following arguments: `firstarg second-arg third:arg "fourth arg"`.
+4. Click **Apply**, then click **OK**.
+5. Run the console app.
+
 # Chapter 4 (coming soon)
+
