@@ -37,7 +37,7 @@ https://www.microsoft.com/en-us/sql-server/sql-server-downloads
 2.	Run the installer.
 3.	Select the **Custom** installation type.
 4.	Select a folder for the installation files and then click **Install**.
-5.	Wait for the 1.5 GB of installer files to download.
+5.	Wait for the 1.5 GB of installer files to download. While you wait you can read about [SQL Server databases](#sql-server-databases) and [SQL Server objects](#sql-server-objects).
 6.	In **SQL Server Installation Center**, click **Installation**, and then click **New SQL Server stand-alone installation or add features to an existing installation**, as shown in *Figure 10.1*:
 
 ![Installation using SQL Server Installation Center](B19586_10_sql_01.png)
