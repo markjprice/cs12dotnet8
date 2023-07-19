@@ -1,17 +1,23 @@
 **Using SQL Server for Windows**
 
-- [Introducing SQL Server for Windows](#introducing-sql-server-for-windows)
-- [Downloading and installing SQL Server](#downloading-and-installing-sql-server)
-- [Creating the Northwind sample database for SQL Server](#creating-the-northwind-sample-database-for-sql-server)
-- [Managing the Northwind sample database with Server Explorer](#managing-the-northwind-sample-database-with-server-explorer)
-- [Connecting to a database](#connecting-to-a-database)
-- [Encrypting communication](#encrypting-communication)
-- [Defining the Northwind database context class](#defining-the-northwind-database-context-class)
-- [Scaffolding models using an existing database](#scaffolding-models-using-an-existing-database)
-- [SQL Server databases](#sql-server-databases)
-- [SQL Server objects](#sql-server-objects)
+- [Chapter 10 - Working with Data Using Entity Framework Core](#chapter-10---working-with-data-using-entity-framework-core)
+  - [Introducing SQL Server for Windows](#introducing-sql-server-for-windows)
+  - [Downloading and installing SQL Server](#downloading-and-installing-sql-server)
+  - [Creating the Northwind sample database for SQL Server](#creating-the-northwind-sample-database-for-sql-server)
+  - [Managing the Northwind sample database with Server Explorer](#managing-the-northwind-sample-database-with-server-explorer)
+  - [Connecting to a SQL Server database](#connecting-to-a-sql-server-database)
+  - [Encrypting communication](#encrypting-communication)
+  - [Defining the Northwind database context class](#defining-the-northwind-database-context-class)
+  - [Scaffolding models using an existing database](#scaffolding-models-using-an-existing-database)
+  - [SQL Server databases](#sql-server-databases)
+  - [SQL Server objects](#sql-server-objects)
+- [Chapter 12 - Introducing Web Development Using ASP.NET Core](#chapter-12---introducing-web-development-using-aspnet-core)
+  - [Creating a class library for entity models using SQL Server](#creating-a-class-library-for-entity-models-using-sql-server)
+  - [Creating a class library for a database context using SQL Server](#creating-a-class-library-for-a-database-context-using-sql-server)
 
-# Introducing SQL Server for Windows
+# Chapter 10 - Working with Data Using Entity Framework Core
+
+## Introducing SQL Server for Windows
 
 Microsoft offers various editions of its popular and capable SQL Server product 
 for Windows, Linux, and Docker containers. We will use a free version that can 
@@ -21,7 +27,7 @@ with Visual Studio for Windows.
 
 > If you do not have Windows, then you can use a version of SQL Server that runs in a Linux container on Docker. To find out how, please read the page about [Azure SQL Edge](https://github.com/markjprice/apps-services-net8/blob/main/docs/ch02-sql-edge.md) from the companion book, *Apps and Services with .NET 8*.
 
-# Downloading and installing SQL Server
+## Downloading and installing SQL Server
 
 You can download SQL Server editions from the following link:
 https://www.microsoft.com/en-us/sql-server/sql-server-downloads
@@ -50,7 +56,7 @@ https://www.microsoft.com/en-us/sql-server/sql-server-downloads
 18.	Run the installer and click **Install**.
 19.	When the installer has finished, click **Restart** if needed or **Close**.
 
-# Creating the Northwind sample database for SQL Server
+## Creating the Northwind sample database for SQL Server
 
 Now we can run a database script to create the Northwind sample database:
 
@@ -70,7 +76,7 @@ Now we can run a database script to create the Northwind sample database:
 10.	In the **Object Explorer** toolbar, click the **Disconnect** button.
 11.	Exit SQL Server Management Studio.
 
-# Managing the Northwind sample database with Server Explorer
+## Managing the Northwind sample database with Server Explorer
 
 We did not have to use **SQL Server Management Studio** to execute the database script. We can also use tools in **Visual Studio 2022** including the **SQL Server Object Explorer** and **Server Explorer**:
 
@@ -90,7 +96,7 @@ We did not have to use **SQL Server Management Studio** to execute the database 
 6.	Right-click the **Products** table, choose **Show Table Data**, and note the 77 rows of products are returned.
 7.	To see the details of the **Products** table columns and types, right-click **Products** and choose **Open Table Definition**, or double-click the table in **Server Explorer**.
 
-# Connecting to a database
+## Connecting to a SQL Server database
 
 To connect to an SQL Server database, we need to know multiple pieces of information, as shown in the following list:
 - The name of the server (and the instance if it has one).
@@ -120,7 +126,7 @@ As described in the list above, when you write code to connect to an SQL Server 
 
 > **Good Practice**: Use a dot `.` as shorthand for the local computer name. Remember that server names for SQL Server are made of two parts: the name of the computer and the name of an SQL Server instance. You provide instance names during custom installation.
 
-# Encrypting communication
+## Encrypting communication
 
 If you get the error, `The certificate chain was issued by an authority that is not trusted.`, then it is because the connection to the SQL Server database is trying to encrypt the transmission using the local development server certificate but the OS and therefore the app does not (yet) trust it.
 
@@ -139,7 +145,7 @@ Encrypt=false;
 dotnet dev-certs https --trust
 ```
 
-# Defining the Northwind database context class
+## Defining the Northwind database context class
 
 1.	In the `WorkingWithEFCore` project, add package references to the EF Core data provider for SQL Server and the ADO.NET Provider for SQL Server, and globally and statically import the `System.Console` class for all C# files, as shown in the following markup:
 ```xml
@@ -200,14 +206,14 @@ Connection: Data Source=.;Initial Catalog=Northwind;Integrated Security=true;Enc
 Provider: Microsoft.EntityFrameworkCore.SqlServer
 ```
 
-# Scaffolding models using an existing database
+## Scaffolding models using an existing database
 
 For SQL Server, change the database provider and connection string, as shown in the following command:
 ```
 dotnet ef dbcontext scaffold "Data Source=.;Initial Catalog=Northwind;Integrated Security=true;Encrypt=true;TrustServerCertificate=true;" Microsoft.EntityFrameworkCore.SqlServer --table Categories --table Products --output-dir AutoGenModels --namespace WorkingWithEFCore.AutoGen --data-annotations --context NorthwindDb
 ```
 
-# SQL Server databases
+## SQL Server databases
 
 When you work with SQL Server it can be useful to know that as well as a **user database** like `Northwind`, there are **system databases** like `master`. Never delete a system database! A fresh SQL Server installation will have four system databases created, as shown in the following list:
 
@@ -218,7 +224,7 @@ When you work with SQL Server it can be useful to know that as well as a **user 
 
 > **More Information**: You can learn more about system databases at the following link: https://learn.microsoft.com/en-us/sql/relational-databases/databases/system-databases.
 
-# SQL Server objects
+## SQL Server objects
 
 Objects in SQL Server have up to four parts to their unique address: `<server>.<database>.<schema>.<object>`. Like a folder structure, how much of this address is needed to identify an object depends on context. If you are in a database, then you only need `<schema>.<object>`.
 
@@ -228,3 +234,173 @@ Objects in SQL Server have up to four parts to their unique address: `<server>.<
 - `<object>`: The name of an object. For example, the `Customers` table or the `GetExpensiveProducts` stored procedure. Database tools group objects by type but they are not identified by type in their address. Therefore you cannot have a table and stored procedure or any other object with the same name.
 
 > **More Information**: You can learn more about database identifiers at the following link: https://learn.microsoft.com/en-us/sql/relational-databases/databases/database-identifiers.
+
+# Chapter 12 - Introducing Web Development Using ASP.NET Core
+
+In these sections, you will define an entity data model for the Northwind database stored in SQL Server. It will be used in most of the apps that we create in subsequent chapters.
+
+## Creating a class library for entity models using SQL Server
+
+To use SQL Server, you will not need to do anything if you already set up the Northwind database in *Chapter 10, Working with Data Using Entity Framework Core*. But you will now create the entity models using the `dotnet-ef` tool:
+
+1.	Add a new project, as defined in the following list:
+    - Project template: **Class Library** / `classlib`
+    - Project file and folder: `Northwind.EntityModels.SqlServer`
+    - Solution file and folder: `PracticalApps`
+
+2.	In the `Northwind.EntityModels.SqlServer` project, add package references for the SQL Server database provider and EF Core design-time support, as shown in the following markup:
+```xml
+<ItemGroup>
+  <PackageReference
+    Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+  <PackageReference 
+    Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
+    <PrivateAssets>all</PrivateAssets>
+    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+  </PackageReference>  
+</ItemGroup>
+```
+
+3.	Delete the `Class1.cs` file.
+4.	Build the `Northwind.EntityModels.SqlServer` project to restore packages.
+5.	At a command prompt or terminal for the `Northwind.EntityModels.SqlServer` folder, generate entity class models for all tables, as shown in the following command:
+```
+dotnet ef dbcontext scaffold "Data Source=.;Initial Catalog=Northwind;Integrated Security=true;TrustServerCertificate=true;" Microsoft.EntityFrameworkCore.SqlServer --namespace Northwind.EntityModels --data-annotations
+```
+
+Note the following:
+- The command to perform: `dbcontext scaffold`
+- The connection string: `"Data Source=.;Initial Catalog=Northwind;Integrated Security=true;TrustServerCertificate=true;"`
+- The database provider: `Microsoft.EntityFrameworkCore.SqlServer`
+- The namespace: `--namespace Northwind.EntityModels`
+- To use data annotations as well as the Fluent API: `--data-annotations`
+
+6.	In `Customer.cs`, add a regular expression to validate its primary key value to only allow uppercase Western characters, as shown in the following code:
+```cs
+[Key]
+[StringLength(5)]
+[RegularExpression("[A-Z]{5}")]
+public string CustomerId { get; set; } = null!;
+```
+
+7.	In `Customer.cs`, make the `CustomerId` and `CompanyName` properties required.
+8.	In `Customer.cs`, add an attribute to validate and render the `Phone` property as a telephone number, as shown in the following code:
+```cs
+[Phone]
+public string? Phone { get; set; };
+```
+
+> The `[Phone]` attribute adds the following to the rendered HTML: `type="tel"``. On a mobile phone this makes the keyboard use the phone dialer instead of the normal keyboard.
+
+## Creating a class library for a database context using SQL Server
+
+You will now define a database context class library:
+
+1.	Add a new project, as defined in the following list:
+    - Project template: **Class Library** / `classlib`
+    - Project file and folder: `Northwind.DataContext.SqlServer`
+    - Solution file and folder: `PracticalApps`
+
+2.	In the `Northwind.DataContext.SqlServer` project, add a project reference to the `Northwind.EntityModels.SqlServer` project, and add package references for the EF Core database provider and the ADO.NET database provider for SQL Server, as shown in the following markup:
+```xml
+<ItemGroup>
+  <PackageReference 
+    Include="Microsoft.Data.SqlClient" Version="5.1.1" />
+  <PackageReference 
+    Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+</ItemGroup>
+
+<ItemGroup>
+  <ProjectReference Include="..\Northwind.EntityModels.SqlServer\Northwind.EntityModels.SqlServer.csproj" />
+</ItemGroup>
+```
+
+> **Warning!** The path to the project reference should not have a line break in your project file.
+
+3.	In the `Northwind.DataContext.SqlServer` project, delete the `Class1.cs` file.
+4.	Build the `Northwind.DataContext.SqlServer` project to restore packages.
+5.	Move the `NorthwindContext.cs` file from the `Northwind.EntityModels.SqlServer` project/folder to the `Northwind.DataContext.SqlServer` project/folder.
+6.	In the `Northwind.DataContext.SqlServer` project, at the top of `NorthwindContext.cs`, import the namespace for working with the connection string builder for SQL Server, as shown in the following code:
+```cs
+using Microsoft.Data.SqlClient; // To use SqlConnectionStringBuilder.
+```
+
+7.	In `NorthwindContext.cs`, in the `OnConfiguring` method, remove the compiler warning about the connection string and add statements to build a connection string instead of hardcoding it, as shown in the following code:
+```cs
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+{
+  if (!optionsBuilder.IsConfigured)
+  {
+    SqlConnectionStringBuilder builder = new();
+
+    builder.DataSource = "."; // "ServerName\InstanceName" e.g. @".\sqlexpress"
+    builder.InitialCatalog = "Northwind";
+    builder.IntegratedSecurity = true;
+    builder.TrustServerCertificate = true;
+    builder.MultipleActiveResultSets = true;
+
+    // Because we want to fail faster. Default is 15 seconds.
+    builder.ConnectTimeout = 3;
+
+    optionsBuilder.UseSqlServer(builder.ConnectionString);
+  }
+}
+```
+
+8.	the `Northwind.DataContext.SqlServer`` project, add a class file named `NorthwindContextExtensions.cs`. Modify its contents to define an extension method that adds the Northwind database context to a collection of dependency services, as shown in the following code:
+```cs
+using Microsoft.Data.SqlClient; // To use SqlConnectionStringBuilder.
+using Microsoft.EntityFrameworkCore; // To use the UseSqlServer method.
+using Microsoft.Extensions.DependencyInjection; // To use IServiceCollection.
+
+namespace Northwind.EntityModels;
+
+public static class NorthwindContextExtensions
+{
+  /// <summary>
+  /// Adds NorthwindContext to the specified IServiceCollection. Uses the SqlServer database provider.
+  /// </summary>
+  /// <param name="services"></param>
+  /// <param name="connectionString">Set to override the default.</param>
+  /// <returns>An IServiceCollection that can be used to add more services.</returns>
+  public static IServiceCollection AddNorthwindContext(
+    this IServiceCollection services,
+    string? connectionString = null)
+  {
+    if (connectionString is null)
+    {
+      SqlConnectionStringBuilder builder = new();
+
+      builder.DataSource = ".";
+      builder.InitialCatalog = "Northwind";
+      builder.IntegratedSecurity = true;
+      builder.TrustServerCertificate = true;
+      builder.MultipleActiveResultSets = true;
+
+      // Because we want to fail faster. Default is 15 seconds.
+      builder.ConnectTimeout = 3;
+
+      connectionString = builder.ConnectionString;
+    }
+
+    services.AddDbContext<NorthwindContext>(options =>
+    {
+      options.UseSqlServer(connectionString);
+
+      options.LogTo(WriteLine, // Console
+        new[] { Microsoft.EntityFrameworkCore
+          .Diagnostics.RelationalEventId.CommandExecuting });
+    },
+    // Register with a transient lifetime to avoid concurrency 
+    // issues with Blazor Server projects.
+    contextLifetime: ServiceLifetime.Transient, 
+    optionsLifetime: ServiceLifetime.Transient);
+
+    return services;
+  }
+}
+```
+
+9.	Build the two class libraries and fix any compiler errors.
+
+> **Good Practice**: We have provided optional arguments for the `AddNorthwindContext` method so that we can override the hardcoded SQLite database filename path or the SQL Server database connection string. This will allow us more flexibility, for example, to load these values from a configuration file.
