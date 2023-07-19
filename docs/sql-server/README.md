@@ -156,7 +156,7 @@ dotnet dev-certs https --trust
 1.	In the `WorkingWithEFCore` project, add package references to the EF Core data provider for SQL Server and the ADO.NET Provider for SQL Server, and globally and statically import the `System.Console` class for all C# files, as shown in the following markup:
 ```xml
 <ItemGroup>
-	<Using Include="System.Console" Static="true" />
+  <Using Include="System.Console" Static="true" />
 </ItemGroup>
 
 <ItemGroup>
