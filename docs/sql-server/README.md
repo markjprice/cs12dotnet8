@@ -6,6 +6,7 @@
   - [Creating the Northwind sample database for SQL Server](#creating-the-northwind-sample-database-for-sql-server)
   - [Managing the Northwind sample database with Server Explorer](#managing-the-northwind-sample-database-with-server-explorer)
   - [Connecting to a SQL Server database](#connecting-to-a-sql-server-database)
+  - [Data source aka server name](#data-source-aka-server-name)
   - [Encrypting communication](#encrypting-communication)
   - [Defining the Northwind database context class](#defining-the-northwind-database-context-class)
   - [Scaffolding models using an existing database](#scaffolding-models-using-an-existing-database)
@@ -113,16 +114,20 @@ For backward compatibility, there are multiple possible keywords we can use in a
 - `TrustServerCertificate`: This keyword enables trusting the local certificate if set to `true`.
 - `MultipleActiveResultSets`: This keyword is set to `true` to enable a single connection to be used to work with multiple tables simultaneously to improve efficiency. It is used for lazy loading rows from related tables.
 
+## Data source aka server name
+
 As described in the list above, when you write code to connect to an SQL Server database, you need to know its server name. The server name depends on the edition and version of SQL Server that you will connect to, as shown in the following table:
 
 
-| SQL Server edition | Server name \ Instance name |
-| --- | --- |
-| LocalDB 2012 | `(localdb)\v11.0` |
-| LocalDB 2016 or later | `(localdb)\mssqllocaldb` |
-| Express | `.\sqlexpress` |
-| Full/Developer (default instance) | `.` |
-| Full/Developer (named instance) | `.\csdotnetbook` |
+SQL Server edition|Server name \ Instance name
+---|---
+LocalDB 2012|`(localdb)\v11.0`
+LocalDB 2016 or later|`(localdb)\mssqllocaldb`
+Express|`.\sqlexpress`
+Full/Developer (default instance)|`.`
+Full/Developer (named instance)|`.\csdotnetbook`
+Azure SQL Database in the cloud|`tcp:<server_name>.database.windows.net,1433`
+Azure SQL Edge in a local Docker container|`tcp:127.0.0.1,1433`
 
 > **Good Practice**: Use a dot `.` as shorthand for the local computer name. Remember that server names for SQL Server are made of two parts: the name of the computer and the name of an SQL Server instance. You provide instance names during custom installation.
 
@@ -275,6 +280,8 @@ Note the following:
 - The namespace: `--namespace Northwind.EntityModels`
 - To use data annotations as well as the Fluent API: `--data-annotations`
 
+> The `Data Source` can have many different values, as shown in the [Data source aka server name](#data-source-aka-server-name) section.
+
 6.	In `Customer.cs`, add a regular expression to validate its primary key value to only allow uppercase Western characters, as shown in the following code:
 ```cs
 [Key]
@@ -346,6 +353,8 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
   }
 }
 ```
+
+> The `Data Source` can have many different values, as shown in the [Data source aka server name](#data-source-aka-server-name) section.
 
 8.	the `Northwind.DataContext.SqlServer`` project, add a class file named `NorthwindContextExtensions.cs`. Modify its contents to define an extension method that adds the Northwind database context to a collection of dependency services, as shown in the following code:
 ```cs
