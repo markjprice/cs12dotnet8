@@ -373,7 +373,7 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
 > The `Data Source` can have many different values, as shown in the [Data source aka server name](#data-source-aka-server-name) section.
 
-8.	the `Northwind.DataContext.SqlServer`` project, add a class file named `NorthwindContextExtensions.cs`. Modify its contents to define an extension method that adds the Northwind database context to a collection of dependency services, as shown in the following code:
+8.	In the `Northwind.DataContext.SqlServer` project, add a class file named `NorthwindContextExtensions.cs`. Modify its contents to define an extension method that adds the Northwind database context to a collection of dependency services, as shown in the following code:
 ```cs
 using Microsoft.Data.SqlClient; // To use SqlConnectionStringBuilder.
 using Microsoft.EntityFrameworkCore; // To use the UseSqlServer method.
@@ -429,6 +429,6 @@ public static class NorthwindContextExtensions
 
 > The `Data Source` can have many different values, as shown in the [Data source aka server name](#data-source-aka-server-name) section.
 
-9.	Build the two class libraries and fix any compiler errors.
+9.	Rebuild the whole solution with all its class libraries and fix any compiler errors.
 
 > **Good Practice**: We have provided optional arguments for the `AddNorthwindContext` method so that we can override the hardcoded SQLite database filename path or the SQL Server database connection string. This will allow us more flexibility, for example, to load these values from a configuration file.
