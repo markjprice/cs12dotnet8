@@ -1,5 +1,7 @@
 ﻿using System.Xml; // To use XmlDocument.
 
+#region Storing any type of object
+
 object height = 1.88; // Storing a double in an object.
 object name = "Amir"; // Storing a string in an object.
 Console.WriteLine($"{name} is {height} metres tall.");
@@ -7,6 +9,8 @@ Console.WriteLine($"{name} is {height} metres tall.");
 //int length1 = name.Length; // This gives a compile error!
 int length2 = ((string)name).Length; // Tell compiler it is a string.
 Console.WriteLine($"{name} has {length2} characters.");
+
+#endregion
 
 #region Storing dynamic types.
 
@@ -32,12 +36,18 @@ Console.WriteLine($"something is an {something.GetType()}");
 
 #endregion
 
+#region Specifying the type of a local variable
+
 var population = 67_000_000; // 67 million in UK.
 var weight = 1.88; // in kilograms.
 var price = 4.99M; // in pounds sterling.
 var fruit = "Apples"; // string values use double-quotes.
 var letter = 'Z'; // char values use single-quotes.
 var happy = true; // Booleans can only be true or false.
+
+#endregion
+
+#region Inferring the type of a local variable
 
 // Good use of var because it avoids the repeated type
 // as shown in the more verbose second statement.
@@ -50,7 +60,9 @@ XmlDocument xml2 = new XmlDocument(); // Works with all C# versions.
 var file1 = File.CreateText("something1.txt");
 StreamWriter file2 = File.CreateText("something2.txt");
 
-#region Exploring default values.
+#endregion
+
+#region Getting and setting the default values for types
 
 Console.WriteLine($"default(int) = {default(int)}");
 Console.WriteLine($"default(bool) = {default(bool)}");
