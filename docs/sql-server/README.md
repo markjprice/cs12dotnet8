@@ -8,6 +8,8 @@
 - [Encrypting communication](#encrypting-communication)
 - [Defining the Northwind database context class](#defining-the-northwind-database-context-class)
 - [Scaffolding models using an existing database](#scaffolding-models-using-an-existing-database)
+- [SQL Server databases](#sql-server-databases)
+- [SQL Server objects](#sql-server-objects)
 
 # Introducing SQL Server for Windows
 
@@ -204,3 +206,21 @@ For SQL Server, change the database provider and connection string, as shown in 
 ```
 dotnet ef dbcontext scaffold "Data Source=.;Initial Catalog=Northwind;Integrated Security=true;Encrypt=true;TrustServerCertificate=true;" Microsoft.EntityFrameworkCore.SqlServer --table Categories --table Products --output-dir AutoGenModels --namespace WorkingWithEFCore.AutoGen --data-annotations --context NorthwindDb
 ```
+
+# SQL Server databases
+
+When you work with SQL Server it can be useful to know that as well as a **user database** like `Northwind`, there are **system databases** like `master`. Never delete a system database! A fresh SQL Server installation will have four system databases created, as shown in the following list:
+
+- `master`: This system database contains meta data about all the other databases. Avoid adding your own objects to this database.
+- `msdb`: This system database contains.
+- `model`: This system database is a template for new user databases. If you add objects to the `model` and then create a new database, it will have all the same objects in it.
+- `tempdb`: This system database is reset automatically on restart. You can create objects in it knowing they will disappear eventually.
+
+# SQL Server objects
+
+Objects in SQL Server have up to four parts to their unique address: `<server>.<database>.<schema>.<object>`. Like a folder structure, how much of this address is needed to identify an object depends on context. If you are in a database, then you only need `<schema>.<object>`.
+
+- `<server>`: The name or IP address including port number of the computer server. Use `.` or `localhost` or `127.0.0.1` for the local computer. Use a remote computer's network name or address. Azure SQL Edge will be listening on port `1433` using TCP by default, so to connect to it in Docker on your local computer would be `tcp:127.0.0.1,1433`.
+- `<database`: The name of a database. For example, a system database like `master` or `tempdb`, or a user database like `Northwind`.
+- `<schema`: The name of a schema. Historically, this used to be the name of a user who owns a set of objects. The default user was named `dbo` meaning **database owner**. But Microsoft changed the definition to schema and kept that legacy name. If you do not specify a schema when you create a new object in a database then it will put it in the `dbo` schema by default. You can define your own schemas with whatever name you want. They are a bit like a namespace in C#.
+- `<object>`: The name of an object. For example, the `Customers` table or the `GetExpensiveProducts` stored procedure. Database tools group objects by type but they are not identified by type in their address. Therefore you cannot have a table and stored procedure or any other object with the same name.
