@@ -3,6 +3,8 @@
 - [Chapter 10 - Working with Data Using Entity Framework Core](#chapter-10---working-with-data-using-entity-framework-core)
   - [Introducing SQL Server for Windows](#introducing-sql-server-for-windows)
   - [Downloading and installing SQL Server](#downloading-and-installing-sql-server)
+  - [SQL Server databases](#sql-server-databases)
+  - [SQL Server objects](#sql-server-objects)
   - [Creating the Northwind sample database for SQL Server](#creating-the-northwind-sample-database-for-sql-server)
   - [Managing the Northwind sample database with Server Explorer](#managing-the-northwind-sample-database-with-server-explorer)
   - [Connecting to a SQL Server database](#connecting-to-a-sql-server-database)
@@ -10,8 +12,6 @@
   - [Encrypting communication](#encrypting-communication)
   - [Defining the Northwind database context class](#defining-the-northwind-database-context-class)
   - [Scaffolding models using an existing database](#scaffolding-models-using-an-existing-database)
-  - [SQL Server databases](#sql-server-databases)
-  - [SQL Server objects](#sql-server-objects)
 - [Chapter 12 - Introducing Web Development Using ASP.NET Core](#chapter-12---introducing-web-development-using-aspnet-core)
   - [Creating a class library for entity models using SQL Server](#creating-a-class-library-for-entity-models-using-sql-server)
   - [Creating a class library for a database context using SQL Server](#creating-a-class-library-for-a-database-context-using-sql-server)
@@ -56,6 +56,28 @@ https://www.microsoft.com/en-us/sql-server/sql-server-downloads
 17.	In the browser window, click to download the latest version of SSMS.
 18.	Run the installer and click **Install**.
 19.	When the installer has finished, click **Restart** if needed or **Close**.
+
+## SQL Server databases
+
+When you work with SQL Server it can be useful to know that as well as a **user database** like `Northwind`, there are **system databases** like `master`. Never delete a system database! A fresh SQL Server installation will have four system databases created, as shown in the following list:
+
+- `master`: This system database contains meta data about all the other databases. Avoid adding your own objects to this database.
+- `model`: This system database is a template for new user databases. If you add objects to the `model` and then create a new database, it will have all the same objects in it.
+- `msdb`: This system database contains data used by **SQL Server Agent** for jobs and alerts.
+- `tempdb`: This system database is reset automatically on restart. You can create objects like tables in it knowing they will be dropped automatically when you disconnect.
+
+> **More Information**: You can learn more about system databases at the following link: https://learn.microsoft.com/en-us/sql/relational-databases/databases/system-databases.
+
+## SQL Server objects
+
+Objects in SQL Server have up to four parts to their unique address: `<server>.<database>.<schema>.<object>`. Like a folder structure, how much of this address is needed to identify an object depends on context. If you are in a database, then you only need `<schema>.<object>`.
+
+- `<server>`: The name or IP address including port number of the computer server. Use `.` or `localhost` or `127.0.0.1` for the local computer. Use a remote computer's network name or address. Azure SQL Edge will be listening on port `1433` using TCP by default, so to connect to it in Docker on your local computer would be `tcp:127.0.0.1,1433`.
+- `<database>`: The name of a database. For example, a system database like `master` or `tempdb`, or a user database like `Northwind`.
+- `<schema>`: The name of a schema. Historically, this used to be the name of a user who owns a set of objects. The default user was named `dbo` meaning **database owner**. But Microsoft changed the definition to schema and kept that legacy name. If you do not specify a schema when you create a new object in a database then it will put it in the `dbo` schema by default. You can define your own schemas with whatever name you want so they are a bit like a namespace in C#.
+- `<object>`: The name of an object. For example, the `Customers` table or the `GetExpensiveProducts` stored procedure. Database tools group objects by type but they are not identified by type in their address. Therefore you cannot have a table and stored procedure or any other object with the same name.
+
+> **More Information**: You can learn more about database identifiers at the following link: https://learn.microsoft.com/en-us/sql/relational-databases/databases/database-identifiers.
 
 ## Creating the Northwind sample database for SQL Server
 
@@ -198,6 +220,8 @@ public class NorthwindDb : DbContext
 }
 ```
 
+> The `Data Source` can have many different values, as shown in the [Data source aka server name](#data-source-aka-server-name) section.
+
 5.	In `Program.cs`, delete the existing statements and then import the `Packt.Shared` namespace and output the database provider, as shown in the following code:
 ```cs
 using Northwind.EntityModels; // To use NorthwindDb.
@@ -219,27 +243,7 @@ For SQL Server, change the database provider and connection string, as shown in 
 dotnet ef dbcontext scaffold "Data Source=.;Initial Catalog=Northwind;Integrated Security=true;Encrypt=true;TrustServerCertificate=true;" Microsoft.EntityFrameworkCore.SqlServer --table Categories --table Products --output-dir AutoGenModels --namespace WorkingWithEFCore.AutoGen --data-annotations --context NorthwindDb
 ```
 
-## SQL Server databases
-
-When you work with SQL Server it can be useful to know that as well as a **user database** like `Northwind`, there are **system databases** like `master`. Never delete a system database! A fresh SQL Server installation will have four system databases created, as shown in the following list:
-
-- `master`: This system database contains meta data about all the other databases. Avoid adding your own objects to this database.
-- `model`: This system database is a template for new user databases. If you add objects to the `model` and then create a new database, it will have all the same objects in it.
-- `msdb`: This system database contains data used by **SQL Server Agent** for jobs and alerts.
-- `tempdb`: This system database is reset automatically on restart. You can create objects like tables in it knowing they will be dropped automatically when you disconnect.
-
-> **More Information**: You can learn more about system databases at the following link: https://learn.microsoft.com/en-us/sql/relational-databases/databases/system-databases.
-
-## SQL Server objects
-
-Objects in SQL Server have up to four parts to their unique address: `<server>.<database>.<schema>.<object>`. Like a folder structure, how much of this address is needed to identify an object depends on context. If you are in a database, then you only need `<schema>.<object>`.
-
-- `<server>`: The name or IP address including port number of the computer server. Use `.` or `localhost` or `127.0.0.1` for the local computer. Use a remote computer's network name or address. Azure SQL Edge will be listening on port `1433` using TCP by default, so to connect to it in Docker on your local computer would be `tcp:127.0.0.1,1433`.
-- `<database>`: The name of a database. For example, a system database like `master` or `tempdb`, or a user database like `Northwind`.
-- `<schema>`: The name of a schema. Historically, this used to be the name of a user who owns a set of objects. The default user was named `dbo` meaning **database owner**. But Microsoft changed the definition to schema and kept that legacy name. If you do not specify a schema when you create a new object in a database then it will put it in the `dbo` schema by default. You can define your own schemas with whatever name you want so they are a bit like a namespace in C#.
-- `<object>`: The name of an object. For example, the `Customers` table or the `GetExpensiveProducts` stored procedure. Database tools group objects by type but they are not identified by type in their address. Therefore you cannot have a table and stored procedure or any other object with the same name.
-
-> **More Information**: You can learn more about database identifiers at the following link: https://learn.microsoft.com/en-us/sql/relational-databases/databases/database-identifiers.
+> The `Data Source` can have many different values, as shown in the [Data source aka server name](#data-source-aka-server-name) section.
 
 # Chapter 12 - Introducing Web Development Using ASP.NET Core
 
@@ -283,6 +287,14 @@ Note the following:
 
 > The `Data Source` can have many different values, as shown in the [Data source aka server name](#data-source-aka-server-name) section.
 
+6.  Note the results, as shown in the following otput:
+```
+Build started...
+Build succeeded.
+To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+The column 'dbo.Products.Discontinued' would normally be mapped to a non-nullable bool property, but it has a default constraint. Such a column is mapped to a nullable bool property to allow a difference between setting the property to false and invoking the default constraint. See https://go.microsoft.com/fwlink/?linkid=851278 for details.
+```
+
 6.	In `Customer.cs`, add a regular expression to validate its primary key value to only allow uppercase Western characters, as shown in the following code:
 ```cs
 [Key]
@@ -291,7 +303,7 @@ Note the following:
 public string CustomerId { get; set; } = null!;
 ```
 
-7.	In `Customer.cs`, make the `CustomerId` and `CompanyName` properties required.
+7.	In `Customer.cs`, make the `CustomerId` and `CompanyName` properties required by decorating them with the `[Required]` attribute.
 8.	In `Customer.cs`, add an attribute to validate and render the `Phone` property as a telephone number, as shown in the following code:
 ```cs
 [Phone]
@@ -309,8 +321,12 @@ You will now define a database context class library:
     - Project file and folder: `Northwind.DataContext.SqlServer`
     - Solution file and folder: `PracticalApps`
 
-2.	In the `Northwind.DataContext.SqlServer` project, add a project reference to the `Northwind.EntityModels.SqlServer` project, and add package references for the EF Core database provider and the ADO.NET database provider for SQL Server, as shown in the following markup:
+2.	In the `Northwind.DataContext.SqlServer` project, statically and globally import the `Console` class, add a project reference to the `Northwind.EntityModels.SqlServer` project, and add package references for the EF Core database provider and the ADO.NET database provider for SQL Server, as shown in the following markup:
 ```xml
+<ItemGroup>
+  <Using Include="System.Console" Static="true" />
+</ItemGroup>
+
 <ItemGroup>
   <PackageReference 
     Include="Microsoft.Data.SqlClient" Version="5.1.1" />
@@ -410,6 +426,8 @@ public static class NorthwindContextExtensions
   }
 }
 ```
+
+> The `Data Source` can have many different values, as shown in the [Data source aka server name](#data-source-aka-server-name) section.
 
 9.	Build the two class libraries and fix any compiler errors.
 
