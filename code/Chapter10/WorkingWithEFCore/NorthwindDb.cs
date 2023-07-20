@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore; // To use DbContext and so on.
+
+// To use RelationalEventId.
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace Northwind.EntityModels;

@@ -26,4 +26,8 @@
     <PackageReference Version="8.0-*" Include="Microsoft.EntityFrameworkCore.Proxies" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Northwind.EntityModels\Northwind.EntityModels.csproj" />
+  </ItemGroup>
+
 </Project>
