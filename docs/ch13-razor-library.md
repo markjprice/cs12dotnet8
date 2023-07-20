@@ -5,6 +5,8 @@
 - [Creating a Razor class library](#creating-a-razor-class-library)
 - [Implementing a partial view to show a single employee](#implementing-a-partial-view-to-show-a-single-employee)
 - [Implementing a Razor Page to show all employees](#implementing-a-razor-page-to-show-all-employees)
+- [Implementing a Razor Page to show all employees](#implementing-a-razor-page-to-show-all-employees-1)
+- [Using and testing a Razor class library](#using-and-testing-a-razor-class-library)
 
 # Introducing Razor class libraries
 
@@ -100,16 +102,23 @@ While reviewing the preceding markup, note the following:
 
 Next, we tell the Razor Pages in this class library to use the same shared layout as any in the main project:
 
-1.	In the PacktFeatures folder, in the Pages subfolder, add a new file named _ViewStart.cshtml. (The Visual Studio item template is named Razor View Start. Or just copy it from the Northwind.Web project.)
-2.	If you are using Visual Studio Code, modify its content to inform this class library that any Razor Pages should look for a layout with the same name as used in the Northwind.Web project, as shown in the following markup:
+1.	In the `PacktFeatures` folder, in the `Pages` subfolder, add a new file named `_ViewStart.cshtml`. (The Visual Studio item template is named **Razor View Start**. Or just copy it from the `Northwind.Web` project.)
+2.	If you are using Visual Studio Code, modify its content to inform this class library that any Razor Pages should look for a layout with the same name as used in the `Northwind.Web` project, as shown in the following markup:
+```cs
 @{
   Layout = "_Layout";
 }
-We do not need to create the _Layout.cshtml file in this class library project. It will use the one in its host project, for example, the one in the Northwind.Web project.
-Implementing a Razor Page to show all employees
+```
+
+> We do not need to create the `_Layout.cshtml` file in this class library project. It will use the one in its host project, for example, the one in the `Northwind.Web` project.
+
+# Implementing a Razor Page to show all employees
+
 Finally, we create a Razor Page to show a list of all employees using the partial view to render individual employee entities:
-1.	In the Pages subfolder, rename Page1.cshtml to EmployeesList.cshtml, and, if the code-behind file is not automatically renamed, then manually rename Page1.cshtml.cs to EmployeesList.cshtml.cs.
-2.	In EmployeesList.cshtml.cs, define a page model with an array of Employee entity instances loaded from the Northwind database, as shown in the following code:
+
+1.	In the `Pages` subfolder, rename `Page1.cshtml` to `EmployeesList.cshtml`, and, if the code-behind file is not automatically renamed, then manually rename `Page1.cshtml.cs` to `EmployeesList.cshtml.cs`.
+2.	In `EmployeesList.cshtml.cs`, define a page model with an array of `Employee` entity instances loaded from the Northwind database, as shown in the following code:
+```cs
 using Microsoft.AspNetCore.Mvc.RazorPages; // To use PageModel.
 using Northwind.EntityModels; // To use Employee, NorthwindContext.
 
@@ -134,7 +143,9 @@ public class EmployeesListPageModel : PageModel
       .ThenBy(e => e.FirstName).ToArray();
   }
 }
-3.	In EmployeesList.cshtml, add markup to render all of the employees in the page model using a partial view named _Employee, as shown in the following markup:
+```
+3.	In `EmployeesList.cshtml`, add markup to render all of the employees in the page model using a partial view named `_Employee`, as shown in the following markup:
+```html
 @page
 @using Northwind.EntityModels
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers 
@@ -151,22 +162,32 @@ public class EmployeesListPageModel : PageModel
   </div>
 }
 </div>
+```
+
 While reviewing the preceding markup, note the following:
-•	We import the Northwind.EntityModels namespace so that we can use classes in it such as Employee.
-•	We add support for tag helpers so that we can use the <partial> element.
-•	We declare the @model type for this Razor Page to use the page model class that you just defined.
-•	We enumerate through the Employees in the model, outputting each one using a partial view.
-Using and testing a Razor class library
+- We import the `Northwind.EntityModels` namespace so that we can use classes in it such as Employee.
+- We add support for tag helpers so that we can use the `<partial>` element.
+- We declare the `@model` type for this Razor Page to use the page model class that you just defined.
+- We enumerate through the `Employees` in the model, outputting each one using a partial view.
+
+# Using and testing a Razor class library
+
 You will now reference and use the Razor class library in the website project:
-1.	In the Northwind.Web project, add a project reference to the Northwind.Razor.Employees project, as shown in the following markup:
+
+1.	In the `Northwind.Web` project, add a project reference to the `Northwind.Razor.Employees` project, as shown in the following markup:
+```xml
 <ProjectReference Include=
   "..\Northwind.Razor.Employees\Northwind.Razor.Employees.csproj" />
-2.	In Pages\index.cshtml, add a paragraph with a link to the Packt feature employees list page after the link to the suppliers page, as shown in the following markup:
+```
+2.	In `Pages\index.cshtml`, add a paragraph with a link to the Packt feature employees list page after the link to the suppliers page, as shown in the following markup:
+```xml
 <p>
   <a class="btn btn-primary" href="packtfeatures/employeeslist">
     Contact our employees
   </a>
 </p>
-3.	Start the website, visit the website using Chrome, and click the Contact our employees button to see the cards of employees, as shown in Figure 13.10:
+```
+3.	Start the website, visit the website using Chrome, and click the **Contact our employees** button to see the cards of employees, as shown in *Figure 13A.3*:
  
-Figure 13.10: A list of employees from a Razor class library feature
+![](assets/B19586_13A_03.png)
+*Figure 13A.3: A list of employees from a Razor class library feature*
