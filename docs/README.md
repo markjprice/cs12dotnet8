@@ -22,6 +22,26 @@
 
 - [Working with Tar archives](ch09-tar-archives.md)
 
+# Chapter 10 Online-only sections
+
+- [Working with transactions](ch10-transactions.md)
+- [Code First EF Core models](ch10-code-first.md)
+
+# Chapter 11 Online-only sections
+
+- [Using multiple threads with parallel LINQ](ch11-plinq.md)
+- [Working with LINQ to XML](ch11-linq-to-xml.md)
+- [Creating your own LINQ extension methods](ch11-custom-linq-methods.md)
+
+# Chapter 13 Online-only sections
+
+- [Using Razor class libraries](ch13-razor-library.md)
+- [Enabling HTTP/3 and request decompression support](ch13-enabling-http3.md)
+
+# Chapter 15 Online-only sections
+
+- [Exercise 15.2 – Practice creating and deleting customers with HttpClient](ch15-exercise-2.md)
+
 # Errata and Improvements
 
 If you find any mistakes in the eighth edition, *C# 12 and .NET 8 - Modern Cross-Platform Development Fundamentals*, or if you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.

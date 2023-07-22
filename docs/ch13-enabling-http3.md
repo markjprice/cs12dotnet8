@@ -2,6 +2,7 @@
 
 - [Introducing HTTP/3](#introducing-http3)
 - [Enabling HTTP/3 support](#enabling-http3-support)
+- [Testing is HTTP/3 is enabled](#testing-is-http3-is-enabled)
 - [Introducing request decompression](#introducing-request-decompression)
 - [Enabling request decompression support](#enabling-request-decompression-support)
 
@@ -19,7 +20,9 @@ HTTP/3 brings benefits to all internet-connected apps, but especially mobile, be
 - Windows 11 and Windows Server 2022.
 - Linux; you can install QUIC support using sudo apt install libmsquic.
 
-If you have one of the supported operating systems listed above, let's enable HTTP/3 support in the `Northwind.Web` project; otherwise, skip ahead to the next section:
+.NET 8 enables HTTP/3 by default so you do not need to enable it yourself. You can skip ahead to the next section where you will see how to test that HTTP/3 is enabled.
+
+If you have one of the supported operating systems listed above, and you are using .NET 7 or earlier, let's enable HTTP/3 support in the `Northwind.Web` project:
 
 1.	In `Program.cs`, import the namespace for working with HTTP protocols, as shown in the following code:
 ```cs
@@ -39,7 +42,9 @@ builder.WebHost.ConfigureKestrel((context, options) =>
 
 > **Good Practice**: You should not just enable HTTP/3 since about 25% of browsers still do not support it or even HTTP/2.
 
-3.	In `appSettings.json`, add an entry to show hosting diagnostics, as shown highlighted in the following configuration:
+# Testing is HTTP/3 is enabled
+
+1.	In `appSettings.json`, add an entry to show hosting diagnostics, as shown highlighted in the following configuration:
 ```json
 {
   "Logging": {
@@ -49,14 +54,14 @@ builder.WebHost.ConfigureKestrel((context, options) =>
       "Microsoft.AspNetCore.Hosting.Diagnostics": "Information"
     }
 ```
-4.	Start the website.
-5.	In Chrome, view Developer tools and select the **Network** tab.
-6.	Navigate to https://localhost:5131/, and note the **Response Headers** include an entry for `alt-svc` with a value of `h3` indicating HTTP/3 support, as shown in *Figure 13B.1*:
+2.	Start the website.
+3.	In Chrome, view Developer tools and select the **Network** tab.
+4.	Navigate to https://localhost:5131/, and note the **Response Headers** include an entry for `alt-svc` with a value of `h3` indicating HTTP/3 support, as shown in *Figure 13B.1*:
 
-![](assets/B19586_13B_01.png) 
+![Chrome showing support for HTTP/3](assets/B19586_13B_01.png) 
 *Figure 13B.1: Chrome showing support for HTTP/3*
 
-7.	In the console or terminal output, note the hosting diagnostics logs, as shown in the following output:
+5.	In the console or terminal output, note the hosting diagnostics logs, as shown in the following output:
 ```
 info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
       Request starting HTTP/3 GET https://localhost:5131/ - -
@@ -65,7 +70,7 @@ info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
 warn: Microsoft.AspNetCore.Server.Kestrel[41]
       One or more of the following response headers have been removed because they are invalid for HTTP/2 and HTTP/3 responses: 'Connection', 'Transfer-Encoding', 'Keep-Alive', 'Upgrade' and 'Proxy-Connection'.
 ```
-8.	Close Chrome and shut down the web server.
+6.	Close Chrome and shut down the web server.
 
 You can learn more about .NET support for HTTP/3 at the following links:
 - HTTP/3 support in .NET: https://devblogs.microsoft.com/dotnet/http-3-support-in-dotnet-6/.
