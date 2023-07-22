@@ -32,11 +32,11 @@ All of my books on Packt's website: https://subscription.packtpub.com/search?que
 - Chapter 11 Querying and Manipulating Data Using LINQ: [code/Chapter11](code/Chapter11)
 
 **ASP.NET Core web development**
-- Chapter 12 Introducing Web Development Using ASP.NET Core: [code/Chapter12](code/Chapter12)
-- Chapter 13 Building Websites Using ASP.NET Core Razor Pages: [code/Chapter13](code/Chapter13)
-- Chapter 14 Building Websites Using the Model-View-Controller Pattern: [code/Chapter14](code/Chapter14)
-- Chapter 15 Building and Consuming Web Services: [code/Chapter15](code/Chapter15)
-- Chapter 16 Building User Interface Components Using Blazor: [code/Chapter16](code/Chapter16)
+- Chapter 12 Introducing Web Development Using ASP.NET Core: [code/Chapter12](code/PracticalApps)
+- Chapter 13 Building Websites Using ASP.NET Core Razor Pages: [code/Chapter13](code/PracticalApps/Northwind.Web)
+- Chapter 14 Building Websites Using the Model-View-Controller Pattern: [code/Chapter14](code/PracticalApps/Northwind.Mvc)
+- Chapter 15 Building and Consuming Web Services: [code/Chapter15](code/PracticalApps/Northwind.WebApi)
+- Chapter 16 Building User Interface Components Using Blazor: [code/Chapter16](code/PracticalApps/Northwind.Blazor)
 
 ## Code solutions for Visual Studio 2022 and Visual Studio Code
 
