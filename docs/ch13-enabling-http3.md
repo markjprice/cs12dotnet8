@@ -2,7 +2,7 @@
 
 - [Introducing HTTP/3](#introducing-http3)
 - [Enabling HTTP/3 support](#enabling-http3-support)
-- [Testing is HTTP/3 is enabled](#testing-is-http3-is-enabled)
+- [Testing if HTTP/3 is enabled](#testing-if-http3-is-enabled)
 - [Introducing request decompression](#introducing-request-decompression)
 - [Enabling request decompression support](#enabling-request-decompression-support)
 
@@ -10,17 +10,19 @@
 
 **HTTP/3** uses the same request methods, like `GET` and `POST`, the same status codes, like `200` and `404`, and the same headers, but encodes them and maintains session state differently because it runs over QUIC rather than the older and less efficient Transmission Control Protocol (TCP).
 
-At the time of writing, HTTP/3 is supported by about 75% of actively used web browsers, including Chromium-based browsers like Chrome, Edge, and Opera. It is also supported by Firefox and Safari on macOS and iOS (although it is disabled by default).
+At the time of writing in July 2023, HTTP/3 is supported by about 95% of tracked browsers and 26% of the top 10 million websites. Chromium-based browsers like Chrome, Edge, and Opera since 2020. It is more recently supported by Firefox and Safari on macOS and iOS (although it is disabled by default).
+
+> **More Information**: Usage statistics of HTTP/3 for websites: https://w3techs.com/technologies/details/ce-http3 and Can I use HTTP/3? https://caniuse.com/?search=HTTP%2F3.
 
 HTTP/3 brings benefits to all internet-connected apps, but especially mobile, because it supports connection migration using UDP with TLS built in, so the device does not need to reconnect when moving between WiFi and cellular networks. Each frame of data is encrypted separately so it no longer has the head-of-line blocking problem in HTTP/2 that happens if a TCP packet is lost and therefore all the streams are blocked until the data can be recovered.
 
 # Enabling HTTP/3 support
 
+.NET 8 enables HTTP/3 by default so you do not need to enable it yourself. You can skip ahead to the next section where you will see how to test that HTTP/3 is enabled.
+
 .NET 6 supported HTTP/3 as a preview feature for both clients and servers. .NET 7 delivered final full support for the following operating systems:
 - Windows 11 and Windows Server 2022.
 - Linux; you can install QUIC support using sudo apt install libmsquic.
-
-.NET 8 enables HTTP/3 by default so you do not need to enable it yourself. You can skip ahead to the next section where you will see how to test that HTTP/3 is enabled.
 
 If you have one of the supported operating systems listed above, and you are using .NET 7 or earlier, let's enable HTTP/3 support in the `Northwind.Web` project:
 
@@ -40,21 +42,24 @@ builder.WebHost.ConfigureKestrel((context, options) =>
 });
 ```
 
-> **Good Practice**: You should not just enable HTTP/3 since about 25% of browsers still do not support it or even HTTP/2.
+> **Good Practice**: You should enable more than just HTTP/3 since some browsers still do not support it or even HTTP/2.
 
-# Testing is HTTP/3 is enabled
+# Testing if HTTP/3 is enabled
 
-1.	In `appSettings.json`, add an entry to show hosting diagnostics, as shown highlighted in the following configuration:
+To determine if HTTP/3 is enabled for a website project, we must set an increased level of logging:
+
+1.	In `appSettings.json`, add an entry to show hosting diagnostics, as shown in the following configuration:
 ```json
 {
   "Logging": {
     "LogLevel": {
       "Default": "Information",
       "Microsoft.AspNetCore": "Warning",
+      // Enable logging of HTTP version.
       "Microsoft.AspNetCore.Hosting.Diagnostics": "Information"
     }
 ```
-2.	Start the website.
+2.	Start the website project using the `https` launch profile.
 3.	In Chrome, view Developer tools and select the **Network** tab.
 4.	Navigate to https://localhost:5131/, and note the **Response Headers** include an entry for `alt-svc` with a value of `h3` indicating HTTP/3 support, as shown in *Figure 13B.1*:
 
