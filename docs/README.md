@@ -1,48 +1,56 @@
 **Docs**
 
-# Chapter 1 Online-only sections
+# Online-only sections
+
+## Chapter 1 Hello C#, Welcome .NET!
 
 - [.NET History](ch01-dotnet-history.md)
 - [Polyglot Notebooks](ch01-polyglot-notebooks.md)
 
-# Chapter 6 Online-only sections
+## Chapter 6 Implementing Interfaces and Inheriting Classes
 
 - [Writing Better Code](ch06-writing-better-code.md)
 
-# Chapter 7 Online-only sections
+## Chapter 7 Packaging and Distributing .NET Types
 
 - [Porting from .NET Framework to modern .NET](ch07-porting.md)
 - [Introducing source generators](ch07-source-generators.md)
 
-# Chapter 8 Online-only sections
+## Chapter 8 Working with Common .NET Types
 
 - [Working with Network Resources](ch08-network-resources.md)
 
-# Chapter 9 Online-only sections
+## Chapter 9 Working with Files, Streams, and Serialization
 
 - [Working with Tar archives](ch09-tar-archives.md)
 
-# Chapter 10 Online-only sections
+## Chapter 10 Working with Data Using Entity Framework Core
 
 - [Working with transactions](ch10-transactions.md)
 - [Code First EF Core models](ch10-code-first.md)
 
-# Chapter 11 Online-only sections
+## Chapter 11 Querying and Manipulating Data Using LINQ
 
 - [Using multiple threads with parallel LINQ](ch11-plinq.md)
 - [Working with LINQ to XML](ch11-linq-to-xml.md)
 - [Creating your own LINQ extension methods](ch11-custom-linq-methods.md)
 
-# Chapter 13 Online-only sections
+## Chapter 13 Building Websites Using ASP.NET Core Razor Pages
 
 - [Using Razor class libraries](ch13-razor-library.md)
 - [Enabling HTTP/3 and request decompression support](ch13-enabling-http3.md)
 
-# Chapter 15 Online-only sections
+## Chapter 14 Building Websites Using the Model-View-Controller Pattern
 
+- [Output caching](ch14-output-caching.md)
+
+## Chapter 15 Building and Consuming Web Services
+
+- [Implementing advanced features for web services](ch15-advanced.md)
+- [Building web services using Minimal APIs](ch15-minimal-apis.md)
 - [Exercise 15.2 – Practice creating and deleting customers with HttpClient](ch15-exercise-2.md)
 
-# Errata and Improvements
+# Errata, Improvements, and Common Mistakes
 
 If you find any mistakes in the eighth edition, *C# 12 and .NET 8 - Modern Cross-Platform Development Fundamentals*, or if you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -54,7 +62,7 @@ If you find any mistakes in the eighth edition, *C# 12 and .NET 8 - Modern Cross
 
 All errata and improvements will be included in the 9th edition planned for publishing in November 2024. To be included they must be submitted by mid-September 2024.
 
-# Other
+# Miscellaneous
 
 [**Book Links**](book-links.md): All links in the published book.
 
