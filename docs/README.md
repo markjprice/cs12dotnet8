@@ -1,5 +1,21 @@
 **Docs**
 
+This documentation section of the repository contains links to all the optional online-only sections for the book as well as other content that readers will find useful.
+
+- [Online-only sections](#online-only-sections)
+  - [Chapter 1 Hello C#, Welcome .NET!](#chapter-1-hello-c-welcome-net)
+  - [Chapter 6 Implementing Interfaces and Inheriting Classes](#chapter-6-implementing-interfaces-and-inheriting-classes)
+  - [Chapter 7 Packaging and Distributing .NET Types](#chapter-7-packaging-and-distributing-net-types)
+  - [Chapter 8 Working with Common .NET Types](#chapter-8-working-with-common-net-types)
+  - [Chapter 9 Working with Files, Streams, and Serialization](#chapter-9-working-with-files-streams-and-serialization)
+  - [Chapter 10 Working with Data Using Entity Framework Core](#chapter-10-working-with-data-using-entity-framework-core)
+  - [Chapter 11 Querying and Manipulating Data Using LINQ](#chapter-11-querying-and-manipulating-data-using-linq)
+  - [Chapter 13 Building Websites Using ASP.NET Core Razor Pages](#chapter-13-building-websites-using-aspnet-core-razor-pages)
+  - [Chapter 14 Building Websites Using the Model-View-Controller Pattern](#chapter-14-building-websites-using-the-model-view-controller-pattern)
+  - [Chapter 15 Building and Consuming Web Services](#chapter-15-building-and-consuming-web-services)
+- [Errata, Improvements, and Common Mistakes](#errata-improvements-and-common-mistakes)
+- [Miscellaneous](#miscellaneous)
+
 # Online-only sections
 
 ## Chapter 1 Hello C#, Welcome .NET!
