@@ -1,0 +1,106 @@
+﻿@using Northwind.EntityModels
+@model HomeIndexViewModel
+@{
+  ViewData["Title"] = "Home Page";
+  string currentItem = "";
+}
+
+<div class="text-center">
+  <h1 class="display-4">Welcome</h1>
+  <p class="alert alert-primary">@DateTime.Now.ToLongTimeString()</p>
+  <p><a asp-action="ModelBinding" asp-controller="Home">Binding</a></p>
+  <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+@if (Model is not null)
+{
+  <div id="categories" class="carousel slide" data-bs-ride="carousel"
+       data-bs-interval="3000" data-keyboard="true">
+    <ol class="carousel-indicators">
+      @for (int c = 0; c < Model.Categories.Count; c++)
+      {
+        if (c == 0)
+        {
+          currentItem = "active";
+        }
+        else
+        {
+          currentItem = "";
+        }
+        <li data-bs-target="#categories" data-bs-slide-to="@c"
+            class="@currentItem"></li>
+      }
+    </ol>
+
+    <div class="carousel-inner">
+      @for (int c = 0; c < Model.Categories.Count; c++)
+      {
+        if (c == 0)
+        {
+          currentItem = "active";
+        }
+        else
+        {
+          currentItem = "";
+        }
+        <div class="carousel-item @currentItem">
+          <img class="d-block w-100" src="~/images/category@(Model.Categories[c].CategoryId).jpeg"
+               alt="@Model.Categories[c].CategoryName" />
+          <div class="carousel-caption d-none d-md-block">
+            <h2>@Model.Categories[c].CategoryName</h2>
+            <h3>@Model.Categories[c].Description</h3>
+            <p>
+              <a class="btn btn-primary" href="/home/categorydetail/
+@Model.Categories[c].CategoryId">View</a>
+            </p>
+          </div>
+        </div>
+      }
+    </div>
+    <a class="carousel-control-prev" href="#categories"
+       role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"
+            aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#categories"
+       role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+}
+
+<div class="row">
+  <div class="col-md-12">
+    <h1>Northwind</h1>
+    <p class="lead">
+      We have had @Model?.VisitorCount visitors this month.
+    </p>
+    <h3>Query products by price</h3>
+    <form asp-action="ProductsThatCostMoreThan" method="GET">
+      <input name="price" placeholder="Enter a product price" />
+      <input type="submit" />
+    </form>
+    @if (Model is not null)
+    {
+      <h2>Products</h2>
+      <div id="product-columns">
+        <ul class="list-group">
+          @foreach (Product p in @Model.Products)
+          {
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+              <a asp-controller="Home" asp-action="ProductDetail"
+                 asp-route-id="@p.ProductId" class="btn btn-outline-primary">
+                <div class="ms-2 me-auto">@p.ProductName</div>
+                <span class="badge bg-primary rounded-pill">
+                  @(p.UnitPrice is null ? "zero" : p.UnitPrice.Value.ToString("C"))
+                </span>
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+    }
+  </div>
+</div>
