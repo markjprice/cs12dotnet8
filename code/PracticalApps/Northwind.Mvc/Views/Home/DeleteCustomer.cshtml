@@ -1,0 +1,53 @@
+﻿@using Northwind.EntityModels
+@model Customer
+<h2>@ViewData["Title"]</h2>
+<!--
+  Show a readonly form of an existing customer. Postback to the action
+  method DeleteCustomer to perform the actual delete.
+-->
+<form asp-action="DeleteCustomer" method="post">
+  <div class="mb-3">
+    <label class="form-label" for="customerId">Customer ID</label>
+    <input class="form-control" id="customerId" value="@Model.CustomerId" readonly />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="companyName">Company Name</label>
+    <input class="form-control" id="companyName" value="@Model.CompanyName" readonly />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="contactName">Contact Name</label>
+    <input class="form-control" id="contactName" value="@Model.ContactName" readonly />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="address">Address</label>
+    <input class="form-control" id="address" value="@Model.Address" readonly />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="city">City</label>
+    <input class="form-control" id="city" value="@Model.City" readonly />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="region">Region</label>
+    <input class="form-control" id="region" value="@Model.Region" readonly />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="country">Country</label>
+    <input class="form-control" id="country" value="@Model.Country" readonly />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="postalCode">Postal Code</label>
+    <input class="form-control" id="postalCode" value="@Model.PostalCode" readonly />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="phone">Phone</label>
+    <input class="form-control" id="phone" value="@Model.Phone" readonly />
+  </div>
+  <div class="mb-3">
+    @Html.HiddenFor(c => c.CustomerId)
+    <input type="submit" value="Delete Customer"
+           class="btn btn-outline-danger" />
+    <a href="customers" class="btn btn-outline-secondary">
+      Cancel and return to Customers
+    </a>
+  </div>
+</form>

@@ -1,0 +1,67 @@
+﻿@using Northwind.EntityModels
+@model Customer
+
+<h2>@ViewData["Title"]</h2>
+
+<!--
+  Show an editable form with a blank customer. Postback to the action
+  method AddCustomer to perform the actual insert.
+-->
+<form asp-action="AddCustomer" method="post">
+  <div class="mb-3">
+    <label class="form-label" asp-for="CustomerId">Customer ID</label>
+    <input class="form-control" asp-for="CustomerId" />
+    <div class="form-text">
+      Customer ID must be five (5) upper case characters.
+    </div>
+    <span asp-validation-for="CustomerId" class="text-danger" />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" asp-for="CompanyName">Company Name</label>
+    <input class="form-control" asp-for="CompanyName" />
+    <span asp-validation-for="CompanyName" class="text-danger" />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" asp-for="ContactName">Contact Name</label>
+    <input class="form-control" asp-for="ContactName" />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" asp-for="Address">Address</label>
+    <input class="form-control" asp-for="Address" />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" asp-for="City">City</label>
+    <input class="form-control" asp-for="City" />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" asp-for="Region">Region</label>
+    <input class="form-control" asp-for="Region" />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" asp-for="Country">Country</label>
+    <input class="form-control" asp-for="Country" />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" asp-for="PostalCode">Postal Code</label>
+    <input class="form-control" asp-for="PostalCode" />
+  </div>
+  <div class="mb-3">
+    <label class="form-label" asp-for="Phone">Phone</label>
+    <input class="form-control" asp-for="Phone" />
+  </div>
+  <div class="mb-3">
+    <input type="submit" value="Add Customer"
+           class="btn btn-outline-primary" />
+    <a asp-controller="Home" asp-action="Customers"
+       class="btn btn-outline-secondary">
+      Cancel and return to Customers
+    </a>
+    <div asp-validation-summary="All" class="text-danger" />
+  </div>
+</form>
+
+@section Scripts {
+  @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+  }
+}

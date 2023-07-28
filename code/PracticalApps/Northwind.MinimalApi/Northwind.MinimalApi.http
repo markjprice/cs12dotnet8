@@ -1,0 +1,11 @@
+@Northwind.MinimalApi_HostAddress = http://localhost:5279
+
+GET {{Northwind.MinimalApi_HostAddress}}/todos/
+Accept: application/json
+
+###
+
+GET {{Northwind.MinimalApi_HostAddress}}/todos/1
+Accept: application/json
+
+###
