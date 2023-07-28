@@ -3,7 +3,7 @@
 In this exercise, you are tasked to "extend the `Northwind.Mvc` website project to have pages where a visitor can fill in a form to create a new customer, or search for a customer and then delete them. The MVC controller should make calls to the Northwind web service to create and delete customers." 
 
 - [At the top of the Customers.cshtml Razor view](#at-the-top-of-the-customerscshtml-razor-view)
-- [In the table of customers, a blank header and a new column for delete buttons](#in-the-table-of-customers-a-blank-header-and-a-new-column-for-delete-buttons)
+- [In the table of customers](#in-the-table-of-customers)
   - [Table of customers with add and delete buttons](#table-of-customers-with-add-and-delete-buttons)
 - [AddCustomer.cshtml Razor view](#addcustomercshtml-razor-view)
   - [Adding a customer, top of form](#adding-a-customer-top-of-form)
@@ -31,11 +31,15 @@ The project already has a page to show customers, either all of them or only tho
    class="btn btn-outline-primary">Add Customer</a>
 ```
 
-# In the table of customers, a blank header and a new column for delete buttons
+# In the table of customers
+
+Add a blank header column to the table:
 
 ```html
 <th></th>
 ```
+
+Add a new column to show the delete buttons:
 
 ```html
 <td>
@@ -74,7 +78,7 @@ public IActionResult AddCustomer()
 [HttpPost]
 public async Task<IActionResult> AddCustomer(Customer customer)
 {
-  HttpClient client = clientFactory.CreateClient(
+  HttpClient client = _clientFactory.CreateClient(
     name: "Northwind.WebApi");
 
   HttpResponseMessage response = await client.PostAsJsonAsync(
@@ -101,7 +105,7 @@ public async Task<IActionResult> AddCustomer(Customer customer)
 // GET /Home/DeleteCustomer/{customerId}
 public async Task<IActionResult> DeleteCustomer(string customerId)
 {
-  HttpClient client = clientFactory.CreateClient(
+  HttpClient client = _clientFactory.CreateClient(
     name: "Northwind.WebApi");
 
   Customer? customer = await client.GetFromJsonAsync<Customer>(
@@ -120,7 +124,7 @@ public async Task<IActionResult> DeleteCustomer(string customerId)
 // due to C# not allowing duplicate method signatures.
 public async Task<IActionResult> DeleteCustomerPost(string customerId)
 {
-  HttpClient client = clientFactory.CreateClient(
+  HttpClient client = _clientFactory.CreateClient(
     name: "Northwind.WebApi");
 
   HttpResponseMessage response = await client.DeleteAsync(
@@ -143,11 +147,9 @@ public async Task<IActionResult> DeleteCustomerPost(string customerId)
 # AddCustomer.cshtml Razor view
 
 ```html
-@using Packt.Shared
+@using Northwind.EntityModels
 @model Customer
-
 <h2>@ViewData["Title"]</h2>
-
 <!--
   Show an editable form with a blank customer. Postback to the action
   method AddCustomer to perform the actual insert.
@@ -204,7 +206,6 @@ public async Task<IActionResult> DeleteCustomerPost(string customerId)
     <div asp-validation-summary="All" class="text-danger" />
   </div>
 </form>
-
 @section Scripts {
   @{
     await Html.RenderPartialAsync("_ValidationScriptsPartial");
@@ -227,10 +228,9 @@ public async Task<IActionResult> DeleteCustomerPost(string customerId)
 # DeleteCustomer.cshtml Razor view
 
 ```html
-@using Packt.Shared
+@using Northwind.EntityModels
 @model Customer
 <h2>@ViewData["Title"]</h2>
-
 <!--
   Show a readonly form of an existing customer. Postback to the action 
   method DeleteCustomer to perform the actual delete.
