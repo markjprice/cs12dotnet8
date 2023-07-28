@@ -56,7 +56,7 @@ At runtime, ASP.NET Core uses the **RequestDelegateFactory (RDF)** class to conv
 
 In ASP.NET Core 8, when native AOT is enabled, the runtime use of RDF is replaced with a source generator named **Request Delegate Generator (RDG)** that performs similar work but at compile time. This makes sure the code generated is statically analyzable by the native AOT publish process.
 
-> **More Information**: You can learn how to create your own source generator at the following link: https://github.com/markjprice/apps-services-net8/blob/main/docs/ch01-dynamic-code.md#creating-source-generators
+> **More Information**: You can learn how to create your own source generator at the following link: https://github.com/markjprice/cs12dotnet8/blob/main/docs/ch07-source-generators.md
 
 # Enabling JSON serialization using native AOT
 
@@ -141,7 +141,11 @@ Before creating a client for the service, let's test it:
 
 1.	Start the `Northwind.MinimalApi` web service project using the `http` launch profile.
 2.	If you are not using Visual Studio 2022, start Chrome and navigate to http://localhost:5152/todos.
-3.	Note the Minimal API service should return a JSON document with five random todo objects in an array.
+3.	Note the Minimal API service should return a JSON document with five random todo objects in an array, as shown in *Figure 15B.1*:
+
+![Todos returned by the Minimal APIs web service](assets/B19586_15B_01.png) 
+*Figure 15B.1: Todos returned by the Minimal APIs web service*
+
 4.	Close Chrome and shut down the web server.
 
 # Adding todos to the Northwind website home page
@@ -169,7 +173,7 @@ builder.Services.AddHttpClient(name: "Northwind.MinimalApi",
 ```cs
 try
 {
-  HttpClient client = clientFactory.CreateClient(
+  HttpClient client = _clientFactory.CreateClient(
     name: "Northwind.MinimalApi");
 
   HttpRequestMessage request = new(
@@ -188,12 +192,12 @@ catch (Exception ex)
   ViewData["todos"] = Enumerable.Empty<ToDo>().ToArray();
 }
 ```
-4.	In `Views/Home`, in `Index.cshtml`, in the top code block, get the todos from the `ViewData`` dictionary, as shown in the following markup:
+4.	In `Views/Home`, in `Index.cshtml`, in the top code block, get the todos from the `ViewData` dictionary, as shown in the following markup:
 ```cs
 @{
   ViewData["Title"] = "Home Page";
   string currentItem = "";
-  ToDo[]? weather = ViewData["todos"] as ToDo[];
+  ToDo[]? todos = ViewData["todos"] as ToDo[];
 }
 ```
 5.	In the first `<div>`, after rendering the current time, add markup to enumerate the todos unless there aren't any, and render them in a table, as shown in the following markup:
@@ -207,22 +211,35 @@ catch (Exception ex)
   else
   {
   <table class="table table-info">
-    <tr>
-      @foreach (ToDo todo in todos)
-      {
-        <td>Due on @todo.DueBy.ToString("ddd d MMM"): @todo.Title</td>
-      }
-    </tr>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Title</th>
+          <th>Due By</th>
+          <th>Is Complete?</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (ToDo todo in todos)
+        {
+        <tr>
+          <td>@todo.Id</td>
+          <td>@todo.Title</td>
+          <td>@todo.DueBy</td>
+          <td>@todo.IsComplete</td>
+        </tr>
+        }
+      </tbody>
   </table>
   }
 </p>
 ```
 6.	Start the `Northwind.MinimalApi` web service project using the `http` launch profile.
 7.	Start the `Northwind.Mvc` website project using the `https` launch profile.
-8.	Navigate to https://localhost:5151/ and note the todos, as shown in *Figure 15B.1*:
+8.	Navigate to https://localhost:5151/ and note the todos, as shown in *Figure 15B.2*:
 
-![Todos on the home page of the Northwind website](assets/B19586_15B_01.png) 
-*Figure 15B.1: Todos on the home page of the Northwind website*
+![Todos on the home page of the Northwind website](assets/B19586_15B_02.png) 
+*Figure 15B.2: Todos on the home page of the Northwind website*
 
 9.	In the command prompt or terminal for the MVC website, note the info messages that indicate a request was sent to the Minimal APIs web service `/todos` endpoint in about 83 ms, as shown in the following output:
 ```
