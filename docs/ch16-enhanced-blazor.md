@@ -2,13 +2,95 @@
 
 There are common ways to improve Blazor WebAssembly apps. We'll look at some of the most popular ones now.
 
+- [Interop with JavaScript](#interop-with-javascript)
 - [Enabling Blazor WebAssembly AOT](#enabling-blazor-webassembly-aot)
 - [Exploring Progressive Web App support](#exploring-progressive-web-app-support)
 - [Implementing offline support for PWAs](#implementing-offline-support-for-pwas)
 - [Understanding the browser compatibility analyzer for Blazor WebAssembly](#understanding-the-browser-compatibility-analyzer-for-blazor-webassembly)
-- [Interop with JavaScript](#interop-with-javascript)
 - [Enabling location change event handling](#enabling-location-change-event-handling)
 - [Libraries of Blazor components](#libraries-of-blazor-components)
+
+# Interop with JavaScript
+
+By default, Blazor components do not have access to browser capabilities like local storage, geolocation, and media capture, or any JavaScript libraries like React or Vue. If you need to interact with them, you can use **JavaScript Interop**.
+
+Let's see an example that uses the browser window's alert box and local storage that can persist up to 5 MB of data per visitor indefinitely:
+
+1.	In the `Northwind.Blazor` project, in the `wwwroot` folder, add a folder named `scripts`.
+2.	In the `scripts` folder, add a file named `interop.js`, and then modify its contents to define some functions to show an alert message, and to set and get a color in local storage, as shown in the following code:
+```js
+function messageBox(message) {
+  window.alert(message);
+}
+
+function setColorInStorage() {
+  if (typeof (Storage) !== "undefined") {
+    localStorage.setItem("color", 
+      document.getElementById("colorBox").value);
+  }
+}
+
+function getColorFromStorage() {
+  if (typeof (Storage) !== "undefined") {
+    document.getElementById("colorBox").value = 
+      localStorage.getItem("color");
+  }
+}
+```
+3.	In `App.razor`, after the script element that adds Blazor support, add a script element that references the JavaScript file that you just created, as shown in the following code:
+```html
+<script src="scripts/interop.js"></script>
+```
+4.	In the `Pages` folder, in `Index.razor`, set the render mode to server and add a button and a code block that uses the Blazor JavaScript runtime dependency service to call a JavaScript function, as shown in the following code:
+```cs
+@attribute [RenderModeServer]
+```
+```html
+<button type="button" class="btn btn-info" @onclick="AlertBrowser">
+  Poke the browser</button>
+<hr />
+<input id="colorBox" />
+<button type="button" class="btn btn-info" @onclick="SetColor">
+  Set Color</button>
+<button type="button" class="btn btn-info" @onclick="GetColor">
+  Get Color</button>
+```
+```cs
+@code {
+  [Inject]
+  public IJSRuntime JSRuntime { get; set; } = null!;
+
+  public async Task AlertBrowser()
+  {
+    await JSRuntime.InvokeVoidAsync(
+      "messageBox", "Blazor poking the browser");
+  }
+
+  public async Task SetColor()
+  {
+    await JSRuntime.InvokeVoidAsync("setColorInStorage");
+  }
+
+  public async Task GetColor()
+  {
+    await JSRuntime.InvokeVoidAsync("getColorFromStorage");
+  }
+}
+```
+5.	Start the `Northwind.Blazor` project.
+6.	Start Chrome and navigate to https://localhost:5161/.
+7.	On the home page, in the textbox, enter `red` and then click the **Set Color** button.
+8.	Show **Developer Tools**, select the **Application** tab, expand **Local Storage**, select https://localhost:5161, and note the key-value pair `color-red`, as shown in *Figure 16A.3*:
+
+![Storing a color in browser local storage using JavaScript Interop](assets/B19586_16A_03.png) 
+*Figure 16A.3: Storing a color in browser local storage using JavaScript Interop*
+
+9.	Close Chrome and shut down the web server.
+10.	Start the `Northwind.Blazor` project.
+11.	Start Chrome and navigate to https://localhost:5161/.
+12.	On the home page, click the **Get Color** button and note that the value `red` is shown in the textbox, retrieved from local storage between visitor sessions.
+13.	Click the **Poke the browser** button and note the message that appears.
+14.	Close Chrome and shut down the web server.
 
 # Enabling Blazor WebAssembly AOT
 
@@ -140,85 +222,6 @@ public void DoSomethingOutsideTheBrowserSandbox()
 ```
 
 > **Good Practice**: If you create libraries that should not be used in Blazor WebAssembly apps, then you should decorate your APIs in the same way.
-
-# Interop with JavaScript
-
-By default, Blazor components do not have access to browser capabilities like local storage, geolocation, and media capture, or any JavaScript libraries like React or Vue. If you need to interact with them, you can use **JavaScript Interop**.
-
-Let's see an example that uses the browser window's alert box and local storage that can persist up to 5 MB of data per visitor indefinitely:
-
-1.	In the `Northwind.Blazor` project, in the `wwwroot` folder, add a folder named `scripts`.
-2.	In the `scripts` folder, add a file named `interop.js`, and then modify its contents to define some functions to show an alert message, and to set and get a color in local storage, as shown in the following code:
-```js
-function messageBox(message) {
-  window.alert(message);
-}
-
-function setColorInStorage() {
-  if (typeof (Storage) !== "undefined") {
-    localStorage.setItem("color", 
-      document.getElementById("colorBox").value);
-  }
-}
-
-function getColorFromStorage() {
-  if (typeof (Storage) !== "undefined") {
-    document.getElementById("colorBox").value = 
-      localStorage.getItem("color");
-  }
-}
-```
-3.	In `App.razor`, after the script element that adds Blazor support, add a script element that references the JavaScript file that you just created, as shown in the following code:
-```html
-<script src="scripts/interop.js"></script>
-```
-4.	In the `Pages` folder, in `Index.razor`, add a button and a code block that uses the Blazor JavaScript runtime dependency service to call a JavaScript function, as shown in the following code:
-```html
-<button type="button" class="btn btn-info" @onclick="AlertBrowser">
-  Poke the browser</button>
-<hr />
-<input id="colorBox" />
-<button type="button" class="btn btn-info" @onclick="SetColor">
-  Set Color</button>
-<button type="button" class="btn btn-info" @onclick="GetColor">
-  Get Color</button>
-```
-```cs
-@code {
-  [Inject]
-  public IJSRuntime JSRuntime { get; set; } = null!;
-
-  public async Task AlertBrowser()
-  {
-    await JSRuntime.InvokeVoidAsync(
-      "messageBox", "Blazor poking the browser");
-  }
-
-  public async Task SetColor()
-  {
-    await JSRuntime.InvokeVoidAsync("setColorInStorage");
-  }
-
-  public async Task GetColor()
-  {
-    await JSRuntime.InvokeVoidAsync("getColorFromStorage");
-  }
-}
-```
-5.	Start the `Northwind.Blazor` project.
-6.	Start Chrome and navigate to https://localhost:5161/.
-7.	On the home page, in the textbox, enter `red` and then click the **Set Color** button.
-8.	Show **Developer Tools**, select the **Application** tab, expand **Local Storage**, select https://localhost:5161, and note the key-value pair `color-red`, as shown in *Figure 16A.3*:
-
-![Storing a color in browser local storage using JavaScript Interop](assets/B19586_16A_03.png) 
-*Figure 16A.3: Storing a color in browser local storage using JavaScript Interop*
-
-9.	Close Chrome and shut down the web server.
-10.	Start the `Northwind.Blazor` project.
-11.	Start Chrome and navigate to https://localhost:5161/.
-12.	On the home page, click the **Get Color** button and note that the value `red` is shown in the textbox, retrieved from local storage between visitor sessions.
-13.	Click the **Poke the browser** button and note the message that appears.
-14.	Close Chrome and shut down the web server.
 
 # Enabling location change event handling
 
