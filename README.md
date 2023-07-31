@@ -52,6 +52,8 @@ I have written a companion book titled, *[Apps and Services with .NET 8](https:/
 
 ![Relationships between companion book chapters](docs/assets/B19586_17_03.png)
 
+![Pillars of the .NET 8 Trilogy](docs/assets/B19586_01_Pillars.png)
+
 ## Bonus content
 
 The appendix and color figures are available to download as PDFs:
