@@ -13,6 +13,7 @@ This documentation section of the repository contains links to all the optional 
   - [Chapter 13 Building Websites Using ASP.NET Core Razor Pages](#chapter-13-building-websites-using-aspnet-core-razor-pages)
   - [Chapter 14 Building Websites Using the Model-View-Controller Pattern](#chapter-14-building-websites-using-the-model-view-controller-pattern)
   - [Chapter 15 Building and Consuming Web Services](#chapter-15-building-and-consuming-web-services)
+  - [Chapter 16 Building User Interfaces Using Blazor](#chapter-16-building-user-interfaces-using-blazor)
 - [Errata, Improvements, and Common Mistakes](#errata-improvements-and-common-mistakes)
 - [Miscellaneous](#miscellaneous)
 
@@ -22,6 +23,7 @@ This documentation section of the repository contains links to all the optional 
 
 - [.NET History](ch01-dotnet-history.md)
 - [Polyglot Notebooks](ch01-polyglot-notebooks.md)
+- [Project Options](ch01-project-options.md)
 
 ## Chapter 6 Implementing Interfaces and Inheriting Classes
 
@@ -65,6 +67,10 @@ This documentation section of the repository contains links to all the optional 
 - [Implementing advanced features for web services](ch15-advanced.md)
 - [Building web services using Minimal APIs](ch15-minimal-apis.md)
 - [Exercise 15.2 – Practice creating and deleting customers with HttpClient](ch15-exercise-2.md)
+
+## Chapter 16 Building User Interfaces Using Blazor
+
+- [Enhancing Blazor apps](ch16-enhanced-blazor.md)
 
 # Errata, Improvements, and Common Mistakes
 
