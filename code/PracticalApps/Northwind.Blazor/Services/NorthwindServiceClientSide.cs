@@ -2,36 +2,49 @@
 
 public class NorthwindServiceClientSide : INorthwindService
 {
-  private readonly HttpClient _client;
+  private readonly IHttpClientFactory _clientFactory;
 
-  public NorthwindServiceClientSide(HttpClient client)
+  public NorthwindServiceClientSide(
+    IHttpClientFactory httpClientFactory)
   {
-    _client = client;
+    _clientFactory = httpClientFactory;
   }
 
   public Task<List<Customer>> GetCustomersAsync()
   {
-    return _client.GetFromJsonAsync
+    HttpClient client = _clientFactory.CreateClient(
+      name: "Northwind.WebApi");
+
+    return client.GetFromJsonAsync
       <List<Customer>>("api/customers")!;
   }
 
   public Task<List<Customer>> GetCustomersAsync(string country)
   {
-    return _client.GetFromJsonAsync
+    HttpClient client = _clientFactory.CreateClient(
+      name: "Northwind.WebApi");
+
+    return client.GetFromJsonAsync
       <List<Customer>>($"api/customers/in/{country}")!;
   }
 
   public Task<Customer?> GetCustomerAsync(string id)
   {
-    return _client.GetFromJsonAsync
+    HttpClient client = _clientFactory.CreateClient(
+      name: "Northwind.WebApi");
+
+    return client.GetFromJsonAsync
       <Customer>($"api/customers/{id}");
   }
 
   public async Task<Customer>
     CreateCustomerAsync(Customer c)
   {
+    HttpClient client = _clientFactory.CreateClient(
+      name: "Northwind.WebApi");
+
     HttpResponseMessage response = await
-      _client.PostAsJsonAsync("api/customers", c);
+      client.PostAsJsonAsync("api/customers", c);
 
     return (await response.Content
       .ReadFromJsonAsync<Customer>())!;
@@ -39,8 +52,11 @@ public class NorthwindServiceClientSide : INorthwindService
 
   public async Task<Customer> UpdateCustomerAsync(Customer c)
   {
+    HttpClient client = _clientFactory.CreateClient(
+      name: "Northwind.WebApi");
+
     HttpResponseMessage response = await
-      _client.PutAsJsonAsync("api/customers", c);
+      client.PutAsJsonAsync("api/customers", c);
 
     return (await response.Content
       .ReadFromJsonAsync<Customer>())!;
@@ -48,7 +64,10 @@ public class NorthwindServiceClientSide : INorthwindService
 
   public async Task DeleteCustomerAsync(string id)
   {
+    HttpClient client = _clientFactory.CreateClient(
+      name: "Northwind.WebApi");
+
     HttpResponseMessage response = await
-      _client.DeleteAsync($"api/customers/{id}");
+      client.DeleteAsync($"api/customers/{id}");
   }
 }

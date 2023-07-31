@@ -1,4 +1,5 @@
-﻿@page "/customers/{country?}"
+﻿@attribute [StreamRendering(true)]
+@page "/customers/{country?}"
 @inject INorthwindService _service
 <h3>
   Customers @(string.IsNullOrWhiteSpace(Country)
@@ -63,7 +64,6 @@ else
     if (string.IsNullOrWhiteSpace(Country))
     {
       customers = await _service.GetCustomersAsync();
-      // This causes a hang when rendering for some reason! Maybe too much data?
     }
     else
     {

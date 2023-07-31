@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!--Is this needed to enable client-side WebAssembly?-->
+    <!--Is this needed to enable client-side WebAssembly? It doesn't seem to help.-->
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0-*" />
   </ItemGroup>
 
