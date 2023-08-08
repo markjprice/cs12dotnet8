@@ -21,6 +21,18 @@ WriteLine($"e is {e:N0}, f is {f:N0}");
 
 #endregion
 
+#region How negative numbers are represented in binary
+
+WriteLine("{0,12} {1,34}", "Decimal", "Binary");
+WriteLine("{0,12} {0,34:B32}", int.MaxValue);
+for (int i = 8; i >= -8; i--)
+{
+  WriteLine("{0,12} {0,34:B32}", i);
+}
+WriteLine("{0,12} {0,34:B32}", int.MinValue);
+
+#endregion
+
 #region Converting with the System.Convert type
 
 double g = 9.8;
@@ -31,7 +43,7 @@ WriteLine($"g is {g}, h is {h}");
 
 #region Rounding numbers and the default rounding rules
 
-double[,] doubles = new[,] {
+double[,] doubles = {
   { 9.49, 9.5, 9.51 },
   { 10.49, 10.5, 10.51 },
   { 11.49, 11.5, 11.51 },
