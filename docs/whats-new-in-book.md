@@ -1,17 +1,29 @@
 **What's New in the 8th Edition**
 
-There are hundreds of minor fixes and improvements throughout the 8th edition; too many to list individually. All errata and improvements listed [here](https://github.com/markjprice/cs11dotnet7/blob/main/docs/errata/README.md) have been made to the 8th edition. 
+There are hundreds of minor fixes and improvements throughout the 8th edition; too many to list individually. All [errata and improvements for the 7th edition](https://github.com/markjprice/cs11dotnet7/blob/main/docs/errata/README.md) have been made to the 8th edition. The main new sections in C# 12 and .NET 8, 8th edition compared to the previous edition are shown below.
 
-The main new sections in C# 12 and .NET 8, 8th edition compared to C# 11 and .NET 7, 7th edition are shown below.
-
-
+- [Chapter 1 Hello C#, Welcome .NET!](#chapter-1-hello-c-welcome-net)
+- [Chapter 2 Speaking C#](#chapter-2-speaking-c)
+- [Chapter 3 Controlling Flow, Converting Types, and Handling Exceptions](#chapter-3-controlling-flow-converting-types-and-handling-exceptions)
+- [Chapter 4 Writing, Debugging, and Testing Functions](#chapter-4-writing-debugging-and-testing-functions)
+- [Chapter 5 Building Your Own Types with Object-Oriented Programming](#chapter-5-building-your-own-types-with-object-oriented-programming)
+- [Chapter 6 Implementing Interfaces and Inheriting Classes](#chapter-6-implementing-interfaces-and-inheriting-classes)
+- [Chapter 7 Packaging and Distributing .NET Types](#chapter-7-packaging-and-distributing-net-types)
+- [Chapter 8 Working with Common .NET Types](#chapter-8-working-with-common-net-types)
+- [Chapter 9 Working with Files, Streams, and Serialization](#chapter-9-working-with-files-streams-and-serialization)
+- [Chapter 10 Working with Data Using Entity Framework Core](#chapter-10-working-with-data-using-entity-framework-core)
+- [Chapter 11 Querying and Manipulating Data Using LINQ](#chapter-11-querying-and-manipulating-data-using-linq)
+- [Chapter 12 Introducing Web Development Using ASP.NET Core](#chapter-12-introducing-web-development-using-aspnet-core)
+- [Chapter 13 Building Websites Using ASP.NET Core Razor Pages](#chapter-13-building-websites-using-aspnet-core-razor-pages)
+- [Chapter 14 Building Websites Using the Model-View-Controller Pattern](#chapter-14-building-websites-using-the-model-view-controller-pattern)
+- [Chapter 15 Building and Consuming Web Services](#chapter-15-building-and-consuming-web-services)
+- [Chapter 16 Building User Interface Components Using Blazor](#chapter-16-building-user-interface-components-using-blazor)
 
 # Chapter 1 Hello C#, Welcome .NET!
 
-- Note about the **Command-Lines** page in GitHub.
-- Explain "Support phase" e.g. active, go-live, maintenance.
-- Two projects: one using `--use-program-main` (https://github.com/markjprice/cs10dotnet6/blob/main/docs/errata/errata.md#page-18-19---writing-code-using-visual-studio-2022); when adding second project, add note about File > New > Project vs File > Add > New Project; Add New Item (short view).
-- https://spectreconsole.net/best-practices, 
+- Added a note and link to the [Command-Lines](command-lines.md) page.
+- Added an explaination about support phases, for example, active, go-live, maintenance, and so on.
+- Modified how the two projects are created: one using `--use-program-main`; when adding the second project, added a note about **File** | **New** | **Project** versus **File** | **Add** | **New Project**.
 - Set up console and terminal to support unicode and statically import System.Text.Encoding so you can see Euro symbol.
 - Note about how to clean up VSCode: https://code.visualstudio.com/docs/setup/setup-overview#_how-can-i-do-a-clean-uninstall-of-vs-code
 - Common principles e.g. https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it
