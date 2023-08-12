@@ -379,18 +379,18 @@ foreach (Passenger passenger in passengers)
   decimal flightCost = passenger switch
   {
     /* C# 8 syntax
-    FirstClassPassenger p when p.AirMiles > 35000 => 1500M,
-    FirstClassPassenger p when p.AirMiles > 15000 => 1750M,
-    FirstClassPassenger _                         => 2000M,*/
+    FirstClassPassenger p when p.AirMiles > 35_000 => 1_500M,
+    FirstClassPassenger p when p.AirMiles > 15_000 => 1_750M,
+    FirstClassPassenger _                          => 2_000M,*/
 
     // C# 9 or later syntax
     FirstClassPassenger p => p.AirMiles switch
     {
-      > 35000 => 1500M,
-      > 15000 => 1750M,
-      _ => 2000M
+      > 35_000 => 1_500M,
+      > 15_000 => 1_750M,
+      _ => 2_000M
     },
-    BusinessClassPassenger _ => 1000M,
+    BusinessClassPassenger _ => 1_000M,
     CoachClassPassenger p when p.CarryOnKG < 10.0 => 500M,
     CoachClassPassenger _ => 650M,
     _ => 800M
@@ -456,8 +456,8 @@ WriteLine($"{who} is a {what}.");
 Headset vp = new("Apple", "Vision Pro");
 WriteLine($"{vp.ProductName} is made by {vp.Manufacturer}.");
 
-Headset hl = new();
-WriteLine($"{hl.ProductName} is made by {hl.Manufacturer}.");
+Headset holo = new();
+WriteLine($"{holo.ProductName} is made by {holo.Manufacturer}.");
 
 Headset mq = new() { Manufacturer = "Meta", ProductName = "Quest 3" };
 WriteLine($"{mq.ProductName} is made by {mq.Manufacturer}.");
