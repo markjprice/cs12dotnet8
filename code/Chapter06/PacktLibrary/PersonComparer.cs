@@ -35,7 +35,7 @@ public class PersonComparer : IComparer<Person?>
       {
         position = 1; // x Person follows y Person.
       }
-      else
+      else // x.Name and y.Name are both null.
       {
         position = 0; // x and y are at same position.
       }
@@ -48,7 +48,7 @@ public class PersonComparer : IComparer<Person?>
     {
       position = 1; // x Person follows y Person.
     }
-    else
+    else // x and y are both null.
     {
       position = 0; // x and y are at same position.
     }

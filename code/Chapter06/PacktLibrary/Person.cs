@@ -73,7 +73,14 @@ public class Person : IComparable<Person>
     }
   }
 
-  // Static method to "multiply".
+  /// <summary>
+  /// Static method to "multiply" aka procreate and have a child together.
+  /// </summary>
+  /// <param name="p1">Parent 1</param>
+  /// <param name="p2">Parent 2</param>
+  /// <returns>A Person object that is the child of Parent 1 and Parent 2.</returns>
+  /// <exception cref="ArgumentNullException">If p1 or p2 are null.</exception>
+  /// <exception cref="ArgumentException">If p1 and p2 are not married.</exception>
   public static Person Procreate(Person p1, Person p2)
   {
     ArgumentNullException.ThrowIfNull(p1);
@@ -89,7 +96,7 @@ public class Person : IComparable<Person>
     Person baby = new()
     {
       Name = $"Baby of {p1.Name} and {p2.Name}",
-      Born = DateTime.Now
+      Born = DateTimeOffset.Now
     };
 
     p1.Children.Add(baby);
@@ -151,14 +158,13 @@ public class Person : IComparable<Person>
   {
     AngerLevel++;
 
-    if (AngerLevel >= 3)
+    if (AngerLevel < 3) return;
+
+    // If something is listening to the event...
+    if (Shout is not null)
     {
-      // If something is listening to the event...
-      if (Shout is not null)
-      {
-        // ...then call the delegate to "raise" the event.
-        Shout(this, EventArgs.Empty);
-      }
+      // ...then call the delegate to "raise" the event.
+      Shout(this, EventArgs.Empty);
     }
   }
 
@@ -170,7 +176,7 @@ public class Person : IComparable<Person>
   {
     int position;
 
-    if ((this is not null) && (other is not null))
+    if (other is not null)
     {
       if ((Name is not null) && (other.Name is not null))
       {
@@ -191,13 +197,9 @@ public class Person : IComparable<Person>
         position = 0; // this and other are at same position.
       }
     }
-    else if ((this is not null) && (other is null))
+    else if (other is null)
     {
       position = -1; // this Person precedes other Person.
-    }
-    else if ((this is null) && (other is not null))
-    {
-      position = 1; // this Person follows other Person.
     }
     else
     {

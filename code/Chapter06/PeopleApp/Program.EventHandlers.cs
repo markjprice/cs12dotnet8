@@ -12,8 +12,7 @@ partial class Program
     if (sender is null) return;
 
     // If sender is not a Person, then do nothing.
-    Person? p = sender as Person;
-    if (p is null) return;
+    if (sender is not Person p) return;
 
     WriteLine($"{p.Name} is this angry: {p.AngerLevel}.");
   }
