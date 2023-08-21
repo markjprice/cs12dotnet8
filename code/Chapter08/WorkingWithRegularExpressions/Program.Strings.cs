@@ -3,12 +3,12 @@
 partial class Program
 {
   [StringSyntax(StringSyntaxAttribute.Regex)]
-  const string digitsOnlyText = @"^\d+$";
+  private const string DigitsOnlyText = @"^\d+$";
 
   [StringSyntax(StringSyntaxAttribute.Regex)]
-  const string commaSeparatorText =
+  private const string CommaSeparatorText =
     "(?:^|,)(?=[^\"]|(\")?)\"?((?(1)[^\"]*|[^,\"]*))\"?(?=,|$)";
 
   [StringSyntax(StringSyntaxAttribute.DateTimeFormat)]
-  const string fullDateTime = "dddd, d MMMM yyyy";
+  private const string FullDateTime = "dddd, d MMMM yyyy";
 }

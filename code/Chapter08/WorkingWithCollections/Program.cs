@@ -66,8 +66,8 @@ Dictionary<string, string> keywords = new()
   ["float"] = "Single precision floating point number",
 }; */
 
-OutputCollection("Dictionary keys", keywords.Keys.OfType<string>());
-OutputCollection("Dictionary values", keywords.Values.OfType<string>());
+OutputCollection("Dictionary keys", keywords.Keys);
+OutputCollection("Dictionary values", keywords.Values);
 
 WriteLine("Keywords and their definitions:");
 foreach (KeyValuePair<string, string> item in keywords)

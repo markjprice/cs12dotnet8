@@ -2,9 +2,9 @@
 
 partial class Program
 {
-  [GeneratedRegex(digitsOnlyText, RegexOptions.IgnoreCase)]
+  [GeneratedRegex(DigitsOnlyText, RegexOptions.IgnoreCase)]
   private static partial Regex DigitsOnly();
 
-  [GeneratedRegex(commaSeparatorText, RegexOptions.IgnoreCase)]
+  [GeneratedRegex(CommaSeparatorText, RegexOptions.IgnoreCase)]
   private static partial Regex CommaSeparator();
 }

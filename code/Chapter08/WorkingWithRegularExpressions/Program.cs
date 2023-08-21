@@ -7,14 +7,8 @@ string input = ReadLine()!; // Null-forgiving operator.
 
 Regex ageChecker = DigitsOnly();
 
-if (ageChecker.IsMatch(input))
-{
-  WriteLine("Thank you!");
-}
-else
-{
-  WriteLine($"This is not a valid age: {input}");
-}
+WriteLine(ageChecker.IsMatch(input) ? "Thank you!" :
+  $"This is not a valid age: {input}");
 
 #endregion
 
