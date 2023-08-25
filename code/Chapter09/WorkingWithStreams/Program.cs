@@ -57,10 +57,6 @@ try
 
   // Write the close root element.
   xml.WriteEndElement();
-
-  // Close helper and stream to release resources.
-  xml.Close();
-  xmlFileStream.Close();
 }
 catch (Exception ex)
 {
@@ -71,13 +67,13 @@ finally
 {
   if (xml is not null)
   {
-    xml.Dispose();
+    xml.Close();
     WriteLine("The XML writer's unmanaged resources have been disposed.");
   }
 
   if (xmlFileStream is not null)
   {
-    xmlFileStream.Dispose();
+    xmlFileStream.Close();
     WriteLine("The file stream's unmanaged resources have been disposed.");
   }
 }

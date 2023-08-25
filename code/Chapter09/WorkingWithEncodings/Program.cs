@@ -38,7 +38,7 @@ WriteLine("{0} used {1:N0} bytes.",
 WriteLine();
 
 // Enumerate each byte.
-WriteLine($"BYTE | HEX | CHAR");
+WriteLine("BYTE | HEX | CHAR");
 foreach (byte b in encoded)
 {
   WriteLine($"{b,4} | {b.ToString("X"),3} | {(char)b,4}");
