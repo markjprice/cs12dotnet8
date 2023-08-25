@@ -1,5 +1,4 @@
 ﻿using Packt.Shared; // To use Book.
-using System.IO;
 using System.Text.Json; // To use JsonSerializer.
 
 Book csharpBook = new(title:
@@ -23,7 +22,7 @@ string path = Combine(CurrentDirectory, "book.json");
 
 using (Stream fileStream = File.Create(path))
 {
-  JsonSerializer.Serialize<Book>(
+  JsonSerializer.Serialize(
     utf8Json: fileStream, value: csharpBook, options);
 }
 

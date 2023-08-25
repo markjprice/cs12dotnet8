@@ -8,26 +8,26 @@ using FastJson = System.Text.Json.JsonSerializer;
 // Initialize an object graph.
 List<Person> people = new()
 {
-  new(30000M)
+  new(initialSalary: 30_000M)
   {
     FirstName = "Alice",
     LastName = "Smith",
     DateOfBirth = new(year: 1974, month: 3, day: 14)
   },
-  new(40000M)
+  new(initialSalary: 40_000M)
   {
     FirstName = "Bob",
     LastName = "Jones",
     DateOfBirth = new(year: 1969, month: 11, day: 23)
   },
-  new(20000M)
+  new(initialSalary: 20_000M)
   {
     FirstName = "Charlie",
     LastName = "Cox",
     DateOfBirth = new(year: 1984, month: 5, day: 4),
     Children = new()
     {
-      new(0M)
+      new(initialSalary: 0M)
       {
         FirstName = "Sally",
         LastName = "Cox",
@@ -104,7 +104,7 @@ OutputFileInfo(jsonPath);
 
 SectionTitle("Deserializing JSON files");
 
-using (FileStream jsonLoad = File.Open(jsonPath, FileMode.Open))
+await using (FileStream jsonLoad = File.Open(jsonPath, FileMode.Open))
 {
   // Deserialize object graph into a "List of Person".
   List<Person>? loadedPeople =

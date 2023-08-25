@@ -41,7 +41,7 @@ WriteLine();
 WriteLine("BYTE | HEX | CHAR");
 foreach (byte b in encoded)
 {
-  WriteLine($"{b,4} | {b.ToString("X"),3} | {(char)b,4}");
+  WriteLine($"{b,4} | {b,3:X} | {(char)b,4}");
 }
 
 // Decode the byte array back into a string and display it.
