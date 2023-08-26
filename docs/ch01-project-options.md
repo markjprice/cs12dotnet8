@@ -3,8 +3,9 @@
 When creating new project either using Visual Studio 2022 or using the command prompt for tools like Visual Studio Code, it is useful to see a summary of your options for common types of project template.
 
 - [Console App / `console`](#console-app--console)
-- [Other common options](#other-common-options)
+- [Class Library / `classlib`](#class-library--classlib)
 - [ASP.NET Core Empty / `web`](#aspnet-core-empty--web)
+- [ASP.NET Core Web App (Model-View-Controller) / `mvc`](#aspnet-core-web-app-model-view-controller--mvc)
 - [ASP.NET Core Web API / `webapi`](#aspnet-core-web-api--webapi)
 - [Blazor Web App / `blazor`](#blazor-web-app--blazor)
 
@@ -12,15 +13,25 @@ When creating new project either using Visual Studio 2022 or using the command p
 
 ![Console App default options](assets/B19586_01_Projects_01.png)
 
-# Other common options
-
 ![Other common options](assets/B19586_01_Projects_02.png)
+
+# Class Library / `classlib`
+
+Create a .NET 8.0 class library:
+
+`dotnet new classlib`
+
+Create a .NET Standard 2.0 class library:
+
+`dotnet new classlib --framework netstandard2.0`
 
 # ASP.NET Core Empty / `web`
 
-> **ASP.NET Core Web App (Model-View-Controller)** / `mvc` has the same options.
-
 ![ASP.NET Core Empty default options](assets/B19586_01_Projects_03.png)
+
+# ASP.NET Core Web App (Model-View-Controller) / `mvc`
+
+This project template has the same options as **ASP.NET Core Empty** / `web`.
 
 # ASP.NET Core Web API / `webapi`
 
