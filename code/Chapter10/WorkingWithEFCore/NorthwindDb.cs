@@ -23,7 +23,7 @@ public class NorthwindDb : DbContext
     WriteLine($"Connection: {connectionString}");
     optionsBuilder.UseSqlite(connectionString);
 
-    optionsBuilder.LogTo(WriteLine, // This is the Console.
+    optionsBuilder.LogTo(WriteLine, // This is the Console method.
       new[] { RelationalEventId.CommandExecuting }) 
 #if DEBUG
       .EnableSensitiveDataLogging() // Include SQL parameters.

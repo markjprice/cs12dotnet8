@@ -35,7 +35,7 @@ partial class Program
       WriteLine();
     }
 
-    if ((categories is null) || (!categories.Any()))
+    if (categories is null || !categories.Any())
     {
       Fail("No categories found.");
       return;
@@ -81,7 +81,7 @@ partial class Program
     IQueryable<Category>? categories = db.Categories?
       .Include(c => c.Products.Where(p => p.Stock >= stock));
 
-    if ((categories is null) || (!categories.Any()))
+    if (categories is null || !categories.Any())
     {
       Fail("No categories found.");
       return;
@@ -120,7 +120,7 @@ partial class Program
       .Where(product => product.Cost > price)
       .OrderByDescending(product => product.Cost);
 
-    if ((products is null) || (!products.Any()))
+    if (products is null || !products.Any())
     {
       Fail("No products found.");
       return;
@@ -154,7 +154,7 @@ partial class Program
     IQueryable<Product>? products = db.Products?
       .Where(p => EF.Functions.Like(p.ProductName, $"%{input}%"));
 
-    if ((products is null) || (!products.Any()))
+    if (products is null || !products.Any())
     {
       Fail("No products found.");
       return;
@@ -175,7 +175,7 @@ partial class Program
 
     int? rowCount = db.Products?.Count();
 
-    if (rowCount == null)
+    if (rowCount is null)
     {
       Fail("Products table is empty.");
       return;
@@ -184,7 +184,7 @@ partial class Program
     Product? p = db.Products?.FirstOrDefault(
       p => p.ProductId == (int)(EF.Functions.Random() * rowCount));
 
-    if (p == null)
+    if (p is null)
     {
       Fail("Product not found.");
       return;
@@ -201,7 +201,7 @@ partial class Program
 
     IQueryable<Product>? products = db.Products?.AsNoTracking();
 
-    if ((products is null) || (!products.Any()))
+    if (products is null || !products.Any())
     {
       Fail("No products found.");
       return;

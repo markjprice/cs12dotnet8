@@ -14,7 +14,7 @@ FilteredIncludes();
 
 /*
 var resultAdd = AddProduct(categoryId: 6,
-  productName: "Bob's Burgers", price: 500M);
+  productName: "Bob's Burgers", price: 500M, stock: 72);
 
 if (resultAdd.affected == 1)
 {

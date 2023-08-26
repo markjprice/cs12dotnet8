@@ -8,7 +8,7 @@ partial class Program
   {
     using NorthwindDb db = new();
 
-    if ((db.Products is null) || (!db.Products.Any()))
+    if (db.Products is null || !db.Products.Any())
     {
       Fail("There are no products.");
       return;
@@ -21,7 +21,7 @@ partial class Program
     {
       ConsoleColor previousColor = ForegroundColor;
 
-      if ((productIdsToHighlight is not null) &&
+      if (productIdsToHighlight is not null &&
         productIdsToHighlight.Contains(p.ProductId))
       {
         ForegroundColor = ConsoleColor.Green;
@@ -35,7 +35,7 @@ partial class Program
   }
 
   static (int affected, int productId) AddProduct(
-    int categoryId, string productName, decimal? price)
+    int categoryId, string productName, decimal? price, short? stock)
   {
     using NorthwindDb db = new();
 
@@ -46,7 +46,7 @@ partial class Program
       CategoryId = categoryId,
       ProductName = productName,
       Cost = price,
-      Stock = 72
+      Stock = stock
     };
 
     // Set product as added in change tracking.
@@ -85,7 +85,7 @@ partial class Program
     IQueryable<Product>? products = db.Products?.Where(
       p => p.ProductName.StartsWith(productNameStartsWith));
 
-    if ((products is null) || (!products.Any()))
+    if (products is null || !products.Any())
     {
       WriteLine("No products found to delete.");
       return 0;
