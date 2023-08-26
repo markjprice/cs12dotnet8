@@ -274,18 +274,18 @@ dotnet tool install --global dotnet-ef
 ## Page 453 - Scaffolding models using an existing database
 
 ```
-dotnet ef dbcontext scaffold "Filename=Northwind.db" Microsoft.EntityFrameworkCore.Sqlite --table Categories --table Products --output-dir AutoGenModels --namespace WorkingWithEFCore.AutoGen --data-annotations --context Northwind
+dotnet ef dbcontext scaffold "Data Source=Northwind.db" Microsoft.EntityFrameworkCore.Sqlite --table Categories --table Products --output-dir AutoGenModels --namespace WorkingWithEFCore.AutoGen --data-annotations --context NorthwindDb
 ```
 
 Note the following:
 - The command action: `dbcontext scaffold`
-- The connection string: `"Filename=Northwind.db"`
+- The connection string: `"Data Source=Northwind.db"`
 - The database provider: `Microsoft.EntityFrameworkCore.Sqlite`
 - The tables to generate models for: `--table Categories --table Products`
 - The output folder: `--output-dir AutoGenModels`
 - The namespace: `--namespace WorkingWithEFCore.AutoGen`
 - To use data annotations as well as the Fluent API: `--data-annotations`
-- To rename the context from [database_name]Context: `--context Northwind`
+- To rename the context from [database_name]Context: `--context NorthwindDb`
 
 # Chapter 11 - Querying and Manipulating Data Using LINQ
 
@@ -307,14 +307,14 @@ sqlite3 Northwind.db -init Northwind4SQLite.sql
 
 Creating the EF Core model for the Northwind database:
 ```
-dotnet ef dbcontext scaffold "Filename=../Northwind.db" Microsoft.EntityFrameworkCore.Sqlite --namespace Packt.Shared --data-annotations
+dotnet ef dbcontext scaffold "Data Source=../Northwind.db" Microsoft.EntityFrameworkCore.Sqlite --namespace Northwind.EntityModels --data-annotations
 ```
 
 ## Page 549 - Creating a class library for entity models using SQL Server
 
 Creating the EF Core model for the Northwind database:
 ```
-dotnet ef dbcontext scaffold "Data Source=.;Initial Catalog=Northwind;Integrated Security=true;TrustServerCertificate=true;" Microsoft.EntityFrameworkCore.SqlServer --namespace Packt.Shared --data-annotations
+dotnet ef dbcontext scaffold "Data Source=.;Initial Catalog=Northwind;Integrated Security=true;TrustServerCertificate=true;" Microsoft.EntityFrameworkCore.SqlServer --namespace Northwind.EntityModels --data-annotations
 ```
 
 > If you do not have a "full" edition of SQL Server installed with a default instance then you will need to changed the `.` to the correct `servername\instancename`.
@@ -350,6 +350,16 @@ dotnet ef database update
 ```
 
 # Chapter 15 - Building and Consuming Web Services
+
+Creating a Web API project using controllers:
+```
+dotnet new webapi --use-controllers
+```
+
+Creating a Web API project using controllers short form:
+```
+dotnet new webapi -controllers
+```
 
 ## Page 695 - Building web services using Minimal APIs
 
