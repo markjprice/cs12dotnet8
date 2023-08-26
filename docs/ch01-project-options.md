@@ -22,6 +22,8 @@ When creating new project either using Visual Studio 2022 or using the command p
 
 # ASP.NET Core Web API / `webapi`
 
+> **Warning!** The .NET SDK 8 defaults to implementing services using Minimal APIs and you must use the `--use-controllers` or `-controllers` switch to implement services using controllers. The .NET SDK 6 or 7 defaults to implementing services using controllers and you must use the `--use-minimal-apis` or `-minimal` switch to implement services using Minimal APIs. JetBrains Rider does not yet have an option to "use controllers" so you should use the `dotnet new` command to create a Web API project.
+
 ![ASP.NET Core Web API default options](assets/B19586_01_Projects_04.png)
 
 # Blazor Web App / `blazor`
