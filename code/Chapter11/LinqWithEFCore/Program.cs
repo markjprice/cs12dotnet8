@@ -1,5 +1,5 @@
 ﻿ConfigureConsole(); // Sets US English by default.
-//FilterAndSort();
+FilterAndSort();
 //JoinCategoriesAndProducts();
 //GroupJoinCategoriesAndProducts();
 //ProductsLookup();
@@ -7,4 +7,4 @@
 //PagingProducts();
 //OutputProductsAsXml();
 //ProcessSettings();
-CustomExtensionMethods();
+//CustomExtensionMethods();

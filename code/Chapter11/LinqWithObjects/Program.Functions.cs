@@ -93,13 +93,13 @@
 
   static void WorkingWithSets()
   {
-    string[] cohort1 = new[]
+    string[] cohort1 =
       { "Rachel", "Gareth", "Jonathan", "George" };
 
-    string[] cohort2 = new[]
+    string[] cohort2 =
       { "Jack", "Stephen", "Daniel", "Jack", "Jared" };
 
-    string[] cohort3 = new[]
+    string[] cohort3 =
       { "Declan", "Jack", "Jack", "Jasmine", "Conor" };
 
     SectionTitle("The cohorts");

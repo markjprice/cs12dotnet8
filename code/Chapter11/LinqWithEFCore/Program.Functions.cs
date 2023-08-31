@@ -54,12 +54,9 @@ partial class Program
         new { c.CategoryName, p.ProductName, p.ProductId })
       .OrderBy(cp => cp.CategoryName);
 
-    foreach (var item in queryJoin)
+    foreach (var p in queryJoin)
     {
-      WriteLine("{0}: {1} is in {2}.",
-        arg0: item.ProductId,
-        arg1: item.ProductName,
-        arg2: item.CategoryName);
+      WriteLine($"{p.ProductId}: {p.ProductName} in {p.CategoryName}.");
     }
   }
 
@@ -80,15 +77,13 @@ partial class Program
         Products = matchingProducts.OrderBy(p => p.ProductName)
       });
 
-    foreach (var category in queryGroup)
+    foreach (var c in queryGroup)
     {
-      WriteLine("{0} has {1} products.",
-        arg0: category.CategoryName,
-        arg1: category.Products.Count());
+      WriteLine($"{c.CategoryName} has {c.Products.Count()} products.");
 
-      foreach (var product in category.Products)
+      foreach (var product in c.Products)
       {
-        WriteLine($" {product.ProductName}");
+        WriteLine($"  {product.ProductName}");
       }
     }
   }
@@ -104,22 +99,20 @@ partial class Program
       inner: db.Products,
       outerKeySelector: category => category.CategoryId,
       innerKeySelector: product => product.CategoryId,
-      resultSelector: (c, p) =>
-        new { c.CategoryName, p });
+      resultSelector: (c, p) => new { c.CategoryName, Product = p });
 
-    ILookup<string, Product> productLookup = productQuery
-      .ToLookup(keySelector: cp => cp.CategoryName,
-      elementSelector: cp => cp.p);
+    ILookup<string, Product> productLookup = productQuery.ToLookup(
+      keySelector: cp => cp.CategoryName,
+      elementSelector: cp => cp.Product);
 
     foreach (IGrouping<string, Product> group in productLookup)
     {
       // Key is Beverages, Condiments, and so on.
-      WriteLine("{0} has {1} products.",
-        arg0: group.Key, arg1: group.Count());
+      WriteLine($"{group.Key} has {group.Count()} products.");
 
       foreach (Product product in group)
       {
-        WriteLine($" {product.ProductName}");
+        WriteLine($"  {product.ProductName}");
       }
     }
 
@@ -144,9 +137,7 @@ partial class Program
     // Try to get an efficient count from EF Core DbSet<T>.
     if (db.Products.TryGetNonEnumeratedCount(out int countDbSet))
     {
-      WriteLine("{0,-25} {1,10}",
-        arg0: "Product count from DbSet:",
-        arg1: countDbSet);
+      WriteLine($"{"Product count from DbSet:",-25} {countDbSet,10}");
     }
     else
     {
@@ -158,43 +149,32 @@ partial class Program
 
     if (products.TryGetNonEnumeratedCount(out int countList))
     {
-      WriteLine("{0,-25} {1,10}",
-        arg0: "Product count from list:",
-        arg1: countList);
+      WriteLine($"{"Product count from list:",-25} {countList,10}");
     }
     else
     {
       WriteLine("Products list does not have a Count property.");
     }
 
-    WriteLine("{0,-25} {1,10}",
-      arg0: "Product count:",
-      arg1: db.Products.Count());
+    WriteLine($"{"Product count:",-25} {db.Products.Count(),10}");
 
-    WriteLine("{0,-27} {1,8}", // Note the different column widths.
-      arg0: "Discontinued product count:",
-      arg1: db.Products.Count(product => product.Discontinued));
+    WriteLine($"{"Discontinued product count:",-27} {db
+      .Products.Count(product => product.Discontinued),8}");
 
-    WriteLine("{0,-25} {1,10:$#,##0.00}",
-      arg0: "Highest product price:",
-      arg1: db.Products.Max(p => p.UnitPrice));
+    WriteLine($"{"Highest product price:",-25} {db
+      .Products.Max(p => p.UnitPrice),10:$#,##0.00}");
 
-    WriteLine("{0,-25} {1,10:N0}",
-      arg0: "Sum of units in stock:",
-      arg1: db.Products.Sum(p => p.UnitsInStock));
+    WriteLine($"{"Sum of units in stock:",-25} {db
+      .Products.Sum(p => p.UnitsInStock),10:N0}");
 
-    WriteLine("{0,-25} {1,10:N0}",
-      arg0: "Sum of units on order:",
-      arg1: db.Products.Sum(p => p.UnitsOnOrder));
+    WriteLine($"{"Sum of units on order:",-25} {db
+      .Products.Sum(p => p.UnitsOnOrder),10:N0}");
 
-    WriteLine("{0,-25} {1,10:$#,##0.00}",
-      arg0: "Average unit price:",
-      arg1: db.Products.Average(p => p.UnitPrice));
+    WriteLine($"{"Average unit price:",-25} {db
+      .Products.Average(p => p.UnitPrice),10:$#,##0.00}");
 
-    WriteLine("{0,-25} {1,10:$#,##0.00}",
-      arg0: "Value of units in stock:",
-      arg1: db.Products
-        .Sum(p => p.UnitPrice * p.UnitsInStock));
+    WriteLine($"{"Value of units in stock:",-25} {db.Products
+      .Sum(p => p.UnitPrice * p.UnitsInStock),10:$#,##0.00}");
   }
 
   static void OutputTableOfProducts(Product[] products,
@@ -237,10 +217,9 @@ partial class Program
   {
     SectionTitle("Paging products");
 
-    using NorthwindDb db = new()
+    using NorthwindDb db = new();
 
-
-      int pageSize = 10;
+    int pageSize = 10;
     int currentPage = 0;
     int productCount = db.Products.Count();
     int totalPages = productCount / pageSize;
@@ -253,15 +232,9 @@ partial class Program
       ConsoleKey key = ReadKey().Key;
 
       if (key == ConsoleKey.LeftArrow)
-        if (currentPage == 0)
-          currentPage = totalPages;
-        else
-          currentPage--;
+        currentPage = currentPage == 0 ? totalPages : currentPage - 1;
       else if (key == ConsoleKey.RightArrow)
-        if (currentPage == totalPages)
-          currentPage = 0;
-        else
-          currentPage++;
+        currentPage = currentPage == totalPages ? 0 : currentPage + 1;
       else
         break; // Break out of the while loop.
 
