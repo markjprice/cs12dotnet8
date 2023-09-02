@@ -29,7 +29,7 @@ public class SuppliersModel : PageModel
 
   public IActionResult OnPost()
   {
-    if ((Supplier is not null) && ModelState.IsValid)
+    if (Supplier is not null && ModelState.IsValid)
     {
       _db.Suppliers.Add(Supplier);
       _db.SaveChanges();

@@ -56,7 +56,7 @@ public class FunctionsModel : PageModel
     }
 
     static decimal CalculateTax(
-      decimal amount, string twoLetterRegionCode)
+      decimal amount, string? twoLetterRegionCode)
     {
         decimal rate = 0.0M;
 
