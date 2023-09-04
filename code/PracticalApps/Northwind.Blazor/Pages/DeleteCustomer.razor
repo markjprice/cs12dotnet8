@@ -20,7 +20,7 @@
 
   private Customer? customer = new();
 
-  protected async override Task OnParametersSetAsync()
+  protected override async Task OnParametersSetAsync()
   {
     customer = await _service.GetCustomerAsync(CustomerId);
   }

@@ -1,6 +1,6 @@
 ﻿@model Northwind.EntityModels.Product
 @{
-  ViewData["Title"] = "Product Detail - " + Model.ProductName;
+  ViewData["Title"] = $"Product Detail - {Model.ProductName}";
 }
 <h2>Product Detail</h2>
 <p class="alert alert-@ViewData["alertstyle"]">@DateTime.Now.ToLongTimeString()</p>

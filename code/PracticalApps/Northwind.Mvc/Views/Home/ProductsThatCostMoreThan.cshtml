@@ -2,7 +2,7 @@
 @model IEnumerable<Product>
 @{
   string title =
-    "Products That Cost More Than " + ViewData["MaxPrice"];
+    $"Products That Cost More Than {ViewData["MaxPrice"]}";
   ViewData["Title"] = title;
 }
 <h2>@title</h2>
