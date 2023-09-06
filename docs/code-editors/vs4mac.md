@@ -1,5 +1,7 @@
 **Using Visual Studio 2022 for Mac**
 
+> **Warning!** Visual Studio 2022 for Mac will reach end-of-life in August 2024. You should switch to an alternative as soon as possible. You can read the retirement announcement at the following link: https://devblogs.microsoft.com/visualstudio/visual-studio-for-mac-retirement-announcement/.
+
 In this article, I provide detailed step-by-step instuctions for using Visual Studio 2022 for Mac for topics like creating a solution with multiple projects and using debugging tools.
 
 - [Chapter 1](#chapter-1)
@@ -14,7 +16,6 @@ In this article, I provide detailed step-by-step instuctions for using Visual St
     - [Implicitly imported namespaces](#implicitly-imported-namespaces)
     - [Revealing the hidden code by throwing an exception](#revealing-the-hidden-code-by-throwing-an-exception)
   - [Adding a second project using Visual Studio 2022 for Mac](#adding-a-second-project-using-visual-studio-2022-for-mac)
-- [Chapter 4 (coming soon)](#chapter-4-coming-soon)
 
 # Chapter 1
 
@@ -229,7 +230,3 @@ Unix 13.3.1
 *Figure 1.10: Running a console app in a Visual Studio for Mac solution with two projects*
 
 > When using Visual Studio 2022 for Mac to run a console app, it executes the app from the `<projectname>\bin\Debug\net8.0` folder. It will be important to remember this when we work with the filesystem in later chapters. When using Visual Studio Code, or more accurately, the dotnet CLI, it has different behavior.
-
-# Chapter 4 (coming soon)
-
-
