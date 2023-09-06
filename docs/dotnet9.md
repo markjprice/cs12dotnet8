@@ -13,6 +13,15 @@ Microsoft will release previews of .NET 9 regularly starting in February 2024 un
 - April, 2024: [Announcing .NET 9 Preview 3](https://devblogs.microsoft.com/dotnet/announcing-dotnet-9-preview-3/)
 - March, 2024: [Announcing .NET 9 Preview 2](https://devblogs.microsoft.com/dotnet/announcing-dotnet-9-preview-2/)
 - February, 2024: [Announcing .NET 9 Preview 1](https://devblogs.microsoft.com/dotnet/announcing-net-9-preview-1/)
+- August 2023 to January 2024: [Download alpha versions of .NET 9](https://github.com/dotnet/installer#table)
+
+![Download page for alpha versions of .NET](assets/B19586_01_22.png)
+
+![Download warning](assets/dotnetsdk-table-2023-08-25.png)
+
+![.NET SDK 9 alpha in August 2023 included an early .NET 8 RC1](assets/dotnetsdk-net9-alpha-2023-08-25.png)
+
+## .NET 10
 
 Microsoft will release previews of .NET 10 regularly starting in February 2025 until the final version on Tuesday, November 4, 2025 or Tuesday, November 11, 2025.
 
