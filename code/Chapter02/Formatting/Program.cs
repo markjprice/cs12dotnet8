@@ -16,23 +16,22 @@ string formatted = string.Format(
 //WriteToFile(formatted); // writes the string into a file
 
 // Three parameter values can use named arguments.
-WriteLine(
-  format: "{0} {1} lived in {2}.",
+WriteLine("{0} {1} lived in {2}.",
   arg0: "Roger", arg1: "Cevung", arg2: "Stockholm");
 
 // Four or more parameter values cannot use named arguments.
 WriteLine(
-  format: "{0} {1} lived in {2}, {3}, and worked in the {4} team at {5}.",
-  "Roger", "Cevung", "Stockholm", "Sweden", "Education", "Optimizely");
+  "{0} {1} lived in {2} and worked in the {4} team at {5}.",
+  "Roger", "Cevung", "Stockholm", "Education", "Optimizely");
 
 #endregion
 
 #region Formatting using interpolated strings
 
-// The following statement must be all on one line when using C# 10 or
-// earlier. If using C# 11 or later, then we can include a line break.
+// The following statement must be all on one line when using C# 10
+// or earlier. If using C# 11 or later we can include a line break.
 WriteLine($"{numberOfApples} apples cost {pricePerApple
-    * numberOfApples:C}");
+  * numberOfApples:C}");
 
 #endregion
 
@@ -45,20 +44,14 @@ int bananasCount = 56789;
 
 WriteLine();
 
-WriteLine(
-  format: "{0,-10} {1,6}",
-  arg0: "Name",
-  arg1: "Count");
+WriteLine(format: "{0,-10} {1,6}",
+  arg0: "Name", arg1: "Count");
 
-WriteLine(
-  format: "{0,-10} {1,6:N0}",
-  arg0: applesText,
-  arg1: applesCount);
+WriteLine(format: "{0,-10} {1,6:N0}",
+  arg0: applesText, arg1: applesCount);
 
-WriteLine(
-  format: "{0,-10} {1,6:N0}",
-  arg0: bananasText,
-  arg1: bananasCount);
+WriteLine(format: "{0,-10} {1,6:N0}",
+  arg0: bananasText, arg1: bananasCount);
 
 #endregion
 
@@ -70,8 +63,7 @@ string? firstName = ReadLine();
 Write("Type your age and press ENTER: ");
 string age = ReadLine()!;
 
-WriteLine(
-  $"Hello {firstName}, you look good for {age}.");
+WriteLine($"Hello {firstName}, you look good for {age}.");
 
 #endregion
 
@@ -81,9 +73,7 @@ Write("Press any key combination: ");
 ConsoleKeyInfo key = ReadKey();
 WriteLine();
 WriteLine("Key: {0}, Char: {1}, Modifiers: {2}",
-  arg0: key.Key,
-  arg1: key.KeyChar,
-  arg2: key.Modifiers);
+  arg0: key.Key, arg1: key.KeyChar, arg2: key.Modifiers);
 
 #endregion
 

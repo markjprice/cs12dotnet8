@@ -7,7 +7,7 @@ object name = "Amir"; // Storing a string in an object.
 Console.WriteLine($"{name} is {height} metres tall.");
 
 //int length1 = name.Length; // This gives a compile error!
-int length2 = ((string)name).Length; // Tell compiler it is a string.
+int length2 = ((string)name).Length; // Cast name to a string.
 Console.WriteLine($"{name} has {length2} characters.");
 
 #endregion
@@ -70,8 +70,8 @@ Console.WriteLine($"default(DateTime) = {default(DateTime)}");
 Console.WriteLine($"default(string) = {default(string)}");
 
 int number = 13;
-Console.WriteLine($"number has been set to: {number}");
+Console.WriteLine($"number set to: {number}");
 number = default;
-Console.WriteLine($"number has been reset to its default: {number}");
+Console.WriteLine($"number reset to its default: {number}");
 
 #endregion

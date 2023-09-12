@@ -11,7 +11,7 @@ int integerNumber = -23;
 float realNumber = 2.3f;
 
 // A double is a double-precision floating point number.
-// double is the default type for a number value with a decimal point.
+// double is the default for a number value with a decimal point.
 double anotherRealNumber = 2.3; // A double literal value.
 
 #endregion
@@ -76,6 +76,16 @@ if (c + d == 0.3M)
 else
 {
   Console.WriteLine($"{c} + {d} does NOT equal {0.3M}");
+}
+
+#endregion
+
+#region New number types and unsafe code
+
+unsafe
+{
+  Console.WriteLine($"Half uses {sizeof(Half)} bytes and can store numbers in the range {Half.MinValue:N0} to {Half.MaxValue:N0}.");
+  Console.WriteLine($"Int128 uses {sizeof(Int128)} bytes and can store numbers in the range {Int128.MinValue:N0} to {Int128.MaxValue:N0}.");
 }
 
 #endregion

@@ -38,7 +38,7 @@ To solve this problem, reboot your computer.
 
 Although rare, it is possible that by using a later version of a NuGet package than the one I used to write the book, you experience different behavior, especially negative behavior if it is due to a bug. 
 
-For example, in the `Microsoft.Extensions.Configuration.Binder` package, versions `7.0.3` and `7.0.4` have a bug that causes an exception to be thrown when it tries to parse a trace level set in an `appsettings.json` file. Previous versions from `7.0.0` to `7.0.2` did not have this bug.
+For example, in the `Microsoft.Extensions.Configuration.Binder` package, in version `7.0.3` or later, then they have fixed a bug, but the fix causes a regression in expected behavior which means that unless we change how we set the trace switch level an exception will be thrown. Previous versions from `7.0.0` to `7.0.2` did not have this bug fix.
 
 You can read more this specific example here: https://github.com/markjprice/cs11dotnet7/blob/main/docs/errata/errata.md#page-178---reviewing-project-packages
 

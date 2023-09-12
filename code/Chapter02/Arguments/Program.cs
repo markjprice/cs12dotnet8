@@ -14,13 +14,11 @@ if (args.Length < 3)
 
 ForegroundColor = (ConsoleColor)Enum.Parse(
   enumType: typeof(ConsoleColor),
-  value: args[0],
-  ignoreCase: true);
+  value: args[0], ignoreCase: true);
 
 BackgroundColor = (ConsoleColor)Enum.Parse(
   enumType: typeof(ConsoleColor),
-  value: args[1],
-  ignoreCase: true);
+  value: args[1], ignoreCase: true);
 
 try
 {
