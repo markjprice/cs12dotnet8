@@ -9,7 +9,6 @@ ConfigureConsole(); // Uses en-US by default.
 
 //RunCardinalToOrdinal();
 
-//RunFactorial();
+RunFactorial();
 
 //RunFibImperative();
-

@@ -46,13 +46,13 @@ partial class Program
   }
 
   /// <summary>
-  /// Pass a 32-bit integer and it will be converted into its ordinal equivalent.
+  /// Pass a 32-bit unsigned integer and it will be converted into its ordinal equivalent.
   /// </summary>
   /// <param name="number">Number as a cardinal value e.g. 1, 2, 3, and so on.</param>
   /// <returns>Number as an ordinal value e.g. 1st, 2nd, 3rd, and so on.</returns>
-  static string CardinalToOrdinal(int number)
+  static string CardinalToOrdinal(uint number)
   {
-    int lastTwoDigits = number % 100;
+    uint lastTwoDigits = number % 100;
 
     switch (lastTwoDigits)
     {
@@ -61,7 +61,7 @@ partial class Program
       case 13:
         return $"{number:N0}th";
       default:
-        int lastDigit = number % 10;
+        uint lastDigit = number % 10;
 
         string suffix = lastDigit switch
         {
@@ -77,7 +77,7 @@ partial class Program
 
   static void RunCardinalToOrdinal()
   {
-    for (int number = 1; number <= 150; number++)
+    for (uint number = 1; number <= 150; number++)
     {
       Write($"{CardinalToOrdinal(number)} ");
     }
@@ -124,7 +124,7 @@ partial class Program
     }
   }
 
-  static int FibImperative(int term)
+  static int FibImperative(uint term)
   {
     if (term == 1)
     {
@@ -142,7 +142,7 @@ partial class Program
 
   static void RunFibImperative()
   {
-    for (int i = 1; i <= 30; i++)
+    for (uint i = 1; i <= 30; i++)
     {
       WriteLine("The {0} term of the Fibonacci sequence is {1:N0}.",
         arg0: CardinalToOrdinal(i),
@@ -150,7 +150,7 @@ partial class Program
     }
   }
 
-  static int FibFunctional(int term) => term switch
+  static int FibFunctional(uint term) => term switch
   {
     1 => 0,
     2 => 1,
@@ -159,7 +159,7 @@ partial class Program
 
   static void RunFibFunctional()
   {
-    for (int i = 1; i <= 30; i++)
+    for (uint i = 1; i <= 30; i++)
     {
       WriteLine("The {0} term of the Fibonacci sequence is {1:N0}.",
         arg0: CardinalToOrdinal(i),
