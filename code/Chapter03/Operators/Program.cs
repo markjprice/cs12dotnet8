@@ -68,9 +68,9 @@ WriteLine($"Expression | Decimal |   Binary");
 WriteLine($"-------------------------------");
 WriteLine($"x          | {x,7} | {x:B8}");
 WriteLine($"y          | {y,7} | {y:B8}");
-WriteLine($"x & y      | {x & y,7} | {x & y:B8}"); // 2-bit column only
-WriteLine($"x | y      | {x | y,7} | {x | y:B8}"); // 8, 4, and 2-bit columns
-WriteLine($"x ^ y      | {x ^ y,7} | {x ^ y:B8}"); // 8 and 4-bit columns
+WriteLine($"x & y      | {x & y,7} | {x & y:B8}");
+WriteLine($"x | y      | {x | y,7} | {x | y:B8}");
+WriteLine($"x ^ y      | {x ^ y,7} | {x ^ y:B8}");
 
 // Left-shift x by three bit columns.
 WriteLine($"x << 3     | {x << 3,7} | {x << 3:B8}");
@@ -83,8 +83,6 @@ WriteLine($"y >> 1     | {y >> 1,7} | {y >> 1:B8}");
 
 #endregion
 
-
-// Functions in Program.cs must be defined at the bottom of the file.
 static bool DoStuff()
 {
   WriteLine("I am doing some stuff.");

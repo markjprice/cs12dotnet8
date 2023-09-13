@@ -4,7 +4,7 @@ string password = "ninja";
 
 if (password.Length < 8)
 {
-  WriteLine("Your password is too short. Use at least 8 characters.");
+  WriteLine("Your password is too short. Use at least 8 chars.");
 }
 else
 {
@@ -64,10 +64,11 @@ WriteLine($"After A_label");
 
 var animals = new Animal?[]
 {
-  new Cat { Name = "Karen", Born = new(year: 2022, month: 8, day: 23),
-    Legs = 4, IsDomestic = true },
+  new Cat { Name = "Karen", Born = new(year: 2022, month: 8, 
+    day: 23), Legs = 4, IsDomestic = true },
   null,
-  new Cat { Name = "Mufasa", Born = new(year: 1994, month: 6, day: 12) },
+  new Cat { Name = "Mufasa", Born = new(year: 1994, month: 6, 
+    day: 12) },
   new Spider { Name = "Sid Vicious", Born = DateTime.Today,
     IsPoisonous = true},
   new Spider { Name = "Captain Furry", Born = DateTime.Today }
@@ -89,7 +90,7 @@ foreach (Animal? animal in animals)
       message = $"The cat is named {cat.Name}.";
       break;
     default: // default is always evaluated last.
-      message = $"The animal named {animal.Name} is a {animal.GetType().Name}.";
+      message = $"{animal.Name} is a {animal.GetType().Name}.";
       break;
     case Spider spider when spider.IsPoisonous:
       message = $"The {spider.Name} spider is poisonous. Run!";
@@ -113,7 +114,7 @@ foreach (Animal? animal in animals)
     null
       => "The animal is null.",
     _
-      => $"The animal named {animal.Name} is a {animal.GetType().Name}."
+      => $"{animal.Name} is a {animal.GetType().Name}."
   };
   WriteLine($"switch expression: {message}");
 }
