@@ -23,7 +23,7 @@ In this article, I provide detailed step-by-step instuctions for using Visual St
 
 If you have not already installed Visual Studio 2022 for Mac, let's do so now:
 
-1.	Download Microsoft Visual Studio 2022 version 17.8 or later for Mac from the following link: https://visualstudio.microsoft.com/downloads/
+1.	Download Microsoft Visual Studio 2022 version 17.7 or later for Mac from the following link: https://visualstudio.microsoft.com/downloads/
 2.	Start the installer.
 3.	In the **What would you like to install** window, select the following:
     -	**.NET**
