@@ -88,7 +88,7 @@ partial class Program
   {
     if (number < 0)
     {
-      throw new ArgumentException(message:
+      throw new ArgumentOutOfRangeException(message:
         $"The factorial function is defined for non-negative integers only. Input: {number}",
         paramName: nameof(number));
     }
@@ -126,7 +126,11 @@ partial class Program
 
   static int FibImperative(uint term)
   {
-    if (term == 1)
+    if (term == 0)
+    {
+      throw new ArgumentOutOfRangeException();
+    }
+    else if (term == 1)
     {
       return 0;
     }
@@ -152,6 +156,7 @@ partial class Program
 
   static int FibFunctional(uint term) => term switch
   {
+    0 => throw new ArgumentOutOfRangeException(),
     1 => 0,
     2 => 1,
     _ => FibFunctional(term - 1) + FibFunctional(term - 2)

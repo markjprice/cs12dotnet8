@@ -104,7 +104,7 @@ Random.Shared.NextBytes(binaryObject);
 WriteLine("Binary Object as bytes:");
 for (int index = 0; index < binaryObject.Length; index++)
 {
-  Write($"{binaryObject[index]:X} ");
+  Write($"{binaryObject[index]:X2} ");
 }
 WriteLine();
 
