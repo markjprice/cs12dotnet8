@@ -2,11 +2,11 @@
 
 using Fruit = (string Name, int Number); // Aliasing a tuple type.
 
-ConfigureConsole(); // Sets current culture to US English by default.
+ConfigureConsole(); // Sets current culture to US English.
 
 // Alternatives:
-// ConfigureConsole(useComputerCulture: true); // To use your culture.
-// ConfigureConsole(culture: "fr-FR"); // To use French in France culture.
+// ConfigureConsole(useComputerCulture: true); // Use your culture.
+// ConfigureConsole(culture: "fr-FR"); // Use French culture.
 
 #region Instantiating a class
 
@@ -228,20 +228,22 @@ WriteLine(bob.OptionalParameters(3, "Poke!", active: false));
 int a = 10;
 int b = 20;
 int c = 30;
+int d = 40;
 
-WriteLine($"Before: a = {a}, b = {b}, c = {c}");
+WriteLine($"Before: a={a}, b={b}, c={c}, d={d}");
 
-bob.PassingParameters(a, ref b, out c);
+bob.PassingParameters(a, b, ref c, out d);
 
-WriteLine($"After: a = {a}, b = {b}, c = {c}");
+WriteLine($"After: a={a}, b={b}, c={c}, d={d}");
 
-int d = 10;
-int e = 20;
-WriteLine($"Before: d = {d}, e = {e}, f doesn't exist yet!");
+int e = 50;
+int f = 60;
+int g = 70;
+WriteLine($"Before: e={e}, f={f}, g={g}, h doesn't exist yet!");
 
 // Simplified C# 7 or later syntax for the out parameter.
-bob.PassingParameters(d, ref e, out int f);
-WriteLine($"After: d = {d}, e = {e}, f = {f}");
+bob.PassingParameters(e, f, ref g, out int h);
+WriteLine($"After: e={e}, f={f}, g={g}, h={h}");
 
 #endregion
 

@@ -106,6 +106,4 @@ public partial class Person
   }
 
   #endregion
-
-
 }
