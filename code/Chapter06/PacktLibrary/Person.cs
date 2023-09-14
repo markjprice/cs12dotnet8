@@ -88,8 +88,8 @@ public class Person : IComparable<Person>
 
     if (!p1.Spouses.Contains(p2) && !p2.Spouses.Contains(p1))
     {
-      throw new ArgumentException(
-        string.Format("{0} must be married to {1} to procreate with them.",
+      throw new ArgumentException(string.Format(
+        "{0} must be married to {1} to procreate with them.",
         arg0: p1.Name, arg1: p2.Name));
     }
 
