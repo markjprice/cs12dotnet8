@@ -3,6 +3,7 @@
 Now that you have learned the fundamentals of the C# language, let's see some ways that you can write better code.
 
 - [Treating warnings as errors](#treating-warnings-as-errors)
+- [Controlling warnings and errors](#controlling-warnings-and-errors)
 - [Understanding warning waves](#understanding-warning-waves)
   - [Warning wave 5 diagnostics were added in C# 9](#warning-wave-5-diagnostics-were-added-in-c-9)
   - [Warning wave 6 diagnostics were added in C# 10](#warning-wave-6-diagnostics-were-added-in-c-10)
@@ -94,6 +95,21 @@ string name = Console.ReadLine()!; // ! is the null-forgiving operator.
 ```
 
 > **Good Practice**: Do not ignore warnings. The compiler is warning you for a reason. At the project level, treat warnings as errors to force yourself to fix the issue. For an individual issue, like the compiler not knowing that the `ReadLine` method will not in practice return `null`, you can disable that individual warning.
+
+# Controlling warnings and errors
+
+As well as the `<TreatWarningsAsErrors>` element, there are other elements that allow you to control how warnings are treated, as shown in the following table:
+
+|Element|Description|
+|---|---|
+|`<TreatWarningsAsErrors>`|When `true`, all warnings (except those explicitly excluded) are treated as errors and therefore prevent compilation.|
+|`<WarningsAsErrors>`|When set to a list of compiler warning or error code like `8600,CS8602`, those are treated as errors.|
+|`<WarningsNotAsErrors>`|When set to a list of compiler warning or error code like `8600,CS8602`, those are excluded from errors.|
+|`<NoWarn>`|When set to a list of compiler warning codes like `8600,CS8602`, those are excluded from warnings.|
+
+> **Note**: The `CS` prefix for warnings is optional. `CS8600` or `8600` mean the same.
+
+> **More Information**: Learn more at the following link: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-options/errors-warnings.
 
 # Understanding warning waves
 
