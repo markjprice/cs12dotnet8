@@ -2,7 +2,7 @@
 
 partial class Program
 {
-  public static void ConfigureConsole(
+  private static void ConfigureConsole(
     string culture = "en-US",
     bool useComputerCulture = false,
     bool showCulture = true)
