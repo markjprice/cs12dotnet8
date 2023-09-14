@@ -2,7 +2,7 @@
 
 partial class Program
 {
-  static void OutputPeopleNames(
+  private static void OutputPeopleNames(
     IEnumerable<Person?> people, string title)
   {
     WriteLine(title);

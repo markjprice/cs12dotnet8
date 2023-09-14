@@ -13,7 +13,7 @@ public class Person : IComparable<Person>
   // Allow multiple spouses to be stored for a person.
   public List<Person> Spouses = new();
 
-  // A read-only property to determine if a person married to anyone.
+  // A read-only property to show if a person is married to anyone.
   public bool Married => Spouses.Count > 0;
 
   #endregion
