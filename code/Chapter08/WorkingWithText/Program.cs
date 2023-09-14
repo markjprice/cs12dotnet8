@@ -75,21 +75,6 @@ WriteLine("Compare (InvariantCultureIgnoreCase): {0}.",
   string.Compare(text1, text2, 
   StringComparison.InvariantCultureIgnoreCase));
 
-text1 = "Müller";
-text2 = "Mueller";
-
-WriteLine($"text1: {text1}, text2: {text2}");
-
-CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("de-DE");
-WriteLine($"Current culture: {CultureInfo.CurrentCulture.NativeName}");
-WriteLine("Compare (CurrentCulture): {0}.",
-  string.Compare(text1, text2, StringComparison.CurrentCulture));
-
-CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("de-DE_phoneb");
-WriteLine($"Current culture: {CultureInfo.CurrentCulture.NativeName}");
-WriteLine("Compare (CurrentCulture): {0}.",
-  string.Compare(text1, text2, StringComparison.CurrentCulture));
-
 #endregion
 
 #region Joining, formatting, and other string members
