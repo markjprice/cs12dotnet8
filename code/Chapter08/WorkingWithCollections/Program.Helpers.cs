@@ -1,6 +1,7 @@
 ﻿partial class Program
 {
-  static void OutputCollection<T>(string title, IEnumerable<T> collection)
+  private static void OutputCollection<T>(
+    string title, IEnumerable<T> collection)
   {
     WriteLine($"{title}:");
     foreach (T item in collection)
@@ -9,7 +10,7 @@
     }
   }
 
-  static void OutputPQ<TElement, TPriority>(string title,
+  private static void OutputPQ<TElement, TPriority>(string title,
     IEnumerable<(TElement Element, TPriority Priority)> collection)
   {
     WriteLine($"{title}:");
@@ -19,7 +20,8 @@
     }
   }
 
-  static void UseDictionary(IDictionary<string, string> dictionary)
+  private static void UseDictionary(
+    IDictionary<string, string> dictionary)
   {
     // Do some work on dictionary that only requires read access.
     WriteLine($"Count before is {dictionary.Count}.");
