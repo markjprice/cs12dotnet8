@@ -2,12 +2,9 @@
 using System.IO.Compression; // To use BrotliStream, GZipStream.
 using System.Xml; // To use XmlWriter, XmlReader.
 
-using static System.Environment; // To use CurrentDirectory method.
-using static System.IO.Path; // To use Combine method.
-
 partial class Program
 {
-  static void Compress(string algorithm = "gzip")
+  private static void Compress(string algorithm = "gzip")
   {
     // Define a file path using the algorithm as file extension.
     string filePath = Combine(

@@ -1,6 +1,6 @@
 ﻿partial class Program
 {
-  static void WriteError(string message)
+  private static void WriteError(string message)
   {
     ConsoleColor previousColor = ForegroundColor;
     ForegroundColor = ConsoleColor.Red;
@@ -8,7 +8,7 @@
     ForegroundColor = previousColor;
   }
 
-  static void WriteWarning(string message)
+  private static void WriteWarning(string message)
   {
     ConsoleColor previousColor = ForegroundColor;
     ForegroundColor = ConsoleColor.DarkYellow;
@@ -16,7 +16,7 @@
     ForegroundColor = previousColor;
   }
 
-  static void WriteInformation(string message)
+  private static void WriteInformation(string message)
   {
     ConsoleColor previousColor = ForegroundColor;
     ForegroundColor = ConsoleColor.Blue;

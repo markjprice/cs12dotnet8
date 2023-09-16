@@ -2,7 +2,7 @@
 
 partial class Program
 {
-  static void SectionTitle(string title)
+  private static void SectionTitle(string title)
   {
     WriteLine();
     ConsoleColor previousColor = ForegroundColor;

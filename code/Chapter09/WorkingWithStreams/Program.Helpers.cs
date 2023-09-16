@@ -2,7 +2,7 @@
 
 partial class Program
 {
-  static void SectionTitle(string title)
+  private static void SectionTitle(string title)
   {
     ConsoleColor previousColor = ForegroundColor;
     // Use a color that stands out on your system.
@@ -11,7 +11,7 @@ partial class Program
     ForegroundColor = previousColor;
   }
 
-  static void OutputFileInfo(string path)
+  private static void OutputFileInfo(string path)
   {
     WriteLine("**** File Info ****");
     WriteLine($"File: {GetFileName(path)}");
