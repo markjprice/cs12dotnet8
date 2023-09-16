@@ -13,9 +13,9 @@ table.AddColumn("[blue]VALUE[/]");
 
 // Add rows.
 table.AddRow("Path.PathSeparator", PathSeparator.ToString());
-table.AddRow("Path.DirectorySeparatorChar", 
+table.AddRow("Path.DirectorySeparatorChar",
   DirectorySeparatorChar.ToString());
-table.AddRow("Directory.GetCurrentDirectory()", 
+table.AddRow("Directory.GetCurrentDirectory()",
   GetCurrentDirectory());
 table.AddRow("Environment.CurrentDirectory", CurrentDirectory);
 table.AddRow("Environment.SystemDirectory", SystemDirectory);
@@ -23,41 +23,51 @@ table.AddRow("Path.GetTempPath()", GetTempPath());
 table.AddRow("");
 table.AddRow("GetFolderPath(SpecialFolder", "");
 table.AddRow("  .System)", GetFolderPath(SpecialFolder.System));
-table.AddRow("  .ApplicationData)", 
+table.AddRow("  .ApplicationData)",
   GetFolderPath(SpecialFolder.ApplicationData));
-table.AddRow("  .MyDocuments)", 
+table.AddRow("  .MyDocuments)",
   GetFolderPath(SpecialFolder.MyDocuments));
-table.AddRow("  .Personal)", 
+table.AddRow("  .Personal)",
   GetFolderPath(SpecialFolder.Personal));
 
 // Render the table to the console
 AnsiConsole.Write(table);
-return;
+
 #endregion
 
 #region Managing drives
 
 SectionTitle("Managing drives");
-WriteLine("{0,-30} | {1,-10} | {2,-7} | {3,18} | {4,18}",
-  "NAME", "TYPE", "FORMAT", "SIZE (BYTES)", "FREE SPACE");
+
+Table drives = new();
+
+drives.AddColumn("[blue]NAME[/]");
+drives.AddColumn("[blue]TYPE[/]");
+drives.AddColumn("[blue]FORMAT[/]");
+drives.AddColumn(new TableColumn(
+  "[blue]SIZE (BYTES)[/]").RightAligned());
+drives.AddColumn(new TableColumn(
+  "[blue]FREE SPACE[/]").RightAligned());
 
 foreach (DriveInfo drive in DriveInfo.GetDrives())
 {
   if (drive.IsReady)
   {
-    WriteLine(
-      "{0,-30} | {1,-10} | {2,-7} | {3,18:N0} | {4,18:N0}",
-      drive.Name, drive.DriveType, drive.DriveFormat,
-      drive.TotalSize, drive.AvailableFreeSpace);
+    drives.AddRow(drive.Name, drive.DriveType.ToString(), 
+      drive.DriveFormat, drive.TotalSize.ToString("N0"), 
+      drive.AvailableFreeSpace.ToString("N0"));
   }
   else
   {
-    WriteLine("{0,-30} | {1,-10}", drive.Name, drive.DriveType);
+    drives.AddRow(drive.Name, drive.DriveType.ToString(),
+      string.Empty, string.Empty, string.Empty);
   }
 }
 
-#endregion
+AnsiConsole.Write(drives);
 
+#endregion
+return;
 #region Managing directories
 
 SectionTitle("Managing directories");
