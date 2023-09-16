@@ -64,6 +64,10 @@ partial class Program
           reader.Read(); // Move to the text inside element.
           WriteLine($"{reader.Value}"); // Read its value.
         }
+
+        // Alternative syntax with property pattern matching:
+        // if (reader is { NodeType: XmlNodeType.Element,
+        //   Name: "callsign" })
       }
   }
 }

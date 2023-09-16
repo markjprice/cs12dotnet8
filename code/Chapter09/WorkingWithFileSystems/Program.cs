@@ -1,28 +1,38 @@
-﻿#region Handling cross-platform environments and filesystems
+﻿using Spectre.Console; // To use Table.
+
+#region Handling cross-platform environments and filesystems
 
 SectionTitle("Handling cross-platform environments and filesystems");
-WriteLine("{0,-33} {1}", arg0: "Path.PathSeparator",
-  arg1: PathSeparator);
-WriteLine("{0,-33} {1}", arg0: "Path.DirectorySeparatorChar",
-  arg1: DirectorySeparatorChar);
-WriteLine("{0,-33} {1}", arg0: "Directory.GetCurrentDirectory()",
-  arg1: GetCurrentDirectory());
-WriteLine("{0,-33} {1}", arg0: "Environment.CurrentDirectory",
-  arg1: CurrentDirectory);
-WriteLine("{0,-33} {1}", arg0: "Environment.SystemDirectory",
-  arg1: SystemDirectory);
-WriteLine("{0,-33} {1}", arg0: "Path.GetTempPath()",
-  arg1: GetTempPath());
-WriteLine("GetFolderPath(SpecialFolder");
-WriteLine("{0,-33} {1}", arg0: " .System)",
-  arg1: GetFolderPath(SpecialFolder.System));
-WriteLine("{0,-33} {1}", arg0: " .ApplicationData)",
-  arg1: GetFolderPath(SpecialFolder.ApplicationData));
-WriteLine("{0,-33} {1}", arg0: " .MyDocuments)",
-  arg1: GetFolderPath(SpecialFolder.MyDocuments));
-WriteLine("{0,-33} {1}", arg0: " .Personal)",
-  arg1: GetFolderPath(SpecialFolder.Personal));
 
+// Create a Spectre Console table.
+Table table = new();
+
+// Add two columns with markup.
+table.AddColumn("[blue]MEMBER[/]");
+table.AddColumn("[blue]VALUE[/]");
+
+// Add rows.
+table.AddRow("Path.PathSeparator", PathSeparator.ToString());
+table.AddRow("Path.DirectorySeparatorChar", 
+  DirectorySeparatorChar.ToString());
+table.AddRow("Directory.GetCurrentDirectory()", 
+  GetCurrentDirectory());
+table.AddRow("Environment.CurrentDirectory", CurrentDirectory);
+table.AddRow("Environment.SystemDirectory", SystemDirectory);
+table.AddRow("Path.GetTempPath()", GetTempPath());
+table.AddRow("");
+table.AddRow("GetFolderPath(SpecialFolder", "");
+table.AddRow("  .System)", GetFolderPath(SpecialFolder.System));
+table.AddRow("  .ApplicationData)", 
+  GetFolderPath(SpecialFolder.ApplicationData));
+table.AddRow("  .MyDocuments)", 
+  GetFolderPath(SpecialFolder.MyDocuments));
+table.AddRow("  .Personal)", 
+  GetFolderPath(SpecialFolder.Personal));
+
+// Render the table to the console
+AnsiConsole.Write(table);
+return;
 #endregion
 
 #region Managing drives
