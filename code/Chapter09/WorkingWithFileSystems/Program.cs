@@ -67,7 +67,7 @@ foreach (DriveInfo drive in DriveInfo.GetDrives())
 AnsiConsole.Write(drives);
 
 #endregion
-return;
+
 #region Managing directories
 
 SectionTitle("Managing directories");
