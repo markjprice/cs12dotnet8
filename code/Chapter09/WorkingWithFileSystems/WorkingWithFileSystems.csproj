@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Spectre.Console" Version="0.47.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Using Include="System.Console" Static="true" />
     <Using Include="System.IO.Directory" Static="true" />
     <Using Include="System.IO.Path" Static="true" />
