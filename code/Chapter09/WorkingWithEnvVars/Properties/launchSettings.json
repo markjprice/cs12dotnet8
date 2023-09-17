@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "WorkingWithEnvVars": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "MY_SECRET": "ALPHA"
+      }
+    }
+  }
+}
