@@ -86,6 +86,10 @@ public partial class NorthwindContext : DbContext
       builder.ConnectTimeout = 3;
 
       optionsBuilder.UseSqlServer(builder.ConnectionString);
+
+      optionsBuilder.LogTo(NorthwindContextLogger.WriteLine,
+        new[] { Microsoft.EntityFrameworkCore
+          .Diagnostics.RelationalEventId.CommandExecuting });
     }
   }
 

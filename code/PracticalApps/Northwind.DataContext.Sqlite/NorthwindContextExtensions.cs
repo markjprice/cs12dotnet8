@@ -19,7 +19,7 @@ public static class NorthwindContextExtensions
   {
     string path = Path.Combine(relativePath, databaseName);
     path = Path.GetFullPath(path);
-    WriteLine($"Database path: {path}");
+    NorthwindContextLogger.WriteLine($"Database path: {path}");
 
     if (!File.Exists(path))
     {
@@ -32,7 +32,7 @@ public static class NorthwindContextExtensions
       // Data Source is the modern equivalent of Filename.
       options.UseSqlite($"Data Source={path}");
 
-      options.LogTo(WriteLine, // Console
+      options.LogTo(NorthwindContextLogger.WriteLine,
         new[] { Microsoft.EntityFrameworkCore
           .Diagnostics.RelationalEventId.CommandExecuting });
     },

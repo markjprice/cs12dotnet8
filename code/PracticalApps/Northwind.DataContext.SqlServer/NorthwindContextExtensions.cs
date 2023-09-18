@@ -36,7 +36,7 @@ public static class NorthwindContextExtensions
     {
       options.UseSqlServer(connectionString);
 
-      options.LogTo(WriteLine, // Console
+      options.LogTo(NorthwindContextLogger.WriteLine,
         new[] { Microsoft.EntityFrameworkCore
           .Diagnostics.RelationalEventId.CommandExecuting });
     },

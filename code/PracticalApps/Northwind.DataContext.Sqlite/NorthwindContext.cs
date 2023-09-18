@@ -55,7 +55,7 @@ public partial class NorthwindContext : DbContext
       }
 
       path = Path.GetFullPath(path); // Convert to absolute path.
-      WriteLine($"Database path: {path}");
+      NorthwindContextLogger.WriteLine($"Database path: {path}");
 
       if (!File.Exists(path))
       {
@@ -64,6 +64,10 @@ public partial class NorthwindContext : DbContext
       }
 
       optionsBuilder.UseSqlite($"Data Source={path}");
+
+      optionsBuilder.LogTo(NorthwindContextLogger.WriteLine,
+        new[] { Microsoft.EntityFrameworkCore
+          .Diagnostics.RelationalEventId.CommandExecuting });
     }
   }
 
