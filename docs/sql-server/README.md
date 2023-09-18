@@ -137,6 +137,8 @@ For backward compatibility, there are multiple possible keywords we can use in a
 - `TrustServerCertificate`: This keyword enables trusting the local certificate if set to `true`.
 - `MultipleActiveResultSets`: This keyword is set to `true` to enable a single connection to be used to work with multiple tables simultaneously to improve efficiency. It is used for lazy loading rows from related tables.
 
+> **Good Practice**: Never store a password or other sensitive values in your source code. Get those values from an environment variable or a secret management system like [Secret Manager](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets) for local development secrets or [Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/overview) for cloud and production secrets.
+
 ## Data source aka server name
 
 As described in the list above, when you write code to connect to an SQL Server database, you need to know its server name. The server name depends on the edition and version of SQL Server that you will connect to, as shown in the following table:
@@ -207,11 +209,17 @@ public class NorthwindDb : DbContext
 
     builder.DataSource = "."; // "ServerName\InstanceName" e.g. @".\sqlexpress"
     builder.InitialCatalog = "Northwind";
-    builder.IntegratedSecurity = true;
     builder.Encrypt = true;
     builder.TrustServerCertificate = true;
     builder.MultipleActiveResultSets = true;
     builder.ConnectTimeout = 3; // Because we want to fail fast. Default is 15 seconds.
+
+    // If using Windows Integrated authentication.
+    builder.IntegratedSecurity = true;
+
+    // If using SQL Server authentication.
+    // builder.UserId = Environment.GetEnvironmentVariable("MY_SQL_USR");
+    // builder.Password = Environment.GetEnvironmentVariable("MY_SQL_PWD");
 
     string? connectionString = builder.ConnectionString;
     WriteLine($"Connection: {connectionString}");
@@ -222,7 +230,9 @@ public class NorthwindDb : DbContext
 
 > The `Data Source` can have many different values, as shown in the [Data source aka server name](#data-source-aka-server-name) section.
 
-5.	In `Program.cs`, delete the existing statements and then import the `Packt.Shared` namespace and output the database provider, as shown in the following code:
+> **Good Practice**: Do NOT define the two environment variables using a `launchSettings.json` file unless you exclude that file from your GitHub repository! It is safer to define the two environment variables using `set` or `setx` on Windows and `export` on macOS or Linux.
+
+5.	In `Program.cs`, delete the existing statements and then import the `Northwind.EntityModels` namespace and output the database provider, as shown in the following code:
 ```cs
 using Northwind.EntityModels; // To use NorthwindDb.
 
@@ -235,6 +245,8 @@ WriteLine($"Provider: {db.Database.ProviderName}");
 Connection: Data Source=.;Initial Catalog=Northwind;Integrated Security=true;Encrypt=true;TrustServerCertificate=true;MultipleActiveResultSets=true;
 Provider: Microsoft.EntityFrameworkCore.SqlServer
 ```
+
+> Note: Your connection string might be different.
 
 ## Scaffolding models using an existing database
 
@@ -359,12 +371,18 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
     builder.DataSource = "."; // "ServerName\InstanceName" e.g. @".\sqlexpress"
     builder.InitialCatalog = "Northwind";
-    builder.IntegratedSecurity = true;
     builder.TrustServerCertificate = true;
     builder.MultipleActiveResultSets = true;
 
     // Because we want to fail faster. Default is 15 seconds.
     builder.ConnectTimeout = 3;
+
+    // If using Windows Integrated authentication.
+    builder.IntegratedSecurity = true;
+
+    // If using SQL Server authentication.
+    // builder.UserId = Environment.GetEnvironmentVariable("MY_SQL_USR");
+    // builder.Password = Environment.GetEnvironmentVariable("MY_SQL_PWD");
 
     optionsBuilder.UseSqlServer(builder.ConnectionString);
   }
@@ -399,12 +417,18 @@ public static class NorthwindContextExtensions
 
       builder.DataSource = ".";
       builder.InitialCatalog = "Northwind";
-      builder.IntegratedSecurity = true;
       builder.TrustServerCertificate = true;
       builder.MultipleActiveResultSets = true;
 
       // Because we want to fail faster. Default is 15 seconds.
       builder.ConnectTimeout = 3;
+
+    // If using Windows Integrated authentication.
+    builder.IntegratedSecurity = true;
+
+    // If using SQL Server authentication.
+    // builder.UserId = Environment.GetEnvironmentVariable("MY_SQL_USR");
+    // builder.Password = Environment.GetEnvironmentVariable("MY_SQL_PWD");
 
       connectionString = builder.ConnectionString;
     }
