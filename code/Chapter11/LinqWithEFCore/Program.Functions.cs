@@ -4,7 +4,7 @@ using System.Xml.Linq; // To use XElement, XAttribute.
 
 partial class Program
 {
-  static void FilterAndSort()
+  private static void FilterAndSort()
   {
     SectionTitle("Filter and sort");
 
@@ -39,7 +39,7 @@ partial class Program
     WriteLine();
   }
 
-  static void JoinCategoriesAndProducts()
+  private static void JoinCategoriesAndProducts()
   {
     SectionTitle("Join categories and products");
 
@@ -60,7 +60,7 @@ partial class Program
     }
   }
 
-  static void GroupJoinCategoriesAndProducts()
+  private static void GroupJoinCategoriesAndProducts()
   {
     SectionTitle("Group join categories and products");
 
@@ -88,7 +88,7 @@ partial class Program
     }
   }
 
-  static void ProductsLookup()
+  private static void ProductsLookup()
   {
     SectionTitle("Products lookup");
 
@@ -128,7 +128,7 @@ partial class Program
     }
   }
 
-  static void AggregateProducts()
+  private static void AggregateProducts()
   {
     SectionTitle("Aggregate products");
 
@@ -177,7 +177,7 @@ partial class Program
       .Sum(p => p.UnitPrice * p.UnitsInStock),10:$#,##0.00}");
   }
 
-  static void OutputTableOfProducts(Product[] products,
+  private static void OutputTableOfProducts(Product[] products,
     int currentPage, int totalPages)
   {
     string line = new('-', count: 73);
@@ -197,7 +197,7 @@ partial class Program
       lineHalf, currentPage + 1, totalPages + 1, lineHalf);
   }
 
-  static void OutputPageOfProducts(IQueryable<Product> products,
+  private static void OutputPageOfProducts(IQueryable<Product> products,
     int pageSize, int currentPage, int totalPages)
   {
     // We must order data before skipping and taking to ensure
@@ -213,7 +213,7 @@ partial class Program
       currentPage, totalPages);
   }
 
-  static void PagingProducts()
+  private static void PagingProducts()
   {
     SectionTitle("Paging products");
 
@@ -242,7 +242,7 @@ partial class Program
     }
   }
 
-  static void OutputProductsAsXml()
+  private static void OutputProductsAsXml()
   {
     SectionTitle("Output products as XML");
 
@@ -260,7 +260,7 @@ partial class Program
     WriteLine(xml.ToString());
   }
 
-  static void ProcessSettings()
+  private static void ProcessSettings()
   {
     string path = Path.Combine(
       Environment.CurrentDirectory, "settings.xml");
@@ -282,7 +282,7 @@ partial class Program
     }
   }
 
-  static void CustomExtensionMethods()
+  private static void CustomExtensionMethods()
   {
     SectionTitle("Custom aggregate extension methods");
 

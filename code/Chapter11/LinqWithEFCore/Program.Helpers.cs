@@ -2,7 +2,7 @@
 
 partial class Program
 {
-  static void ConfigureConsole(string culture = "en-US",
+  private static void ConfigureConsole(string culture = "en-US",
     bool useComputerCulture = false)
   {
     // To enable Unicode characters like Euro symbol in the console.
@@ -15,7 +15,7 @@ partial class Program
     WriteLine($"CurrentCulture: {CultureInfo.CurrentCulture.DisplayName}");
   }
 
-  static void SectionTitle(string title)
+  private static void SectionTitle(string title)
   {
     ConsoleColor previousColor = ForegroundColor;
     ForegroundColor = ConsoleColor.DarkYellow;

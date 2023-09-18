@@ -1,6 +1,6 @@
 ﻿partial class Program
 {
-  static void DeferredExecution(string[] names)
+  private static void DeferredExecution(string[] names)
   {
     SectionTitle("Deferred execution");
 
@@ -29,7 +29,7 @@
     }
   }
 
-  static void FilteringUsingWhere(string[] names)
+  private static void FilteringUsingWhere(string[] names)
   {
     SectionTitle("Filtering entities using Where");
 
@@ -52,13 +52,13 @@
     }
   }
 
-  static bool NameLongerThanFour(string name)
+  private static bool NameLongerThanFour(string name)
   {
     // Returns true for a name longer than four characters.
     return name.Length > 4;
   }
 
-  static void FilteringByType()
+  private static void FilteringByType()
   {
     SectionTitle("Filtering by type");
 
@@ -80,7 +80,7 @@
     }
   }
 
-  static void Output(IEnumerable<string> cohort, string description = "")
+  private static void Output(IEnumerable<string> cohort, string description = "")
   {
     if (!string.IsNullOrEmpty(description))
     {
@@ -91,7 +91,7 @@
     WriteLine();
   }
 
-  static void WorkingWithSets()
+  private static void WorkingWithSets()
   {
     string[] cohort1 =
       { "Rachel", "Gareth", "Jonathan", "George" };

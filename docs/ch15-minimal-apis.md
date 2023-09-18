@@ -236,7 +236,7 @@ catch (Exception ex)
 ```
 6.	Start the `Northwind.MinimalApi` web service project using the `http` launch profile.
 7.	Start the `Northwind.Mvc` website project using the `https` launch profile.
-8.	Navigate to https://localhost:5151/ and note the todos, as shown in *Figure 15B.2*:
+8.	Navigate to https://localhost:5141/ to see the MVC website and note the todos on the home page, as shown in *Figure 15B.2*:
 
 ![Todos on the home page of the Northwind website](assets/B19586_15B_02.png) 
 *Figure 15B.2: Todos on the home page of the Northwind website*
