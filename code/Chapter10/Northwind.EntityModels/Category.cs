@@ -16,5 +16,6 @@ public class Category
   public virtual ICollection<Product> Products { get; set; }
     // To enable developers to add products to a Category, we must
     // initialize the navigation property to an empty collection.
+    // This also avoids an exception if we get a member like Count.
     = new HashSet<Product>();
 }
