@@ -4,7 +4,8 @@ using Northwind.EntityModels; // To use Northwind, Product.
 
 partial class Program
 {
-  static void ListProducts(int[]? productIdsToHighlight = null)
+  private static void ListProducts(
+    int[]? productIdsToHighlight = null)
   {
     using NorthwindDb db = new();
 
@@ -34,7 +35,7 @@ partial class Program
     }
   }
 
-  static (int affected, int productId) AddProduct(
+  private static (int affected, int productId) AddProduct(
     int categoryId, string productName, decimal? price, short? stock)
   {
     using NorthwindDb db = new();
@@ -60,7 +61,7 @@ partial class Program
     return (affected, p.ProductId);
   }
 
-  static (int affected, int productId) IncreaseProductPrice(
+  private static (int affected, int productId) IncreaseProductPrice(
     string productNameStartsWith, decimal amount)
   {
     using NorthwindDb db = new();
@@ -78,7 +79,7 @@ partial class Program
     return (affected, updateProduct.ProductId);
   }
 
-  static int DeleteProducts(string productNameStartsWith)
+  private static int DeleteProducts(string productNameStartsWith)
   {
     using NorthwindDb db = new();
 
@@ -100,7 +101,8 @@ partial class Program
     return affected;
   }
 
-  static (int affected, int[]? productIds) IncreaseProductPricesBetter(
+  private static (int affected, int[]? productIds) 
+    IncreaseProductPricesBetter(
     string productNameStartsWith, decimal amount)
   {
     using NorthwindDb db = new();
@@ -120,7 +122,8 @@ partial class Program
     return (affected, productIds);
   }
 
-  static int DeleteProductsBetter(string productNameStartsWith)
+  private static int DeleteProductsBetter(
+    string productNameStartsWith)
   {
     using NorthwindDb db = new();
 

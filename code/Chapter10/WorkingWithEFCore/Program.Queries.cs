@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.ChangeTracking; // To use CollectionEntry.
 
 partial class Program
 {
-  static void QueryingCategories()
+  private static void QueryingCategories()
   {
     // Data context will be disposed at the end of the method.
     using NorthwindDb db = new();
@@ -63,7 +63,7 @@ partial class Program
     }
   }
 
-  static void FilteredIncludes()
+  private static void FilteredIncludes()
   {
     using NorthwindDb db = new();
 
@@ -101,7 +101,7 @@ partial class Program
     }
   }
 
-  static void QueryingProducts()
+  private static void QueryingProducts()
   {
     using NorthwindDb db = new();
 
@@ -136,7 +136,37 @@ partial class Program
     }
   }
 
-  static void QueryingWithLike()
+  private static void GettingOneProduct()
+  {
+    using NorthwindDb db = new();
+
+    SectionTitle("Getting a single product");
+
+    string? input;
+    int id;
+
+    do
+    {
+      Write("Enter a product ID: ");
+      input = ReadLine();
+    } while (!int.TryParse(input, out id));
+
+    Product? product = db.Products?
+      .First(product => product.ProductId == id);
+
+    Info($"First: {product?.ProductName}");
+
+    if (product is null) Fail("No product found using First.");
+
+    product = db.Products?
+      .Single(product => product.ProductId == id);
+
+    Info($"Single: {product?.ProductName}");
+
+    if (product is null) Fail("No product found using Single.");
+  }
+
+  private static void QueryingWithLike()
   {
     using NorthwindDb db = new();
 
@@ -167,7 +197,7 @@ partial class Program
     }
   }
 
-  static void GetRandomProduct()
+  private static void GetRandomProduct()
   {
     using NorthwindDb db = new();
 
@@ -193,7 +223,7 @@ partial class Program
     WriteLine($"Random product: {p.ProductId} - {p.ProductName}");
   }
 
-  static void LazyLoadingWithNoTracking()
+  private static void LazyLoadingWithNoTracking()
   {
     using NorthwindDb db = new();
 

@@ -28,12 +28,12 @@ partial class Program
     WriteLineInColor($"*** {title} ***", ConsoleColor.DarkYellow);
   }
 
-  static void Fail(string message)
+  private static void Fail(string message)
   {
     WriteLineInColor($"Fail > {message}", ConsoleColor.Red);
   }
 
-  static void Info(string message)
+  private static void Info(string message)
   {
     WriteLineInColor($"Info > {message}", ConsoleColor.Cyan);
   }

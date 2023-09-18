@@ -1,4 +1,5 @@
-﻿using Northwind.EntityModels; // To use Northwind.
+﻿using Microsoft.EntityFrameworkCore;
+using Northwind.EntityModels; // To use Northwind.
 
 //using NorthwindDb db = new();
 //WriteLine($"Provider: {db.Database.ProviderName}");
@@ -6,8 +7,9 @@
 
 ConfigureConsole();
 //QueryingCategories();
-FilteredIncludes();
+//FilteredIncludes();
 //QueryingProducts();
+GettingOneProduct();
 //QueryingWithLike();
 //GetRandomProduct();
 //LazyLoadingWithNoTracking();
