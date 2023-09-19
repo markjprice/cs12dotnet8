@@ -1,12 +1,12 @@
-> **IMPORTANT!** [Information for Technical Reviewers](docs/reviewers.md)
-
-[Common Mistakes, Improvements, and Errata aka list of corrections](docs/errata/README.md)
+> **IMPORTANT!** [Common Mistakes, Improvements, and Errata aka list of corrections](docs/errata/README.md)
 
 # C# 12 and .NET 8 - Modern Cross-Platform Development Fundamentals, Eighth Edition
 
 Repository for the Packt Publishing book titled "C# 12 and .NET 8 - Modern Cross-Platform Development Fundamentals" by Mark J. Price
 
 This book is expected to publish in November 2023.
+
+If you have purchased the paperback or Kindle edition, then you can request a free PDF copy at the following link: coming soon.
 
 My author page on Amazon: https://www.amazon.com/Mark-J-Price/e/B071DW3QGN/ 
 
