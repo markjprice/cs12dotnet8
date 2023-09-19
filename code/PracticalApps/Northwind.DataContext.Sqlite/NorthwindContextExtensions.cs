@@ -8,12 +8,12 @@ public static class NorthwindContextExtensions
   /// <summary>
   /// Adds NorthwindContext to the specified IServiceCollection. Uses the Sqlite database provider.
   /// </summary>
-  /// <param name="services"></param>
+  /// <param name="services">The service collection.</param>
   /// <param name="relativePath">Default is ".."</param>
   /// <param name="databaseName">Default is "Northwind.db"</param>
   /// <returns>An IServiceCollection that can be used to add more services.</returns>
   public static IServiceCollection AddNorthwindContext(
-    this IServiceCollection services,
+    this IServiceCollection services, // The type to extend.
     string relativePath = "..",
     string databaseName = "Northwind.db")
   {

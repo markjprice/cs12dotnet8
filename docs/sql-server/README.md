@@ -340,10 +340,8 @@ You will now define a database context class library:
 </ItemGroup>
 
 <ItemGroup>
-  <PackageReference 
-    Include="Microsoft.Data.SqlClient" Version="5.1.1" />
-  <PackageReference 
-    Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+  <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
+  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
 </ItemGroup>
 
 <ItemGroup>
@@ -355,13 +353,32 @@ You will now define a database context class library:
 
 3.	In the `Northwind.DataContext.SqlServer` project, delete the `Class1.cs` file.
 4.	Build the `Northwind.DataContext.SqlServer` project to restore packages.
-5.	Move the `NorthwindContext.cs` file from the `Northwind.EntityModels.SqlServer` project/folder to the `Northwind.DataContext.SqlServer` project/folder.
-6.	In the `Northwind.DataContext.SqlServer` project, at the top of `NorthwindContext.cs`, import the namespace for working with the connection string builder for SQL Server, as shown in the following code:
+5.  In the Northwind.DataContext.Sqlite project, add a class named `NorthwindContextLogger.cs`. 
+6.  Modify its contents to define a static method named `WriteLine` that appends a string to the end of a text file named `northwindlog.txt` on the desktop, as shown in the following code:
+```cs
+using static System.Environment;
+
+namespace Northwind.EntityModels;
+
+public class NorthwindContextLogger
+{
+  public static void WriteLine(string message)
+  {
+    string path = Path.Combine(GetFolderPath(
+      SpecialFolder.DesktopDirectory), "northwindlog.txt");
+
+    StreamWriter textFile = File.AppendText(path);
+    textFile.WriteLine(message);
+    textFile.Close();
+  }
+}
+```
+7.	Move the `NorthwindContext.cs` file from the `Northwind.EntityModels.SqlServer` project/folder to the `Northwind.DataContext.SqlServer` project/folder.
+8.	In the `Northwind.DataContext.SqlServer` project, at the top of `NorthwindContext.cs`, import the namespace for working with the connection string builder for SQL Server, as shown in the following code:
 ```cs
 using Microsoft.Data.SqlClient; // To use SqlConnectionStringBuilder.
 ```
-
-7.	In `NorthwindContext.cs`, in the `OnConfiguring` method, remove the compiler warning about the connection string and add statements to build a connection string instead of hardcoding it, as shown in the following code:
+9.	In `NorthwindContext.cs`, in the `OnConfiguring` method, remove the compiler warning about the connection string and add statements to build a connection string instead of hardcoding it, as shown in the following code:
 ```cs
 protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 {
@@ -385,13 +402,17 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     // builder.Password = Environment.GetEnvironmentVariable("MY_SQL_PWD");
 
     optionsBuilder.UseSqlServer(builder.ConnectionString);
+
+    optionsBuilder.LogTo(NorthwindContextLogger.WriteLine,
+      new[] { Microsoft.EntityFrameworkCore
+        .Diagnostics.RelationalEventId.CommandExecuting });
   }
 }
 ```
 
 > The `Data Source` can have many different values, as shown in the [Data source aka server name](#data-source-aka-server-name) section.
 
-8.	In the `Northwind.DataContext.SqlServer` project, add a class file named `NorthwindContextExtensions.cs`. Modify its contents to define an extension method that adds the Northwind database context to a collection of dependency services, as shown in the following code:
+10.	In the `Northwind.DataContext.SqlServer` project, add a class file named `NorthwindContextExtensions.cs`. Modify its contents to define an extension method that adds the Northwind database context to a collection of dependency services, as shown in the following code:
 ```cs
 using Microsoft.Data.SqlClient; // To use SqlConnectionStringBuilder.
 using Microsoft.EntityFrameworkCore; // To use the UseSqlServer method.
@@ -404,11 +425,11 @@ public static class NorthwindContextExtensions
   /// <summary>
   /// Adds NorthwindContext to the specified IServiceCollection. Uses the SqlServer database provider.
   /// </summary>
-  /// <param name="services"></param>
+  /// <param name="services">The service collection.</param>
   /// <param name="connectionString">Set to override the default.</param>
   /// <returns>An IServiceCollection that can be used to add more services.</returns>
   public static IServiceCollection AddNorthwindContext(
-    this IServiceCollection services,
+    this IServiceCollection services, // The type to extend.
     string? connectionString = null)
   {
     if (connectionString is null)
@@ -437,7 +458,7 @@ public static class NorthwindContextExtensions
     {
       options.UseSqlServer(connectionString);
 
-      options.LogTo(WriteLine, // Console
+      options.LogTo(NorthwindContextLogger.WriteLine,
         new[] { Microsoft.EntityFrameworkCore
           .Diagnostics.RelationalEventId.CommandExecuting });
     },
@@ -453,6 +474,6 @@ public static class NorthwindContextExtensions
 
 > The `Data Source` can have many different values, as shown in the [Data source aka server name](#data-source-aka-server-name) section.
 
-9.	Rebuild the whole solution with all its class libraries and fix any compiler errors.
+11.	Rebuild the whole solution with all its class libraries and fix any compiler errors.
 
 > **Good Practice**: We have provided optional arguments for the `AddNorthwindContext` method so that we can override the hardcoded SQLite database filename path or the SQL Server database connection string. This will allow us more flexibility, for example, to load these values from a configuration file.

@@ -45,12 +45,12 @@ public partial class NorthwindContext : DbContext
 
       if (dir.EndsWith("net8.0"))
       {
-        // Running in the <project>\bin\<Debug|Release>\net8.0 directory.
+        // In the <project>\bin\<Debug|Release>\net8.0 directory.
         path = Path.Combine("..", "..", "..", "..", database);
       }
       else
       {
-        // Running in the <project> directory.
+        // In the <project> directory.
         path = Path.Combine("..", database);
       }
 

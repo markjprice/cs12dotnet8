@@ -9,11 +9,11 @@ public static class NorthwindContextExtensions
   /// <summary>
   /// Adds NorthwindContext to the specified IServiceCollection. Uses the SqlServer database provider.
   /// </summary>
-  /// <param name="services"></param>
+  /// <param name="services">The service collection.</param>
   /// <param name="connectionString">Set to override the default.</param>
   /// <returns>An IServiceCollection that can be used to add more services.</returns>
   public static IServiceCollection AddNorthwindContext(
-    this IServiceCollection services,
+    this IServiceCollection services, // The type to extend.
     string? connectionString = null)
   {
     if (connectionString is null)
@@ -22,12 +22,18 @@ public static class NorthwindContextExtensions
 
       builder.DataSource = ".";
       builder.InitialCatalog = "Northwind";
-      builder.IntegratedSecurity = true;
       builder.TrustServerCertificate = true;
       builder.MultipleActiveResultSets = true;
 
       // Because we want to fail faster. Default is 15 seconds.
       builder.ConnectTimeout = 3;
+
+      // If using Windows Integrated authentication.
+      builder.IntegratedSecurity = true;
+
+      // If using SQL Server authentication.
+      // builder.UserID = Environment.GetEnvironmentVariable("MY_SQL_USR");
+      // builder.Password = Environment.GetEnvironmentVariable("MY_SQL_PWD");
 
       connectionString = builder.ConnectionString;
     }
