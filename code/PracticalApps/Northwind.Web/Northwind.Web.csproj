@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- change Sqlite to SqlServer if you prefer -->
+    <!-- Change Sqlite to SqlServer if you prefer. -->
     <ProjectReference Include="..\Northwind.DataContext.Sqlite\Northwind.DataContext.Sqlite.csproj" />
     <ProjectReference Include="..\Northwind.Razor.Employees\Northwind.Razor.Employees.csproj" />
   </ItemGroup>

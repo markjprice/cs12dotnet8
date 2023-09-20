@@ -18,13 +18,14 @@ HTTP/3 brings benefits to all internet-connected apps, but especially mobile, be
 
 # Enabling HTTP/3 support
 
-.NET 8 enables HTTP/3 by default so you do not need to enable it yourself. You can skip ahead to the next section where you will see how to test that HTTP/3 is enabled.
+.NET 8 previews enabled HTTP/3 by default so you did not need to enable it yourself. But in the release candidate, the team decided to disable it again. They did this due to a bad experience caused by some anti-virus software. Hopefully in ASP.NET Core 9 they will solve this issue and re-enable HTTP/3 by default. You can read more about this issue at the following link:
+https://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-dotnet-8-rc-1/#http-3-disabled-by-default
 
 .NET 6 supported HTTP/3 as a preview feature for both clients and servers. .NET 7 delivered final full support for the following operating systems:
 - Windows 11 and Windows Server 2022.
 - Linux; you can install QUIC support using sudo apt install libmsquic.
 
-If you have one of the supported operating systems listed above, and you are using .NET 7 or earlier, let's enable HTTP/3 support in the `Northwind.Web` project:
+If you have one of the supported operating systems listed above, let's enable HTTP/3 support in the `Northwind.Web` project:
 
 1.	In `Program.cs`, import the namespace for working with HTTP protocols, as shown in the following code:
 ```cs
@@ -34,7 +35,7 @@ using Microsoft.AspNetCore.Server.Kestrel.Core; // To use HttpProtocols.
 ```cs
 builder.WebHost.ConfigureKestrel((context, options) =>
 {
-  options.ListenAnyIP(5131, listenOptions =>
+  options.ConfigureEndpointDefaults(listenOptions =>
   {
     listenOptions.Protocols = HttpProtocols.Http1AndHttp2AndHttp3;
     listenOptions.UseHttps(); // HTTP/3 requires secure connections.
