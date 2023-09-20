@@ -15,6 +15,9 @@
 - [Chapter 12 - Introducing Web Development Using ASP.NET Core](#chapter-12---introducing-web-development-using-aspnet-core)
   - [Creating a class library for entity models using SQL Server](#creating-a-class-library-for-entity-models-using-sql-server)
   - [Creating a class library for a database context using SQL Server](#creating-a-class-library-for-a-database-context-using-sql-server)
+- [Chapter 13 - Building Websites Using ASP.NET Core Razor Pages](#chapter-13---building-websites-using-aspnet-core-razor-pages)
+  - [Setting the user and password for SQL Server authentication](#setting-the-user-and-password-for-sql-server-authentication)
+  - [Configuring Entity Framework Core as a service](#configuring-entity-framework-core-as-a-service)
 
 # Chapter 10 - Working with Data Using Entity Framework Core
 
@@ -444,12 +447,12 @@ public static class NorthwindContextExtensions
       // Because we want to fail faster. Default is 15 seconds.
       builder.ConnectTimeout = 3;
 
-    // If using Windows Integrated authentication.
-    builder.IntegratedSecurity = true;
+      // If using Windows Integrated authentication.
+      builder.IntegratedSecurity = true;
 
-    // If using SQL Server authentication.
-    // builder.UserId = Environment.GetEnvironmentVariable("MY_SQL_USR");
-    // builder.Password = Environment.GetEnvironmentVariable("MY_SQL_PWD");
+      // If using SQL Server authentication.
+      // builder.UserId = Environment.GetEnvironmentVariable("MY_SQL_USR");
+      // builder.Password = Environment.GetEnvironmentVariable("MY_SQL_PWD");
 
       connectionString = builder.ConnectionString;
     }
@@ -477,3 +480,122 @@ public static class NorthwindContextExtensions
 11.	Rebuild the whole solution with all its class libraries and fix any compiler errors.
 
 > **Good Practice**: We have provided optional arguments for the `AddNorthwindContext` method so that we can override the hardcoded SQLite database filename path or the SQL Server database connection string. This will allow us more flexibility, for example, to load these values from a configuration file.
+
+# Chapter 13 - Building Websites Using ASP.NET Core Razor Pages
+
+In this section, you will use Entity Framework Core with ASP.NET Core.
+
+## Setting the user and password for SQL Server authentication
+
+If you are using SQL Server authentication, i.e. you must supply a user and password, then complete the following steps:
+
+1. In the `Northwind.DataContext.SqlServer` project, comment out the statement that enables Windows Integrated authentication, as shown in the following code:
+```cs
+// If using Windows Integrated authentication.
+// builder.IntegratedSecurity = true;
+```
+1. Uncomment the statements that set `UserId` and `Password`, as shown in the following code:
+```cs
+// If using SQL Server authentication.
+builder.UserId = Environment.GetEnvironmentVariable("MY_SQL_USR");
+builder.Password = Environment.GetEnvironmentVariable("MY_SQL_PWD");
+```
+1. Set the two environment variables at the command prompt or terminal, as shown in the following commands:
+   - On Windows:
+```
+setx MY_SQL_USR <your_user_name>
+setx MY_SQL_PWD <your_password>
+```
+   - On macOS and Linux:
+```
+export MY_SQL_USR=<your_user_name>
+export MY_SQL_PWD=<your_password>
+```
+
+> **Good Practice**: Although you could define the two environment variables in the `launchSettings.json` file in `Northwind.Web` project, you must then be extremely careful not to include that file in a GitHub repository! You can learn how to ignore files in Git at the following link: https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files.
+
+## Configuring Entity Framework Core as a service
+
+Functionality, such as Entity Framework Core database contexts, that is needed by an ASP.NET Core project should be registered as a dependency service during website startup. The code in the GitHub repository solution and below uses SQLite, but you can easily use SQL Server if you prefer.
+
+Let's see how:
+
+1.	In the `Northwind.Web` project, add a project reference to the `Northwind.DataContext` project for SQL Server, as shown in the following markup:
+```xml
+<ItemGroup>
+  <ProjectReference Include="..\Northwind.DataContext.SqlServer\Northwind.DataContext.SqlServer.csproj" />
+</ItemGroup>
+```
+2.	Build the `Northwind.Web` project.
+3.	In `Program.cs`, import the namespace to work with your entity model types, as shown in the following code:
+```cs
+using Northwind.EntityModels; // To use AddNorthwindContext method.
+```
+4.	In `Program.cs`, after the statement that adds Razor Pages to the registered services, add a statement to register the Northwind database context class, as shown in the following code:
+```cs
+builder.Services.AddNorthwindContext();
+```
+5.	In the `Pages` folder, in `Suppliers.cshtml.cs`, import the namespace for our database context, as shown in the following code:
+```cs
+using Northwind.EntityModels; // To use NorthwindContext.
+```
+6.	In the `SuppliersModel` class, add a private field to store the Northwind database context and a constructor to set it, as shown in the following code:
+```cs
+private NorthwindContext _db;
+
+public SuppliersModel(NorthwindContext db)
+{
+  _db = db;
+}
+```
+7.	Change the `Suppliers` property to be declared as a sequence of `Supplier` objects instead of `string` values, as shown highlighted in the following code:
+```cs
+public IEnumerable<Supplier>? Suppliers { get; set; }
+```
+8.	In the `OnGet` method, modify the statements to set the `Suppliers` property of the model from the `Suppliers` property of the database context, sorted by country and then company name, as shown highlighted in the following code:
+```cs
+public void OnGet()
+{
+  ViewData["Title"] = "Northwind B2B - Suppliers";
+
+  Suppliers = _db.Suppliers
+    .OrderBy(c => c.Country)
+    .ThenBy(c => c.CompanyName);
+}
+```
+9.	Modify the contents of `Suppliers.cshtml` to import the namespace for Northwind entity models and render multiple columns for each supplier, as shown highlighted in the following markup:
+```html
+@page
+@using Northwind.EntityModels
+@model Northwind.Web.Pages.SuppliersModel
+<div class="row">
+  <h1 class="display-2">Suppliers</h1>
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Company Name</th>
+        <th>Country</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+    <tbody>
+    @if (Model.Suppliers is not null)
+    {
+      @foreach(Supplier s in Model.Suppliers)
+      {
+        <tr>
+          <td>@s.CompanyName</td>
+          <td>@s.Country</td>
+          <td>@s.Phone</td>
+        </tr>
+      }
+    }
+    </tbody>
+  </table>
+</div>
+```
+10.	Start the website using the `https` launch profile and go to the website home page.
+11.	Click **Learn more about our suppliers** and note that the supplier table now loads from the database and the data is sorted first by country and then by company name, as shown in *Figure 13.10*:
+
+![The suppliers table loaded from the Northwind database](B19586_13_10.png)
+*Figure 13.10: The suppliers table loaded from the Northwind database*
