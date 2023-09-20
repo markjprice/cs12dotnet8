@@ -28,6 +28,9 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 
 builder.Services.AddControllersWithViews();
 
+// If you are using SQLite, default is "..\Northwind.db".
+builder.Services.AddNorthwindContext();
+
 /*
 // If you are using SQL Server.
 string? sqlServerConnection = builder.Configuration
@@ -39,12 +42,18 @@ if (sqlServerConnection is null)
 }
 else
 {
-  builder.Services.AddNorthwindContext(sqlServerConnection);
+  // If you are using SQL Server authentication then disable
+  // Windows Integrated authentication and set user and password.
+  Microsoft.Data.SqlClient.SqlConnectionStringBuilder sql = 
+    new(sqlServerConnection);
+
+  sql.IntegratedSecurity = false;
+  sql.UserID = Environment.GetEnvironmentVariable("MY_SQL_USR");
+  sql.Password = Environment.GetEnvironmentVariable("MY_SQL_PWD");
+
+  builder.Services.AddNorthwindContext(sql.ConnectionString);
 }
 */
-
-// If you are using SQLite, default is "..\Northwind.db".
-builder.Services.AddNorthwindContext();
 
 builder.Services.AddOutputCache(options =>
 {
