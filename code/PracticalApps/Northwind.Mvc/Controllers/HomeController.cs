@@ -87,8 +87,8 @@ namespace Northwind.Mvc.Controllers
         return BadRequest("You must pass a product ID in the route, for example, /Home/ProductDetail/21");
       }
 
-      Product? model = _db.Products.Include(p => p.Category)
-        .SingleOrDefault(p => p.ProductId == id);
+      Product? model = await _db.Products.Include(p => p.Category)
+        .SingleOrDefaultAsync(p => p.ProductId == id);
 
       if (model is null)
       {
@@ -244,6 +244,24 @@ namespace Northwind.Mvc.Controllers
 
       // Show the full customers list to see if it was deleted.
       return RedirectToAction("Customers");
+    }
+
+    public async Task<IActionResult> CategoryDetail(int? id)
+    {
+      if (!id.HasValue)
+      {
+        return BadRequest("You must pass a category ID in the route, for example, /Home/CategoryDetail/6");
+      }
+
+      Category? model = await _db.Categories.Include(p => p.Products)
+        .SingleOrDefaultAsync(p => p.CategoryId == id);
+
+      if (model is null)
+      {
+        return NotFound($"CategoryId {id} not found.");
+      }
+
+      return View(model); // pass model to view and then return result
     }
   }
 }
