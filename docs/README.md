@@ -24,6 +24,7 @@ This documentation section of the repository contains links to all the optional 
 - [.NET History](ch01-dotnet-history.md)
 - [Polyglot Notebooks](ch01-polyglot-notebooks.md)
 - [Project Options](ch01-project-options.md)
+- [Solution Folders](ch01-solution-folders.md)
 
 ## Chapter 6 Implementing Interfaces and Inheriting Classes
 
