@@ -1,35 +1,15 @@
-using Northwind.Blazor;
+using Northwind.Blazor.Components;
 using Northwind.Blazor.Services; // To use INorthwindService.
-using System.Net.Http.Headers; // To use MediaTypeWithQualityHeaderValue.
 
 var builder = WebApplication.CreateBuilder(args);
 
-//builder.Services.Configure<Microsoft.AspNetCore.Server
-//  .Kestrel.Core.KestrelServerOptions>(options =>
-//{
-//  options.AllowSynchronousIO = true;
-//});
-
 // Add services to the container.
 builder.Services.AddRazorComponents()
-  .AddServerComponents();
-//  .AddWebAssemblyComponents(); // Doesn't exist yet?
-
+  .AddServerComponents()
+  .AddWebAssemblyComponents();
 builder.Services.AddNorthwindContext();
-
-builder.Services.AddHttpClient(name: "Northwind.WebApi",
-  configureClient: options =>
-  {
-    options.BaseAddress = new Uri("https://localhost:5151/");
-    options.DefaultRequestHeaders.Accept.Add(
-      new MediaTypeWithQualityHeaderValue(
-      mediaType: "application/json", quality: 1.0));
-  });
-
 builder.Services.AddTransient<INorthwindService,
   NorthwindServiceServerSide>();
-//builder.Services.AddTransient<INorthwindService,
-//  NorthwindServiceClientSide>();
 
 var app = builder.Build();
 
@@ -46,7 +26,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.MapRazorComponents<App>()
-  .AddServerRenderMode();
-//  .AddWebAssemblyRenderMode();
+  .AddServerRenderMode()
+  .AddWebAssemblyRenderMode();
 
 app.Run();

@@ -1,0 +1,15 @@
+﻿@page "/timestable/{Number:int}/{Size:int?}"
+<PageTitle>@Number times table</PageTitle>
+<h3>@Number times table</h3>
+<table>
+  @for (int i = 1; i <= Size; i++)
+  {
+    <tr><td>@string.Format($"{i} x {Number} = {i * Number}")</td></tr>
+  }
+</table>
+@code {
+  [Parameter]
+  public int Number { get; set; }
+  [Parameter]
+  public int Size { get; set; } = 12;
+}

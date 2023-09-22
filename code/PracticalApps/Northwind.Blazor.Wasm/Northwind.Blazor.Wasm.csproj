@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <NoDefaultLaunchSettingsFile>true</NoDefaultLaunchSettingsFile>
+    <StaticWebAssetProjectMode>Default</StaticWebAssetProjectMode>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0-*" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="8.0-*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- change Sqlite to SqlServer if you prefer -->
+    <ProjectReference Include="..\Northwind.EntityModels.Sqlite\Northwind.EntityModels.Sqlite.csproj" />
+    <ProjectReference Include="..\Northwind.Blazor.Services\Northwind.Blazor.Services.csproj" />
+  </ItemGroup>
+
+</Project>

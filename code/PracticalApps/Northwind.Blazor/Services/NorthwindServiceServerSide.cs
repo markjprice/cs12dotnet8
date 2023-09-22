@@ -18,15 +18,13 @@ public class NorthwindServiceServerSide : INorthwindService
 
   public Task<List<Customer>> GetCustomersAsync(string country)
   {
-    return _db.Customers
-      .Where(c => c.Country == country)
-      .ToListAsync();
+    return _db.Customers.Where(c => c.Country == country).ToListAsync();
   }
 
   public Task<Customer?> GetCustomerAsync(string id)
   {
-    return _db.Customers
-      .FirstOrDefaultAsync(c => c.CustomerId == id);
+    return _db.Customers.FirstOrDefaultAsync
+      (c => c.CustomerId == id);
   }
 
   public Task<Customer> CreateCustomerAsync(Customer c)

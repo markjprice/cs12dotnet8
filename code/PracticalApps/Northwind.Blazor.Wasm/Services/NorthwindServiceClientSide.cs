@@ -1,4 +1,7 @@
-﻿namespace Northwind.Blazor.Services;
+﻿using Northwind.EntityModels; // To use Customer.
+using System.Net.Http.Json; // To use GetFromJsonAsync.
+
+namespace Northwind.Blazor.Services;
 
 public class NorthwindServiceClientSide : INorthwindService
 {

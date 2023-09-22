@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- change Sqlite to SqlServer if you prefer -->
+    <ProjectReference Include="..\Northwind.EntityModels.Sqlite\Northwind.EntityModels.Sqlite.csproj" />
+  </ItemGroup>
+
+</Project>
