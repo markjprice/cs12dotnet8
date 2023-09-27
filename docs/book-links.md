@@ -327,7 +327,6 @@
 ## Debugging
 - [Visual Studio for Windows debugger documentation](https://learn.microsoft.com/en-us/visualstudio/debugger/)
 - [Visual Studio Code debugger](https://code.visualstudio.com/docs/editor/debugging)
-- [Instructions for setting up the .NET debugger](https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger.md)
 - [How to debug for absolute beginners](https://learn.microsoft.com/en-us/visualstudio/debugger/debugging-absolute-beginners)
 
 ## Instrumenting
