@@ -3,6 +3,7 @@
 - [Introducing network resources](#introducing-network-resources)
 - [Working with URIs, DNS, and IP addresses](#working-with-uris-dns-and-ip-addresses)
 - [Pinging a server](#pinging-a-server)
+- [.NET 7 Networking Improvements](#net-7-networking-improvements)
 
 
 # Introducing network resources
@@ -133,3 +134,9 @@ Pinging server. Please wait...
 google.com was pinged and replied: Success.
 Reply from 2a00:1450:4009:822::200e took 9ms
 ```
+
+# .NET 7 Networking Improvements
+
+.NET 7 changes in HTTP space, new QUIC APIs, networking security and WebSockets.
+
+https://devblogs.microsoft.com/dotnet/dotnet-7-networking-improvements/
