@@ -24,21 +24,14 @@ There are hundreds of minor fixes and improvements throughout the 8th edition; t
 - Added a note and link to the [Command-Lines](command-lines.md) page.
 - Added an explaination about support phases, for example, active, go-live, maintenance, and so on.
 - Modified how the two projects are created: one using `--use-program-main`; when adding the second project, added a note about **File** | **New** | **Project** versus **File** | **Add** | **New Project**.
-- Set up console and terminal to support unicode and statically import System.Text.Encoding so you can see Euro symbol.
-- Note about how to clean up VSCode: https://code.visualstudio.com/docs/setup/setup-overview#_how-can-i-do-a-clean-uninstall-of-vs-code
-- Common principles e.g. https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it
-- Explain about code in GitHub and please do not make PRs.
-- Replace PS repo link with https://learn.microsoft.com/en-us/powershell/
-- Add section about code snippets.
 - Moved all text about notebooks to an optional exercise.
-- Created a custom `dotnet new packt-console` project template and link to its GitHub repository and NuGet package.
 
 # Chapter 2 Speaking C#
 
-- Understanding format strings: add table of custom format codes especially date time; 
-- Explain `private field _` prefix convention.
+- Understanding format strings: add tables of standard and custom format codes especially for numbers and date/time values.
+- Explain the `private field _` prefix convention.
 - Explain that there should be no namespace in `Program.Helpers.cs` and how to show the namespace name.
-- "disable the implicitly imported namespaces feature" do this if you want to manually create a global using file so there is only one place other developers need to go to see what's imported.
+- Explain how to disable the implicitly imported namespaces feature if you want to manually create a global using file so there is only one place other developers need to go to see what's imported.
 
 # Chapter 3 Controlling Flow, Converting Types, and Handling Exceptions
 
@@ -48,106 +41,73 @@ There are hundreds of minor fixes and improvements throughout the 8th edition; t
 
 # Chapter 4 Writing, Debugging, and Testing Functions
 
-- `ArgumentOutOfRange` exception for Fibonacci.
-- Understanding logging options: add bit about asking about logging in interview to show that you know its different for enterprises and its important; 
-- in Note box but not code, suggest adding if (Dev-mode) `Trace.AutoFlush = true;` so we don't lose performance.
-- add Stress testing and QA testing; 
-- Warn about the auto-generated namespace issue for `partial Program`.
-- How to make a test dependent on another test and how to run pre-run initializations.
-- Move functional programming to GitHub.
+- Use `ArgumentOutOfRange` exception for the Fibonacci function instead of a generic exception.
+- Understanding logging options: added a Good Practice about asking about logging in interview to show that you know its different for enterprises and its importance.
+- Added a Good Practice about adding `Trace.AutoFlush = true;` only during development so we don't lose performance in release/production.
+- Added a warning about the auto-generated namespace issue for `partial Program`.
 
 # Chapter 5 Building Your Own Types with Object-Oriented Programming
 
-- "It might help to have a non-optional parameter in this method to compare."
-- Changed the property named `DateOfBirth` to `Born`.
-- init => field.Trim()
-- Moved `required` to the constructors section because it is about initializing.
-- Explain file-scope: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/file
+- Changed the property named `DateOfBirth` to `Born` because it is not just a date, it also includes a time.
+- Moved `required` section to the constructors section because it is about initializing fields and properties.
+- Added an explanation about file-scope: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/file.
 
 # Chapter 6 Implementing Interfaces and Inheriting Classes
 
-- C# 101 .NET Interactive notebook to review - extend some examples with suggested tasks.
-- Explain pointers and `unsafe` keyword in an optional online section.
+- Add an exercise to suggest that readers review the **C# 101 .NET Interactive** notebook.
+- Rewrote and expanded the sections about class features especially important differences between the *concept of abstraction* and the `abstract` keyword.
 
 # Chapter 7 Packaging and Distributing .NET Types
 
-- Explain `dotnet new gitignore`.
-- Explain Native AOT: https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/
-- Removed Ex7.3
+- Added an explanation about `dotnet new gitignore`.
+- Added a new section about Native AOT with a code task: https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/.
+- Removed Ex7.3.
 
 # Chapter 8 Working with Common .NET Types
 
-- Generic math https://devblogs.microsoft.com/dotnet/dotnet-7-generic-math/; 
-- static abstract and INumber<T>; 
-- explain the comma-separator regex; 
-- working with ISet, HashSet<T>; 
-- String comparison example; 
-- using System.Runtime.InteropServices; RuntimeInformation.FrameworkDescription; 
-- Immutable vs Frozen collections;
+- Added a new section explaining read-only, immutable, and the new frozen collections.
 
 # Chapter 9 Working with Files, Streams, and Serialization
 
-- `using` best practice https://github.com/markjprice/cs10dotnet6/issues/90; 
-- JSON polymorphism https://devblogs.microsoft.com/dotnet/announcing-dotnet-7-preview-5/#polymorphism; 
-- ReadExactly, ReadAtLeast https://devblogs.microsoft.com/dotnet/announcing-dotnet-7-preview-5/#readexactly-and-readatleast; 
-- custom ShouldSerialize: https://devblogs.microsoft.com/dotnet/announcing-dotnet-7-preview-6/#conditional-serialization-of-properties; 
-- enum UnixFileMode; 
+- ?
 
 # Chapter 10 Working with Data Using Entity Framework Core
 
-- Performance improvements (bulk is SQL only): https://devblogs.microsoft.com/dotnet/announcing-ef7-preview6/; 
-- SQL health check package; https://devblogs.microsoft.com/dotnet/announcing-entity-framework-7-preview-4/#domain-driven-design-and-guarded-keys; 
-- AsNoTracking(); 
-- Connection string for SQLite: `Filename` means same as `Data Source`.
+- Updated the connection string for SQLite to explain that `Filename` means the same as `Data Source` and to use the modern one.
+- Added a new section about tracking including the `AsNoTracking()` method that often gets LinkedIn posts that are overly simplistic.
 
 # Chapter 11 Querying and Manipulating Data Using LINQ
 
-- Reader asked, "why order when paging?" give example, and the team literally has a good example: https://devblogs.microsoft.com/dotnet/announcing-ef7-preview7/#linq-expression-tree-interception; but I only cover details in B18857.
+- ?
 
 # Chapter 12 Introducing Web Development Using ASP.NET Core
 
-- list the ports for all projects and make them all different; 
-- Build Action and .csproj entries: https://learn.microsoft.com/en-us/visualstudio/ide/build-actions; 
-- diagram explaining difference between Razor Pages and Razor views; 
-- dotnet tool update --global dotnet-ef; 
-- use Path.GetFullPath(path) in DbContext configuration and output to logs; 
-- CanConnect with wrong/missing file creates a Northwind.db with 0 bytes! so check if the file exists and throw an exception if not; 
-- use SqlConnectionStringBuilder in NorthwindContext; 
-- make the CanConnect a dependent test;
+- Added a table to list all the ports for all projects and make them all different based on the chapter number.
+- Added an explanation of **Build Action** and `.csproj` entries with an explanation of the `<ItemGroup><Content>` and `<Remove>` entries.
+- Added a diagram explaining difference between Razor Pages and Razor views.
+- Added a note about updating as well as installing the EF Core tools: `dotnet tool update --global dotnet-ef`
+- I added code to use `Path.GetFullPath(path)` in the `DbContext` configuration and to output the path to logs.
+- Fixed the `CanConnect` unit test with wrong/missing file creates a `Northwind.db` with 0 bytes! The code now checks if the file exists and throws an exception if it does not.
+- I now use use `SqlConnectionStringBuilder` in `NorthwindContext` in the online-only SQL Server instructions.
 
 # Chapter 13 Building Websites Using ASP.NET Core Razor Pages
 
-- Summary of middleware order: https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/#middleware-order
-- Explain `<ItemGroup><Content>` and `<Remove>`.
-- https://learn.microsoft.com/en-us/aspnet/core/mvc/views/view-compilation
+- Added a summary of middleware order: https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/#middleware-order.
 
 # Chapter 14 Building Websites Using the Model-View-Controller Pattern
 
-- auto-register admin@example.com instead; 
-- diagram for types of caching; 
-- more output caching; 
-- new validation attributes e.g. Range[min and mix];
+- Switched the auto-registration code for the Admin user account to use `admin@example.com` instead of `test@example.com`.
+- Added a diagram to illustrate the different types of caching.
+- Added a table for the new validation attributes and the existing ones, for example, `Range[min and mix]`.
 
 # Chapter 15 Building and Consuming Web Services
 
-- add 307 to the table of status codes; 
-- change the port to 5002+5003 immediately after creating the project and retake all screenshots; 
-- configure VSCode multi-launch; 
-- use 5004+5 for Minimal APIs project; 
-- start both web services; 
-- update Ch12 with ports; 
-- replace Q10 about endpoint routing; 
-- replace Q8 about HTTP/3 benefits because its online section; 
-- move online section to end; 
-- Explain VS17.5 `.http` file support.
+- Added `307` to the table of status codes.
+- Added instructions to start both web services.
+- Added examples of how to use Visual Studio 2022 `.http` file support to test a Web API service.
 
 # Chapter 16 Building User Interface Components Using Blazor
 
-- Replace Blazor Server and Blazor WebAssembly projects with a single Blazor United project.
-- Replace the Blazor Mobile Bindings text with class libraries as Wasm.
-- Northwind.Common.EntityModels.Sqlite: remove the two SQLite packages and therefore [Index] and so on, so it does not complain when used in Blazor Wasm projects; 
-- "The label says “Customer Id” but the error messages are calling it “CustomerId” (no space). Could we get those consistent?"; 
-- New Blazor loading page: https://devblogs.microsoft.com/dotnet/asp-net-core-updates-in-dotnet-7-preview-7/#new-blazor-loading-page
-- How to use `dotnet tool update --global dotnet-ef`.
-- page 550 add `Trust Server Certificate=true;`: `dotnet ef dbcontext scaffold "Data Source=.;Initial Catalog=Northwind;Integrated Security=true;Trust Server Certificate=true;" Microsoft.EntityFrameworkCore.SqlServer --namespace Packt.Shared --data-annotations`
+- Replaced the legacy Blazor Server and Blazor WebAssembly projects with a single Blazor Full Stack project.
+- ?
 - 
