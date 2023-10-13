@@ -1,4 +1,4 @@
-**New features in .NET**
+**New features in modern .NET**
 
 If you already have some familiarity with older versions of .NET and are excited to find out about the new features in the most recent versions, then I have made it easier for you to jump around by listing modern .NET versions and their important new features below, along with the chapter number and topic title where you can learn about them.
 
