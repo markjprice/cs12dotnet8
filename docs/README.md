@@ -4,7 +4,7 @@ This documentation section of the repository contains links to all the optional 
 
 - [Online-only sections](#online-only-sections)
   - [Chapter 1 Hello C#, Welcome .NET!](#chapter-1-hello-c-welcome-net)
-  - [Chapter 2 Spaeking C#](#chapter-2-spaeking-c)
+  - [Chapter 2 Speaking C#](#chapter-2-speaking-c)
   - [Chapter 6 Implementing Interfaces and Inheriting Classes](#chapter-6-implementing-interfaces-and-inheriting-classes)
   - [Chapter 7 Packaging and Distributing .NET Types](#chapter-7-packaging-and-distributing-net-types)
   - [Chapter 8 Working with Common .NET Types](#chapter-8-working-with-common-net-types)
@@ -26,7 +26,7 @@ This documentation section of the repository contains links to all the optional 
 - [Project Options](ch01-project-options.md)
 - [Solution Folders](ch01-solution-folders.md)
 
-## Chapter 2 Spaeking C#
+## Chapter 2 Speaking C#
 
 - [C# language versions and features](ch02-features.md)
 
