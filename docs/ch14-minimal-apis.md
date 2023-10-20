@@ -79,14 +79,13 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 We will now create a web service using Minimal APIs. Instead of weather forecasts, it will implement simple ToDo functionality. It will listen for `http` requests on port `5152` and only `GET` requests will be allowed. We will use the new project template introduced with .NET 8 that is optimized for native AOT publish:
 
 1.	Use your preferred code editor to open the `PracticalApps` solution and then add a new project, as defined in the following list:
-    - Project template: **ASP.NET Core API** / `api`
+    - Project template: **ASP.NET Core Web API (native AOT)** / `webapiaot`
     - Project file and folder: `Northwind.MinimalApi`
     - Solution file and folder: `PracticalApps`
-    - Enable Docker: Cleared.
-    - Do not use top-level statements: Cleared.
-    - Enable native AOT publish: Selected.
+    - **Enable Docker**: Cleared.
+    - **Do not use top-level statements**: Cleared.
 
-> **Good Practice**: For faster startup time and minimal memory footprint by using native AOT publish, choose the **ASP.NET Core API** project template instead of the older **ASP.NET Core Web API** project template and select the option for native AOT publish.
+> **Good Practice**: For faster startup time and minimal memory footprint by using native AOT publish, choose the **ASP.NET Core Web API (native AOT)** project template instead of the older **ASP.NET Core Web API** project template.
 
 2.	Review `Program.cs`, as shown in the following code:
 ```cs
