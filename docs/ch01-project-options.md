@@ -7,6 +7,7 @@ When creating new project either using Visual Studio 2022 or using the command p
 - [ASP.NET Core Empty / `web`](#aspnet-core-empty--web)
 - [ASP.NET Core Web App (Model-View-Controller) / `mvc`](#aspnet-core-web-app-model-view-controller--mvc)
 - [ASP.NET Core Web API / `webapi`](#aspnet-core-web-api--webapi)
+- [ASP.NET Core Web API (native AOT) / `webapiaot`](#aspnet-core-web-api-native-aot--webapiaot)
 - [Blazor Web App / `blazor`](#blazor-web-app--blazor)
 - [JetBrains Rider options](#jetbrains-rider-options)
 
@@ -39,6 +40,10 @@ This project template has the same options as **ASP.NET Core Empty** / `web`.
 > **Warning!** The .NET SDK 8 defaults to implementing services using Minimal APIs and you must use the `--use-controllers` or `-controllers` switch to implement services using controllers. The .NET SDK 6 or 7 defaults to implementing services using controllers and you must use the `--use-minimal-apis` or `-minimal` switch to implement services using Minimal APIs. JetBrains Rider does not yet have an option to "use controllers" so you should use the `dotnet new` command to create a Web API project if you need to use controllers.
 
 ![ASP.NET Core Web API default options](assets/B19586_01_Projects_04.png)
+
+# ASP.NET Core Web API (native AOT) / `webapiaot`
+
+This project template always implements the service using Minimal APIs and only enables `http`.
 
 # Blazor Web App / `blazor`
 
