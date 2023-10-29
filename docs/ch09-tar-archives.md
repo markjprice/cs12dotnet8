@@ -7,9 +7,9 @@
 
 # Introducing Tar archives
 
-A file with the extension `.tar` has been created using the Unix-based archival application Tar. A file with the extension `.tar.gz` has been created using Tar and then compressed using the GZIP compression algorithm.
+A file with the extension `.tar` has been created using the Unix-based archival application `tar` which uses the **Tape Archive (TAR)** file archiving format. A file with the extension `.tar.gz` has been created using `tar` and then compressed using the GZIP compression algorithm.
 
-.NET 7 introduced the `System.Formats.Tar` assembly, which has APIs for reading, writing, archiving, and extracting Tar archives.
+.NET 7 introduced the `System.Formats.Tar` assembly, which has APIs for reading, writing, archiving, and extracting `tar` archives.
 
 The `TarFile` class has static public members, as shown in the following table:
 
