@@ -64,7 +64,6 @@ This documentation section of the repository contains links to all the optional 
 - [Using Razor class libraries](ch13-razor-library.md)
 - [Enabling HTTP/3 and request decompression support](ch13-enabling-http3.md)
 - [Building Websites Using the Model-View-Controller Pattern](aspnetcoremvc.md)
-- [Output caching](ch14-output-caching.md)
 
 ## Chapter 14 Building and Consuming Web Services
 
