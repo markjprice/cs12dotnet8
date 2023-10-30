@@ -1,4 +1,4 @@
-**Exercise 15.2 – Practice creating and deleting customers with HttpClient**
+**Exercise 14.2 – Practice creating and deleting customers with HttpClient**
 
 In this exercise, you are tasked to "extend the `Northwind.Mvc` website project to have pages where a visitor can fill in a form to create a new customer, or search for a customer and then delete them. The MVC controller should make calls to the Northwind web service to create and delete customers." 
 
