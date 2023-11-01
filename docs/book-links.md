@@ -79,21 +79,20 @@
   - [ASP.NET Core](#aspnet-core)
   - [Razor Pages and layouts](#razor-pages-and-layouts)
   - [Endpoint routing](#endpoint-routing)
-- [Chapter 14 - Building Websites Using the Model-View-Controller Pattern](#chapter-14---building-websites-using-the-model-view-controller-pattern)
-  - [Setting up and configuring](#setting-up-and-configuring)
-  - [Controllers](#controllers)
-  - [Models](#models)
-  - [Views](#views)
+  - [Setting up and configuring MVC](#setting-up-and-configuring-mvc)
+  - [MVC Controllers](#mvc-controllers)
+  - [MVC Models](#mvc-models)
+  - [MVC Views](#mvc-views)
   - [Security and privacy](#security-and-privacy)
   - [Miscellaneous](#miscellaneous-1)
-- [Chapter 15 - Building and Consuming Web Services](#chapter-15---building-and-consuming-web-services)
+- [Chapter 14 - Building and Consuming Web Services](#chapter-14---building-and-consuming-web-services)
   - [Web service technologies](#web-service-technologies)
   - [Web service routing](#web-service-routing)
   - [Web service clients](#web-service-clients)
   - [Documenting web services](#documenting-web-services)
   - [Securing web services](#securing-web-services)
   - [Health checks and reliable web services](#health-checks-and-reliable-web-services)
-- [Chapter 16 - Building User Interfaces Using Blazor](#chapter-16---building-user-interfaces-using-blazor)
+- [Chapter 15 - Building User Interfaces Using Blazor](#chapter-15---building-user-interfaces-using-blazor)
   - [Blazor hosting models](#blazor-hosting-models)
   - [Blazor components](#blazor-components)
   - [Advanced techniques](#advanced-techniques)
@@ -649,28 +648,26 @@ The official announcement links are useful because they describe the most import
 - [Configuring the HTTP pipeline with middleware](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware)
 - [DEEP DIVE: HOW IS THE ASP.NET CORE MIDDLEWARE PIPELINE BUILT?](https://www.stevejgordon.co.uk/how-is-the-asp-net-core-middleware-pipeline-built)
 
-# Chapter 14 - Building Websites Using the Model-View-Controller Pattern
-
-## Setting up and configuring
+## Setting up and configuring MVC
 - [Overview of ASP.NET Core MVC](https://learn.microsoft.com/en-us/aspnet/core/mvc/overview)
 - [Default configuration of web hosts](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/host/web-host)
 - [Dependency injection for ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection)
 - [Configuring middleware](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/)
 - [Announcing YARP 1.0 Release](https://devblogs.microsoft.com/dotnet/announcing-yarp-1-0-release/)
 
-## Controllers
+## MVC Controllers
 - [Handle requests with controllers in ASP.NET Core MVC](https://learn.microsoft.com/en-us/aspnet/core/mvc/controllers/actions)
 - [Response caching](https://learn.microsoft.com/en-us/aspnet/core/performance/caching/response)
 - [Microsoft.AspNetCore.OutputCaching Namespace](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.outputcaching)
 - [How cache busting using query strings works](https://stackoverflow.com/questions/9692665/cache-busting-via-params)
 
-## Models
+## MVC Models
 - [Model Binding in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/mvc/models/model-binding)
 - [Create your own model binders by implementing the IModelBinder interface](https://learn.microsoft.com/en-us/aspnet/core/mvc/advanced/custom-model-binding)
 - [Model validation](https://learn.microsoft.com/en-us/aspnet/core/mvc/models/validation)
 - [Tutorial: Get started with EF Core in an ASP.NET MVC web app](https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/intro)
 
-## Views
+## MVC Views
 - [HtmlHelper class](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.htmlhelper)
 - [Views in ASP.NET Core MVC](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/overview)
 - [Why it is good to put <script> elements at the bottom of the <body>](https://stackoverflow.com/questions/436411/where-should-i-put-script-tags-in-html-markup)
@@ -687,7 +684,7 @@ The official announcement links are useful because they describe the most import
 - [Filters for cross-concern functionality](https://learn.microsoft.com/en-us/aspnet/core/mvc/controllers/filters)
 - [Free stock photos for commercial use with no attribution](https://www.pexels.com/)
 
-# Chapter 15 - Building and Consuming Web Services
+# Chapter 14 - Building and Consuming Web Services
 
 ## Web service technologies
 - [Media types](http://en.wikipedia.org/wiki/Media_type)
@@ -733,7 +730,7 @@ The official announcement links are useful because they describe the most import
 - [Use HttpClientFactory to implement resilient HTTP requests](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests)
 - [Redis](https://redis.io)
 
-# Chapter 16 - Building User Interfaces Using Blazor
+# Chapter 15 - Building User Interfaces Using Blazor
 
 ## Blazor hosting models
 - [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor)
