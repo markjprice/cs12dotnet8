@@ -64,7 +64,7 @@ This documentation section of the repository contains links to all the optional 
 - [Using Razor class libraries](ch13-razor-library.md)
 - [Enabling HTTP/3 and request decompression support](ch13-enabling-http3.md)
 - [Building Websites Using the Model-View-Controller Pattern](aspnetcoremvc.md)
-- [Building Websites Using the Model-View-Controller Pattern (as PDF)](B19586_Appendix.pdf)
+- [Building Websites Using the Model-View-Controller Pattern (as PDF)](B19586_Online_Chapter.pdf)
 
 ## Chapter 14 Building and Consuming Web Services
 
