@@ -60,7 +60,7 @@ I have written a companion book titled, *[Apps and Services with .NET 8](https:/
 
 The appendix and color figures are available to download as PDFs:
 
-- Appendix A, Answers to the Test Your Knowledge Questions: coming November 2023.
+- [Appendix A, Answers to the Test Your Knowledge Questions](docs/B19586_Appendix.pdf).
 - Color images of the screenshots/diagrams used in this book: coming November 2023.
 
 ## Important
