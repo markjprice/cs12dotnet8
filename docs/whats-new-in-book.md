@@ -70,6 +70,7 @@ There are hundreds of minor fixes and improvements throughout the 8th edition; t
 
 - Added the `Spectre.Console` package to use its tables for output.
 - Added a note about the `Path.Exists` method that was added in .NET 7. It is not available in earlier versions of .NET.
+- Added a new 5-page section titled *Working with environment variables*. This shows methods on the `Environment` class and is useful to prepare readers for loading secret values like user names and passwords from environment variables instead of hard-coding them in source code.
 
 # Chapter 10 Working with Data Using Entity Framework Core
 
