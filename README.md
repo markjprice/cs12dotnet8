@@ -12,6 +12,8 @@ My author page on Amazon: https://www.amazon.com/Mark-J-Price/e/B071DW3QGN/
 
 All of my books on Packt's website: https://subscription.packtpub.com/search?query=mark+j.+price
 
+My author page on Goodreads: https://www.goodreads.com/author/show/14224500.Mark_J_Price
+
 Write an Amazon review for this book: https://packt.link/r/1837635870
 
 ## Chapters and code solutions
