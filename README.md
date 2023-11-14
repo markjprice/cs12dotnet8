@@ -4,6 +4,8 @@
 
 Repository for the Packt Publishing book titled "C# 12 and .NET 8 - Modern Cross-Platform Development Fundamentals" by Mark J. Price
 
+> **What's new in this edition?** Read a set of very short articles I wrote about what's new in C# 12 and .NET 8 in this book: https://www.linkedin.com/in/markjamesprice/recent-activity/articles/
+
 If you have purchased the paperback or Kindle edition, then you can request a free PDF copy at the following link: https://packt.link/free-ebook/9781837635870.
 
 Join the Packt community on Discord: https://packt.link/csharp12dotnet8. After accepting the Discord invite, find the channel for this book named **csharp12-dotnet8**: https://discord.com/channels/963343534323269662/1166069438865473697.
