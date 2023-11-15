@@ -4,13 +4,19 @@
 
 Repository for the Packt Publishing book titled "C# 12 and .NET 8 - Modern Cross-Platform Development Fundamentals" by Mark J. Price
 
-This book is expected to publish in November 2023.
+> **What's new in this edition?** Read a set of very short articles I wrote about what's new in C# 12 and .NET 8 in this book: https://www.linkedin.com/in/markjamesprice/recent-activity/articles/
 
-If you have purchased the paperback or Kindle edition, then you can request a free PDF copy at the following link: coming soon.
+If you have purchased the paperback or Kindle edition, then you can request a free PDF copy at the following link: https://packt.link/free-ebook/9781837635870.
+
+Join the Packt community on Discord: https://packt.link/csharp12dotnet8. After accepting the Discord invite, find the channel for this book named **csharp12-dotnet8**: https://discord.com/channels/963343534323269662/1166069438865473697.
 
 My author page on Amazon: https://www.amazon.com/Mark-J-Price/e/B071DW3QGN/ 
 
 All of my books on Packt's website: https://subscription.packtpub.com/search?query=mark+j.+price
+
+My author page on Goodreads: https://www.goodreads.com/author/show/14224500.Mark_J_Price
+
+Write an Amazon review for this book: https://packt.link/r/1837635870
 
 ## Chapters and code solutions
 
@@ -34,9 +40,9 @@ All of my books on Packt's website: https://subscription.packtpub.com/search?que
 **ASP.NET Core web development**
 - Chapter 12 Introducing Web Development Using ASP.NET Core: [code/PracticalApps](code/PracticalApps)
 - Chapter 13 Building Websites Using ASP.NET Core Razor Pages: [code/PracticalApps/Northwind.Web](code/PracticalApps/Northwind.Web)
+- Online: Building Websites Using the Model-View-Controller Pattern: [code/PracticalApps/Northwind.Mvc](code/PracticalApps/Northwind.Mvc)
 - Chapter 14 Building and Consuming Web Services: [code/PracticalApps/Northwind.WebApi](code/PracticalApps/Northwind.WebApi)
 - Chapter 15 Building User Interface Components Using Blazor: [code/PracticalApps/Northwind.Blazor](code/PracticalApps/Northwind.Blazor)
-- Online: Building Websites Using the Model-View-Controller Pattern: [code/PracticalApps/Northwind.Mvc](code/PracticalApps/Northwind.Mvc)
 
 ## Code solutions for Visual Studio 2022 and Visual Studio Code
 
@@ -60,23 +66,27 @@ I have written a companion book titled, *[Apps and Services with .NET 8](https:/
 
 The appendix and color figures are available to download as PDFs:
 
-- Appendix A, Answers to the Test Your Knowledge Questions: coming November 2023.
-- Color images of the screenshots/diagrams used in this book: coming November 2023.
+- [Appendix A, Answers to the Test Your Knowledge Questions](https://static.packt-cdn.com/downloads/9781837635870_Appendix.pdf).
+- [Color images of the screenshots/diagrams used in this book](https://static.packt-cdn.com/downloads/9781837635870_ColorImages.pdf).
 
 ## Important
+
 Corrections for typos and other mistakes and improvements like refactoring code. Useful links to other related material. 
+
 - [Command-Lines](docs/command-lines.md) page lists all commands as a single line that can be copied and pasted to make it easier to enter commands at the prompt.
 - [Book Links](docs/book-links.md)
 - [Common Mistakes, Improvements, and Errata aka list of corrections](docs/errata/README.md)
 - [Eighth edition's support for .NET 9](docs/dotnet9.md)
 
 ## Microsoft Certifications
+
 Announcing the New Foundational C# Certification with freeCodeCamp:
 https://devblogs.microsoft.com/dotnet/announcing-foundational-csharp-certification/
 
 Microsoft used to have professional exams and certifications for developers that covered skills like C# and ASP.NET. Sadly, they have retired them all. These days, the only developer-adjacent exams and certifications are for Azure or Power Platform, as you can see from the certification poster: https://aka.ms/traincertposter
 
 ## Microsoft .NET community support
+
 - [.NET Developer Community](https://dotnet.microsoft.com/platform/community)
 - [.NET Tech Community Forums for topic discussions](https://techcommunity.microsoft.com/t5/net/ct-p/dotnet)
 - [Q&A for .NET to get your questions answered](https://learn.microsoft.com/en-us/answers/products/dotnet)
@@ -84,7 +94,9 @@ Microsoft used to have professional exams and certifications for developers that
 - [If you'd like to apply to be a reviewer](https://authors.packtpub.com/reviewers/)
 
 ## Interviews with me
+
 Podcast interviews with me:
+
 - [The .NET Core Podcast - March 3, 2023](https://dotnetcore.show/episode-117-our-perspectives-on-the-future-of-net-with-mark-j-price/)
 - [Yet Another Podcast with Jesse Liberty - December 2022](https://jesseliberty.com/2022/12/10/mark-price-on-c-11-fixed/)
 - [The .NET Core Podcast - February 4, 2022](https://dotnetcore.show/episode-91-c-sharp-10-and-dotnet-6-with-mark-j-price/)

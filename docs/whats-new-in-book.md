@@ -15,9 +15,8 @@ There are hundreds of minor fixes and improvements throughout the 8th edition; t
 - [Chapter 11 Querying and Manipulating Data Using LINQ](#chapter-11-querying-and-manipulating-data-using-linq)
 - [Chapter 12 Introducing Web Development Using ASP.NET Core](#chapter-12-introducing-web-development-using-aspnet-core)
 - [Chapter 13 Building Websites Using ASP.NET Core Razor Pages](#chapter-13-building-websites-using-aspnet-core-razor-pages)
-- [Chapter 14 Building Websites Using the Model-View-Controller Pattern](#chapter-14-building-websites-using-the-model-view-controller-pattern)
-- [Chapter 15 Building and Consuming Web Services](#chapter-15-building-and-consuming-web-services)
-- [Chapter 16 Building User Interface Components Using Blazor](#chapter-16-building-user-interface-components-using-blazor)
+- [Chapter 14 Building and Consuming Web Services](#chapter-14-building-and-consuming-web-services)
+- [Chapter 15 Building User Interface Components Using Blazor](#chapter-15-building-user-interface-components-using-blazor)
 
 # Chapter 1 Hello C#, Welcome .NET!
 
@@ -144,7 +143,9 @@ There are hundreds of minor fixes and improvements throughout the 8th edition; t
 
 # Chapter 9 Working with Files, Streams, and Serialization
 
-- ?
+- Added the `Spectre.Console` package to use its tables for output.
+- Added a note about the `Path.Exists` method that was added in .NET 7. It is not available in earlier versions of .NET.
+- Added a new 5-page section titled *Working with environment variables*. This shows methods on the `Environment` class and is useful to prepare readers for loading secret values like user names and passwords from environment variables instead of hard-coding them in source code.
 
 # Chapter 10 Working with Data Using Entity Framework Core
 
@@ -153,7 +154,7 @@ There are hundreds of minor fixes and improvements throughout the 8th edition; t
 
 # Chapter 11 Querying and Manipulating Data Using LINQ
 
-- ?
+- Added a new section titled **Grouping for lookups**. It covers the `ToLookup` method that I later use in a solution to an exercise. Errata item: https://github.com/markjprice/cs11dotnet7/blob/main/docs/errata/improvements.md#page-512---group-joining-sequences
 
 # Chapter 12 Introducing Web Development Using ASP.NET Core
 
@@ -168,21 +169,17 @@ There are hundreds of minor fixes and improvements throughout the 8th edition; t
 # Chapter 13 Building Websites Using ASP.NET Core Razor Pages
 
 - Added a summary of middleware order: https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/#middleware-order.
-
-# Chapter 14 Building Websites Using the Model-View-Controller Pattern
-
+- The previous *Chapter 14 Building Websites Using the Model-View-Controller Pattern* becomes an online section.
 - Switched the auto-registration code for the Admin user account to use `admin@example.com` instead of `test@example.com`.
 - Added a diagram to illustrate the different types of caching.
 - Added a table for the new validation attributes and the existing ones, for example, `Range[min and mix]`.
 
-# Chapter 15 Building and Consuming Web Services
+# Chapter 14 Building and Consuming Web Services
 
 - Added `307` to the table of status codes.
 - Added instructions to start both web services.
 - Added examples of how to use Visual Studio 2022 `.http` file support to test a Web API service.
 
-# Chapter 16 Building User Interface Components Using Blazor
+# Chapter 15 Building User Interface Components Using Blazor
 
 - Replaced the legacy Blazor Server and Blazor WebAssembly projects with a single Blazor Full Stack project.
-- ?
-- 

@@ -37,15 +37,14 @@ If you have not already installed Visual Studio 2022 for Windows, let's do so no
 1.	Download Microsoft Visual Studio 2022 version 17.8 or later for Windows from the following link: https://visualstudio.microsoft.com/downloads/.
 2.	Start the installer.
 3.	On the **Workloads** tab, select the following:
-    -	ASP.NET and web development
-    -	.NET desktop development
-4. On the **Individual components** tab, in the **Code tools** section, select the following:
-    - Git for Windows
-5.	Click **Install** and wait for the installer to acquire the selected software and install it.
-6.	When the installation is complete, click **Launch**.
-7.	The first time that you run Visual Studio 2022, you will be prompted to sign in. If you have a Microsoft account, you can use that account. If you don't, then register for a new one at the following link: https://signup.live.com/
-8.	The first time that you run Visual Studio 2022, you will be prompted to configure your environment. For **Development Settings**, choose **Visual C#**. For the color theme, I chose **Blue**, but you can choose whatever tickles your fancy.
-9.	If you want to customize your keyboard shortcuts, navigate to **Tools** | **Options...**, and then select the **Keyboard** section.
+    -	**ASP.NET and web development**
+    -	**.NET desktop development**
+    - **Desktop development with C++** with all default components (because this enables publishing console apps and web services that start faster and have smaller memory footprints).
+4.	Click **Install** and wait for the installer to acquire the selected software and install it.
+5.	When the installation is complete, click **Launch**.
+6.	The first time that you run Visual Studio 2022, you will be prompted to sign in. If you have a Microsoft account, you can use that account. If you don't, then register for a new one at the following link: https://signup.live.com/
+7.	The first time that you run Visual Studio 2022, you will be prompted to configure your environment. For **Development Settings**, choose **Visual C#**. For the color theme, I chose **Blue**, but you can choose whatever tickles your fancy.
+8.	If you want to customize your keyboard shortcuts, navigate to **Tools** | **Options...**, and then select the **Keyboard** section.
 
 ## Building console apps using Visual Studio 2022
 
@@ -59,8 +58,8 @@ Visual Studio 2022 has a concept named a solution that allows you to open and ma
 
 Let's get started writing code!
 
-1.	Start **Visual Studio 2022**.
-2.	In the **Welcome** tab, click **New Project**, as shown in *Figure 1.3*:
+1.	Start **Visual Studio 2022**. You might see an experimental new **Welcome** tab that replaces the old model dialog box, as shown in *Figure 1.3*. This was introduced with previews of version 17.6 but in more recent previews it has been removed again. Microsoft is surveying what "Welcome Experience" developers prefer so it might return.
+2.	In the **Welcome** tab, click **New Project**, or if you are using a version with the **Visual Studio 2022** modal dialog box, then in the **Get started** section, click **Create a new project**.
 
 ![Creating a new project in Visual Studio 2022](assets/vs4win/B19586_01_03.png)
 *Figure 1.3: Creating a new project in Visual Studio 2022*

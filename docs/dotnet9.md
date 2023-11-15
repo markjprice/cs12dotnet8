@@ -1,6 +1,6 @@
 # Eighth Edition's support for .NET 9 and 10
 
-Microsoft will release previews of .NET 9 regularly starting in February 2024 until the final version on Tuesday, November 12, 2024, one week after the US Presedentual Election on November 5.
+Microsoft will release previews of .NET 9 regularly starting in February 2024 until the final version on Tuesday, November 12, 2024, one week after the US Presidential Election on November 5.
 
 - [Download .NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
 - November 12, 2024: Announcing .NET 9.0 - The Bestest .NET Yet

@@ -4,6 +4,7 @@ This documentation section of the repository contains links to all the optional 
 
 - [Online-only sections](#online-only-sections)
   - [Chapter 1 Hello C#, Welcome .NET!](#chapter-1-hello-c-welcome-net)
+  - [Chapter 2 Speaking C#](#chapter-2-speaking-c)
   - [Chapter 6 Implementing Interfaces and Inheriting Classes](#chapter-6-implementing-interfaces-and-inheriting-classes)
   - [Chapter 7 Packaging and Distributing .NET Types](#chapter-7-packaging-and-distributing-net-types)
   - [Chapter 8 Working with Common .NET Types](#chapter-8-working-with-common-net-types)
@@ -11,9 +12,8 @@ This documentation section of the repository contains links to all the optional 
   - [Chapter 10 Working with Data Using Entity Framework Core](#chapter-10-working-with-data-using-entity-framework-core)
   - [Chapter 11 Querying and Manipulating Data Using LINQ](#chapter-11-querying-and-manipulating-data-using-linq)
   - [Chapter 13 Building Websites Using ASP.NET Core Razor Pages](#chapter-13-building-websites-using-aspnet-core-razor-pages)
-  - [Chapter 14 Building Websites Using the Model-View-Controller Pattern](#chapter-14-building-websites-using-the-model-view-controller-pattern)
-  - [Chapter 15 Building and Consuming Web Services](#chapter-15-building-and-consuming-web-services)
-  - [Chapter 16 Building User Interfaces Using Blazor](#chapter-16-building-user-interfaces-using-blazor)
+  - [Chapter 14 Building and Consuming Web Services](#chapter-14-building-and-consuming-web-services)
+  - [Chapter 15 Building User Interfaces Using Blazor](#chapter-15-building-user-interfaces-using-blazor)
 - [Errata, Improvements, and Common Mistakes](#errata-improvements-and-common-mistakes)
 - [Miscellaneous](#miscellaneous)
 
@@ -26,12 +26,17 @@ This documentation section of the repository contains links to all the optional 
 - [Project Options](ch01-project-options.md)
 - [Solution Folders](ch01-solution-folders.md)
 
+## Chapter 2 Speaking C#
+
+- [C# language versions and features](ch02-features.md)
+
 ## Chapter 6 Implementing Interfaces and Inheriting Classes
 
 - [Writing Better Code](ch06-writing-better-code.md)
 
 ## Chapter 7 Packaging and Distributing .NET Types
 
+- [New features in modern .NET](ch07-features.md)
 - [Porting from .NET Framework to modern .NET](ch07-porting.md)
 - [Introducing source generators](ch07-source-generators.md)
 
@@ -58,20 +63,18 @@ This documentation section of the repository contains links to all the optional 
 
 - [Using Razor class libraries](ch13-razor-library.md)
 - [Enabling HTTP/3 and request decompression support](ch13-enabling-http3.md)
+- [Building Websites Using the Model-View-Controller Pattern](aspnetcoremvc.md)
+- [Building Websites Using the Model-View-Controller Pattern (as PDF)](B19586_Online_Chapter.pdf)
 
-## Chapter 14 Building Websites Using the Model-View-Controller Pattern
+## Chapter 14 Building and Consuming Web Services
 
-- [Output caching](ch14-output-caching.md)
+- [Implementing advanced features for web services](ch14-advanced.md)
+- [Building web services using Minimal APIs](ch14-minimal-apis.md)
+- [Exercise 14.2 – Practice creating and deleting customers with HttpClient](ch14-exercise-2.md)
 
-## Chapter 15 Building and Consuming Web Services
+## Chapter 15 Building User Interfaces Using Blazor
 
-- [Implementing advanced features for web services](ch15-advanced.md)
-- [Building web services using Minimal APIs](ch15-minimal-apis.md)
-- [Exercise 15.2 – Practice creating and deleting customers with HttpClient](ch15-exercise-2.md)
-
-## Chapter 16 Building User Interfaces Using Blazor
-
-- [Enhancing Blazor apps](ch16-enhanced-blazor.md)
+- [Enhancing Blazor apps](ch15-enhanced-blazor.md)
 
 # Errata, Improvements, and Common Mistakes
 

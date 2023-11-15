@@ -79,21 +79,20 @@
   - [ASP.NET Core](#aspnet-core)
   - [Razor Pages and layouts](#razor-pages-and-layouts)
   - [Endpoint routing](#endpoint-routing)
-- [Chapter 14 - Building Websites Using the Model-View-Controller Pattern](#chapter-14---building-websites-using-the-model-view-controller-pattern)
-  - [Setting up and configuring](#setting-up-and-configuring)
-  - [Controllers](#controllers)
-  - [Models](#models)
-  - [Views](#views)
+  - [Setting up and configuring MVC](#setting-up-and-configuring-mvc)
+  - [MVC Controllers](#mvc-controllers)
+  - [MVC Models](#mvc-models)
+  - [MVC Views](#mvc-views)
   - [Security and privacy](#security-and-privacy)
   - [Miscellaneous](#miscellaneous-1)
-- [Chapter 15 - Building and Consuming Web Services](#chapter-15---building-and-consuming-web-services)
+- [Chapter 14 - Building and Consuming Web Services](#chapter-14---building-and-consuming-web-services)
   - [Web service technologies](#web-service-technologies)
   - [Web service routing](#web-service-routing)
   - [Web service clients](#web-service-clients)
   - [Documenting web services](#documenting-web-services)
   - [Securing web services](#securing-web-services)
   - [Health checks and reliable web services](#health-checks-and-reliable-web-services)
-- [Chapter 16 - Building User Interfaces Using Blazor](#chapter-16---building-user-interfaces-using-blazor)
+- [Chapter 15 - Building User Interfaces Using Blazor](#chapter-15---building-user-interfaces-using-blazor)
   - [Blazor hosting models](#blazor-hosting-models)
   - [Blazor components](#blazor-components)
   - [Advanced techniques](#advanced-techniques)
@@ -115,6 +114,7 @@
 - [Comparison of Visual Studio Code and Visual Studio](https://www.itworld.com/article/3403683/visual-studio-code-stepping-on-visual-studios-toes.html)
 
 ## Visual Studio Code
+- [C# Dev Kit – Now Generally Available](https://devblogs.microsoft.com/dotnet/csharp-dev-kit-now-generally-available/)
 - [Download Visual Studio Code](https://code.visualstudio.com/)
 - [Visual Studio Code documentation](https://code.visualstudio.com/docs)
 - [Set up Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview)
@@ -153,6 +153,7 @@
 
 ## .NET
 - [Download .NET SDK](https://dotnet.microsoft.com/en-us/download)
+- [The convenience of .NET](https://devblogs.microsoft.com/dotnet/the-convenience-of-dotnet/)
 - [What's new in .NET 8](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8)
 - [.NET Conf 2022 Keynote: Welcome to .NET 7 | .NET Conf 2022](https://www.youtube.com/watch?v=8V_BUGFKdaI)
 - [Stack Overflow survey 2021 - Most loved frameworks and libraries](https://insights.stackoverflow.com/survey/2021#section-most-loved-dreaded-and-wanted-other-frameworks-and-libraries)
@@ -325,6 +326,7 @@
 # Chapter 4 - Writing, Debugging, and Testing Functions
 
 ## Debugging
+- [Debugging Enhancements in .NET 8](https://devblogs.microsoft.com/dotnet/debugging-enhancements-in-dotnet-8/)
 - [Visual Studio for Windows debugger documentation](https://learn.microsoft.com/en-us/visualstudio/debugger/)
 - [Visual Studio Code debugger](https://code.visualstudio.com/docs/editor/debugging)
 - [How to debug for absolute beginners](https://learn.microsoft.com/en-us/visualstudio/debugger/debugging-absolute-beginners)
@@ -512,8 +514,10 @@ The official announcement links are useful because they describe the most import
 - [How pipelines help with I/O performance](https://devblogs.microsoft.com/dotnet/system-io-pipelines-high-performance-io-in-net/)
 - [Serialization (C#)](https://learn.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/concepts/serialization/)
 - [Serializing to Files, TextWriters, and XmlWriters](https://learn.microsoft.com/en-us/dotnet/standard/linq/serialize-files-textwriters-xmlwriters)
+- [The convenience of System.IO](https://devblogs.microsoft.com/dotnet/the-convenience-of-system-io/)
 
 ## JSON
+- [The convenience of System.Text.Json](https://devblogs.microsoft.com/dotnet/the-convenience-of-system-text-json/)
 - [Newtonsoft Json.NET](https://www.newtonsoft.com/json)
 - [System.Text.Json APIs](https://devblogs.microsoft.com/dotnet/try-the-new-system-text-json-apis/)
 - [What’s next for System.Text.Json?](https://devblogs.microsoft.com/dotnet/whats-next-for-system-text-json/)
@@ -631,6 +635,7 @@ The official announcement links are useful because they describe the most import
 - [Kestrel web server](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel)
 - [ASP.NET Core hosting environments](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/environments)
 - [Free TLS/SSL certificates](https://letsencrypt.org)
+- [Performance Improvements in ASP.NET Core 8](https://devblogs.microsoft.com/dotnet/performance-improvements-in-aspnet-core-8/)
 
 ## Razor Pages and layouts
 - [Introducing the new Razor editor in Visual Studio 2022](https://devblogs.microsoft.com/visualstudio/introducing-the-new-razor-editor-in-visual-studio-2022/)
@@ -649,33 +654,32 @@ The official announcement links are useful because they describe the most import
 - [Configuring the HTTP pipeline with middleware](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware)
 - [DEEP DIVE: HOW IS THE ASP.NET CORE MIDDLEWARE PIPELINE BUILT?](https://www.stevejgordon.co.uk/how-is-the-asp-net-core-middleware-pipeline-built)
 
-# Chapter 14 - Building Websites Using the Model-View-Controller Pattern
-
-## Setting up and configuring
+## Setting up and configuring MVC
 - [Overview of ASP.NET Core MVC](https://learn.microsoft.com/en-us/aspnet/core/mvc/overview)
 - [Default configuration of web hosts](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/host/web-host)
 - [Dependency injection for ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection)
 - [Configuring middleware](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/)
 - [Announcing YARP 1.0 Release](https://devblogs.microsoft.com/dotnet/announcing-yarp-1-0-release/)
 
-## Controllers
+## MVC Controllers
 - [Handle requests with controllers in ASP.NET Core MVC](https://learn.microsoft.com/en-us/aspnet/core/mvc/controllers/actions)
 - [Response caching](https://learn.microsoft.com/en-us/aspnet/core/performance/caching/response)
 - [Microsoft.AspNetCore.OutputCaching Namespace](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.outputcaching)
 - [How cache busting using query strings works](https://stackoverflow.com/questions/9692665/cache-busting-via-params)
 
-## Models
+## MVC Models
 - [Model Binding in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/mvc/models/model-binding)
 - [Create your own model binders by implementing the IModelBinder interface](https://learn.microsoft.com/en-us/aspnet/core/mvc/advanced/custom-model-binding)
 - [Model validation](https://learn.microsoft.com/en-us/aspnet/core/mvc/models/validation)
 - [Tutorial: Get started with EF Core in an ASP.NET MVC web app](https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/intro)
 
-## Views
+## MVC Views
 - [HtmlHelper class](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.htmlhelper)
 - [Views in ASP.NET Core MVC](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/overview)
 - [Why it is good to put <script> elements at the bottom of the <body>](https://stackoverflow.com/questions/436411/where-should-i-put-script-tags-in-html-markup)
 
 ## Security and privacy
+- [What’s new with identity in .NET 8](https://devblogs.microsoft.com/dotnet/whats-new-with-identity-in-dotnet-8/)
 - [Built-in features for compliance with modern privacy requirements like GDPR](https://learn.microsoft.com/en-us/aspnet/core/security/gdpr)
 - [Enable QR code generation for TOTP authenticator apps in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity-enable-qrcodes)
 - [Scaffold Identity in ASP.NET Core projects](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/scaffold-identity?tabs=netcore-cli)
@@ -687,7 +691,7 @@ The official announcement links are useful because they describe the most import
 - [Filters for cross-concern functionality](https://learn.microsoft.com/en-us/aspnet/core/mvc/controllers/filters)
 - [Free stock photos for commercial use with no attribution](https://www.pexels.com/)
 
-# Chapter 15 - Building and Consuming Web Services
+# Chapter 14 - Building and Consuming Web Services
 
 ## Web service technologies
 - [Media types](http://en.wikipedia.org/wiki/Media_type)
@@ -733,7 +737,7 @@ The official announcement links are useful because they describe the most import
 - [Use HttpClientFactory to implement resilient HTTP requests](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests)
 - [Redis](https://redis.io)
 
-# Chapter 16 - Building User Interfaces Using Blazor
+# Chapter 15 - Building User Interfaces Using Blazor
 
 ## Blazor hosting models
 - [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor)

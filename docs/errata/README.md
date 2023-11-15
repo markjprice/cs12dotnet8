@@ -6,7 +6,7 @@ If you find any mistakes in the eighth edition, *C# 12 and .NET 8 - Modern Cross
 
 [**Improvements** (0 items)](improvements.md): Changes to text or code that would improve the content. These are optional.
 
-[**Post-Publication Changes** (0 items)](changes.md): Changes to the functionality or behavior of C#, .NET, code editors, and other tools since final drafts in October 2023.
+[**Post-Publication Changes** (0 items)](changes.md): Changes to the functionality or behavior of C#, .NET, code editors, and other tools since final drafts in early November 2023.
 
 [**Common Mistakes** (6 items)](common-mistakes.md): These are some of the most common mistakes that a reader might encounter when trying to get code in book tasks to work, or when trying to write your own code. 
 
