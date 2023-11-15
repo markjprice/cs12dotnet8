@@ -133,13 +133,28 @@ There are hundreds of minor fixes and improvements throughout the 8th edition; t
 
 # Chapter 7 Packaging and Distributing .NET Types
 
-- Added an explanation about `dotnet new gitignore`.
-- Added a new section about Native AOT with a code task: https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/.
-- Removed Ex7.3.
+- Moved the .NET versions and features tables to an online page.
+- Added a section about mixing SDKs and framework targets, including how to use previews of .NET 9 and .NET 10 when they become available in February 2024 and February 2025 respectively.
+- Added a section about controlling where build artifacts are created using a `Directory.Build.props` file.
+- Added a section about Native ahead-of-time (AOT) compilation with a code task to show how it works, including the limitations and requirements.
+- Added a section about viewing source links with Visual Studio 2022.
+- Added a step to include a `readme.md` file when publishing a package to NuGet.org which is a recent requirement.
+- Added a link for those readers who need to know how to publish a package to a private NuGet feed.
+- Briefly mention method interceptors.
+- Removed Ex7.3 about PowerShell.
+- Moved two sections online: *Exercise 7.3 – Porting from .NET Framework to modern .NET* and *Exercise 7.4 – Creating source generators*.
+- Added an exercise to learn about performance improvements by reading all the blog posts written by Stephen Toub.
 
 # Chapter 8 Working with Common .NET Types
 
-- Added a new section explaining read-only, immutable, and the new frozen collections.
+- Fixed the output for complex numbers.
+- Added a coding task to show the two new `Random` methods `GetItems<T>` and `Shuffle<T>` introduced with .NET 8.
+- Added a section about generating GUIDs.
+- Added a section about comparing string values, including ignoring case.
+- Added a section about collection add and remove methods, with a table to compare them.
+- Added a section about read-only, immutable, and the new frozen collections, with coding task to compare their functionality.
+- Added a section about initializing collections using collection expressions.
+- Moved the section about network resources to an online page as *Exercise 8.4*.
 
 # Chapter 9 Working with Files, Streams, and Serialization
 
