@@ -5,56 +5,61 @@ To make it easier to enter commands at the prompt, this page lists all commands 
 > Note: Page numbers will be updated once the final print files are made available to me in November 2023.
 
 - [Chapter 1 - Hello, C#! Welcome, .NET!](#chapter-1---hello-c-welcome-net)
-  - [Page ? - Managing Visual Studio Code extensions at the command prompt](#page----managing-visual-studio-code-extensions-at-the-command-prompt)
-  - [Page ? - Listing and removing versions of .NET](#page----listing-and-removing-versions-of-net)
-  - [Page ? - Writing code using Visual Studio Code](#page----writing-code-using-visual-studio-code)
-  - [Page ? - Compiling and running code using the dotnet CLI](#page----compiling-and-running-code-using-the-dotnet-cli)
-  - [Page ? - Cloning the book solution code repository](#page----cloning-the-book-solution-code-repository)
-  - [Page ? - Getting help for the dotnet tool](#page----getting-help-for-the-dotnet-tool)
+  - [Page 11 - Managing Visual Studio Code extensions at the command prompt](#page-11---managing-visual-studio-code-extensions-at-the-command-prompt)
+  - [Page 15 - Listing and removing versions of .NET](#page-15---listing-and-removing-versions-of-net)
+  - [Page 21 - Understanding top-level programs](#page-21---understanding-top-level-programs)
+  - [Page 27 - Writing code using Visual Studio Code](#page-27---writing-code-using-visual-studio-code)
+  - [Page 30 - Compiling and running code using the dotnet CLI](#page-30---compiling-and-running-code-using-the-dotnet-cli)
+  - [Page 31 - Adding a second project using Visual Studio Code](#page-31---adding-a-second-project-using-visual-studio-code)
+  - [Page 37 - Cloning the book solution code repository](#page-37---cloning-the-book-solution-code-repository)
+  - [Page 38 - Getting help for the dotnet tool](#page-38---getting-help-for-the-dotnet-tool)
 - [Chapter 2 - Speaking C#](#chapter-2---speaking-c)
-  - [Page ? - How to output the SDK version](#page----how-to-output-the-sdk-version)
-- [Chapter 3 - Controlling Flow, Converting Types, and Handling Exceptions](#chapter-3---controlling-flow-converting-types-and-handling-exceptions)
-  - [Page ? - Configuring trace listeners](#page----configuring-trace-listeners)
-  - [Page 178 - Adding packages to a project in Visual Studio Code](#page-178---adding-packages-to-a-project-in-visual-studio-code)
+  - [Page 55 - How to output the SDK version](#page-55---how-to-output-the-sdk-version)
+  - [Page 95 - Exploring more about console apps](#page-95---exploring-more-about-console-apps)
+  - [Page 106 - Passing arguments to a console app](#page-106---passing-arguments-to-a-console-app)
+- [Chapter 4 - Writing, Debugging, and Testing Functions](#chapter-4---writing-debugging-and-testing-functions)
+  - [Page 201 - Hot reloading using Visual Studio Code and dotnet watch](#page-201---hot-reloading-using-visual-studio-code-and-dotnet-watch)
+  - [Page 205 - Configuring trace listeners](#page-205---configuring-trace-listeners)
+  - [Page 207 - Adding packages to a project in Visual Studio Code](#page-207---adding-packages-to-a-project-in-visual-studio-code)
+  - [Page 216 - Creating a class library that needs testing](#page-216---creating-a-class-library-that-needs-testing)
 - [Chapter 7 - Packaging and Distributing .NET Types](#chapter-7---packaging-and-distributing-net-types)
-  - [Page 315 - Checking your .NET SDKs for updates](#page-315---checking-your-net-sdks-for-updates)
-  - [Page 324 - Creating a .NET Standard 2.0 class library](#page-324---creating-a-net-standard-20-class-library)
-  - [Page 325 - Controlling the .NET SDK](#page-325---controlling-the-net-sdk)
-  - [Page 328 - Creating new projects](#page-328---creating-new-projects)
-  - [Page 330 - Publishing a self-contained app](#page-330---publishing-a-self-contained-app)
-  - [Page 332 - Publishing a single-file app](#page-332---publishing-a-single-file-app)
-  - [Page 333 - Enabling assembly-level trimming](#page-333---enabling-assembly-level-trimming)
-  - [Page 333 - Enabling type-level and member-level trimming](#page-333---enabling-type-level-and-member-level-trimming)
-  - [Page 350 - .NET Upgrade Assistant](#page-350---net-upgrade-assistant)
+  - [Page 369 - Checking your .NET SDKs for updates](#page-369---checking-your-net-sdks-for-updates)
+  - [Page 378 - Creating a .NET Standard 2.0 class library](#page-378---creating-a-net-standard-20-class-library)
+- [Page 379 - Controlling the .NET SDK](#page-379---controlling-the-net-sdk)
+  - [Page 384 - Understanding dotnet commands](#page-384---understanding-dotnet-commands)
+  - [Page 385 - Getting information about .NET and its environment](#page-385---getting-information-about-net-and-its-environment)
+  - [Page 386 - Publishing a self-contained app](#page-386---publishing-a-self-contained-app)
+  - [Page 388 - Publishing a single-file app](#page-388---publishing-a-single-file-app)
+  - [Page 390 - Enabling assembly-level trimming](#page-390---enabling-assembly-level-trimming)
+  - [Page 390 - Enabling type-level and member-level trimming](#page-390---enabling-type-level-and-member-level-trimming)
+  - [Page 395 - Publishing a native AOT project](#page-395---publishing-a-native-aot-project)
+- [Chapter 9 - Working with Files, Streams, and Serialization](#chapter-9---working-with-files-streams-and-serialization)
+  - [Page 508 - Expanding, setting, and getting an environment variables](#page-508---expanding-setting-and-getting-an-environment-variables)
 - [Chapter 10 - Working with Data Using Entity Framework Core](#chapter-10---working-with-data-using-entity-framework-core)
-  - [Page 440 - Creating the Northwind sample database for SQLite](#page-440---creating-the-northwind-sample-database-for-sqlite)
-  - [Page 452 - Setting up the dotnet-ef tool](#page-452---setting-up-the-dotnet-ef-tool)
-  - [Page 453 - Scaffolding models using an existing database](#page-453---scaffolding-models-using-an-existing-database)
+  - [Page 518 - Setting up SQLite for macOS and Linux](#page-518---setting-up-sqlite-for-macos-and-linux)
+  - [Page 519 - Creating the Northwind sample database for SQLite](#page-519---creating-the-northwind-sample-database-for-sqlite)
+  - [Page 534 - Setting up the dotnet-ef tool](#page-534---setting-up-the-dotnet-ef-tool)
+  - [Page 536 - Scaffolding models using an existing database](#page-536---scaffolding-models-using-an-existing-database)
 - [Chapter 11 - Querying and Manipulating Data Using LINQ](#chapter-11---querying-and-manipulating-data-using-linq)
-  - [Page 503 - Building an EF Core model](#page-503---building-an-ef-core-model)
+  - [Page 598 - Creating a console app for exploring LINQ to Entities](#page-598---creating-a-console-app-for-exploring-linq-to-entities)
 - [Chapter 12 - Introducing Web Development Using ASP.NET Core](#chapter-12---introducing-web-development-using-aspnet-core)
-  - [Page 540 - Creating a class library for entity models using SQLite](#page-540---creating-a-class-library-for-entity-models-using-sqlite)
-  - [Page 549 - Creating a class library for entity models using SQL Server](#page-549---creating-a-class-library-for-entity-models-using-sql-server)
+  - [Page 635 - Creating a class library for entity models using SQLite](#page-635---creating-a-class-library-for-entity-models-using-sqlite)
 - [Chapter 13 - Building Websites Using ASP.NET Core Razor Pages](#chapter-13---building-websites-using-aspnet-core-razor-pages)
-  - [Page 564 - Testing and securing the website](#page-564---testing-and-securing-the-website)
-  - [Page 585 - Creating a Razor class library](#page-585---creating-a-razor-class-library)
-- [Chapter 14 - Building Websites Using the Model-View-Controller Pattern](#chapter-14---building-websites-using-the-model-view-controller-pattern)
-  - [Page 602 - Creating an ASP.NET Core MVC website](#page-602---creating-an-aspnet-core-mvc-website)
-  - [Page 604 - Creating the authentication database for SQL Server LocalDB](#page-604---creating-the-authentication-database-for-sql-server-localdb)
-- [Chapter 15 - Building and Consuming Web Services](#chapter-15---building-and-consuming-web-services)
-  - [Page 695 - Building web services using Minimal APIs](#page-695---building-web-services-using-minimal-apis)
-- [Chapter 16 - Building User Interfaces Using Blazor](#chapter-16---building-user-interfaces-using-blazor)
-  - [Page 717 - Reviewing the Blazor WebAssembly project template](#page-717---reviewing-the-blazor-webassembly-project-template)
+  - [Page 660 - Testing and securing the website](#page-660---testing-and-securing-the-website)
+  - [Page 675 - Using code-behind files with Razor Pages](#page-675---using-code-behind-files-with-razor-pages)
+- [Chapter 14 - Building and Consuming Web Services](#chapter-14---building-and-consuming-web-services)
+- [Chapter 15 - Building User Interfaces Using Blazor](#chapter-15---building-user-interfaces-using-blazor)
+  - [Page 749 - Creating a Blazor Web App project](#page-749---creating-a-blazor-web-app-project)
 
 # Chapter 1 - Hello, C#! Welcome, .NET!
 
-## Page ? - Managing Visual Studio Code extensions at the command prompt
+## Page 11 - Managing Visual Studio Code extensions at the command prompt
 
 ```
-code --install-extension ms-dotnettools.csharp
+code --install-extension ms-dotnettools.csdevkit
 ```
 
-## Page ? - Listing and removing versions of .NET
+## Page 15 - Listing and removing versions of .NET
 
 Listing all installed .NET SDKS:
 ```
@@ -71,62 +76,113 @@ Details of all .NET installations:
 dotnet --info
 ```
 
-Remove all but the latest .NET SDK preview:
+## Page 21 - Understanding top-level programs
+
+If you are using the dotnet CLI at the command prompt, add a switch to generate a console app project using the legacy `Program` class with a `Main` method:
 ```
-dotnet-core-uninstall remove --all-previews-but-latest --sdk
+dotnet new console --use-program-main
 ```
 
-## Page ? - Writing code using Visual Studio Code
+## Page 27 - Writing code using Visual Studio Code
 
-Creating a new **Console App** project:
+Using the dotnet CLI to create a new solution named `Chapter01`:
 ```
-dotnet new console
-```
-
-Creating a new **Console App** project that targets a specified framework version, for example, .NET 6:
-```
-dotnet new console -f net6.0
+dotnet new sln --name Chapter01
 ```
 
-Creating a new **Console App** project that in a named subfolder:
+Creating a new **Console App** project in a folder named `HelloCS` with a project file named `HelloCS.csproj`:
 ```
-dotnet new console -o HelloCS
+dotnet new console --output HelloCS
 ```
 
-## Page ? - Compiling and running code using the dotnet CLI
+Adding a named project to the solution file:
+```
+dotnet sln add HelloCS
+```
+
+Opening Visual Studio Code in the current folder:
+```
+code .
+```
+
+Creating a new **Console App** project named `HelloCS` that targets a specified framework version, for example, .NET 6:
+```
+dotnet new console -f net6.0 -o HelloCS
+```
+
+## Page 30 - Compiling and running code using the dotnet CLI
 ```
 dotnet run
 ```
 
-## Page ? - Cloning the book solution code repository
+## Page 31 - Adding a second project using Visual Studio Code
+
+Creating a project named `AboutMyEnvironment` using the legacy `Program` class with a `Main` method:
+```
+dotnet new console -o AboutMyEnvironment --use-program-main
+```
+
+## Page 37 - Cloning the book solution code repository
 
 ```
-git clone https://github.com/markjprice/cs11dotnet7.git
+git clone https://github.com/markjprice/cs12dotnet8.git
 ```
 
-## Page ? - Getting help for the dotnet tool
+## Page 38 - Getting help for the dotnet tool
 
-Getting help for a `dotnet` command like `new`:
+Getting help for a `dotnet` command like `build` from the documentation web page:
 ```
-dotnet help new
+dotnet help build
+```
+
+Getting help for a `dotnet` command like `build` at the command prompt:
+```
+dotnet build -?
 ```
 
 Getting help for a specified project template, for example, `console`:
 ```
-dotnet new console -h
+dotnet new console -?
 ```
 
 # Chapter 2 - Speaking C#
 
-## Page ? - How to output the SDK version
+## Page 55 - How to output the SDK version
 
+Output the current version of the .NET SDK:
 ```
 dotnet --version
 ```
 
-# Chapter 3 - Controlling Flow, Converting Types, and Handling Exceptions
+## Page 95 - Exploring more about console apps
 
-## Page ? - Configuring trace listeners
+Example of a command line with multiple arguments:
+```
+dotnet new console -lang "F#" --name "ExploringConsole"
+```
+
+## Page 106 - Passing arguments to a console app
+
+Passing four arguments when running your project:
+```
+dotnet run firstarg second-arg third:arg "fourth arg"
+```
+
+Setting options using arguments:
+```
+dotnet run red yellow 50
+```
+
+# Chapter 4 - Writing, Debugging, and Testing Functions
+
+## Page 201 - Hot reloading using Visual Studio Code and dotnet watch
+
+Starting a project using Hot Reload:
+```
+dotnet watch
+```
+
+## Page 205 - Configuring trace listeners
 
 Running a project with its release configuration:
 ```
@@ -138,7 +194,7 @@ Running a project with its debug configuration:
 dotnet run --configuration Debug
 ```
 
-## Page 178 - Adding packages to a project in Visual Studio Code
+## Page 207 - Adding packages to a project in Visual Studio Code
 
 Adding the `Microsoft.Extensions.Configuration.Binder` package:
 ```
@@ -150,55 +206,87 @@ Adding the `Microsoft.Extensions.Configuration.Json` package:
 dotnet add package Microsoft.Extensions.Configuration.Json
 ```
 
-> Note: You do not need to add the other two packages because they are transitive depedencies and so will be implicitly referenced.
+## Page 216 - Creating a class library that needs testing
+
+Creating a class library project and adding it to the solution file:
+```
+dotnet new classlib -o CalculatorLib
+dotnet sln add CalculatorLib
+```
+
+Creating an XUnit text project and adding it to the solution file:
+```
+dotnet new xunit -o CalculatorLibUnitTests
+dotnet sln add CalculatorLibUnitTests
+```
+
+Running a unit test project:
+```
+dotnet test
+```
 
 # Chapter 7 - Packaging and Distributing .NET Types
 
-## Page 315 - Checking your .NET SDKs for updates
+## Page 369 - Checking your .NET SDKs for updates
 
+Listing the installed .NET SDKs with a column to indicate if it has a newer version that can be upgraded to:
 ```
 dotnet sdk check
 ```
 
-## Page 324 - Creating a .NET Standard 2.0 class library
+## Page 378 - Creating a .NET Standard 2.0 class library
 
+Creating a new class library project that targets .NET Standard 2.0:
 ```
 dotnet new classlib -f netstandard2.0
 ```
 
-## Page 325 - Controlling the .NET SDK
+# Page 379 - Controlling the .NET SDK
+
+Listing the installed .NET SDKs:
+```
+dotnet --list-sdks
+```
 
 Creating a `global.json` file to control to default .NET SDK for projects created in the current folder and its descendents:
 ```
-dotnet new globaljson --sdk-version 6.0.404
+dotnet new globaljson --sdk-version 6.0.320
 ```
 
-## Page 328 - Creating new projects
+## Page 384 - Understanding dotnet commands
 
-Listing available project templates using .NET 7:
+Listing available project templates using .NET 7 or later:
 ```
 dotnet new list
 ```
 
-Listing available project templates using .NET 6:
+Listing available project templates using .NET 6 or earlier:
 ```
 dotnet new --list
 ```
 
-Listing available project templates using .NET 6 short form:
+Listing available project templates using .NET 6 or earlier (short form):
 ```
 dotnet new -l
 ```
 
-## Page 330 - Publishing a self-contained app
+## Page 385 - Getting information about .NET and its environment
+
+Getting detailed information about installed .NET runtimes, SDKs, and workloads:
+```
+dotnet --info
+```
+
+## Page 386 - Publishing a self-contained app
 
 Build and publish the release version for Windows:
 ```
 dotnet publish -c Release -r win10-x64 --self-contained
 ```
+
 Build and publish the release version for macOS on Intel:
 ```
-dotnet publish -c Release -r  osx-x64 --self-contained
+dotnet publish -c Release -r osx-x64 --self-contained
 ```
 
 Build and publish the release version for macOS on Apple Silicon:
@@ -216,7 +304,7 @@ Build and publish the release version for Linus on ARM64:
 dotnet publish -c Release -r linux-arm64 --self-contained
 ```
 
-## Page 332 - Publishing a single-file app
+## Page 388 - Publishing a single-file app
 
 ```
 dotnet publish -c Release -r win10-x64 --no-self-contained /p:PublishSingleFile=true
@@ -226,44 +314,66 @@ dotnet publish -c Release -r win10-x64 --no-self-contained /p:PublishSingleFile=
 dotnet publish -c Release -r win10-x64 --self-contained /p:PublishSingleFile=true
 ```
 
-## Page 333 - Enabling assembly-level trimming
+## Page 390 - Enabling assembly-level trimming
 
 ```
 dotnet publish -c Release -r win10-x64 --self-contained /p:PublishSingleFile=true -p:PublishTrimmed=True
 ```
 
-## Page 333 - Enabling type-level and member-level trimming
+## Page 390 - Enabling type-level and member-level trimming
 
 ```
 dotnet publish -c Release -r win10-x64 --self-contained /p:PublishSingleFile=true -p:PublishTrimmed=True -p:TrimMode=Link
 ```
 
-## Page 350 - .NET Upgrade Assistant
+## Page 395 - Publishing a native AOT project
 
-Installing the .NET Upgrade Assistant:
 ```
-dotnet tool install -g upgrade-assistant
+dotnet publish
+```
+
+# Chapter 9 - Working with Files, Streams, and Serialization
+
+## Page 508 - Expanding, setting, and getting an environment variables
+
+To temporarily set an environment variable at the command prompt or terminal on macOS or Linux,
+you can use the `export` command:
+```
+export MY_ENV_VAR=Delta
+```
+
+To set some environment variables at the user and machine scope levels on Windows:
+```
+setx MY_SECRET "Beta"
+setx MY_SECRET "Gamma" /M
 ```
 
 # Chapter 10 - Working with Data Using Entity Framework Core
 
-## Page 440 - Creating the Northwind sample database for SQLite
+## Page 518 - Setting up SQLite for macOS and Linux
+
+On Linux, you can get set up with SQLite using the following command:
+```
+sudo apt-get install sqlite3
+```
+
+## Page 519 - Creating the Northwind sample database for SQLite
 
 Creating the Northwind SQLite database:
 ```
 sqlite3 Northwind.db -init Northwind4SQLite.sql
 ```
 
-## Page 452 - Setting up the dotnet-ef tool
+## Page 534 - Setting up the dotnet-ef tool
 
 Listing installed `dotnet` global tools:
 ```
 dotnet tool list --global
 ```
 
-Uninstalling an older `dotnet-ef` tool:
+Updating an older `dotnet-ef` tool:
 ```
-dotnet tool uninstall --global dotnet-ef
+dotnet tool update --global dotnet-ef
 ```
 
 Installing the latest `dotnet-ef` as a global tool:
@@ -271,7 +381,12 @@ Installing the latest `dotnet-ef` as a global tool:
 dotnet tool install --global dotnet-ef
 ```
 
-## Page 453 - Scaffolding models using an existing database
+Uninstalling an older `dotnet-ef` tool:
+```
+dotnet tool uninstall --global dotnet-ef
+```
+
+## Page 536 - Scaffolding models using an existing database
 
 ```
 dotnet ef dbcontext scaffold "Data Source=Northwind.db" Microsoft.EntityFrameworkCore.Sqlite --table Categories --table Products --output-dir AutoGenModels --namespace WorkingWithEFCore.AutoGen --data-annotations --context NorthwindDb
@@ -289,7 +404,7 @@ Note the following:
 
 # Chapter 11 - Querying and Manipulating Data Using LINQ
 
-## Page 503 - Building an EF Core model
+## Page 598 - Creating a console app for exploring LINQ to Entities
 
 Creating the Northwind SQLite database:
 ```
@@ -298,7 +413,7 @@ sqlite3 Northwind.db -init Northwind4Sqlite.sql
 
 # Chapter 12 - Introducing Web Development Using ASP.NET Core
 
-## Page 540 - Creating a class library for entity models using SQLite
+## Page 635 - Creating a class library for entity models using SQLite
 
 Creating the Northwind SQLite database:
 ```
@@ -310,75 +425,49 @@ Creating the EF Core model for the Northwind database:
 dotnet ef dbcontext scaffold "Data Source=../Northwind.db" Microsoft.EntityFrameworkCore.Sqlite --namespace Northwind.EntityModels --data-annotations
 ```
 
-## Page 549 - Creating a class library for entity models using SQL Server
-
-Creating the EF Core model for the Northwind database:
-```
-dotnet ef dbcontext scaffold "Data Source=.;Initial Catalog=Northwind;Integrated Security=true;TrustServerCertificate=true;" Microsoft.EntityFrameworkCore.SqlServer --namespace Northwind.EntityModels --data-annotations
-```
-
-> If you do not have a "full" edition of SQL Server installed with a default instance then you will need to changed the `.` to the correct `servername\instancename`.
-
 # Chapter 13 - Building Websites Using ASP.NET Core Razor Pages
 
-## Page 564 - Testing and securing the website
+## Page 660 - Testing and securing the website
 
 Starting an ASP.NET Core project and specifying the `https` profile:
 ```
 dotnet run --launch-profile https
 ```
 
-## Page 585 - Creating a Razor class library
+## Page 675 - Using code-behind files with Razor Pages
 
+Creating a Razor Page named `Suppliers.cshtml` with a code-behind file:
 ```
-dotnet new razorclasslib --support-pages-and-views
-```
-
-# Chapter 14 - Building Websites Using the Model-View-Controller Pattern
-
-## Page 602 - Creating an ASP.NET Core MVC website
-
-Showing all the options for an ASP.NET Core MVC project:
-```
-dotnet new mvc --help
+dotnet new page -n Suppliers --namespace Northwind.Web.Page
 ```
 
-## Page 604 - Creating the authentication database for SQL Server LocalDB
-
-```
-dotnet ef database update
-```
-
-# Chapter 15 - Building and Consuming Web Services
+# Chapter 14 - Building and Consuming Web Services
 
 Creating a Web API project using controllers:
 ```
-dotnet new webapi --use-controllers
+dotnet new webapi --use-controllers -o Northwind.WebApi
 ```
 
-Creating a Web API project using controllers short form:
+Creating a Web API project using controllers (short form):
 ```
-dotnet new webapi -controllers
+dotnet new webapi -controllers -o Northwind.WebApi
 ```
-
-## Page 695 - Building web services using Minimal APIs
 
 Creating a Web API project using Minimal APIs:
 ```
-dotnet new webapi --use-minimal-apis
+dotnet new webapi --use-minimal-api -o Northwind.WebApi
 ```
 
-Creating a Web API project using Minimal APIs short form:
+Creating a Web API project using Minimal APIs (short form):
 ```
-dotnet new webapi -minimal
-```
-
-# Chapter 16 - Building User Interfaces Using Blazor
-
-## Page 717 - Reviewing the Blazor WebAssembly project template
-
-Creating a Blazor WASM project that supports Progressive Web App capabilities and is hosted in an ASP.NET Core website project:
-```
-dotnet new blazorwasm --pwa --hosted
+dotnet new webapi -minimal -o Northwind.WebApi
 ```
 
+# Chapter 15 - Building User Interfaces Using Blazor
+
+## Page 749 - Creating a Blazor Web App project
+
+Creating a new project using the Blazor Web App template with no server-side or client-side interactivity enabled by default:
+```
+dotnet new blazor --interactivity None -o Northwind.Blazor
+```
