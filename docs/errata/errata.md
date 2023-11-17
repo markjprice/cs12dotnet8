@@ -22,4 +22,4 @@ the minor and patch versions of the SDK. The third number starts at `100` for th
 
 # Page 58 - Showing the compiler version
 
-In Step 3, the code should have been styled as `Code` (monospace black-on-white text) instead of `Command Line` (monospace white-on-black).
+In Step 3, the code should have been styled as `Code` (monospace black-on-light-gray text) instead of `Command Line` (monospace white-on-black).
