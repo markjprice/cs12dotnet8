@@ -10,3 +10,5 @@ This chapter will cover the following topics:
 - [Improving performance and scalability using caching](aspnetcoremvc-04.md)
 - [Querying a database and using display templates](aspnetcoremvc-05.md)
 - [Practicing and exploring](aspnetcoremvc-06.md)
+
+> This online-only chapter is available as a downloadable PDF here: [Online Chapter for ASP.NET Core](B19586_Online_Chapter.pdf).
