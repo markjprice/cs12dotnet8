@@ -17,4 +17,4 @@ But the patch number is not created from the major and minor versions of the SDK
 
 I should have written, ".NET SDK versioning does not follow semantic versioning. The major and minor version numbers are
 tied to the runtime version it is matched with. The third number follows a convention that indicates
-the minor and patch versions of the SDK. The minor number is multiplied by 100 and added to the patch number."
+the minor and patch versions of the SDK. The third number starts at `100` for the initial version (equivalent to `0.0` for minor and patch number). The first digit increments with minor increments, and the other two digits increment with patch increments."
