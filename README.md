@@ -64,9 +64,10 @@ I have written a companion book titled, *[Apps and Services with .NET 8](https:/
 
 ## Bonus content
 
-The appendix and color figures are available to download as PDFs:
+The MVC chapter, appendix, and color figures are available to download as PDFs:
 
-- [Appendix A, Answers to the Test Your Knowledge Questions](https://static.packt-cdn.com/downloads/9781837635870_Appendix.pdf).
+- [Online Chapter - Building Websites Using the Model-View-Controller Pattern](docs/B19586_Online_Chapter.pdf)
+- [Appendix A, Answers to the Test Your Knowledge Questions](docs/B19586_Appendix.pdf).
 - [Color images of the screenshots/diagrams used in this book](https://static.packt-cdn.com/downloads/9781837635870_ColorImages.pdf).
 
 ## Important
