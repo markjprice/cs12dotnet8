@@ -9,6 +9,8 @@
 - [Adding Markdown and special commands to a notebook](#adding-markdown-and-special-commands-to-a-notebook)
 - [Executing code in multiple cells](#executing-code-in-multiple-cells)
 
+> **Warning!** At the time of writing in November 2023, the Polyglot Notebooks extension requires .NET 7 SDK. Soon it will be updated to use .NET 8.
+
 # Exploring code using Polyglot Notebooks
 
 Polyglot Notebooks makes writing code even easier than top-level programs. It requires Visual Studio Code, so if you did not install it and the Polyglot Notebooks extension earlier, please install them now.

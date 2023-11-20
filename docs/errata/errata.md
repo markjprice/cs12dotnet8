@@ -1,10 +1,14 @@
-**Errata** (2 items)
+**Errata** (3 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
+- [Page 10 - Installing other extensions](#page-10---installing-other-extensions)
 - [Page 15 - Understanding .NET runtime and .NET SDK versions](#page-15---understanding-net-runtime-and-net-sdk-versions)
 - [Page 58 - Showing the compiler version](#page-58---showing-the-compiler-version)
 
+# Page 10 - Installing other extensions
+
+At the time of publishing, the Polyglot Notebooks extension has a dependency on .NET 7. The extension will soon be updated to only require .NET 8 but for now you must install .NET 7 SDK.
 
 # Page 15 - Understanding .NET runtime and .NET SDK versions
 
