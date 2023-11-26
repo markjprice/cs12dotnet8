@@ -10,7 +10,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 
 ## Page 484 - Compressing streams
 
-> Thanks to [DrAvriLev](https://github.com/DrAvriLev) who raised this [issue on November 16, 2023](https://github.com/markjprice/cs12dotnet8/issues/4).
+> Thanks to [DrAvriLev](https://github.com/DrAvriLev) who raised this [issue on November 26, 2023](https://github.com/markjprice/cs12dotnet8/issues/4).
 
 In Step 2, on page 485, I use a `using` statement without braces to ensure that the `decompressor` object has its `Dispose` method called. This can look confusing because I did not specify braces around the start and end of its scope.
 
