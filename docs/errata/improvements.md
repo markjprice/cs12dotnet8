@@ -24,7 +24,7 @@ sum=1+
 int        sum=    1     +2;int sum=1+2; // Two statements on one line.
 ```
 
-Since all four statements are all equivalent, they all have the same variable name, and therefore cannot be all declared in the same code file. 
+Since all four statements are all equivalent, they all have the same variable name, and therefore cannot be all declared in the same code block. 
 
 Unless a step-by-step instruction tells the reader to enter code, all code examples are written to be read and understood, not entered into a code editor. Code examples should be considered to be "snippets" that are not guaranteed to compile without changes or additional statements.
 
