@@ -1,12 +1,30 @@
-**Improvements** (1 item)
+**Improvements** (2 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
 - [Print Book](#print-book)
+  - [Page 64 - Formatting code using white space](#page-64---formatting-code-using-white-space)
   - [Page 484 - Compressing streams](#page-484---compressing-streams)
 - [Bonus Content](#bonus-content)
 
 # Print Book
+
+## Page 64 - Formatting code using white space
+
+In this section, I show code examples of white space.
+
+I wrote, "The following four statements are all equivalent:"
+```cs
+int sum = 1 + 2; // Most developers would prefer this format.
+
+int
+sum=1+
+2; // One statement over three lines.
+
+int        sum=    1     +2;int sum=1+2; // Two statements on one line.
+```
+
+Since all four statements are all equivalent, they all have the same variable name, and therefore cannot be all declared in the same code file. The code examples should NOT be entered into your code editor. In the next edition, I will explicitly say that.
 
 ## Page 484 - Compressing streams
 
