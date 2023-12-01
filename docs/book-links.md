@@ -47,6 +47,7 @@
   - [Roslyn, SDKs, and project templates](#roslyn-sdks-and-project-templates)
   - [Packaging and publishing](#packaging-and-publishing)
   - [Decompiling .NET](#decompiling-net)
+  - [Ahead-of-time (AOT) compilation](#ahead-of-time-aot-compilation)
   - [Porting from .NET Framework to modern .NET](#porting-from-net-framework-to-modern-net)
   - [Preview features](#preview-features)
 - [Chapter 8 - Working with Common .NET Types](#chapter-8---working-with-common-net-types)
@@ -461,6 +462,11 @@ The official announcement links are useful because they describe the most import
 ## Decompiling .NET
 - [Is it possible to “decompile” a Windows .exe? Or at least view the Assembly?](https://stackoverflow.com/questions/273145/is-it-possible-to-decompile-a-windows-exe-or-at-least-view-the-assembly)
 - [IDA Freeware Download Page](https://www.hex-rays.com/ida-free/#download)
+
+## Ahead-of-time (AOT) compilation
+- [Native AOT deployment](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/)
+- [How to make libraries compatible with native AOT](https://devblogs.microsoft.com/dotnet/creating-aot-compatible-libraries/)
+- [ASP.NET Core support for native AOT](https://devblogs.microsoft.com/dotnet/announcing-asp-net-core-in-dotnet-8/#asp-net-core-support-for-native-aot)
 
 ## Porting from .NET Framework to modern .NET
 - [Overview of porting from .NET Framework to .NET Core](https://learn.microsoft.com/en-us/dotnet/core/porting/)
