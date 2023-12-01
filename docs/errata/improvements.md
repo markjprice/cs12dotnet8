@@ -26,7 +26,9 @@ int        sum=    1     +2;int sum=1+2; // Two statements on one line.
 
 Since all four statements are all equivalent, they all have the same variable name, and therefore cannot be all declared in the same code file. 
 
-Unless a step-by-step instruction tells the reader to enter code, all code examples are written to be read and understood, not entered into a code editor. In the next edition, I will explicitly say that, and explain that if the reader does decide to enter the code, they would of course need to rename the variables. 
+Unless a step-by-step instruction tells the reader to enter code, all code examples are written to be read and understood, not entered into a code editor. Code examples should be considered to be "snippets" that are not guaranteed to compile without changes or additional statements.
+
+In the next edition, I will explicitly say that, and explain that if the reader does decide to enter the code, they would (of course) need to rename the variables. 
 
 ## Page 484 - Compressing streams
 
