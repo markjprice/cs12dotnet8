@@ -543,7 +543,7 @@ For example, it sets the `Layout` property of all views to a shared layout file,
 </div>
 ```
 
-The `<a>` elements use tag helper attributes named `asp-controller` and `asp-action` to specify the controller name and action name that will execute when the link is clicked on. If you want to navigate to a feature in a Razor Class Library, like the employees component that you created in the previous chapter, then you use `asp-area` to specify the feature name.
+The `<a>` elements use tag helper attributes named `asp-controller` and `asp-action` to specify the controller name and action name that will execute when the link is clicked on.
 
 10.	Note the rendering of the body inside the `<main>` element, as shown in the following markup:
 ```html
