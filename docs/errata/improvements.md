@@ -1,9 +1,10 @@
-**Improvements** (2 items)
+**Improvements** (3 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
 - [Print Book](#print-book)
   - [Page 64 - Formatting code using white space](#page-64---formatting-code-using-white-space)
+  - [Page 369 - Understanding .NET components](#page-369---understanding-net-components)
   - [Page 484 - Compressing streams](#page-484---compressing-streams)
 - [Bonus Content](#bonus-content)
 
@@ -29,6 +30,12 @@ Since all four statements are all equivalent, they all have the same variable na
 Unless a step-by-step instruction tells the reader to enter code, all code examples are written to be read and understood, not entered into a code editor. Code examples should be considered to be "snippets" that are not guaranteed to compile without changes or additional statements.
 
 In the next edition, I will explicitly say that, and explain that if the reader does decide to enter the code, they would (of course) need to rename the variables. 
+
+## Page 369 - Understanding .NET components
+
+> Thanks to Saeed Fathi who emailed this suggestion to me on December 6, 2023.
+
+I used the term "CoreFX" which is an old term for what is now better known as `dotnet/runtime`. In future editions, I will remove that term.
 
 ## Page 484 - Compressing streams
 

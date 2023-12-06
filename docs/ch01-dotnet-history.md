@@ -46,7 +46,7 @@ Unfortunately, a lot of the user interface of Visual Studio 2022 for Mac is very
 
 Today, we live in a truly cross-platform world where modern mobile and cloud development have made Windows, as an operating system, much less important. Because of that, Microsoft has been working since 2015 on an effort to decouple .NET from its close ties with Windows. While rewriting .NET Framework to be truly cross-platform, they've taken the opportunity to refactor and remove major parts that are no longer considered core.
 
-This new modernized product was initially branded **.NET Core** and includes a cross-platform implementation of the CLR known as **CoreCLR** and a streamlined BCL known as **CoreFX**.
+This new modernized product was initially branded **.NET Core** and includes a cross-platform implementation of the CLR known as **CoreCLR** and a streamlined BCL irginally known as **CoreFX** but now better known as `dotnet/runtime`.
 
 Scott Hunter, Microsoft Partner Director Program Manager for .NET, has said that "Forty percent of our .NET Core customers are brand-new developers to the platform, which is what we want with .NET Core. We want to bring new people in."
 
