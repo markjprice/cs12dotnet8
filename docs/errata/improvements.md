@@ -1,9 +1,10 @@
-**Improvements** (3 items)
+**Improvements** (4 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
 - [Print Book](#print-book)
   - [Page 64 - Formatting code using white space](#page-64---formatting-code-using-white-space)
+  - [Page 79 - Raw interpolated string literals](#page-79---raw-interpolated-string-literals)
   - [Page 369 - Understanding .NET components](#page-369---understanding-net-components)
   - [Page 484 - Compressing streams](#page-484---compressing-streams)
 - [Bonus Content](#bonus-content)
@@ -30,6 +31,59 @@ Since all four statements are all equivalent, they all have the same variable na
 Unless a step-by-step instruction tells the reader to enter code, all code examples are written to be read and understood, not entered into a code editor. Code examples should be considered to be "snippets" that are not guaranteed to compile without changes or additional statements.
 
 In the next edition, I will explicitly say that, and explain that if the reader does decide to enter the code, they would (of course) need to rename the variables. 
+
+## Page 79 - Raw interpolated string literals
+
+> Thanks to [centpede](https://github.com/centpede) who raised this [issue on December 11, 2023](https://github.com/markjprice/cs12dotnet8/issues/6).
+
+At the bottom of page 79, I show some code that will output some JSON.
+
+```cs
+var person = new { FirstName = "Alice", Age = 56 };
+
+string json = $$"""
+{
+  "first_name": "{{person.FirstName}}",
+  "age": {{person.Age}},
+  "calculation": "{{{ 1 + 2 }}}"
+}
+""";
+
+Console.WriteLine(json);
+```
+It produces the following output:
+```
+{
+  "first_name": "Alice",
+  "age": 56,
+  "calculation": "{3}"
+}
+```
+Note the braces `{}` around the `3`. This is intentional. In this example, the JSON document must generate a `calculation` that contains braces. To show this, the code uses three braces: the first open brace will output as literal character The next two braces will be interpreted as the beginning of an expression. The first two close braces will be interpreted as the end of an expression. The last close brace will be a literal character.
+
+If the code only used two braces then those are treated as a delimiter for the express `1 + 2` and do not appear in the output:
+```cs
+var person = new { FirstName = "Alice", Age = 56 };
+
+string json = $$"""
+{
+  "first_name": "{{person.FirstName}}",
+  "age": {{person.Age}},
+  "calculation": "{{ 1 + 2 }}"
+}
+""";
+
+Console.WriteLine(json);
+```
+Now it produces the following output:
+```
+{
+  "first_name": "Alice",
+  "age": 56,
+  "calculation": "3"
+}
+```
+In the next edition, I will add this extra explanation.
 
 ## Page 369 - Understanding .NET components
 
