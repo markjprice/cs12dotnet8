@@ -1,10 +1,11 @@
-**Improvements** (4 items)
+**Improvements** (5 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
 - [Print Book](#print-book)
   - [Page 64 - Formatting code using white space](#page-64---formatting-code-using-white-space)
   - [Page 79 - Raw interpolated string literals](#page-79---raw-interpolated-string-literals)
+  - [Page 131 - Pattern matching with the switch statement](#page-131---pattern-matching-with-the-switch-statement)
   - [Page 369 - Understanding .NET components](#page-369---understanding-net-components)
   - [Page 484 - Compressing streams](#page-484---compressing-streams)
 - [Bonus Content](#bonus-content)
@@ -84,6 +85,14 @@ Now it produces the following output:
 }
 ```
 In the next edition, I will add this extra explanation.
+
+## Page 131 - Pattern matching with the switch statement
+
+> Thanks to Yousef Imran who raised this issue via email.
+
+In Step 2, I tell the reader to create an `Spider` class with a field named `IsPoisonous`. The field would be better named `IsVenomous` because poison is a a thing that you consume and venom is transmitted by an animal bite. One way to remember the difference is that the villain from Spider-man is named Venom rather name Poison.
+
+In the next edition, I will change the field name.
 
 ## Page 369 - Understanding .NET components
 
