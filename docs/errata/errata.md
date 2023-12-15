@@ -6,6 +6,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 15 - Understanding .NET runtime and .NET SDK versions](#page-15---understanding-net-runtime-and-net-sdk-versions)
 - [Page 43 - Configuring inline aka inlay hints](#page-43---configuring-inline-aka-inlay-hints)
 - [Page 58 - Showing the compiler version](#page-58---showing-the-compiler-version)
+- [Page 87 - Comparing double and decimal types](#page-87---comparing-double-and-decimal-types)
 
 # Page 10 - Installing other extensions
 
@@ -33,3 +34,9 @@ In the bullet for Visual Studio 2022, I wrote the label for the check box was **
 # Page 58 - Showing the compiler version
 
 In Step 3, the code should have been styled as `Code` (monospace black-on-light-gray text) instead of `Command Line` (monospace white-on-black).
+
+# Page 87 - Comparing double and decimal types
+
+> Thanks to Yousef Imran who raised this issue via email on December 15, 2023.
+
+At the top of page 87, I end the section describing a few special values associated with real numbers that are available as constants in the `float` and `double` types. I wrote, "`NaN` represents not-a-number (for example, the result of dividing by zero)," but that sentence is missing a "zero". It should be, "`NaN` represents not-a-number (for example, the result of dividing zero by zero),". In the next edition I will fix this mistake. 

@@ -92,7 +92,7 @@ In the next edition, I will add this extra explanation.
 
 > Thanks to Yousef Imran who raised this issue via email on December 15, 2023.
 
-At the top of page 87, I end the section describing a few special values associated with real numbers and available as constants in the `float` and `double` types. But I do not show any example code. 
+At the top of page 87, I end the section describing a few special values associated with real numbers that are available as constants in the `float` and `double` types. But I do not show any example code. 
 
 In the next edition, I will add an example to show the values and how they can be generated using expressions, as shown in the following code:
 ```cs
