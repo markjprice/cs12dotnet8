@@ -118,6 +118,8 @@ Console.WriteLine($"{"-3.0 / 0.0 == double.NegativeInfinity",-col1} | {-3.0 / 0.
 Console.WriteLine($"{"0.0 / 3.0",-col1} | {0.0 / 3.0,col2}");
 Console.WriteLine($"{"0.0 / -3.0",-col1} | {0.0 / -3.0,col2}");
 Console.WriteLine(line);
+
+#endregion
 ```
 
 When you run the code the results are as shown in the following output:
