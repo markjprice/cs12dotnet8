@@ -17,15 +17,12 @@ At the time of publishing, the Polyglot Notebooks extension has a dependency on 
 
 > Thanks to a reader who contacted my publisher Packt on November 16, 2023 about this issue.
 
-I wrote, ".NET SDK versioning does not follow semantic versioning. The major and minor version numbers are
-tied to the runtime version it is matched with. The patch number follows a convention that indicates
+I wrote, ".NET SDK versioning does not follow semantic versioning. The major and minor version numbers are tied to the runtime version it is matched with. The patch number follows a convention that indicates 
 the major and minor versions of the SDK."
 
 But the patch number is not created from the major and minor versions of the SDK. It is created from the minor and patch versions of the SDK.
 
-I should have written, ".NET SDK versioning does not follow semantic versioning. The major and minor version numbers are
-tied to the runtime version it is matched with. The third number follows a convention that indicates
-the minor and patch versions of the SDK. The third number starts at `100` for the initial version (equivalent to `0.0` for minor and patch number). The first digit increments with minor increments, and the other two digits increment with patch increments."
+I should have written, ".NET SDK versioning does not follow semantic versioning. The major and minor version numbers are tied to the runtime version it is matched with. The third number follows a convention that indicates the minor and patch versions of the SDK. The third number starts at `100` for the initial version (equivalent to `0.0` for minor and patch number). The first digit increments with minor increments, and the other two digits increment with patch increments."
 
 # Page 43 - Configuring inline aka inlay hints
 

@@ -1,10 +1,11 @@
-**Improvements** (5 items)
+**Improvements** (6 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
 - [Print Book](#print-book)
   - [Page 64 - Formatting code using white space](#page-64---formatting-code-using-white-space)
   - [Page 79 - Raw interpolated string literals](#page-79---raw-interpolated-string-literals)
+  - [Page 96 - Formatting using numbered positional arguments \& Formatting using interpolated strings](#page-96---formatting-using-numbered-positional-arguments--formatting-using-interpolated-strings)
   - [Page 131 - Pattern matching with the switch statement](#page-131---pattern-matching-with-the-switch-statement)
   - [Page 369 - Understanding .NET components](#page-369---understanding-net-components)
   - [Page 484 - Compressing streams](#page-484---compressing-streams)
@@ -35,7 +36,7 @@ In the next edition, I will explicitly say that, and explain that if the reader 
 
 ## Page 79 - Raw interpolated string literals
 
-> Thanks to [centpede](https://github.com/centpede) who raised this [issue on December 11, 2023](https://github.com/markjprice/cs12dotnet8/issues/6).
+> Thanks to [Robin](https://github.com/centpede) who raised this [issue on December 11, 2023](https://github.com/markjprice/cs12dotnet8/issues/6).
 
 At the bottom of page 79, I show some code that will output some JSON.
 
@@ -85,6 +86,68 @@ Now it produces the following output:
 }
 ```
 In the next edition, I will add this extra explanation.
+
+## Page 96 - Formatting using numbered positional arguments & Formatting using interpolated strings
+
+> Thanks to [Robin](https://github.com/centpede) who raised this [issue on December 15, 2023](https://github.com/markjprice/cs12dotnet8/issues/7).
+
+In Step 1, you create a new project named `Formatting`. In Step 2, you write code to define some variables and output them formatted using positional arguments, as shown in the following code:
+```cs
+int numberOfApples = 12;
+decimal pricePerApple = 0.35M;
+
+Console.WriteLine(
+  format: "{0} apples cost {1:C}",
+  arg0: numberOfApples,
+  arg1: pricePerApple * numberOfApples);
+...
+```
+
+In the next section, you write code to output the variables formatted using string interpolation, as shown in the following code:
+```cs
+// The following statement must be all on one line when using C# 10
+// or earlier. If using C# 11 or later, we can include a line break
+// in the middle of an expression but not in the string text.
+Console.WriteLine($"{numberOfApples} apples cost {pricePerApple
+  * numberOfApples:C}");
+```
+
+Then you run the code and view the result, as shown in the following partial output:
+```
+12 apples cost £4.20
+```
+
+The output includes culture-dependent formatting like currency symbols. The output shown is when run on my computer in the United Kingdom so the currency symbol is `£`. Most readers are in the United States so they see a dollar `$` symbol. A small fraction of readers are in Europe so they see a `?` instead of the Euro currency symbol because by default the output encoding for the console does not support that special symbol.
+
+In *Chapter 4, Writing, Debugging, and Testing Functions*, on page 179, I tell the reader to write a function to control this formatting named `ConfigureConsole`, as shown in the following code:
+```cs
+static void ConfigureConsole(string culture = "en-US",
+  bool useComputerCulture = false)
+{
+  // To enable Unicode characters like Euro symbol in the console.
+  OutputEncoding = System.Text.Encoding.UTF8;
+
+  if (!useComputerCulture)
+  {
+    CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo(culture);
+  }
+  WriteLine($"CurrentCulture: {CultureInfo.CurrentCulture.DisplayName}");
+}
+```
+
+The issue is when to introduce how to control culture and enable special characters. 
+
+In the next edition, in *Chapter 2*, I will add a step to get the reader to set the current culture to US English so that everyone sees exactly the same output, as shown in the following code:
+```cs
+using System.Globalization; // To use CultureInfo.
+
+// Set current culture to US English so that all readers 
+// see the same output as shown in the book.
+CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
+```
+And I will change the output to show dollars, of course.
+
+I will also add a note to tell readers that in *Chapter 4* they will learn how to write a function to control the culture so that they can see (1) US English by default, (2) local computer culture, (3) a specified culture. Hopefully this improvement will be the best of all worlds.
 
 ## Page 131 - Pattern matching with the switch statement
 
