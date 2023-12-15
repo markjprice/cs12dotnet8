@@ -1,10 +1,11 @@
-**Improvements** (6 items)
+**Improvements** (7 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
 - [Print Book](#print-book)
   - [Page 64 - Formatting code using white space](#page-64---formatting-code-using-white-space)
   - [Page 79 - Raw interpolated string literals](#page-79---raw-interpolated-string-literals)
+  - [Page 87 - Comparing double and decimal types](#page-87---comparing-double-and-decimal-types)
   - [Page 96 - Formatting using numbered positional arguments \& Formatting using interpolated strings](#page-96---formatting-using-numbered-positional-arguments--formatting-using-interpolated-strings)
   - [Page 131 - Pattern matching with the switch statement](#page-131---pattern-matching-with-the-switch-statement)
   - [Page 369 - Understanding .NET components](#page-369---understanding-net-components)
@@ -86,6 +87,64 @@ Now it produces the following output:
 }
 ```
 In the next edition, I will add this extra explanation.
+
+## Page 87 - Comparing double and decimal types
+
+> Thanks to Yousef Imran who raised this issue via email on December 15, 2023.
+
+At the top of page 87, I end the section describing a few special values associated with real numbers and available as constants in the `float` and `double` types. But I do not show any example code. 
+
+In the next edition, I will add an example to show the values and how they can be generated using expressions, as shown in the following code:
+```cs
+#region Special float and double values
+
+const int col1 = 37; // First column width.
+const int col2 = 6; // Second column width.
+string line = new string('-', col1 + col2 + 3);
+
+Console.WriteLine(line);
+Console.WriteLine($"{"Expression",-col1} | {"Value",col2}");
+Console.WriteLine(line);
+Console.WriteLine($"{"double.NaN",-col1} | {double.NaN,col2}");
+Console.WriteLine($"{"double.PositiveInfinity",-col1} | {double.PositiveInfinity,col2}");
+Console.WriteLine($"{"double.NegativeInfinity",-col1} | {double.NegativeInfinity,col2}");
+Console.WriteLine($"{"double.Epsilon",-col1} | {double.Epsilon,col2}");
+Console.WriteLine(line);
+Console.WriteLine($"{"0.0 / 0.0",-col1} | {0.0 / 0.0,col2}");
+Console.WriteLine($"{"3.0 / 0.0",-col1} | {3.0 / 0.0,col2}");
+Console.WriteLine($"{"-3.0 / 0.0",-col1} | {-3.0 / 0.0,col2}");
+Console.WriteLine($"{"3.0 / 0.0 == double.PositiveInfinity",-col1} | {3.0 / 0.0 == double.PositiveInfinity,col2}");
+Console.WriteLine($"{"-3.0 / 0.0 == double.NegativeInfinity",-col1} | {-3.0 / 0.0 == double.NegativeInfinity,col2}");
+Console.WriteLine($"{"0.0 / 3.0",-col1} | {0.0 / 3.0,col2}");
+Console.WriteLine($"{"0.0 / -3.0",-col1} | {0.0 / -3.0,col2}");
+Console.WriteLine(line);
+```
+
+When you run the code the results are as shown in the following output:
+```
+----------------------------------------------
+Expression                            |  Value
+----------------------------------------------
+double.NaN                            |    NaN
+double.PositiveInfinity               |      8
+double.NegativeInfinity               |     -8
+double.Epsilon                        | 5E-324
+----------------------------------------------
+0.0 / 0.0                             |    NaN
+3.0 / 0.0                             |      8
+-3.0 / 0.0                            |     -8
+3.0 / 0.0 == double.PositiveInfinity  |   True
+-3.0 / 0.0 == double.NegativeInfinity |   True
+0.0 / 3.0                             |      0
+0.0 / -3.0                            |     -0
+----------------------------------------------
+```
+Note the following: 
+
+- `NaN` outputs as `NaN`. It can be generated from an expression of zero divided by zero.
+- `PositiveInfinity` value outputs as an `8` which is an infinity symbol on its side.
+- `NegativeInfinity` value outputs as a `-8` which is an infinity symbol on its side with a negative sign before it.
+- `Epsilon` is `0.000...0005` with 323 zeros before the `5`.
 
 ## Page 96 - Formatting using numbered positional arguments & Formatting using interpolated strings
 
