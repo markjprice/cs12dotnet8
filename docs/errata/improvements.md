@@ -98,6 +98,8 @@ In the next edition, I will add an example to show the values and how they can b
 ```cs
 #region Special float and double values
 
+Console.WriteLine($"double.Epsilon to 330 decimal places: {double.Epsilon:N330}");
+
 const int col1 = 37; // First column width.
 const int col2 = 6; // Second column width.
 string line = new string('-', col1 + col2 + 3);
@@ -108,7 +110,6 @@ Console.WriteLine(line);
 Console.WriteLine($"{"double.NaN",-col1} | {double.NaN,col2}");
 Console.WriteLine($"{"double.PositiveInfinity",-col1} | {double.PositiveInfinity,col2}");
 Console.WriteLine($"{"double.NegativeInfinity",-col1} | {double.NegativeInfinity,col2}");
-Console.WriteLine($"{"double.Epsilon",-col1} | {double.Epsilon,col2}");
 Console.WriteLine(line);
 Console.WriteLine($"{"0.0 / 0.0",-col1} | {0.0 / 0.0,col2}");
 Console.WriteLine($"{"3.0 / 0.0",-col1} | {3.0 / 0.0,col2}");
@@ -124,13 +125,13 @@ Console.WriteLine(line);
 
 When you run the code the results are as shown in the following output:
 ```
+double.Epsilon to 330 decimal places: 0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004940656
 ----------------------------------------------
 Expression                            |  Value
 ----------------------------------------------
 double.NaN                            |    NaN
 double.PositiveInfinity               |      8
 double.NegativeInfinity               |     -8
-double.Epsilon                        | 5E-324
 ----------------------------------------------
 0.0 / 0.0                             |    NaN
 3.0 / 0.0                             |      8
