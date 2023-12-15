@@ -144,8 +144,8 @@ double.Epsilon                        | 5E-324
 Note the following: 
 
 - `NaN` outputs as `NaN`. It can be generated from an expression of zero divided by zero.
-- `PositiveInfinity` value outputs as an `8` which is an infinity symbol on its side.
-- `NegativeInfinity` value outputs as a `-8` which is an infinity symbol on its side with a negative sign before it.
+- `PositiveInfinity` value outputs as an `8` which looks like an infinity symbol on its side.
+- `NegativeInfinity` value outputs as a `-8` which looks like an infinity symbol on its side with a negative sign before it.
 - `Epsilon` is `0.000...0005` with 323 zeros before the `5`.
 
 ## Page 96 - Formatting using numbered positional arguments & Formatting using interpolated strings
