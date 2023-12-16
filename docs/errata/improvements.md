@@ -1,4 +1,4 @@
-**Improvements** (7 items)
+**Improvements** (8 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -8,6 +8,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
   - [Page 87 - Comparing double and decimal types](#page-87---comparing-double-and-decimal-types)
   - [Page 96 - Formatting using numbered positional arguments \& Formatting using interpolated strings](#page-96---formatting-using-numbered-positional-arguments--formatting-using-interpolated-strings)
   - [Page 131 - Pattern matching with the switch statement](#page-131---pattern-matching-with-the-switch-statement)
+  - [Page 248 - Storing multiple values using an enum type](#page-248---storing-multiple-values-using-an-enum-type)
   - [Page 369 - Understanding .NET components](#page-369---understanding-net-components)
   - [Page 484 - Compressing streams](#page-484---compressing-streams)
 - [Bonus Content](#bonus-content)
@@ -220,6 +221,10 @@ I will also add a note to tell readers that in *Chapter 4* they will learn how t
 In Step 2, I tell the reader to create an `Spider` class with a field named `IsPoisonous`. The field would be better named `IsVenomous` because poison is a thing that you consume and venom is transmitted by an animal bite. One way to remember the difference is that the villain from Spider-man is named Venom rather name Poison.
 
 In the next edition, I will change the field name.
+
+## Page 248 - Storing multiple values using an enum type
+
+In the **Good Practice** box, I will list the integer types that an `enum` is allowed to inherit from: `Byte`, `SByte`, `Int16`, `Int32`, `Int64`, `UInt16`, `UInt32`, `UInt64`. The new integer types `Int128` and `UInt128` are not supported.
 
 ## Page 369 - Understanding .NET components
 
