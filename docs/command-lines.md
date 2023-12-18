@@ -281,7 +281,7 @@ dotnet --info
 
 Build and publish the release version for Windows:
 ```
-dotnet publish -c Release -r win10-x64 --self-contained
+dotnet publish -c Release -r win-x64 --self-contained
 ```
 
 Build and publish the release version for macOS on Intel:
@@ -291,7 +291,7 @@ dotnet publish -c Release -r osx-x64 --self-contained
 
 Build and publish the release version for macOS on Apple Silicon:
 ```
-dotnet publish -c Release -r osx.11.0-arm64 --self-contained
+dotnet publish -c Release -r osx-arm64 --self-contained
 ```
 
 Build and publish the release version for Linux on Intel:
@@ -307,23 +307,23 @@ dotnet publish -c Release -r linux-arm64 --self-contained
 ## Page 388 - Publishing a single-file app
 
 ```
-dotnet publish -c Release -r win10-x64 --no-self-contained /p:PublishSingleFile=true
+dotnet publish -c Release -r win-x64 --no-self-contained /p:PublishSingleFile=true
 ```
 
 ```
-dotnet publish -c Release -r win10-x64 --self-contained /p:PublishSingleFile=true
+dotnet publish -c Release -r win-x64 --self-contained /p:PublishSingleFile=true
 ```
 
 ## Page 390 - Enabling assembly-level trimming
 
 ```
-dotnet publish -c Release -r win10-x64 --self-contained /p:PublishSingleFile=true -p:PublishTrimmed=True
+dotnet publish -c Release -r win-x64 --self-contained /p:PublishSingleFile=true -p:PublishTrimmed=True
 ```
 
 ## Page 390 - Enabling type-level and member-level trimming
 
 ```
-dotnet publish -c Release -r win10-x64 --self-contained /p:PublishSingleFile=true -p:PublishTrimmed=True -p:TrimMode=Link
+dotnet publish -c Release -r win-x64 --self-contained /p:PublishSingleFile=true -p:PublishTrimmed=True -p:TrimMode=Link
 ```
 
 ## Page 395 - Publishing a native AOT project
