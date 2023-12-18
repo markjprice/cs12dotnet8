@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RuntimeIdentifiers>
-      win10-x64;osx-x64;osx.11.0-arm64;linux-x64;linux-arm64
+      win-x64;osx-x64;osx-arm64;linux-x64;linux-arm64
     </RuntimeIdentifiers>
   </PropertyGroup>
 

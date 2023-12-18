@@ -1,4 +1,4 @@
-**Errata** (5 items)
+**Errata** (6 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -7,6 +7,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 43 - Configuring inline aka inlay hints](#page-43---configuring-inline-aka-inlay-hints)
 - [Page 58 - Showing the compiler version](#page-58---showing-the-compiler-version)
 - [Page 87 - Comparing double and decimal types](#page-87---comparing-double-and-decimal-types)
+- [Page 383 - Creating a console app to publish](#page-383---creating-a-console-app-to-publish)
 
 # Page 10 - Installing other extensions
 
@@ -42,3 +43,25 @@ In Step 3, the code should have been styled as `Code` (monospace black-on-light-
 At the top of page 87, I end the section describing a few special values associated with real numbers that are available as constants in the `float` and `double` types. I wrote, "`NaN` represents not-a-number (for example, the result of dividing by zero)," but that sentence is missing a "zero". It should be, "`NaN` represents not-a-number (for example, the result of dividing zero by zero),". In the next edition I will fix this mistake. 
 
 > Please also note a [related improvement](https://github.com/markjprice/cs12dotnet8/blob/main/docs/errata/improvements.md#page-87---comparing-double-and-decimal-types).
+
+# Page 383 - Creating a console app to publish
+
+> Thanks to `mdj._` in the book's Discord channel for raising this issue on December 18, 2023.
+
+In Step 5, I tell the reader to "add the runtime identifiers (RIDs) to target five operating systems" including Windows 10 or later. The legacy RID was `win10-x64` but in .NET 8 RC1 this changed to `win-x64`. The RID for MacOS/OS X also changed.
+
+The book lists the RIDs as shown in the following markup:
+```xml
+<RuntimeIdentifiers>
+  win10-x64;osx-x64;osx.11.0-arm64;linux-x64;linux-arm64
+</RuntimeIdentifiers>
+```
+
+The RIDs should be as shown in the following markup:
+```xml
+<RuntimeIdentifiers>
+  win-x64;osx-x64;osx-arm64;linux-x64;linux-arm64
+</RuntimeIdentifiers>
+```
+
+In the next edition, as well as fixing the RID values, I will link to the official documentation so that readers can confirm the current valid values. For example, for known RIDs: https://learn.microsoft.com/en-us/dotnet/core/rid-catalog#known-rids.
