@@ -48,7 +48,7 @@ At the top of page 87, I end the section describing a few special values associa
 
 > Thanks to `mdj._` in the book's Discord channel for raising this issue on December 18, 2023.
 
-In Step 5, I tell the reader to "add the runtime identifiers (RIDs) to target five operating systems" including Windows 10 or later. The legacy RID was `win10-x64` but in .NET 8 RC1 this changed to `win-x64`. The RID for MacOS/OS X also changed.
+In Step 5, I tell the reader to "add the runtime identifiers (RIDs) to target five operating systems" including Windows 10 or later. The legacy RID was `win10-x64` but in .NET 8 RC1 this changed to `win-x64`. The RID for MacOS/OS X also changed. From the documentation, "Starting with .NET 8, the default behavior of the .NET SDK and runtime is to only consider non-version-specific and non-distro-specific RIDs."
 
 The book lists the RIDs as shown in the following markup:
 ```xml
