@@ -1,4 +1,4 @@
-**Errata** (7 items)
+**Errata** (8 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -7,6 +7,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 43 - Configuring inline aka inlay hints](#page-43---configuring-inline-aka-inlay-hints)
 - [Page 58 - Showing the compiler version](#page-58---showing-the-compiler-version)
 - [Page 87 - Comparing double and decimal types](#page-87---comparing-double-and-decimal-types)
+- [Page 95 - Displaying output to the user](#page-95---displaying-output-to-the-user)
 - [Page 383 - Creating a console app to publish](#page-383---creating-a-console-app-to-publish)
 - [Page 386 - Publishing a self-contained app](#page-386---publishing-a-self-contained-app)
 
@@ -44,6 +45,40 @@ In Step 3, the code should have been styled as `Code` (monospace black-on-light-
 At the top of page 87, I end the section describing a few special values associated with real numbers that are available as constants in the `float` and `double` types. I wrote, "`NaN` represents not-a-number (for example, the result of dividing by zero)," but that sentence is missing a "zero". It should be, "`NaN` represents not-a-number (for example, the result of dividing zero by zero),". In the next edition I will fix this mistake. 
 
 > Please also note a [related improvement](https://github.com/markjprice/cs12dotnet8/blob/main/docs/errata/improvements.md#page-87---comparing-double-and-decimal-types).
+
+# Page 95 - Displaying output to the user
+
+> Thanks to SilentSolace in the book's Discord channel for raising this issue on December 18, 2023.
+
+I wrote, "If you want to write three letters to the console without carriage returns after them, then call the `Write` method, as shown in the following code:"
+```cs
+Write("A");
+Write("B");
+Write("C");
+```
+
+But I neglected to prefix the method calls with `Console.` so how does this work?
+
+On page 102, in the section titled "Simplifying the usage of the console", I show how to avoid needing to prefix those method calls with `Console.` by adding a statement to statically import the `System.Console` class, as shown in the following code:
+```cs
+using static System.Console;
+```
+
+But seven pages earlier I show code without the prefix without an explanation why that works! 
+
+In the next edition, I will show the full code, as shown in the following code:
+```cs
+Console.Write("A");
+Console.Write("B");
+Console.Write("C");
+```
+
+And the same for the second code block:
+```cs
+Console.WriteLine("A");
+Console.WriteLine("B");
+Console.WriteLine("C");
+```
 
 # Page 383 - Creating a console app to publish
 
