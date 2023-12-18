@@ -1,4 +1,4 @@
-**Errata** (6 items)
+**Errata** (7 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -8,6 +8,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 58 - Showing the compiler version](#page-58---showing-the-compiler-version)
 - [Page 87 - Comparing double and decimal types](#page-87---comparing-double-and-decimal-types)
 - [Page 383 - Creating a console app to publish](#page-383---creating-a-console-app-to-publish)
+- [Page 386 - Publishing a self-contained app](#page-386---publishing-a-self-contained-app)
 
 # Page 10 - Installing other extensions
 
@@ -65,3 +66,24 @@ The RIDs should be as shown in the following markup:
 ```
 
 In the next edition, as well as fixing the RID values, I will link to the official documentation so that readers can confirm the current valid values. For example, for known RIDs: https://learn.microsoft.com/en-us/dotnet/core/rid-catalog#known-rids.
+
+# Page 386 - Publishing a self-contained app
+
+> Thanks to `mdj._` in the book's Discord channel for raising this issue on December 18, 2023.
+
+Related to the [previous issue](#page-383---creating-a-console-app-to-publish), in Step 2, I tell the reader to "Enter a command to build and publish the self-contained release version of the console application for Windows 10". But the command uses the legacy RID value `win10-x64`, as shown in the following command:
+```
+dotnet publish -c Release -r win10-x64 --self-contained
+```
+
+The command should be:
+```
+dotnet publish -c Release -r win-x64 --self-contained
+```
+
+Any other references to `win10-x64`, like the folder name, should also be changed to `win-x64`.
+
+Similarly, in Step 4, the command `dotnet publish -c Release -r osx.11.0-arm64 --self-contained` should be:
+```
+dotnet publish -c Release -r osx-arm64 --self-contained
+```
