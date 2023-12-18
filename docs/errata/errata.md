@@ -122,3 +122,5 @@ Similarly, in Step 4, the command `dotnet publish -c Release -r osx.11.0-arm64 -
 ```
 dotnet publish -c Release -r osx-arm64 --self-contained
 ```
+
+I have updated the **Command Lines** summary file to use the new valid RIDs: https://github.com/markjprice/cs12dotnet8/blob/main/docs/command-lines.md#page-386---publishing-a-self-contained-app
