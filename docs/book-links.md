@@ -450,7 +450,7 @@ The official announcement links are useful because they describe the most import
 - [Tutorial: Create an item template](https://learn.microsoft.com/en-us/dotnet/core/tutorials/cli-templates-create-item-template)
 
 ## Packaging and publishing
-- [PDB files](https://www.wintellect.com/pdb-files-what-every-developer-must-know/)
+- [PDB files](https://www.atmosera.com/blog/pdb-files-what-every-developer-must-know/)
 - [The PackageReference format](https://learn.microsoft.com/en-us/nuget/reference/msbuild-targets)
 - [NuGet packages](https://www.nuget.org/packages)
 - [Announcing NuGet 6.0](https://devblogs.microsoft.com/nuget/announcing-nuget-6/)
