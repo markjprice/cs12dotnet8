@@ -13,16 +13,16 @@ Sometimes you will need to work with network resources. The most common types in
 Namespace|Example type(s)|Description
 ---|---|---
 `System.Net`|`Dns`, `Uri`, `Cookie`, `WebClient`, `IPAddress`|These are for working with DNS servers, URIs, IP addresses and so on.
-`System.Net`|`FtpStatusCode`, `FtpWebRequest`, `FtpWebResponse`|These are for working with TP servers.
-`System.Net`|`HttpStatusCode`, `HttpWebRequest`, `HttpWebResponse`|These are for working with HTTP servers; that is, websites and services. Types from `System.Net.Http` are eaier to use.
+`System.Net`|`FtpStatusCode`, `FtpWebRequest`, `FtpWebResponse`|These are for working with TCP servers.
+`System.Net`|`HttpStatusCode`, `HttpWebRequest`, `HttpWebResponse`|These are for working with HTTP servers; that is, websites and services. Types from `System.Net.Http` are easier to use.
 `System.Net.Http`|`HttpClient`, `HttpMethod`, `HttpRequestMessage`, `HttpResponseMessage`|These are for working with HTTP servers; that is, websites and services. You will learn how to use these in *Chapter 15, Building and Consuming Web Services*.
-`System.Net.Mail`|`Attachment`, `MailAddress`, `MailMessage`, `SmtpClient`|These are for working with SMTP servers; that is, sending emal messages.
-`System.Net.NetworkInformation`|`IPStatus`, `NetworkChange`, `Ping`, `TcpStatistics`|These are for working with low-level networ protocols.
+`System.Net.Mail`|`Attachment`, `MailAddress`, `MailMessage`, `SmtpClient`|These are for working with SMTP servers; that is, sending email messages.
+`System.Net.NetworkInformation`|`IPStatus`, `NetworkChange`, `Ping`, `TcpStatistics`|These are for working with low-level network protocols.
 
 # Working with URIs, DNS, and IP addresses
 
 Let's explore some common types for working with network resources:
-1.	Use your preferred code editor to add a new **Console App** / `console` project named `WorkingWithNetworkResources`` to the `Chapter08` solution.
+1.	Use your preferred code editor to add a new **Console App** / `console` project named `WorkingWithNetworkResources` to the `Chapter08` solution.
 2.	In `Program.cs`, delete the existing statements and then import the namespace for working with a network, as shown in the folowing code:
 ```cs
 using System.Net; // To use IPHostEntry, Dns, IPAddress.
