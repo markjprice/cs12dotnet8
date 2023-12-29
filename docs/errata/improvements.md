@@ -99,6 +99,8 @@ In the next edition, I will add an example to show the values and how they can b
 ```cs
 #region Special float and double values
 
+Console.WriteLine($"double.Epsilon: {double.Epsilon}");
+Console.WriteLine($"double.Epsilon to 324 decimal places: {double.Epsilon:N324}");
 Console.WriteLine($"double.Epsilon to 330 decimal places: {double.Epsilon:N330}");
 
 const int col1 = 37; // First column width.
@@ -126,6 +128,8 @@ Console.WriteLine(line);
 
 When you run the code the results are as shown in the following output:
 ```
+double.Epsilon: 5E-324
+double.Epsilon to 324 decimal places: 0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000005
 double.Epsilon to 330 decimal places: 0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004940656
 ----------------------------------------------
 Expression                            |  Value
@@ -150,7 +154,7 @@ Note the following:
 - `NegativeInfinity` value outputs as a `-8` which looks like an infinity symbol on its side with a negative sign before it. It can be generated from an expression of any negative real number divided by zero.
 - Zero divided by any positive real number is zero.
 - Zero divided by any negative real number is negative zero.
-- `Epsilon` is `0.000...0005` with 323 zeros before the `5`.
+- `Epsilon` is slightly less than `5E-324` represented using scientific notation: https://en.wikipedia.org/wiki/Scientific_notation.
 
 ## Page 96 - Formatting using numbered positional arguments & Formatting using interpolated strings
 

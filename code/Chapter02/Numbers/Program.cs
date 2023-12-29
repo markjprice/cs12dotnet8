@@ -82,6 +82,8 @@ else
 
 #region Special float and double values
 
+Console.WriteLine($"double.Epsilon: {double.Epsilon}");
+Console.WriteLine($"double.Epsilon to 324 decimal places: {double.Epsilon:N324}");
 Console.WriteLine($"double.Epsilon to 330 decimal places: {double.Epsilon:N330}");
 
 const int col1 = 37;
