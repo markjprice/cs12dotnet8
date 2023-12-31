@@ -269,7 +269,7 @@ WriteLine("Compare (InvariantCultureIgnoreCase): {0}.",
 ```
 
 I have also added this example to the current edition solution code here:
-
+https://github.com/markjprice/cs12dotnet8/blob/0ee475706186d2c82fdb836837783aed3a4d4fd0/code/Chapter08/WorkingWithText/Program.cs#L78
 
 ## Page 484 - Compressing streams
 
