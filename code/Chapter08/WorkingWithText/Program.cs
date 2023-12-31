@@ -75,6 +75,26 @@ WriteLine("Compare (InvariantCultureIgnoreCase): {0}.",
   string.Compare(text1, text2, 
   StringComparison.InvariantCultureIgnoreCase));
 
+// German string comparisons
+
+CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("de-DE");
+
+text1 = "Strasse";
+text2 = "Straße";
+
+WriteLine($"text1: {text1}, text2: {text2}");
+
+WriteLine("Compare: {0}.", string.Compare(text1, text2, 
+  CultureInfo.CurrentCulture, CompareOptions.IgnoreNonSpace));
+
+WriteLine("Compare (IgnoreCase, IgnoreNonSpace): {0}.",
+  string.Compare(text1, text2, CultureInfo.CurrentCulture, 
+  CompareOptions.IgnoreNonSpace | CompareOptions.IgnoreCase));
+
+WriteLine("Compare (InvariantCultureIgnoreCase): {0}.",
+  string.Compare(text1, text2,
+  StringComparison.InvariantCultureIgnoreCase));
+
 #endregion
 
 #region Joining, formatting, and other string members

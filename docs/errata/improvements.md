@@ -1,4 +1,4 @@
-**Improvements** (8 items)
+**Improvements** (9 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -10,6 +10,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
   - [Page 131 - Pattern matching with the switch statement](#page-131---pattern-matching-with-the-switch-statement)
   - [Page 248 - Storing multiple values using an enum type](#page-248---storing-multiple-values-using-an-enum-type)
   - [Page 369 - Understanding .NET components](#page-369---understanding-net-components)
+  - [Page 426 - Comparing string values](#page-426---comparing-string-values)
   - [Page 484 - Compressing streams](#page-484---compressing-streams)
 - [Bonus Content](#bonus-content)
 
@@ -235,6 +236,40 @@ In the **Good Practice** box, I will list the integer types that an `enum` is al
 > Thanks to Saeed Fathi who emailed this suggestion to me on December 6, 2023.
 
 I used the term "CoreFX" which is an old term for what is now better known as `dotnet/runtime`. In future editions, I will remove that term.
+
+## Page 426 - Comparing string values
+
+> Thanks to **f6a4** in the book's Discord channel for suggesting this improvement.
+
+In the introduction to this section, I describe the theory of comparing string values and how they are culture-dependent, including examples from Swedish and German like the word for *street*, `Straße` and `Strasse`. 
+
+In Step 2, the reader enters code to compare two string values: `Mark` and `MARK`, both exact comparison and case-insensitive. 
+
+In the next edition, I will add code to compare two string values in German culture: `Straße` and `Strasse`, both exact comparison and case-insensitive, as shown in the following code:
+```cs
+// German string comparisons
+
+CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("de-DE");
+
+text1 = "Strasse";
+text2 = "Straße";
+
+WriteLine($"text1: {text1}, text2: {text2}");
+
+WriteLine("Compare: {0}.", string.Compare(text1, text2, 
+  CultureInfo.CurrentCulture, CompareOptions.IgnoreNonSpace));
+
+WriteLine("Compare (IgnoreCase, IgnoreNonSpace): {0}.",
+  string.Compare(text1, text2, CultureInfo.CurrentCulture, 
+  CompareOptions.IgnoreNonSpace | CompareOptions.IgnoreCase));
+
+WriteLine("Compare (InvariantCultureIgnoreCase): {0}.",
+  string.Compare(text1, text2,
+  StringComparison.InvariantCultureIgnoreCase));
+```
+
+I have also added this example to the current edition solution code here:
+
 
 ## Page 484 - Compressing streams
 
