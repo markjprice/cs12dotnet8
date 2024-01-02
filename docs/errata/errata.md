@@ -41,7 +41,7 @@ In the bullet for Visual Studio 2022, I wrote the label for the check box was **
 
 In this exercise, I wrote "You can start coding online at any of the following links: **Visual Studio Code for Web**: https://vscode.dev/".
 
-Although **Visual Studio Code for Web** does support some extensions, it does not support the C# extension. Yf you edit a `.cs` file then you will not have IntelliSense to help you. It also does not support running and debugging C# code. 
+Although **Visual Studio Code for Web** does support some extensions, it does not support the C# extension. If you edit a `.cs` file then you will not have IntelliSense to help you. It also does not support running and debugging C# code. 
 
 In the next edition, I will list **GitHub Codespaces** (i.e. Visual Studio Code hosted in a cloud-based virtual machine) instead.
 
