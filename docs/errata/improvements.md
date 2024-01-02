@@ -223,9 +223,9 @@ I will also add a note to tell readers that in *Chapter 4* they will learn how t
 
 > Thanks to Yousef Imran who raised this issue via email.
 
-In Step 2, I tell the reader to create an `Spider` class with a field named `IsPoisonous`. The field would be better named `IsVenomous` because poison is a thing that you consume and venom is transmitted by an animal bite. One way to remember the difference is that the villain from Spider-man is named Venom rather name Poison.
+In Step 2, I tell the reader to create an `Spider` class with a field named `IsPoisonous`. The field would be better named `IsVenomous` because poison is a thing that you consume and venom is transmitted by an animal bite. One way to remember the difference is that the villain from Spider-man is named Venom instead of Poison.
 
-In the next edition, I will change the field name.
+In the next edition, I will change the field name to `IsVenomous`.
 
 ## Page 248 - Storing multiple values using an enum type
 
