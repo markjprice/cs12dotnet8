@@ -13,6 +13,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
   - [Page 426 - Comparing string values](#page-426---comparing-string-values)
   - [Page 457 - Initializing collections using collection expressions](#page-457---initializing-collections-using-collection-expressions)
     - [Using the spread element](#using-the-spread-element)
+    - [Collection expression limitations](#collection-expression-limitations)
   - [Page 460 - Identifying ranges with the Range type](#page-460---identifying-ranges-with-the-range-type)
   - [Page 484 - Compressing streams](#page-484---compressing-streams)
 - [Bonus Content](#bonus-content)
@@ -282,9 +283,7 @@ In this section, I introduce the use of collection expressions to initialize col
 
 > Microsoft official documentation uses both **spread element** and **spread operator** to refer to the same language feature. I prefer *element* because it is used in collection expressions to represent an element within the defined collection.
 
-The spread element `..` can be prefixed before any expression that can be enumerated to evaluate it in a collection expression. For example, any type that can be enumerated using `foreach`, like an array or collection, can be evaluated using the spread element `..`.
-
-The use of the spread element `..` in a collection expression replaces its argument with the elements from that collection. You can combine spread elements with individual elements in a collection expression.
+The spread element `..` can be prefixed before any expression that can be enumerated to evaluate it in a collection expression. For example, any type that can be enumerated using `foreach`, like an array or collection, can be evaluated using the spread element. The use of the spread element `..` in a collection expression replaces its argument with the elements from that collection. You can combine spread elements with individual elements in a collection expression.
 
 For example:
 ```cs
@@ -308,9 +307,11 @@ The output would be:
 
 > **More Information**: You can learn more about the spread element at the following link: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/collection-expressions#spread-element.
 
+### Collection expression limitations
+
 Collection expressions do not work with all collections. For example, they do not work with dictionaries or multi-dimensional arrays. The documenation lists the types that a collection expression can be converted to: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-12.0/collection-expressions#conversions.
 
-> **Warning!** Be careful not to confuse the spread element `..` that must be applued before an enumerable expression, with the range operator `..` that is used to define a `Range`. There is a discussion about the design decision around the spread element at the following link: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-12.0/collection-expressions#drawbacks.
+> **Warning!** Be careful not to confuse the spread element `..` that must be applied before an enumerable expression, with the range operator `..` that is used to define a `Range`. There is a discussion about the design decision around the spread element at the following link: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-12.0/collection-expressions#drawbacks.
 
 ## Page 460 - Identifying ranges with the Range type
 
@@ -321,7 +322,7 @@ Range r5 = 3..; // From index 3 to last index.
 Range r7 = ..3; // From index 0 to index 3.
 ```
 
-In the next edition, I will add a note to warn the reader that the spread operator `..` looks the same but means something different and refer back to it in a  new section explaining the spread operator. 
+In the next edition, I will add a note to warn the reader that the spread element `..` looks the same but means something different and refer back to it in a  new section explaining the spread element. 
 
 ## Page 484 - Compressing streams
 
