@@ -4,7 +4,7 @@ If you find any mistakes in the eighth edition, *C# 12 and .NET 8 - Modern Cross
 
 [**Errata** (9 items)](errata.md): Typos, tool user interface and behavior changes, or mistakes in code that would cause a compilation error that prevents a successful build.
 
-[**Improvements** (9 items)](improvements.md): Changes to text or code that would improve the content. These are optional.
+[**Improvements** (11 items)](improvements.md): Changes to text or code that would improve the content. These are optional.
 
 [**Post-Publication Changes** (0 items)](changes.md): Changes to the functionality or behavior of C#, .NET, code editors, and other tools since final drafts in early November 2023.
 
