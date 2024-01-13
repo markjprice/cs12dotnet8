@@ -1,4 +1,4 @@
-**Improvements** (11 items)
+**Improvements** (12 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -16,6 +16,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
     - [Collection expression limitations](#collection-expression-limitations)
   - [Page 460 - Identifying ranges with the Range type](#page-460---identifying-ranges-with-the-range-type)
   - [Page 484 - Compressing streams](#page-484---compressing-streams)
+  - [Page 493 - Serializing as XML](#page-493---serializing-as-xml)
 - [Bonus Content](#bonus-content)
 
 # Print Book
@@ -424,6 +425,14 @@ In the following code, `using (XmlReader reader = XmlReader.Create(decompressor)
 ```
 
 I will also explain why I did not use the simplified syntax with the `compressor` object (to dispose of it earlier).
+
+## Page 493 - Serializing as XML
+
+> Thanks to [Robin Bastian](https://github.com/centpede) for raising this issue on [January 12, 2024](https://github.com/markjprice/cs12dotnet8/issues/11).
+
+In Step 2, I wrote, "In the project file, add elements to statically and globally import the `System.Console`, `System.Environment`, and `System.IO.Path` classes."
+
+Some readers do not notice that they need to statically import `System.Environment` so in the next edition I will write, "In the project file, add elements to statically and globally import the `System.Console` (to use `ForegroundColor` and `WriteLine`), `System.Environment` (to use `CurrentDirectory`), and `System.IO.Path` classes (to use `Combine`, `GetFileName`, and `GetDirectoryName`)."
 
 # Bonus Content 
 
