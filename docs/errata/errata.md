@@ -1,4 +1,4 @@
-**Errata** (10 items)
+**Errata** (11 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -9,6 +9,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 58 - Showing the compiler version](#page-58---showing-the-compiler-version)
 - [Page 87 - Comparing double and decimal types](#page-87---comparing-double-and-decimal-types)
 - [Page 95 - Displaying output to the user](#page-95---displaying-output-to-the-user)
+- [Page 124 - Exploring bitwise and binary shift operators](#page-124---exploring-bitwise-and-binary-shift-operators)
 - [Page 383 - Creating a console app to publish](#page-383---creating-a-console-app-to-publish)
 - [Page 386 - Publishing a self-contained app](#page-386---publishing-a-self-contained-app)
 - [Page 616 - Be careful with Count!](#page-616---be-careful-with-count)
@@ -91,6 +92,15 @@ Console.WriteLine("A");
 Console.WriteLine("B");
 Console.WriteLine("C");
 ```
+
+# Page 124 - Exploring bitwise and binary shift operators
+
+> Thanks to [Vlad Alexandru Meici](https://github.com/vladmeici) for raising [this issue on January 19, 2024](https://github.com/markjprice/cs12dotnet8/issues/13).
+
+In Step 3, I refer to variables `a` and `b`, "In `Program.cs`, add statements to output the results of applying the left-shift operator to move
+the bits of the variable `a` by three columns, multiplying `a` by 8, and right-shifting the bits of the variable `b` by one column, ...". 
+
+I should have written `x` and `y`.
 
 # Page 383 - Creating a console app to publish
 
