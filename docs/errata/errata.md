@@ -1,4 +1,4 @@
-**Errata** (9 items)
+**Errata** (10 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -11,6 +11,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 95 - Displaying output to the user](#page-95---displaying-output-to-the-user)
 - [Page 383 - Creating a console app to publish](#page-383---creating-a-console-app-to-publish)
 - [Page 386 - Publishing a self-contained app](#page-386---publishing-a-self-contained-app)
+- [Page 616 - Be careful with Count!](#page-616---be-careful-with-count)
 
 # Page 10 - Installing other extensions
 
@@ -135,3 +136,25 @@ dotnet publish -c Release -r osx-arm64 --self-contained
 ```
 
 I have updated the **Command Lines** summary file to use the new valid RIDs: https://github.com/markjprice/cs12dotnet8/blob/main/docs/command-lines.md#page-386---publishing-a-self-contained-app
+
+# Page 616 - Be careful with Count!
+
+> Thanks to Clint Mayers who submitted this issue via email.
+
+I showed a code teaser by Amichai Mantinband, a software engineer at Microsoft, as shown in the following code:
+```cs
+IEnumerable<Task> tasks = Enumerable.Range(0, 2)
+  .Select(_ => Task.Run(() => Console.WriteLine("*")));
+
+await Task.WhenAll(tasks);
+Console.WriteLine($"{tasks.Count()} stars!");
+```
+
+But the `WriteLine` methods should have been `Write` methods, as shown in the following code:
+```cs
+IEnumerable<Task> tasks = Enumerable.Range(0, 2)
+  .Select(_ => Task.Run(() => Console.Write("*")));
+
+await Task.WhenAll(tasks);
+Console.Write($"{tasks.Count()} stars!");
+```
