@@ -150,7 +150,7 @@ await Task.WhenAll(tasks);
 Console.WriteLine($"{tasks.Count()} stars!");
 ```
 
-But the `WriteLine` methods should have been `Write` methods, as shown in the following code:
+But I mistakenly used `WriteLine` methods when they should have been `Write` methods, as shown in the following code:
 ```cs
 IEnumerable<Task> tasks = Enumerable.Range(0, 2)
   .Select(_ => Task.Run(() => Console.Write("*")));
