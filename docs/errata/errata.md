@@ -102,6 +102,10 @@ the bits of the variable `a` by three columns, multiplying `a` by 8, and right-s
 
 I should have written `x` and `y`.
 
+In the last paragraph, I wrote, "The `3` result is because the 1 bits in `b` were shifted one column into the 2-and 1-bit columns."
+
+I should have written, "The `3` result is because the 1 bits in `y` were shifted one column into the 2-and 1-bit columns."
+
 # Page 383 - Creating a console app to publish
 
 > Thanks to `mdj._` in the book's Discord channel for raising this issue on December 18, 2023.
