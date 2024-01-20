@@ -1,4 +1,4 @@
-**Improvements** (12 items)
+**Improvements** (13 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -8,6 +8,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
   - [Page 87 - Comparing double and decimal types](#page-87---comparing-double-and-decimal-types)
   - [Page 96 - Formatting using numbered positional arguments \& Formatting using interpolated strings](#page-96---formatting-using-numbered-positional-arguments--formatting-using-interpolated-strings)
   - [Page 131 - Pattern matching with the switch statement](#page-131---pattern-matching-with-the-switch-statement)
+  - [Page 144 - List pattern matching with arrays](#page-144---list-pattern-matching-with-arrays)
   - [Page 248 - Storing multiple values using an enum type](#page-248---storing-multiple-values-using-an-enum-type)
   - [Page 369 - Understanding .NET components](#page-369---understanding-net-components)
   - [Page 426 - Comparing string values](#page-426---comparing-string-values)
@@ -231,6 +232,37 @@ I will also add a note to tell readers that in *Chapter 4* they will learn how t
 In Step 2, I tell the reader to create an `Spider` class with a field named `IsPoisonous`. The field would be better named `IsVenomous` because poison is a thing that you consume and venom is transmitted by an animal bite. One way to remember the difference is that the villain from Spider-man is named Venom instead of Poison.
 
 In the next edition, I will change the field name to `IsVenomous`.
+
+## Page 144 - List pattern matching with arrays
+
+> Thanks to [Vlad Alexandru Meici](https://github.com/vladmeici) who raised this [issue on January 20, 2024].
+
+On page 446, I have a note about C# allowing trailing commas, "The trailing commas after the third item is added to the dictionary are optional and the compiler will not complain about them. This is convenient so that you can change the order of the three items without having to delete and add commas in the right places."
+
+But that is not the first time in the book that I use trailing commas. On page 144, I wrote a switch expression that uses a trailing comma, as shown in the following code:
+```cs
+static string CheckSwitch(int[] values) => values switch
+{
+  [] => "Empty array",
+  [1, 2, _, 10] => "Contains 1, 2, any single number, 10.",
+  [1, 2, .., 10] => "Contains 1, 2, any range including empty, 10.",
+  [1, 2] => "Contains 1 then 2.",
+  [int item1, int item2, int item3] => $"Contains {item1} then {item2} then {item3}.",
+  [0, _] => "Starts with 0, then one other number.",
+  [0, ..] => "Starts with 0, then any range of numbers.",
+  [2, .. int[] others] => $"Starts with 2, then {others.Length} more numbers.",
+  [..] => "Any items in any order.", // <-- Note the trailing comma.
+};
+```
+
+Most languages, including C#, allow the code style of trailing commas. When multiple items are separated by the comma, for example, when declaring an anonymous object, an array, collection initializers, enums, and switch expressions, C# allows you to have the trailing comma after the last item. This makes it easy to rearrange the order without having to keep adding and removing commas.
+
+Here is the discussion about allowing trailing commas for switch expressions back in 2018: dotnet/csharplang#2098
+
+Even JSON serializers have an option to allow this because it is so common to use.
+https://learn.microsoft.com/en-us/dotnet/api/system.text.json.jsonserializeroptions.allowtrailingcommas
+
+In the next edition, I will move the note earlier in the book to when I first use the technique.
 
 ## Page 248 - Storing multiple values using an enum type
 
