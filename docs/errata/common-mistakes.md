@@ -1,7 +1,8 @@
-**Common Mistakes and How to Fix Them** (6 items)
+**Common Mistakes and How to Fix Them** (7 items)
 
 If you have suggestions for other common mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
+- [Missing property setter in entity model](#missing-property-setter-in-entity-model)
 - [MSB3026/MSB3027 Cannot rebuild/compile a project](#msb3026msb3027-cannot-rebuildcompile-a-project)
 - [Microsoft introduces a bug in a later version](#microsoft-introduces-a-bug-in-a-later-version)
 - [Visual Studio removes a required file from the build process](#visual-studio-removes-a-required-file-from-the-build-process)
@@ -11,6 +12,40 @@ If you have suggestions for other common mistakes, then please [raise an issue i
   - [CS0122 'Util.DoSomething()' is inaccessible due to its protection level](#cs0122-utildosomething-is-inaccessible-due-to-its-protection-level)
 - [Missing functions in the partial Program class](#missing-functions-in-the-partial-program-class)
   - [CS0103 The name 'DoSomethingElse' does not exist in the current context](#cs0103-the-name-dosomethingelse-does-not-exist-in-the-current-context)
+
+# Missing property setter in entity model
+
+When defining an entity model like `Category` with a navigation property like `Products`, make sure to define both `get` and `set` methods for the property, as shown in the following code:
+```cs
+using System.ComponentModel.DataAnnotations.Schema; // To use [Column].
+
+namespace Northwind.EntityModels;
+
+public class Category
+{
+  // These properties map to columns in the database.
+  public int CategoryId { get; set; } // The primary key.
+
+  public string CategoryName { get; set; } = null!;
+
+  [Column(TypeName = "ntext")]
+  public string? Description { get; set; }
+
+  // Defines a navigation property for related rows.
+  public virtual ICollection<Product> Products { get; set; }
+    // To enable developers to add products to a Category, we must
+    // initialize the navigation property to an empty collection.
+    // This also avoids an exception if we get a member like Count.
+    = new HashSet<Product>();
+}
+```
+
+Some readers mistakenly only define a "getter" without a "setter", as shown in the following code:
+```cs
+public virtual ICollection<Product> Products { get; }
+```
+
+The side-affect of this mistake is that related entities will not be loaded or deserialized, as in this issue: https://github.com/markjprice/apps-services-net7/issues/30
 
 # MSB3026/MSB3027 Cannot rebuild/compile a project
 
