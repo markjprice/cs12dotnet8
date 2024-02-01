@@ -488,13 +488,13 @@ Tag Helpers are especially useful for Front End (FE) developers who primarily wo
 
 For example, to render a linkable hyperlink to a controller action, you could use an HTML Helper method, as shown in the following markup:
 ```cs
-@Html.ActionLink("View our privacy policy.", "Privacy", "Index")
+@Html.ActionLink("View our privacy policy.", "Privacy", "Home")
 ```
 
 To make it clearer how it works, you could use named parameters:
 ```cs
 @Html.ActionLink(linkText: "View our privacy policy.", 
-  action: "Privacy", controller: "Index")
+  action: "Privacy", controller: "Home")
 ```
 
 But using a Tag Helper would be even clearer and cleaner for someone who works a lot with HTML:
