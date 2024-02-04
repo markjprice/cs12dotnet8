@@ -20,6 +20,10 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 
 At the time of publishing, the Polyglot Notebooks extension has a dependency on .NET 7. The extension will soon be updated to use .NET 8 but for now you must install .NET 7 SDK. Hopefully the team will also update the extension to use the **.NET Install Tool** that ensures a correct version of a required .NET SDK is installed so users do not have to manually install it.
 
+> Note: The .NET Interactive team targetted .NET 8 two days after this issue was raised: https://github.com/dotnet/interactive/pull/3336.
+
+> Support for LTS only: When .NET 9 is released in November 2024, Interactive .NET and Polyglot Notebooks will upgrade to it. If you are limited to only LTS releases, "As a workaround, you can install older versions of Polyglot Notebooks that use previous .NET versions and turn off automatic updates in VS Code.": https://github.com/dotnet/interactive/issues/3355.
+
 # Page 15 - Understanding .NET runtime and .NET SDK versions
 
 > Thanks to a reader who contacted my publisher Packt on November 16, 2023 about this issue.
