@@ -89,41 +89,48 @@ We will now create a web service using Minimal APIs. Instead of weather forecast
 
 2.	Review `Program.cs`, as shown in the following code:
 ```cs
-using Northwind.MinimalApi;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateSlimBuilder(args);
 
 builder.Services.ConfigureHttpJsonOptions(options =>
 {
-  options.SerializerOptions.TypeInfoResolverChain.Insert(0, AppJsonSerializerContext.Default);
+    options.SerializerOptions.TypeInfoResolverChain.Insert(0, AppJsonSerializerContext.Default);
 });
 
 var app = builder.Build();
 
-var sampleTodos = TodoGenerator.GenerateTodos().ToArray();
+var sampleTodos = new Todo[] {
+    new(1, "Walk the dog"),
+    new(2, "Do the dishes", DateOnly.FromDateTime(DateTime.Now)),
+    new(3, "Do the laundry", DateOnly.FromDateTime(DateTime.Now.AddDays(1))),
+    new(4, "Clean the bathroom"),
+    new(5, "Clean the car", DateOnly.FromDateTime(DateTime.Now.AddDays(2)))
+};
 
 var todosApi = app.MapGroup("/todos");
 todosApi.MapGet("/", () => sampleTodos);
 todosApi.MapGet("/{id}", (int id) =>
-  sampleTodos.FirstOrDefault(a => a.Id == id) is { } todo
-    ? Results.Ok(todo)
-    : Results.NotFound());
+    sampleTodos.FirstOrDefault(a => a.Id == id) is { } todo
+        ? Results.Ok(todo)
+        : Results.NotFound());
 
 app.Run();
+
+public record Todo(int Id, string? Title, DateOnly? DueBy = null, bool IsComplete = false);
 
 [JsonSerializable(typeof(Todo[]))]
 internal partial class AppJsonSerializerContext : JsonSerializerContext
 {
+
 }
 ```
 Note the following:
-- A class named `ToDo` is defined in a class file named `ToDo.cs` with four properties: `Id`, `Title`, `DueBy`, and `IsComplete`.
-- A class named `TodoGenerator` randomly generates five instances of `ToDo` by default.
 - The call to `WebApplication.CreateSlimBuilder` is optimized for hosting a minimal API web service. For example, it does not include features like encrypted connections using `https`.
-- JSON serialization is configured for HTTP requests using options to support native AOT publish.
+- JSON serialization is configured for HTTP requests using options to support native AOT publish using a custom `JsonSerializerContext`-derived class.
+- Five sample instances of `ToDo` are created by default. Near the bottom of the file, a record named `ToDo` is defined with four properties: `Id`, `Title`, `DueBy`, and `IsComplete`.
 - The call to `MapGroup` registers a group for the service relative path `/todos`.
-- The subsequent call to `MapGet` registers a handler for incoming `GET` requests to the group relative path `/`. Therefore the path is `/todos/`. It returns five `ToDo` instances with random values for its properties.
+- The subsequent call to `MapGet` registers a handler for incoming `GET` requests to the group relative path `/`. Therefore the path is `/todos/`. It returns the five sample `ToDo` instances.
 - A second call to `MapGet` registers a handler for incoming `GET` requests to the group relative path `/{id}`. Therefore the path could be `/todos/3`. It returns the `ToDo` instance with that `id` value.
 - There is no `Controllers` folder and there are no controller classes.
 
