@@ -221,14 +221,14 @@ Northwind.Blazor.Wasm.csproj" />
 2.	In `Program.cs`, at the end of the statement that adds Razor components, add a call to a method to enable client-side interactivity, as shown in the following code:
 ```cs
 builder.Services.AddRazorComponents()
-  .AddServerInteractiveComponents()
-  .AddWebAssemblyInteractiveComponents();
+  .AddInteractiveServerComponents()
+  .AddInteractiveWebAssemblyComponents();
 ```
 3.	In `Program.cs`, at the end of the statement that maps Razor components, add a call to a method to enable server-side interactivity, as shown highlighted in the following code:
 ```cs
 app.MapRazorComponents<App>()
-  .AddServerInteractiveRenderMode()
-  .AddWebAssemblyInteractiveRenderMode();
+  .AddInteractiveServerRenderMode()
+  .AddInteractiveWebAssemblyRenderMode();
 ```
 4.	In the `Components\Pages` folder, in `CreateCustomers.razor`, at the top of the file, modify the declaration to enable client-side rendering, as shown in the following code:
 ```cs
