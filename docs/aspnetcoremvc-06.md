@@ -95,7 +95,7 @@ Write some unit tests for HomeController.
 ## Exercise 14.5 – Using a filter to control authorization
 
 In this chapter, you learned about cross-functional filters like `[Route]` and `[ResponseCache]`. To learn how to secure parts of a website using the `[Authorize]` attribute, you can read an optional online-only section at the following link:
-https://github.com/markjprice/cs12dotnet8/blob/main/docs/ch14-authorization.md
+https://github.com/markjprice/cs12dotnet8/blob/main/docs/ch13-authorization.md
 
 ## Exercise 14.6 – Explore topics
 
