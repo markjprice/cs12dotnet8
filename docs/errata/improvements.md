@@ -1,28 +1,25 @@
-**Improvements** (13 items)
+**Improvements** (14 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
-- [Print Book](#print-book)
-  - [Page 64 - Formatting code using white space](#page-64---formatting-code-using-white-space)
-  - [Page 79 - Raw interpolated string literals](#page-79---raw-interpolated-string-literals)
-  - [Page 87 - Comparing double and decimal types](#page-87---comparing-double-and-decimal-types)
-  - [Page 96 - Formatting using numbered positional arguments \& Formatting using interpolated strings](#page-96---formatting-using-numbered-positional-arguments--formatting-using-interpolated-strings)
-  - [Page 131 - Pattern matching with the switch statement](#page-131---pattern-matching-with-the-switch-statement)
-  - [Page 144 - List pattern matching with arrays](#page-144---list-pattern-matching-with-arrays)
-  - [Page 248 - Storing multiple values using an enum type](#page-248---storing-multiple-values-using-an-enum-type)
-  - [Page 369 - Understanding .NET components](#page-369---understanding-net-components)
-  - [Page 426 - Comparing string values](#page-426---comparing-string-values)
-  - [Page 457 - Initializing collections using collection expressions](#page-457---initializing-collections-using-collection-expressions)
-    - [Using the spread element](#using-the-spread-element)
-    - [Collection expression limitations](#collection-expression-limitations)
-  - [Page 460 - Identifying ranges with the Range type](#page-460---identifying-ranges-with-the-range-type)
-  - [Page 484 - Compressing streams](#page-484---compressing-streams)
-  - [Page 493 - Serializing as XML](#page-493---serializing-as-xml)
-- [Bonus Content](#bonus-content)
+- [Page 64 - Formatting code using white space](#page-64---formatting-code-using-white-space)
+- [Page 79 - Raw interpolated string literals](#page-79---raw-interpolated-string-literals)
+- [Page 87 - Comparing double and decimal types](#page-87---comparing-double-and-decimal-types)
+- [Page 96 - Formatting using numbered positional arguments \& Formatting using interpolated strings](#page-96---formatting-using-numbered-positional-arguments--formatting-using-interpolated-strings)
+- [Page 131 - Pattern matching with the switch statement](#page-131---pattern-matching-with-the-switch-statement)
+- [Page 144 - List pattern matching with arrays](#page-144---list-pattern-matching-with-arrays)
+- [Page 248 - Storing multiple values using an enum type](#page-248---storing-multiple-values-using-an-enum-type)
+- [Page 369 - Understanding .NET components](#page-369---understanding-net-components)
+- [Page 426 - Comparing string values](#page-426---comparing-string-values)
+- [Page 457 - Initializing collections using collection expressions](#page-457---initializing-collections-using-collection-expressions)
+  - [Using the spread element](#using-the-spread-element)
+  - [Collection expression limitations](#collection-expression-limitations)
+- [Page 460 - Identifying ranges with the Range type](#page-460---identifying-ranges-with-the-range-type)
+- [Page 484 - Compressing streams](#page-484---compressing-streams)
+- [Page 493 - Serializing as XML](#page-493---serializing-as-xml)
+- [Page 541 - Querying EF Core models](#page-541---querying-ef-core-models)
 
-# Print Book
-
-## Page 64 - Formatting code using white space
+# Page 64 - Formatting code using white space
 
 In this section, I show code examples of white space.
 
@@ -43,7 +40,7 @@ Unless a step-by-step instruction tells the reader to enter code, all code examp
 
 In the next edition, I will explicitly say that, and explain that if the reader does decide to enter the code, they would (of course) need to rename the variables. 
 
-## Page 79 - Raw interpolated string literals
+# Page 79 - Raw interpolated string literals
 
 > Thanks to [Robin](https://github.com/centpede) who raised this [issue on December 11, 2023](https://github.com/markjprice/cs12dotnet8/issues/6).
 
@@ -96,7 +93,7 @@ Now it produces the following output:
 ```
 In the next edition, I will add this extra explanation.
 
-## Page 87 - Comparing double and decimal types
+# Page 87 - Comparing double and decimal types
 
 > Thanks to Yousef Imran who raised this issue via email on December 15, 2023.
 
@@ -163,7 +160,7 @@ Note the following:
 - Zero divided by any negative real number is negative zero.
 - `Epsilon` is slightly less than `5E-324` represented using scientific notation: https://en.wikipedia.org/wiki/Scientific_notation.
 
-## Page 96 - Formatting using numbered positional arguments & Formatting using interpolated strings
+# Page 96 - Formatting using numbered positional arguments & Formatting using interpolated strings
 
 > Thanks to [Robin](https://github.com/centpede) who raised this [issue on December 15, 2023](https://github.com/markjprice/cs12dotnet8/issues/7).
 
@@ -225,7 +222,7 @@ And I will change the output to show dollars, of course.
 
 I will also add a note to tell readers that in *Chapter 4* they will learn how to write a function to control the culture so that they can see (1) US English by default, (2) local computer culture, (3) a specified culture. Hopefully this improvement will be the best of all worlds.
 
-## Page 131 - Pattern matching with the switch statement
+# Page 131 - Pattern matching with the switch statement
 
 > Thanks to Yousef Imran who raised this issue via email.
 
@@ -233,7 +230,7 @@ In Step 2, I tell the reader to create an `Spider` class with a field named `IsP
 
 In the next edition, I will change the field name to `IsVenomous`.
 
-## Page 144 - List pattern matching with arrays
+# Page 144 - List pattern matching with arrays
 
 > Thanks to [Vlad Alexandru Meici](https://github.com/vladmeici) who raised this [issue on January 20, 2024].
 
@@ -264,17 +261,17 @@ https://learn.microsoft.com/en-us/dotnet/api/system.text.json.jsonserializeropti
 
 In the next edition, I will move the note earlier in the book to when I first use the technique.
 
-## Page 248 - Storing multiple values using an enum type
+# Page 248 - Storing multiple values using an enum type
 
 In the **Good Practice** box, I will list the integer types that an `enum` is allowed to inherit from: `Byte`, `SByte`, `Int16`, `Int32`, `Int64`, `UInt16`, `UInt32`, `UInt64`. The new integer types `Int128` and `UInt128` are not supported.
 
-## Page 369 - Understanding .NET components
+# Page 369 - Understanding .NET components
 
 > Thanks to Saeed Fathi who emailed this suggestion to me on December 6, 2023.
 
 I used the term "CoreFX" which is an old term for what is now better known as `dotnet/runtime`. In future editions, I will remove that term.
 
-## Page 426 - Comparing string values
+# Page 426 - Comparing string values
 
 > Thanks to **f6a4** in the book's Discord channel for suggesting this improvement.
 
@@ -308,11 +305,11 @@ WriteLine("Compare (InvariantCultureIgnoreCase): {0}.",
 I have also added this example to the current edition solution code here:
 https://github.com/markjprice/cs12dotnet8/blob/0ee475706186d2c82fdb836837783aed3a4d4fd0/code/Chapter08/WorkingWithText/Program.cs#L78
 
-## Page 457 - Initializing collections using collection expressions
+# Page 457 - Initializing collections using collection expressions
 
 In this section, I introduce the use of collection expressions to initialize collections. A related feature is the `..` spread element. In the next edition, I will add a section about it, as shown below.
 
-### Using the spread element
+## Using the spread element
 
 > Microsoft official documentation uses both **spread element** and **spread operator** to refer to the same language feature. I prefer *element* because it is used in collection expressions to represent an element within the defined collection.
 
@@ -340,13 +337,13 @@ The output would be:
 
 > **More Information**: You can learn more about the spread element at the following link: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/collection-expressions#spread-element.
 
-### Collection expression limitations
+## Collection expression limitations
 
 Collection expressions do not work with all collections. For example, they do not work with dictionaries or multi-dimensional arrays. The documenation lists the types that a collection expression can be converted to: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-12.0/collection-expressions#conversions.
 
 > **Warning!** Be careful not to confuse the spread element `..` that must be applied before an enumerable expression, with the range operator `..` that is used to define a `Range`. There is a discussion about the design decision around the spread element at the following link: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-12.0/collection-expressions#drawbacks.
 
-## Page 460 - Identifying ranges with the Range type
+# Page 460 - Identifying ranges with the Range type
 
 In this section, I introduce ways to define a `Range`, including the range operator `..` available in C# 8 or later, as shown in the following code:
 ```cs
@@ -357,7 +354,7 @@ Range r7 = ..3; // From index 0 to index 3.
 
 In the next edition, I will add a note to warn the reader that the spread element `..` looks the same but means something different and refer back to it in a  new section explaining the spread element. 
 
-## Page 484 - Compressing streams
+# Page 484 - Compressing streams
 
 > Thanks to [DrAvriLev](https://github.com/DrAvriLev) who raised this [issue on November 26, 2023](https://github.com/markjprice/cs12dotnet8/issues/4).
 
@@ -458,7 +455,7 @@ In the following code, `using (XmlReader reader = XmlReader.Create(decompressor)
 
 I will also explain why I did not use the simplified syntax with the `compressor` object (to dispose of it earlier).
 
-## Page 493 - Serializing as XML
+# Page 493 - Serializing as XML
 
 > Thanks to [Robin Bastian](https://github.com/centpede) for raising this issue on [January 12, 2024](https://github.com/markjprice/cs12dotnet8/issues/11).
 
@@ -466,6 +463,49 @@ In Step 2, I wrote, "In the project file, add elements to statically and globall
 
 Some readers do not notice that they need to statically import `System.Environment` so in the next edition I will write, "In the project file, add elements to statically and globally import the `System.Console` (to use `ForegroundColor` and `WriteLine`), `System.Environment` (to use `CurrentDirectory`), and `System.IO.Path` classes (to use `Combine`, `GetFileName`, and `GetDirectoryName`)."
 
-# Bonus Content 
+# Page 541 - Querying EF Core models
 
-None so far.
+> Thanks to **swissbobo** in this book's Discord channel for asking a question that prompted this improvement.
+
+At the start of this section, I wrote, "Now that we have a model that maps to the Northwind database and two of its tables, we can write some simple LINQ queries to fetch data. You will learn much more about writing LINQ queries in *Chapter 11, Querying and Manipulating Data Using LINQ*."
+
+Instead of just warning that the reader will learn more about LINQ queries in the next chapter, it would be better for the reader if some of the key behaviors of LINQ are made at various points throughout this section. In the next edition, I will make the following improvements...
+
+> **LINQ to Entities** (aka **LINQ to EF Core**) is a LINQ provider that converts a LINQ query into SQL to execute against the database. You can write a LINQ query built up over many C# statements. You can discover the equivalent SQL statement without executing the query against the database. Only when the query is enumerated using `foreach`, or you call a method like `ToArray` or `ToList` on the LINQ query, will you trigger executing the query against the database. This is known as **deferred execution**.
+
+On Page 545, in the code, I will add some comments, as shown in the following code:
+```cs
+// This is a query definition. Nothing has executed against the database.
+IQueryable<Category>? categories = db.Categories?
+  .Include(c => c.Products.Where(p => p.Stock >= stock));
+
+if (categories is null || !categories.Any())
+{
+  Fail("No categories found.");
+  return;
+}
+
+// Enumerating executes the query against the database.
+foreach (Category c in categories)
+```
+
+On Page 548, in the code for Step 1, I will add a comment, as shown in the following code:
+```cs
+// Calling ToQueryString does not execute against the database. 
+// LINQ to Entities just converts the LINQ query to an SQL statement.
+Info($"ToQueryString: {categories.ToQueryString()}");
+```
+
+On page 549, I will add a note:
+
+> **Warning!** Enabling of logging for EF Core *does* show SQL commands that are executed against the database. `ToQueryString` does *not* execute against the database.
+
+On Page 553, in the code for Step 1, I will add some comments, as shown in the following code:
+```cs
+// This query is not deferred. The LINQ is immediately converted to SQL and 
+// executed to fetch the product.
+Product? product = db.Products?
+  .First(product => product.ProductId == id);
+```
+
+> LINQ methods that fetch a single entity (`First`, `FirstOrDefault`, `Single`, `SingleOrDefault`) or return a scalar value like the aggregate methods (`Count`, `Sum`, `Max`, `Min`, and so on) are not deferred. When using the LINQ to Entities provider, the LINQ query is immediately converted to a SQL statement and executed against the database.
