@@ -467,13 +467,15 @@ Some readers do not notice that they need to statically import `System.Environme
 
 > Thanks to **swissbobo** in this book's Discord channel for asking a question that prompted this improvement.
 
-At the start of this section, I wrote, "Now that we have a model that maps to the Northwind database and two of its tables, we can write some simple LINQ queries to fetch data. You will learn much more about writing LINQ queries in *Chapter 11, Querying and Manipulating Data Using LINQ*."
+At the start of this section, I wrote, "Now that we have a model that maps to the Northwind database and two of its tables, we can write some simple LINQ queries to fetch data. You will learn much more about writing LINQ queries in *Chapter 11, Querying and Manipulating Data Using LINQ*. For now, just write the code and view the results:"
 
-Instead of just warning that the reader will learn more about LINQ queries in the next chapter, it would be better for the reader if some of the key behaviors of LINQ are made at various points throughout this section. In the next edition, I will make the following improvements...
+Instead of just warning that the reader will learn more about LINQ queries in the next chapter, it would probably be better for the reader if some of the key behaviors of LINQ are made at various points throughout this section. In the next edition, I will make the following improvements...
+
+On page 541, I will add the following note:
 
 > **LINQ to Entities** (aka **LINQ to EF Core**) is a LINQ provider that converts a LINQ query into SQL to execute against the database. You can write a LINQ query built up over many C# statements. You can discover the equivalent SQL statement without executing the query against the database by calling `ToQueryString`. This is known as **deferred execution**. Only when the query is enumerated using `foreach`, or you call a method like `ToArray` or `ToList` on the LINQ query, will you trigger executing the query against the database and the results are returned to your code. This is known as **materialization**.
 
-On Page 545, in the code, I will add some comments, as shown in the following code:
+On page 545, in the code, I will add some comments, as shown in the following code:
 ```cs
 // This is a query definition. Nothing has executed against the database.
 IQueryable<Category>? categories = db.Categories?
@@ -494,7 +496,7 @@ if (categories is null || !categories.Any())
 foreach (Category c in categories)
 ```
 
-On Page 548, in the code for step 1, I will add some comments, as shown in the following code:
+On page 548, in the code for step 1, I will add some comments, as shown in the following code:
 ```cs
 // Calling ToQueryString does not execute against the database. 
 // LINQ to Entities just converts the LINQ query to an SQL statement.
@@ -505,7 +507,7 @@ On page 549, I will add a note:
 
 > **Warning!** Enabling of logging for EF Core shows SQL commands that are executed against the database. `ToQueryString` does *not* execute against the database.
 
-On Page 553, in the code for step 1, I will add some comments, as shown in the following code:
+On page 553, in the code for step 1, I will add some comments, as shown in the following code:
 ```cs
 // This query is not deferred because First does not return IEnumerable or IQueryable.
 // The LINQ is immediately converted to SQL and executed to fetch the product.
