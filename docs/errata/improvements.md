@@ -482,7 +482,7 @@ IQueryable<Category>? categories = db.Categories?
   .Include(c => c.Products.Where(p => p.Stock >= stock));
 
 // You could call any of the following LINQ methods and nothing will executed against the database:
-// Where, GroupBy, Select, SelectMany, OfType, OrderBy, ThenBy, Join, GroupJoin, Take, Skip.
+// Where, GroupBy, Select, SelectMany, OfType, OrderBy, ThenBy, Join, GroupJoin, Take, Skip, Reverse.
 // Usually, methods that return IEnumerable or IQueryable support deferred execution.
 // Usually, methods that return a single value do not support deferred execution.
 
@@ -515,4 +515,8 @@ Product? product = db.Products?
   .First(product => product.ProductId == id);
 ```
 
-> LINQ methods that fetch a single entity (`First`, `FirstOrDefault`, `Single`, `SingleOrDefault`) or return a single scalar value or entity like the aggregate methods (`Count`, `Sum`, `Max`, `Min`, and so on) are not deferred. When using the LINQ to Entities provider, the LINQ query is immediately converted to a SQL statement and executed against the database.
+On page 553, before step 2, I will add a note:
+
+> LINQ methods that fetch a single entity (`First`, `FirstOrDefault`, `Single`, `SingleOrDefault`, `ElementAt`, `ElementAtOrDefault`) or return a single scalar value or entity like the aggregate methods (`Count`, `Sum`, `Max`, `Min`, `Average`, `All`, `Any`, and so on) are not deferred. When using the LINQ to Entities provider, any LINQ query that ends with a call to one of these methods is immediately converted to a SQL statement and executed against the database.
+
+On pages 583 to 584, I will split the table of LINQ methods into deferred and non-deferred methods. 
