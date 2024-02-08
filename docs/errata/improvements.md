@@ -471,7 +471,7 @@ At the start of this section, I wrote, "Now that we have a model that maps to th
 
 Instead of just warning that the reader will learn more about LINQ queries in the next chapter, it would be better for the reader if some of the key behaviors of LINQ are made at various points throughout this section. In the next edition, I will make the following improvements...
 
-> **LINQ to Entities** (aka **LINQ to EF Core**) is a LINQ provider that converts a LINQ query into SQL to execute against the database. You can write a LINQ query built up over many C# statements. You can discover the equivalent SQL statement without executing the query against the database. Only when the query is enumerated using `foreach`, or you call a method like `ToArray` or `ToList` on the LINQ query, will you trigger executing the query against the database. This is known as **deferred execution**.
+> **LINQ to Entities** (aka **LINQ to EF Core**) is a LINQ provider that converts a LINQ query into SQL to execute against the database. You can write a LINQ query built up over many C# statements. You can discover the equivalent SQL statement without executing the query against the database by calling `ToQueryString`. This is known as **deferred execution**. Only when the query is enumerated using `foreach`, or you call a method like `ToArray` or `ToList` on the LINQ query, will you trigger executing the query against the database and the results are returned to your code. This is known as **materialization**.
 
 On Page 545, in the code, I will add some comments, as shown in the following code:
 ```cs
@@ -479,17 +479,22 @@ On Page 545, in the code, I will add some comments, as shown in the following co
 IQueryable<Category>? categories = db.Categories?
   .Include(c => c.Products.Where(p => p.Stock >= stock));
 
+// You could call any of the following LINQ methods and nothing will executed against the database:
+// Where, GroupBy, Select, SelectMany, OfType, OrderBy, ThenBy, Join, GroupJoin, Take, Skip.
+// Usually, methods that return IEnumerable or IQueryable support deferred execution.
+// Usually, methods that return a single value do not support deferred execution.
+
 if (categories is null || !categories.Any())
 {
   Fail("No categories found.");
   return;
 }
 
-// Enumerating executes the query against the database.
+// Enumerating the query converts it to SQL and executes it against the database.
 foreach (Category c in categories)
 ```
 
-On Page 548, in the code for Step 1, I will add a comment, as shown in the following code:
+On Page 548, in the code for step 1, I will add some comments, as shown in the following code:
 ```cs
 // Calling ToQueryString does not execute against the database. 
 // LINQ to Entities just converts the LINQ query to an SQL statement.
@@ -498,14 +503,14 @@ Info($"ToQueryString: {categories.ToQueryString()}");
 
 On page 549, I will add a note:
 
-> **Warning!** Enabling of logging for EF Core *does* show SQL commands that are executed against the database. `ToQueryString` does *not* execute against the database.
+> **Warning!** Enabling of logging for EF Core shows SQL commands that are executed against the database. `ToQueryString` does *not* execute against the database.
 
-On Page 553, in the code for Step 1, I will add some comments, as shown in the following code:
+On Page 553, in the code for step 1, I will add some comments, as shown in the following code:
 ```cs
-// This query is not deferred. The LINQ is immediately converted to SQL and 
-// executed to fetch the product.
+// This query is not deferred because First does not return IEnumerable or IQueryable.
+// The LINQ is immediately converted to SQL and executed to fetch the product.
 Product? product = db.Products?
   .First(product => product.ProductId == id);
 ```
 
-> LINQ methods that fetch a single entity (`First`, `FirstOrDefault`, `Single`, `SingleOrDefault`) or return a scalar value like the aggregate methods (`Count`, `Sum`, `Max`, `Min`, and so on) are not deferred. When using the LINQ to Entities provider, the LINQ query is immediately converted to a SQL statement and executed against the database.
+> LINQ methods that fetch a single entity (`First`, `FirstOrDefault`, `Single`, `SingleOrDefault`) or return a single scalar value or entity like the aggregate methods (`Count`, `Sum`, `Max`, `Min`, and so on) are not deferred. When using the LINQ to Entities provider, the LINQ query is immediately converted to a SQL statement and executed against the database.
