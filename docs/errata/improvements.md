@@ -481,7 +481,7 @@ On page 545, in the code, I will add some comments, as shown in the following co
 IQueryable<Category>? categories = db.Categories?
   .Include(c => c.Products.Where(p => p.Stock >= stock));
 
-// You could call any of the following LINQ methods and nothing will executed against the database:
+// You could call any of the following LINQ methods and nothing will be executed against the database:
 // Where, GroupBy, Select, SelectMany, OfType, OrderBy, ThenBy, Join, GroupJoin, Take, Skip, Reverse.
 // Usually, methods that return IEnumerable or IQueryable support deferred execution.
 // Usually, methods that return a single value do not support deferred execution.
@@ -505,12 +505,12 @@ Info($"ToQueryString: {categories.ToQueryString()}");
 
 On page 549, I will add a note:
 
-> **Warning!** Enabling of logging for EF Core shows SQL commands that are executed against the database. `ToQueryString` does *not* execute against the database.
+> **Warning!** Enabling of logging for EF Core shows all of the SQL commands that are actually executed against the database. `ToQueryString` does *not* execute against the database.
 
 On page 553, in the code for step 1, I will add some comments, as shown in the following code:
 ```cs
-// This query is not deferred because First does not return IEnumerable or IQueryable.
-// The LINQ is immediately converted to SQL and executed to fetch the product.
+// This query is not deferred because the First method does not return IEnumerable or IQueryable.
+// The LINQ query is immediately converted to SQL and executed to fetch the first product.
 Product? product = db.Products?
   .First(product => product.ProductId == id);
 ```
