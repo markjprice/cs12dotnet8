@@ -1,4 +1,4 @@
-**Errata** (11 items)
+**Errata** (12 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -10,6 +10,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 87 - Comparing double and decimal types](#page-87---comparing-double-and-decimal-types)
 - [Page 95 - Displaying output to the user](#page-95---displaying-output-to-the-user)
 - [Page 124 - Exploring bitwise and binary shift operators](#page-124---exploring-bitwise-and-binary-shift-operators)
+- [Page 361 - Comparing inheritance and implementation](#page-361---comparing-inheritance-and-implementation)
 - [Page 383 - Creating a console app to publish](#page-383---creating-a-console-app-to-publish)
 - [Page 386 - Publishing a self-contained app](#page-386---publishing-a-self-contained-app)
 - [Page 616 - Be careful with Count!](#page-616---be-careful-with-count)
@@ -109,6 +110,15 @@ I should have written `x` and `y`.
 In the last paragraph, I wrote, "The `3` result is because the 1 bits in `b` were shifted one column into the 2-and 1-bit columns."
 
 I should have written, "The `3` result is because the 1 bits in `y` were shifted one column into the 2-and 1-bit columns."
+
+# Page 361 - Comparing inheritance and implementation
+
+> Thanks to Blix in this book's Discord channel for pointing out this typo.
+
+For the first sentence, I wrote, "For me, the terms inherit and implement are different, and in the early days of C# and .NET you could
+strictly apply them to classes and interfaces respectfully."
+
+In the next edition, I will correct the word "respectfully" to "respectively", as explained at the following link: https://www.merriam-webster.com/grammar/respectively-vs-respectfully.
 
 # Page 383 - Creating a console app to publish
 
