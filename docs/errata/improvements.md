@@ -503,6 +503,8 @@ On page 548, in the code for step 1, I will add some comments, as shown in the f
 Info($"ToQueryString: {categories.ToQueryString()}");
 ```
 
+> **Warning!** The `ToQueryString` can only work on objects that implement `IQueryable`. This means that if you write a LINQ query using deferred methods like `Where`, `GroupBy`, `Select`, `OrderBy`, `Join`, `Take`, `Skip`, `Reverse` and so on then `ToQueryString` can show you the SQL before you run the query. But methods that return a non-`IQueryable` value and immediately execute the query, like a single scalar result like `Count()` or `First()`, do not support `ToQueryString`. 
+
 On page 549, I will add a note:
 
 > **Warning!** Enabling of logging for EF Core shows all of the SQL commands that are actually executed against the database. `ToQueryString` does *not* execute against the database.
