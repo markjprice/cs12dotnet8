@@ -1,4 +1,4 @@
-**Errata** (12 items)
+**Errata** (13 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -14,6 +14,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 383 - Creating a console app to publish](#page-383---creating-a-console-app-to-publish)
 - [Page 386 - Publishing a self-contained app](#page-386---publishing-a-self-contained-app)
 - [Page 616 - Be careful with Count!](#page-616---be-careful-with-count)
+- [Page 641 - Customizing the model and defining an extension method](#page-641---customizing-the-model-and-defining-an-extension-method)
 
 # Page 10 - Installing other extensions
 
@@ -186,3 +187,35 @@ IEnumerable<Task> tasks = Enumerable.Range(0, 2)
 await Task.WhenAll(tasks);
 Console.Write($"{tasks.Count()} stars!");
 ```
+
+# Page 641 - Customizing the model and defining an extension method
+
+> Thanks to swissbobo in the book's Discord channel for raising this issue.
+
+In Step 4, in the `AddNorthwindContext` method, Word's autocorrect changed an `o` into an `O` in `Options.UseSqlite`, as shown in the following code:
+```cs
+services.AddDbContext<NorthwindContext>(options =>
+{
+  // Data Source is the modern equivalent of Filename.
+  Options.UseSqlite($"Data Source={path}");
+
+  options.LogTo(NorthwindContextLogger.WriteLine,
+    new[] { Microsoft.EntityFrameworkCore
+      .Diagnostics.RelationalEventId.CommandExecuting });
+}
+```
+
+The correct code is shown here:
+```cs
+services.AddDbContext<NorthwindContext>(options =>
+{
+  // Data Source is the modern equivalent of Filename.
+  options.UseSqlite($"Data Source={path}");
+
+  options.LogTo(NorthwindContextLogger.WriteLine,
+    new[] { Microsoft.EntityFrameworkCore
+      .Diagnostics.RelationalEventId.CommandExecuting });
+}
+```
+
+This is only a problem in the source code in the print book and PDF, not in the GitHub repository, as shown in the following statement: https://github.com/markjprice/cs12dotnet8/blob/de8310d8aaf82510a759e196566d111c4c839c57/code/PracticalApps/Northwind.DataContext.Sqlite/NorthwindContextExtensions.cs#L33
