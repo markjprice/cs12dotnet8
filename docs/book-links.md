@@ -467,6 +467,7 @@ The official announcement links are useful because they describe the most import
 - [Native AOT deployment](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/)
 - [How to make libraries compatible with native AOT](https://devblogs.microsoft.com/dotnet/creating-aot-compatible-libraries/)
 - [ASP.NET Core support for native AOT](https://devblogs.microsoft.com/dotnet/announcing-asp-net-core-in-dotnet-8/#asp-net-core-support-for-native-aot)
+- [How to make libraries compatible with native AOT](https://devblogs.microsoft.com/dotnet/creating-aot-compatible-libraries/)
 
 ## Porting from .NET Framework to modern .NET
 - [Overview of porting from .NET Framework to .NET Core](https://learn.microsoft.com/en-us/dotnet/core/porting/)
