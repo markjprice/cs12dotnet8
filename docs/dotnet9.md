@@ -1,5 +1,7 @@
 # Eighth Edition's support for .NET 9 and 10
 
+## .NET 9
+
 Microsoft will release previews of .NET 9 regularly starting in February 2024 until the final version on Tuesday, November 12, 2024, one week after the US Presidential Election on November 5.
 
 - [Download .NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
@@ -13,17 +15,10 @@ Microsoft will release previews of .NET 9 regularly starting in February 2024 un
 - April, 2024: [Announcing .NET 9 Preview 3](https://devblogs.microsoft.com/dotnet/announcing-dotnet-9-preview-3/)
 - March, 2024: [Announcing .NET 9 Preview 2](https://devblogs.microsoft.com/dotnet/announcing-dotnet-9-preview-2/)
 - February, 2024: [Announcing .NET 9 Preview 1](https://devblogs.microsoft.com/dotnet/announcing-net-9-preview-1/)
-- August 2023 to January 2024: [Download alpha versions of .NET 9](https://github.com/dotnet/installer#table)
-
-![Download page for alpha versions of .NET](assets/B19586_01_22.png)
-
-![Download warning](assets/dotnetsdk-table-2023-08-25.png)
-
-![.NET SDK 9 alpha in August 2023 included an early .NET 8 RC1](assets/dotnetsdk-net9-alpha-2023-08-25.png)
 
 ## .NET 10
 
-Microsoft will release previews of .NET 10 regularly starting in February 2025 until the final version on Tuesday, November 4, 2025 or Tuesday, November 11, 2025.
+Microsoft will release previews of .NET 10 regularly starting in February 2025 until the final version on Tuesday, November 11, 2025.
 
 - [Download .NET 10.0 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
 - November, 2025: Announcing .NET 10.0 - The Bestest .NET Yet
@@ -36,6 +31,7 @@ Microsoft will release previews of .NET 10 regularly starting in February 2025 u
 - April, 2025: [Announcing .NET 10 Preview 3](https://devblogs.microsoft.com/dotnet/announcing-dotnet-10-preview-3/)
 - March, 2025: [Announcing .NET 10 Preview 2](https://devblogs.microsoft.com/dotnet/announcing-dotnet-10-preview-2/)
 - February, 2025: [Announcing .NET 10 Preview 1](https://devblogs.microsoft.com/dotnet/announcing-net-10-preview-1/)
+- August 2024 to January 2025: [Download alpha versions of .NET 10](https://github.com/dotnet/installer#table)
 
 # All Chapters
 
