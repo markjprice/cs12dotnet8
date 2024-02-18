@@ -2,6 +2,8 @@
 
 - [.NET 9 downloads and announcements](#net-9-downloads-and-announcements)
 - [How to switch from .NET 8 to .NET 9](#how-to-switch-from-net-8-to-net-9)
+  - [Upgrading the target framework for a project](#upgrading-the-target-framework-for-a-project)
+  - [Updading packages for a project](#updading-packages-for-a-project)
 - [What's New in .NET 9 and where will I cover those new features?](#whats-new-in-net-9-and-where-will-i-cover-those-new-features)
 - [.NET 10 downloads and announcements](#net-10-downloads-and-announcements)
 
@@ -25,6 +27,8 @@ Microsoft will release previews of .NET 9 regularly starting in February 2024 un
 
 After [downloading](https://dotnet.microsoft.com/download/dotnet/9.0) and installing .NET 9.0 SDK, follow the step-by-step instructions in the book and they should work as expected since the project file will automatically reference .NET 9.0 as the target framework. 
 
+## Upgrading the target framework for a project
+
 To upgrade a project in the GitHub repository from .NET 8.0 to .NET 9.0 just requires a target framework change in your project file.
 
 Change this:
@@ -38,6 +42,8 @@ To this:
 ```xml
 <TargetFramework>net9.0</TargetFramework>
 ```
+
+## Updading packages for a project
 
 For projects that reference additional NuGet packages, use the latest NuGet package version instead of the version given in the book. For example, on page 208, you must reference two packages, as shown in the following markup:
 ```xml
