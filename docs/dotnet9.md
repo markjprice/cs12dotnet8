@@ -92,21 +92,21 @@ The following new features will be mentioned in the 3rd edition of *Apps and Ser
 - [New cryptography features](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9/overview#cryptography)
 
 The following new features will be mentioned in the 1st edition of *Tools and Skills for .NET 8 Pros* to be published in Summer 2024:
-- [New reflection features](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9/overview#reflection).
+- [New reflection features](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9/overview#reflection)
 
 # .NET 10 downloads and announcements
 
 Microsoft will release previews of .NET 10 regularly starting in February 2025 until the final version on Tuesday, November 11, 2025.
 
-- [Download .NET 10.0 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
-- November, 2025: Announcing .NET 10.0 - The Bestest .NET Yet
-- October, 2025: [Announcing .NET 10 Release Candidate 2](https://devblogs.microsoft.com/dotnet/announcing-dotnet-10-rc-2/)
-- September, 2025: [Announcing .NET 10 Release Candidate 1](https://devblogs.microsoft.com/dotnet/announcing-dotnet-10-rc-1/)
-- August, 2025: [Announcing .NET 10 Preview 7](https://devblogs.microsoft.com/dotnet/announcing-dotnet-10-preview-7/)
-- July, 2025: [Announcing .NET 10 Preview 6](https://devblogs.microsoft.com/dotnet/announcing-dotnet-10-preview-6/)
-- June, 2025: [Announcing .NET 10 Preview 5](https://devblogs.microsoft.com/dotnet/announcing-dotnet-10-preview-5/)
-- May, 2025: [Announcing .NET 10 Preview 4](https://devblogs.microsoft.com/dotnet/announcing-dotnet-10-preview-4/)
-- April, 2025: [Announcing .NET 10 Preview 3](https://devblogs.microsoft.com/dotnet/announcing-dotnet-10-preview-3/)
-- March, 2025: [Announcing .NET 10 Preview 2](https://devblogs.microsoft.com/dotnet/announcing-dotnet-10-preview-2/)
-- February, 2025: [Announcing .NET 10 Preview 1](https://devblogs.microsoft.com/dotnet/announcing-net-10-preview-1/)
-- August 2024 to January 2025: [Download alpha versions of .NET 10](https://github.com/dotnet/installer#table)
+- [Download .NET 10.0 SDK](https://dotnet.microsoft.com/download/dotnet/10.0). **Warning!** This link will not activate until February 2025.
+- August 2024 to January 2025: [Download alpha versions of .NET 10](https://github.com/dotnet/installer#table). **Warning!** This link will not show .NET 10 downloads until July/August 2024.
+- February, 2025: Announcing .NET 10 Preview 1
+- March, 2025: Announcing .NET 10 Preview 2
+- April, 2025: Announcing .NET 10 Preview 3
+- May, 2025: Announcing .NET 10 Preview 4
+- June, 2025: Announcing .NET 10 Preview 5
+- July, 2025: Announcing .NET 10 Preview 6
+- August, 2025: Announcing .NET 10 Preview 7
+- September, 2025: Announcing .NET 10 Release Candidate 1
+- October, 2025: Announcing .NET 10 Release Candidate 2
+- November, 2025: Announcing .NET 10.0
