@@ -3,7 +3,7 @@
 - [.NET 9 downloads and announcements](#net-9-downloads-and-announcements)
 - [How to switch from .NET 8 to .NET 9](#how-to-switch-from-net-8-to-net-9)
   - [Upgrading the target framework for a project](#upgrading-the-target-framework-for-a-project)
-  - [Updading packages for a project](#updading-packages-for-a-project)
+  - [Upgrading packages for a project](#upgrading-packages-for-a-project)
 - [What's New in .NET 9 and where will I cover those new features?](#whats-new-in-net-9-and-where-will-i-cover-those-new-features)
 - [.NET 10 downloads and announcements](#net-10-downloads-and-announcements)
 
@@ -43,7 +43,7 @@ To this:
 <TargetFramework>net9.0</TargetFramework>
 ```
 
-## Updading packages for a project
+## Upgrading packages for a project
 
 For projects that reference additional NuGet packages, use the latest NuGet package version instead of the version given in the book. For example, on page 208, you must reference two packages, as shown in the following markup:
 ```xml
