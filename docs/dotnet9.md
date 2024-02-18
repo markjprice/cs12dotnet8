@@ -10,16 +10,16 @@
 Microsoft will release previews of .NET 9 regularly starting in February 2024 until the final version on Tuesday, November 12, 2024, one week after the US Presidential Election on November 5.
 
 - [Download .NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
-- November 12, 2024: Announcing .NET 9.0 - The Bestest .NET Yet
-- October, 2024: [Announcing .NET 9 Release Candidate 2](https://devblogs.microsoft.com/dotnet/announcing-dotnet-9-rc-2/)
-- September, 2024: [Announcing .NET 9 Release Candidate 1](https://devblogs.microsoft.com/dotnet/announcing-dotnet-9-rc-1/)
-- August, 2024: [Announcing .NET 9 Preview 7](https://devblogs.microsoft.com/dotnet/announcing-dotnet-9-preview-7/)
-- July, 2024: [Announcing .NET 9 Preview 6](https://devblogs.microsoft.com/dotnet/announcing-dotnet-9-preview-6/)
-- June, 2024: [Announcing .NET 9 Preview 5](https://devblogs.microsoft.com/dotnet/announcing-dotnet-9-preview-5/)
-- May, 2024: [Announcing .NET 9 Preview 4](https://devblogs.microsoft.com/dotnet/announcing-dotnet-9-preview-4/)
-- April, 2024: [Announcing .NET 9 Preview 3](https://devblogs.microsoft.com/dotnet/announcing-dotnet-9-preview-3/)
-- March, 2024: [Announcing .NET 9 Preview 2](https://devblogs.microsoft.com/dotnet/announcing-dotnet-9-preview-2/)
 - February 13, 2024: [Our Vision for .NET 9](https://devblogs.microsoft.com/dotnet/our-vision-for-dotnet-9/)
+- March, 2024: Announcing .NET 9 Preview 2
+- April, 2024: Announcing .NET 9 Preview 3
+- May, 2024: Announcing .NET 9 Preview 4
+- June, 2024: Announcing .NET 9 Preview 5
+- July, 2024: Announcing .NET 9 Preview 6
+- August, 2024: Announcing .NET 9 Preview 7
+- September, 2024: Announcing .NET 9 Release Candidate 1
+- October, 2024: Announcing .NET 9 Release Candidate 2
+- November 12, 2024: Announcing .NET 9.0
 
 # How to switch from .NET 8 to .NET 9
 
