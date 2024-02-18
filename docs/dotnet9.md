@@ -39,7 +39,43 @@ To this:
 <TargetFramework>net9.0</TargetFramework>
 ```
 
-For projects that reference additional NuGet packages, use the latest NuGet package version, as shown in the rest of this page, instead of the version given in the book. You can search for the correct NuGet package version numbers yourself at the following link: https://www.nuget.org
+For projects that reference additional NuGet packages, use the latest NuGet package version instead of the version given in the book. For example, on page 208, you must reference two packages, as shown in the following markup:
+```xml
+<ItemGroup>
+  <PackageReference
+    Include="Microsoft.Extensions.Configuration.Binder"
+    Version="8.0.0" />
+  <PackageReference
+    Include="Microsoft.Extensions.Configuration.Json"
+    Version="8.0.0" />
+</ItemGroup>
+```
+
+To use .NET 9 Preview 1 packages, search https://www.nuget.org for the package and find its latest preview version number. For example, for Preview 1, as shown in the following markup:
+```xml
+<ItemGroup>
+  <PackageReference
+    Include="Microsoft.Extensions.Configuration.Binder"
+    Version="9.0.0-preview.1.24080.9" />
+  <PackageReference
+    Include="Microsoft.Extensions.Configuration.Json"
+    Version="9.0.0-preview.1.24080.9" />
+</ItemGroup>
+```
+
+To always use latest .NET 9 preview, release candidate, or patch version package, use a version number wildcard, as shown in the following markup:
+```xml
+<ItemGroup>
+  <PackageReference
+    Include="Microsoft.Extensions.Configuration.Binder"
+    Version="9.0-*" />
+  <PackageReference
+    Include="Microsoft.Extensions.Configuration.Json"
+    Version="9.0-*" />
+</ItemGroup>
+```
+
+> You can search for the correct NuGet package version numbers yourself at the following link: https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder.
 
 # What's New in .NET 9 and where will I cover those new features?
 
