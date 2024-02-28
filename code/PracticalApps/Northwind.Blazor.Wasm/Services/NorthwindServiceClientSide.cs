@@ -53,7 +53,7 @@ public class NorthwindServiceClientSide : INorthwindService
       .ReadFromJsonAsync<Customer>())!;
   }
 
-  public async Task<Customer> UpdateCustomerAsync(Customer c)
+  public async Task UpdateCustomerAsync(Customer c)
   {
     HttpClient client = _clientFactory.CreateClient(
       name: "Northwind.WebApi");
@@ -61,8 +61,6 @@ public class NorthwindServiceClientSide : INorthwindService
     HttpResponseMessage response = await
       client.PutAsJsonAsync("api/customers", c);
 
-    return (await response.Content
-      .ReadFromJsonAsync<Customer>())!;
   }
 
   public async Task DeleteCustomerAsync(string id)

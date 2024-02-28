@@ -34,11 +34,11 @@ public class NorthwindServiceServerSide : INorthwindService
     return Task.FromResult(c);
   }
 
-  public Task<Customer> UpdateCustomerAsync(Customer c)
+  public Task UpdateCustomerAsync(Customer c)
   {
     _db.Entry(c).State = EntityState.Modified;
     _db.SaveChangesAsync();
-    return Task.FromResult(c);
+    return Task.CompletedTask;
   }
 
   public Task DeleteCustomerAsync(string id)
