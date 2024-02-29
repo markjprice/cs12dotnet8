@@ -21,7 +21,7 @@ WriteLine("{0} {1} lived in {2}.",
 
 // Four or more parameter values cannot use named arguments.
 WriteLine(
-  "{0} {1} lived in {2} and worked in the {4} team at {5}.",
+  "{0} {1} lived in {2} and worked in the {3} team at {4}.",
   "Roger", "Cevung", "Stockholm", "Education", "Optimizely");
 
 #endregion
