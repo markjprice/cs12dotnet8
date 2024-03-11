@@ -5,7 +5,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 10 - Installing other extensions](#page-10---installing-other-extensions)
 - [Page 15 - Understanding .NET runtime and .NET SDK versions](#page-15---understanding-net-runtime-and-net-sdk-versions)
 - [Page 43 - Configuring inline aka inlay hints](#page-43---configuring-inline-aka-inlay-hints)
-- [Page 50 - Exercise 1.2 – Practice C# anywhere with a browser](#page-50---exercise-12--practice-c-anywhere-with-a-browser)
+- [Page 50 - Exercise 1.2 – Practice C# anywhere with a browser](#page-50---exercise-12-–-practice-c-anywhere-with-a-browser)
 - [Page 58 - Showing the compiler version](#page-58---showing-the-compiler-version)
 - [Page 87 - Comparing double and decimal types](#page-87---comparing-double-and-decimal-types)
 - [Page 95 - Displaying output to the user](#page-95---displaying-output-to-the-user)
