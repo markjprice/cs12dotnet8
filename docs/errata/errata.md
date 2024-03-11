@@ -1,4 +1,4 @@
-**Errata** (15 items)
+**Errata** (16 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -6,6 +6,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 15 - Understanding .NET runtime and .NET SDK versions](#page-15---understanding-net-runtime-and-net-sdk-versions)
 - [Page 43 - Configuring inline aka inlay hints](#page-43---configuring-inline-aka-inlay-hints)
 - [Page 50 - Exercise 1.2 – Practice C# anywhere with a browser](#page-50---exercise-12--practice-c-anywhere-with-a-browser)
+- [Page 51 - Exercise 1.5 – Explore themes of modern .NET](#page-51---exercise-15--explore-themes-of-modern-net)
 - [Page 58 - Showing the compiler version](#page-58---showing-the-compiler-version)
 - [Page 87 - Comparing double and decimal types](#page-87---comparing-double-and-decimal-types)
 - [Page 95 - Displaying output to the user](#page-95---displaying-output-to-the-user)
@@ -54,6 +55,12 @@ In this exercise, I wrote "You can start coding online at any of the following l
 Although **Visual Studio Code for Web** does support some extensions, it does not support the C# extension. If you edit a `.cs` file then you will not have IntelliSense to help you. It also does not support running and debugging C# code. 
 
 In the next edition, I will remove this bullet or change it to **GitHub Codespaces** (i.e. Visual Studio Code hosted in a cloud-based virtual machine) instead.
+
+# Page 51 - Exercise 1.5 – Explore themes of modern .NET
+
+> Thanks to [Emre Duman](https://github.com/Emopusta) who raised this [issue on March 11, 2024](https://github.com/markjprice/cs12dotnet8/issues/25).
+
+Microsoft appears to have stopped paying for the domain used by the following link: https://themesof.net/. In the next edition, I will remove this exercise. 
 
 # Page 58 - Showing the compiler version
 
