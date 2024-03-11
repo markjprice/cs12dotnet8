@@ -67,7 +67,7 @@ To determine if HTTP/3 is enabled for a website project, we must set an increase
 ![Chrome showing support for HTTP/3](assets/B19586_13B_01.png) 
 *Figure 13B.1: Chrome showing support for HTTP/3*
 
-5. Unfortunately, if you review the output at the command prompt or terminal, or review Chrome diagnostic tools, you will find that the connection uses HTTP/2. This is because, "Browsers don't allow self-signed certificates on HTTP/3, such as the Kestrel development certificate", as described here: https://learn.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel/http3#localhost-testing. The official documentation does not show a work around because Microsoft decided the steps are too difficult. You can read about the issue here if you want to try the complex workaround: https://github.com/dotnet/AspNetCore.Docs/issues/23700.
+5. Unfortunately, if you review the output at the command prompt or terminal, or review Chrome diagnostic tools, you will find that the connection uses HTTP/2. This is because, "Browsers don't allow self-signed certificates on HTTP/3, such as the Kestrel development certificate", as described here: https://learn.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel/http3#localhost-testing. The official documentation does not show a work around because Microsoft decided the steps are too difficult. You can read about the issue here if you want to try the complex workaround: https://github.com/dotnet/AspNetCore.Docs/issues/23700. RTD wrote more detailed instructions that you can read here: https://github.com/markjprice/cs12dotnet8/issues/15#issuecomment-1987353759.
 
 6.	Close Chrome and shut down the web server.
 
