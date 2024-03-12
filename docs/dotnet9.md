@@ -1,4 +1,4 @@
-**Eighth Edition's support for .NET 9 and 10**
+**Eighth Edition's support for .NET 9**
 
 - [.NET 9 downloads and announcements](#net-9-downloads-and-announcements)
 - [How to switch from .NET 8 to .NET 9](#how-to-switch-from-net-8-to-net-9)
@@ -13,15 +13,15 @@ Microsoft will release previews of .NET 9 regularly starting in February 2024 un
 
 - [Download .NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
 - February 13, 2024: [Our Vision for .NET 9](https://devblogs.microsoft.com/dotnet/our-vision-for-dotnet-9/)
-- March, 2024: Announcing .NET 9 Preview 2
-- April, 2024: Announcing .NET 9 Preview 3
-- May, 2024: Announcing .NET 9 Preview 4
-- June, 2024: Announcing .NET 9 Preview 5
-- July, 2024: Announcing .NET 9 Preview 6
-- August, 2024: Announcing .NET 9 Preview 7
-- September, 2024: Announcing .NET 9 Release Candidate 1
-- October, 2024: Announcing .NET 9 Release Candidate 2
-- November 12, 2024: Announcing .NET 9.0
+- March 12, 2024: [.NET 9 Preview 2](https://github.com/dotnet/core/discussions/9217)
+- April, 2024: .NET 9 Preview 3
+- May, 2024: .NET 9 Preview 4
+- June, 2024: .NET 9 Preview 5
+- July, 2024: .NET 9 Preview 6
+- August, 2024: .NET 9 Preview 7
+- September, 2024: .NET 9 Release Candidate 1
+- October, 2024: .NET 9 Release Candidate 2
+- November 12, 2024: .NET 9.0
 
 # How to switch from .NET 8 to .NET 9
 
@@ -57,15 +57,15 @@ For projects that reference additional NuGet packages, use the latest NuGet pack
 </ItemGroup>
 ```
 
-To use .NET 9 Preview 1 packages, search https://www.nuget.org for the package and find its latest preview version number. For example, for Preview 1, as shown in the following markup:
+To use .NET 9 Preview 2 packages, search https://www.nuget.org for the package and find its latest preview version number. For example, for Preview 2, as shown in the following markup:
 ```xml
 <ItemGroup>
   <PackageReference
     Include="Microsoft.Extensions.Configuration.Binder"
-    Version="9.0.0-preview.1.24080.9" />
+    Version="9.0.0-preview.2.24128.5" />
   <PackageReference
     Include="Microsoft.Extensions.Configuration.Json"
-    Version="9.0.0-preview.1.24080.9" />
+    Version="9.0.0-preview.2.24128.5" />
 </ItemGroup>
 ```
 
@@ -81,7 +81,7 @@ To always use latest .NET 9 preview, release candidate, or patch version package
 </ItemGroup>
 ```
 
-> You can search for the correct NuGet package version numbers yourself at the following link: https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder.
+> You can search for the correct NuGet package version numbers yourself at the following link: https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder#versions-body-tab.
 
 # What's New in .NET 9 and where will I cover those new features?
 
@@ -97,7 +97,7 @@ The following new features will be covered in the 9th edition to be published in
 The following new features will be mentioned in the 3rd edition of *Apps and Services with .NET 10* to be published in December 2025:
 - [New cryptography features](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9/overview#cryptography)
 
-The following new features will be mentioned in the 1st edition of *Tools and Skills for .NET 8 Pros* to be published in Summer 2024:
+The following new features will be mentioned in the 1st edition of *Tools and Skills for .NET 8* to be published in Summer 2024:
 - [New reflection features](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9/overview#reflection)
 
 # .NET 10 downloads and announcements
@@ -106,13 +106,13 @@ Microsoft will release previews of .NET 10 regularly starting in February 2025 u
 
 - [Download .NET 10.0 SDK](https://dotnet.microsoft.com/download/dotnet/10.0). **Warning!** This link will not activate until February 2025.
 - August 2024 to January 2025: [Download alpha versions of .NET 10](https://github.com/dotnet/installer#table). **Warning!** This link will not show .NET 10 downloads until July/August 2024.
-- February, 2025: Announcing .NET 10 Preview 1
-- March, 2025: Announcing .NET 10 Preview 2
-- April, 2025: Announcing .NET 10 Preview 3
-- May, 2025: Announcing .NET 10 Preview 4
-- June, 2025: Announcing .NET 10 Preview 5
-- July, 2025: Announcing .NET 10 Preview 6
-- August, 2025: Announcing .NET 10 Preview 7
-- September, 2025: Announcing .NET 10 Release Candidate 1
-- October, 2025: Announcing .NET 10 Release Candidate 2
-- November, 2025: Announcing .NET 10.0
+- February, 2025: .NET 10 Preview 1
+- March, 2025: .NET 10 Preview 2
+- April, 2025: .NET 10 Preview 3
+- May, 2025: .NET 10 Preview 4
+- June, 2025: .NET 10 Preview 5
+- July, 2025: .NET 10 Preview 6
+- August, 2025: .NET 10 Preview 7
+- September, 2025: .NET 10 Release Candidate 1
+- October, 2025: .NET 10 Release Candidate 2
+- November, 2025: .NET 10.0
