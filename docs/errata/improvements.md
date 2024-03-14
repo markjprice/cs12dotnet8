@@ -185,14 +185,14 @@ For example, when you declare variables, space is only allocated in memory for v
 
 Consider the following code that declares some local variables:
 ```cs
-/* Value types have memory allocated on the stack. */
+/* Value types have memory allocated on the stack automatically. */
 
 short age; // Allocates 2 bytes of memory on the stack to store a System.Int16 value.
 long population; // Allocates 8 bytes of memory on the stack to store a System.Int64 value.
 DateTime birthdate; // Allocates 8 bytes of memory on the stack to store a System.DateTime value.
 Point location; // Allocate 8 bytes of memory on the stack to store a System.Drawing.Point value.
 
-/* Reference types have memory allocated on the heap (and their memory address on the stack). */
+/* Reference types will only have memory allocated on the heap when new is used (but they automatically have some memory allocated on the stack to store information about themselves including the memory address of where they are on the heap). */
 
 Person bob; // Allocates memory in the stack that can point to a Person object in the heap. Initially, bob will have the value null.
 ```
