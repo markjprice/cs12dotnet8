@@ -199,7 +199,7 @@ Person bob; // Allocates memory in the stack that can point to a Person object i
 Note the following about the preceding code:
 - `age` has a value of `0` and 2 bytes of memory have been allocated in stack memory.
 - `population` has a value of `0` and 8 bytes of memory have been allocated in stack memory.
-- `birthdate` has a value of `1970-01-01` and 8 bytes of memory have been allocated in stack memory.
+- `birthdate` has a value of `0001-01-01` and 8 bytes of memory have been allocated in stack memory.
 - `location` has a value of `0, 0` and 8 bytes of memory have been allocated in stack memory.
 - `bob` has a value of `null` and 4 bytes of memory have been allocated in stack memory. No heap memory has been allocated for the object.
 
