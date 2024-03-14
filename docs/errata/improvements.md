@@ -167,7 +167,7 @@ Note the following:
 
 > Thanks to **paoloszef** for asking a question in the Discord channel that prompted this improvement.
 
-There have been a few examples of using the C# `new` keyword before this section, but it hasn't been explcitly explained. In the next edition, I will add a new section before this one.
+There have been a few examples of using the C# `new` keyword before this section, but it hasn't been explicitly explained. In the next edition, I will add a new section before this one.
 
 ## What does `new` do?
 
