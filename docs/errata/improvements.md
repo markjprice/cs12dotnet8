@@ -1,10 +1,12 @@
-**Improvements** (15 items)
+**Improvements** (16 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
 - [Page 64 - Formatting code using white space](#page-64---formatting-code-using-white-space)
 - [Page 79 - Raw interpolated string literals](#page-79---raw-interpolated-string-literals)
 - [Page 87 - Comparing double and decimal types](#page-87---comparing-double-and-decimal-types)
+- [Page 93 - Using target-typed new to instantiate objects](#page-93---using-target-typed-new-to-instantiate-objects)
+  - [What does `new` do?](#what-does-new-do)
 - [Page 96 - Formatting using numbered positional arguments \& Formatting using interpolated strings](#page-96---formatting-using-numbered-positional-arguments--formatting-using-interpolated-strings)
 - [Page 131 - Pattern matching with the switch statement](#page-131---pattern-matching-with-the-switch-statement)
 - [Page 144 - List pattern matching with arrays](#page-144---list-pattern-matching-with-arrays)
@@ -160,6 +162,62 @@ Note the following:
 - Zero divided by any positive real number is zero.
 - Zero divided by any negative real number is negative zero.
 - `Epsilon` is slightly less than `5E-324` represented using scientific notation: https://en.wikipedia.org/wiki/Scientific_notation.
+
+# Page 93 - Using target-typed new to instantiate objects
+
+> Thanks to **paoloszef** for asking a question in the Discord channel that prompted this improvement.
+
+There have been a few examples of using the C# `new` keyword before this section, but it hasn't been explcitly explained. In the next edition, I will add a new section before this one.
+
+## What does `new` do?
+
+The C# `new` keyword is used to allocate and/or initialize memory. To understand when you need to use `new`, you need to know a bit more about types. 
+
+> Value and reference types and their relationship to memory are explained in more detail in *Chapter 6, Implementing Interfaces and Inheriting Classes*, so I am only introducing the minimum explanation for now.
+
+There are two categories of type: value types and reference types. 
+
+**Value types** are simple and do not need to use the `new` keyword to explicitly allocate memory. But value types *can* use the `new` keyword to initialize their value. This is useful when there is no way to use a literal to set the value. 
+
+**Reference types** are more complex and need to use the `new` keyword to explicitly allocate memory. At the same time, they can use the `new` keyword to initialize their state.
+
+For example, when you declare variables, space is only allocated in memory for value types like `int` and `DateTime` but not for reference types like `Person` (except for their memory address).
+
+Consider the following code:
+```cs
+short age; // Allocates 2 bytes of memory in the stack to store a System.Int16 value.
+long population; // Allocates 8 bytes of memory in the stack to store a System.Int64 value.
+DateTime birthdate; // Allocates 8 bytes of memory in the stack to store a System.DateTime value.
+Point location; // Allocate 4 bytes of memory in the stack to store a System.Drawing.Point value.
+Person bob; // Allocates 4 bytes of memory in the stack to store a memory address that can point to a Person object in the heap. Initially, bob will have the value null.
+```
+Note the following about the preceding code:
+- `age` has a value of `0` and 2 bytes of memory have been allocated in stack memory.
+- `population` has a value of `0` and 8 bytes of memory have been allocated in stack memory.
+- `birthdate` has a value of `1970-01-01` and 8 bytes of memory have been allocated in stack memory.
+- `location` has a value of `0, 0` and 8 bytes of memory have been allocated in stack memory.
+- `bob` has a value of `null` and 4 bytes of memory have been allocated in stack memory. No heap memory has been allocated for the object.
+
+Now lets see when we need to use `new`:
+```cs
+age = 45; // Initialize this variable to 45 using a literal value.
+population = 68_000_000; // Initialize this variable to 68 million using a literal value.
+birthdate = new(1995, 2, 23); // Initialize this variable to February 23, 1995. C# does not support literal values for date/time values so we must use new.
+location = new(10, 20); // Initialize the X and Y coordinates of this value type.
+bob = new(); // Allocate memory on the heap to store a Person. Any state will have default values. bob is no longer null.
+bob = new("Bob", "Smith", 45); // Allocate memory on the heap to store a Person and initialize state. bob is no longer null.
+
+// Older syntax with explicit types
+birthdate = new DateTime(1995, 2, 23); // Initialize this variable to February 23, 1995.
+location = new Point(10, 20); // Initialize the X and Y coordinates of this value type.
+bob = new Person(); // Allocate memory on the heap to store a Person. bob is no longer null.
+```
+
+Note the following about the preceding code:
+- `age`, `population`, `birthdate`, and `location` have already had memory allocated for them on the stack. We only need to use `new` to initialize their values if we want them to be different from their defaults.
+- `bob` must use `new` to allocate heap memory for the object. The `=` assignment stores the memory address of that allocated memory on the stack. Reference types like `Person` often have multiple constructors that are called by `new`. A default constructor assigns default values to any state in the object. A constructor with arguments can assign other values to any state in the object.
+
+> Constructors are covered in more detail in *Chapter 5, Building Your Own Types with Object-Oriented Programming*, so I have only introduced the minimum explanation for now.
 
 # Page 96 - Formatting using numbered positional arguments & Formatting using interpolated strings
 
