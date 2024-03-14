@@ -181,15 +181,20 @@ There are two categories of type: value types and reference types.
 
 **Reference types** are more complex and need to use the `new` keyword to explicitly allocate memory. At the same time, they can use the `new` keyword to initialize their state.
 
-For example, when you declare variables, space is only allocated in memory for value types like `int` and `DateTime` but not for reference types like `Person` (except for their memory address).
+For example, when you declare variables, space is only allocated in memory for value types like `int` and `DateTime` but not for reference types like `Person`.
 
-Consider the following code:
+Consider the following code that declares some local variables:
 ```cs
-short age; // Allocates 2 bytes of memory in the stack to store a System.Int16 value.
-long population; // Allocates 8 bytes of memory in the stack to store a System.Int64 value.
-DateTime birthdate; // Allocates 8 bytes of memory in the stack to store a System.DateTime value.
-Point location; // Allocate 4 bytes of memory in the stack to store a System.Drawing.Point value.
-Person bob; // Allocates 4 bytes of memory in the stack to store a memory address that can point to a Person object in the heap. Initially, bob will have the value null.
+/* Value types have memory allocated on the stack. */
+
+short age; // Allocates 2 bytes of memory on the stack to store a System.Int16 value.
+long population; // Allocates 8 bytes of memory on the stack to store a System.Int64 value.
+DateTime birthdate; // Allocates 8 bytes of memory on the stack to store a System.DateTime value.
+Point location; // Allocate 8 bytes of memory on the stack to store a System.Drawing.Point value.
+
+/* Reference types have memory allocated on the heap (and their memory address on the stack). */
+
+Person bob; // Allocates memory in the stack that can point to a Person object in the heap. Initially, bob will have the value null.
 ```
 Note the following about the preceding code:
 - `age` has a value of `0` and 2 bytes of memory have been allocated in stack memory.
@@ -198,7 +203,7 @@ Note the following about the preceding code:
 - `location` has a value of `0, 0` and 8 bytes of memory have been allocated in stack memory.
 - `bob` has a value of `null` and 4 bytes of memory have been allocated in stack memory. No heap memory has been allocated for the object.
 
-Now lets see when we need to use `new`:
+Now lets see when we might choose to use `new`:
 ```cs
 age = 45; // Initialize this variable to 45 using a literal value.
 population = 68_000_000; // Initialize this variable to 68 million using a literal value.
@@ -211,8 +216,8 @@ bob = new("Bob", "Smith", 45); // Allocate memory on the heap to store a Person 
 birthdate = new DateTime(1995, 2, 23); // Initialize this variable to February 23, 1995.
 location = new Point(10, 20); // Initialize the X and Y coordinates of this value type.
 bob = new Person(); // Allocate memory on the heap to store a Person. bob is no longer null.
+bob = new Person("Bob", "Smith", 45); // Allocate memory on the heap to store a Person and initialize state. bob is no longer null.
 ```
-
 Note the following about the preceding code:
 - `age`, `population`, `birthdate`, and `location` have already had memory allocated for them on the stack. We only need to use `new` to initialize their values if we want them to be different from their defaults.
 - `bob` must use `new` to allocate heap memory for the object. The `=` assignment stores the memory address of that allocated memory on the stack. Reference types like `Person` often have multiple constructors that are called by `new`. A default constructor assigns default values to any state in the object. A constructor with arguments can assign other values to any state in the object.
