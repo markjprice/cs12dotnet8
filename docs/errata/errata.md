@@ -1,4 +1,4 @@
-**Errata** (16 items)
+**Errata** (17 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -11,6 +11,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 87 - Comparing double and decimal types](#page-87---comparing-double-and-decimal-types)
 - [Page 95 - Displaying output to the user](#page-95---displaying-output-to-the-user)
 - [Page 124 - Exploring bitwise and binary shift operators](#page-124---exploring-bitwise-and-binary-shift-operators)
+- [Page 261 - Passing optional parameters](#page-261---passing-optional-parameters)
 - [Page 361 - Comparing inheritance and implementation](#page-361---comparing-inheritance-and-implementation)
 - [Page 383 - Creating a console app to publish](#page-383---creating-a-console-app-to-publish)
 - [Page 386 - Publishing a self-contained app](#page-386---publishing-a-self-contained-app)
@@ -120,6 +121,20 @@ I should have written `x` and `y`.
 In the last paragraph, I wrote, "The `3` result is because the 1 bits in `b` were shifted one column into the 2-and 1-bit columns."
 
 I should have written, "The `3` result is because the 1 bits in `y` were shifted one column into the 2-and 1-bit columns."
+
+# Page 261 - Passing optional parameters
+
+> Thanks to [Vlad Alexandru Meici](https://github.com/vladmeici) for raising [this issue on March 18, 2024](https://github.com/markjprice/cs12dotnet8/issues/28).
+
+In Step 1, the method signature has an extra space between `command` and `=`, as shown in the following code:
+```cs
+public string OptionalParameters(string command  = "Run!",
+```
+
+Although extra whitespace has no effect on the compiler, in the next edition, I will remove the extra space, as shown in the following code:
+```cs
+public string OptionalParameters(string command = "Run!",
+```
 
 # Page 361 - Comparing inheritance and implementation
 
