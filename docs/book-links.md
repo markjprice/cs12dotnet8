@@ -289,7 +289,7 @@
 - [Composite Formatting](https://learn.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting)
 
 ## Miscellaneous
-- [An Arabic programming language](https://www.youtube.com/watch?v=dkO8cdwf6v8)
+- [FWD: "Alb/قلب - the Arabic programming language"](https://www.youtube.com/watch?v=EwYIZBL4sAU)
 
 # Chapter 3 - Controlling Flow, Converting Types, and Handling Exceptions
 
