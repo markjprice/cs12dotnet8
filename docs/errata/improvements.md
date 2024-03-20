@@ -1,4 +1,4 @@
-**Improvements** (17 items)
+**Improvements** (18 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -22,6 +22,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 484 - Compressing streams](#page-484---compressing-streams)
 - [Page 493 - Serializing as XML](#page-493---serializing-as-xml)
 - [Page 541 - Querying EF Core models](#page-541---querying-ef-core-models)
+- [Page 727 - Understanding Swagger](#page-727---understanding-swagger)
 
 # Page 64 - Formatting code using white space
 
@@ -619,3 +620,12 @@ On page 553, before step 2, I will add a note:
 > LINQ methods that fetch a single entity (`First`, `FirstOrDefault`, `Single`, `SingleOrDefault`, `ElementAt`, `ElementAtOrDefault`) or return a single scalar value or entity like the aggregate methods (`Count`, `Sum`, `Max`, `Min`, `Average`, `All`, `Any`, and so on) are not deferred. When using the LINQ to Entities provider, any LINQ query that ends with a call to one of these methods is immediately converted to a SQL statement and executed against the database.
 
 On pages 583 to 584, I will split the table of LINQ methods into deferred and non-deferred methods. 
+
+# Page 727 - Understanding Swagger
+
+The ASP.NET Core team has decided to remove the dependency on the Swashbuckle package (Swagger) in .NET 9, as described in the following link:
+https://github.com/dotnet/aspnetcore/issues/54599
+
+In the next edition, I will move the sections about Swagger online to the GitHub repository, add the extra step to show how to manually add a package reference and configure it manually, and add a note to explain why the ASP.NET Core team removed it.
+
+Other references to Swagger will also be removed, for example, on pages 705, 723.
