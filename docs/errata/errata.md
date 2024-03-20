@@ -1,4 +1,4 @@
-**Errata** (17 items)
+**Errata** (18 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -15,6 +15,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 361 - Comparing inheritance and implementation](#page-361---comparing-inheritance-and-implementation)
 - [Page 383 - Creating a console app to publish](#page-383---creating-a-console-app-to-publish)
 - [Page 386 - Publishing a self-contained app](#page-386---publishing-a-self-contained-app)
+- [Page 421 - Generating GUIDs](#page-421---generating-guids)
 - [Page 522 - Using the lightweight ADO.NET database providers](#page-522---using-the-lightweight-adonet-database-providers)
 - [Page 616 - Be careful with Count!](#page-616---be-careful-with-count)
 - [Page 641 - Customizing the model and defining an extension method](#page-641---customizing-the-model-and-defining-an-extension-method)
@@ -189,6 +190,15 @@ dotnet publish -c Release -r osx-arm64 --self-contained
 ```
 
 I have updated the **Command Lines** summary file to use the new valid RIDs: https://github.com/markjprice/cs12dotnet8/blob/main/docs/command-lines.md#page-386---publishing-a-self-contained-app
+
+# Page 421 - Generating GUIDs
+
+> Thanks to [Cem Kaya](https://github.com/cmkaya) for raising this issue on [March 20, 2024](https://github.com/markjprice/cs12dotnet8/issues/31).
+
+In Step 1, I wrote, "In `Program.cs`, add statements to access the shared `Random` instance, and then call its methods
+to generate random numbers, as shown in the following code:" 
+
+This should have been, "In `Program.cs`, add statements to output the value of an empty `Guid`, generate a new random `Guid` and then output its value, and finally output each individual byte of the random `Guid` value, as shown in the following code:".
 
 # Page 522 - Using the lightweight ADO.NET database providers
 
