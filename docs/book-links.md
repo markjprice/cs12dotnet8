@@ -606,7 +606,7 @@ The official announcement links are useful because they describe the most import
 
 ## .NET Content Management Systems
 - [Piranha CMS](https://piranhacms.org/)
-- [Umbraco CMS](https://umbraco.com/products/umbraco-cms/umbraco-9/)
+- [Umbraco CMS](https://umbraco.com/products/umbraco-cms/umbraco-13/)
 - [Optimizely Comtent Cloud (CMS 12)](https://docs.developers.optimizely.com/content-cloud)
 - [Orchard Core](http://orchardcore.net/)
 - [OSS Spotlight - Build websites with a modern ASP.NET Core CMS – Orchard Core](https://www.youtube.com/watch?v=cKhAVWm845o)
