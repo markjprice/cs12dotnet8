@@ -1,4 +1,4 @@
-**Improvements** (18 items)
+**Improvements** (20 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -9,7 +9,9 @@ If you have suggestions for improvements, then please [raise an issue in this re
   - [What does `new` do?](#what-does-new-do)
 - [Page 96 - Formatting using numbered positional arguments \& Formatting using interpolated strings](#page-96---formatting-using-numbered-positional-arguments--formatting-using-interpolated-strings)
 - [Page 131 - Pattern matching with the switch statement](#page-131---pattern-matching-with-the-switch-statement)
+- [Page 132 - Pattern matching with the switch statement](#page-132---pattern-matching-with-the-switch-statement)
 - [Page 144 - List pattern matching with arrays](#page-144---list-pattern-matching-with-arrays)
+- [Page 144 - List pattern matching with arrays](#page-144---list-pattern-matching-with-arrays-1)
 - [Page 171 - What is automatically generated for a local function?](#page-171---what-is-automatically-generated-for-a-local-function)
 - [Page 248 - Storing multiple values using an enum type](#page-248---storing-multiple-values-using-an-enum-type)
 - [Page 358 - Using extension methods to reuse functionality](#page-358---using-extension-methods-to-reuse-functionality)
@@ -295,6 +297,29 @@ I will also add a note to tell readers that in *Chapter 4* they will learn how t
 In Step 2, I tell the reader to create an `Spider` class with a field named `IsPoisonous`. The field would be better named `IsVenomous` because poison is a thing that you consume and venom is transmitted by an animal bite. One way to remember the difference is that the villain from Spider-man is named Venom instead of Poison.
 
 In the next edition, I will change the field name to `IsVenomous`.
+
+# Page 132 - Pattern matching with the switch statement
+
+> Thanks to Ashish Gupta who raised these issues via email.
+
+In Step 2, I define an `Animal` class, as shown in the following code:
+```cs
+class Animal // This is the base type for all animals.
+{
+  public string? Name;
+  public DateTime Born;
+  public byte Legs;
+}
+```
+Since this section is about pattern matching, not the most common way to define a class with fields, it is not important how the data types are declared. The `Name` has been declared nullable and the other two properties are not. You could make the `Name` not-nullable and make the other two nullable and the pattern matching example is unaffected. 
+
+In Step 3, I wrote a `switch` statement with the `default` in the middle of the set of branches. This was deliberate to show that the compiler will accept this but I added a comment to explain that the compiler will always move it to the end of the set of branches for you. In the next edition, I will add a note to emphasize that I did this deliberately to show that you can, but good practice would be to explicitly move the `default` to the end.
+
+# Page 144 - List pattern matching with arrays
+
+> Thanks to Ashish Gupta who raised these issues via email.
+
+In Step 1, I wrote a function that is implemented with a lambda and a `switch` expression. But this syntax has not been properly introduced yet. In the next edition, I will add a note to refer forwards to *Chapter 4* for more information. 
 
 # Page 144 - List pattern matching with arrays
 
