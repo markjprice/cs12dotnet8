@@ -11,7 +11,6 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 131 - Pattern matching with the switch statement](#page-131---pattern-matching-with-the-switch-statement)
 - [Page 132 - Pattern matching with the switch statement](#page-132---pattern-matching-with-the-switch-statement)
 - [Page 144 - List pattern matching with arrays](#page-144---list-pattern-matching-with-arrays)
-- [Page 144 - List pattern matching with arrays](#page-144---list-pattern-matching-with-arrays-1)
 - [Page 171 - What is automatically generated for a local function?](#page-171---what-is-automatically-generated-for-a-local-function)
 - [Page 248 - Storing multiple values using an enum type](#page-248---storing-multiple-values-using-an-enum-type)
 - [Page 358 - Using extension methods to reuse functionality](#page-358---using-extension-methods-to-reuse-functionality)
@@ -300,7 +299,7 @@ In the next edition, I will change the field name to `IsVenomous`.
 
 # Page 132 - Pattern matching with the switch statement
 
-> Thanks to Ashish Gupta who raised these issues via email.
+> Thanks to Ashish Gupta who raised these issues via email on April 2, 2024.
 
 In Step 2, I define an `Animal` class, as shown in the following code:
 ```cs
@@ -317,11 +316,9 @@ In Step 3, I wrote a `switch` statement with the `default` in the middle of the 
 
 # Page 144 - List pattern matching with arrays
 
-> Thanks to Ashish Gupta who raised these issues via email.
+> Thanks to Ashish Gupta who raised this issue via email on April 2, 2024.
 
-In Step 1, I wrote a function that is implemented with a lambda and a `switch` expression. But this syntax has not been properly introduced yet. In the next edition, I will add a note to refer forwards to *Chapter 4 - Writing, Debugging, and Testing Functions*, in section *Using lambdas in function implementations* on page 187 for more information. For example: "In C# 6, Microsoft added support for **expression-bodied function members**. We will look at an example of this now. In C#, lambdas are the use of the => character to indicate a return value from a function."
-
-# Page 144 - List pattern matching with arrays
+In Step 1, I wrote a function that is implemented with a lambda and a `switch` expression. But this syntax has not been properly introduced yet. In the next edition, I will add a note to refer forwards to *Chapter 4 - Writing, Debugging, and Testing Functions*, in section *Using lambdas in function implementations* on page 187 for more information. For example: "In C# 6, Microsoft added support for **expression-bodied function members**. We will look at an example of this now. In C#, lambdas are the use of the `=>` character to indicate a return value from a function."
 
 > Thanks to [Vlad Alexandru Meici](https://github.com/vladmeici) who raised this [issue on January 20, 2024].
 
