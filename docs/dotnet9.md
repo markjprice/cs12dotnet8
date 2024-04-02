@@ -12,6 +12,7 @@
 Microsoft will release previews of .NET 9 regularly starting in February 2024 until the final version on Tuesday, November 12, 2024, one week after the US Presidential Election on November 5.
 
 - [Download .NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
+- [.NET 9 Release Index](https://github.com/dotnet/core/discussions/9234)
 - February 13, 2024: [Our Vision for .NET 9](https://devblogs.microsoft.com/dotnet/our-vision-for-dotnet-9/)
 - March 12, 2024: [.NET 9 Preview 2](https://github.com/dotnet/core/discussions/9217)
 - April, 2024: .NET 9 Preview 3
@@ -94,11 +95,9 @@ The following new features will be covered in the 9th edition to be published in
 - LINQ: [New extension methods](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9/overview#linq): `CountBy`, `AggregateBy`, and `Index`.
 - [PriorityQueue.Remove() method](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9/overview#priorityqueueremove-method).
 
-The following new features will be mentioned in the 3rd edition of *Apps and Services with .NET 10* to be published in December 2025:
-- [New cryptography features](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9/overview#cryptography)
-
 The following new features will be mentioned in the 1st edition of *Tools and Skills for .NET 8* to be published in Summer 2024:
 - [New reflection features](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9/overview#reflection)
+- [New cryptography features](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9/overview#cryptography)
 
 # .NET 10 downloads and announcements
 
