@@ -320,7 +320,7 @@ In Step 3, I wrote a `switch` statement with the `default` in the middle of the 
 
 In Step 1, I wrote a function that is implemented with a lambda and a `switch` expression. But this syntax has not been properly introduced yet. In the next edition, I will add a note to refer forwards to *Chapter 4 - Writing, Debugging, and Testing Functions*, in section *Using lambdas in function implementations* on page 187 for more information. For example: "In C# 6, Microsoft added support for **expression-bodied function members**. We will look at an example of this now. In C#, lambdas are the use of the `=>` character to indicate a return value from a function."
 
-> Thanks to [Vlad Alexandru Meici](https://github.com/vladmeici) who raised this [issue on January 20, 2024].
+> Thanks to [Vlad Alexandru Meici](https://github.com/vladmeici) who raised this [issue on January 20, 2024](https://github.com/markjprice/cs12dotnet8/issues/14).
 
 On page 446, I have a note about C# allowing trailing commas, "The trailing commas after the third item is added to the dictionary are optional and the compiler will not complain about them. This is convenient so that you can change the order of the three items without having to delete and add commas in the right places."
 
