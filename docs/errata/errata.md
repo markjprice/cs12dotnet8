@@ -1,4 +1,4 @@
-**Errata** (18 items)
+**Errata** (19 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -20,6 +20,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 616 - Be careful with Count!](#page-616---be-careful-with-count)
 - [Page 641 - Customizing the model and defining an extension method](#page-641---customizing-the-model-and-defining-an-extension-method)
 - [Page 694 - Exercise 13.3 – Enabling HTTP/3 and request decompression support](#page-694---exercise-133--enabling-http3-and-request-decompression-support)
+- [Page 714 - Route constraints](#page-714---route-constraints)
 
 # Page 10 - Installing other extensions
 
@@ -275,3 +276,17 @@ Unfortunately, "Browsers don't allow self-signed certificates on HTTP/3, such as
 The official documentation does not show a work around because Microsoft decided the steps are too difficult. You can read about the issue here if you want to try the complex workaround: https://github.com/dotnet/AspNetCore.Docs/issues/23700. RTD wrote more detailed instructions that you can read here: https://github.com/markjprice/cs12dotnet8/issues/15#issuecomment-1987353759.
 
 In the next edition, I will add a note about this and remove the step-by-step instructions to try to test it. 
+
+# Page 714 - Route constraints
+
+At the top of the page, I wrote, "Use colons to separate multiple constraints, as shown in the following example:"
+```cs
+[Route("employees/{years:int:minlength(3)}")]
+public Employees[] GetLoyalEmployees(int years)
+```
+
+But `minlength` is for checking the minimum length of a `string`, not the size of an `int`. The example should be as shown in the following code:
+```cs
+[Route("employees/{years:int:min(3)}")]
+public Employees[] GetLoyalEmployees(int years)
+```
