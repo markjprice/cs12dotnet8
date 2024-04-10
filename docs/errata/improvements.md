@@ -1,4 +1,4 @@
-**Improvements** (20 items)
+**Improvements** (21 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -13,6 +13,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 144 - List pattern matching with arrays](#page-144---list-pattern-matching-with-arrays)
 - [Page 171 - What is automatically generated for a local function?](#page-171---what-is-automatically-generated-for-a-local-function)
 - [Page 248 - Storing multiple values using an enum type](#page-248---storing-multiple-values-using-an-enum-type)
+- [Page 254 - Requiring fields to be set during instantiation](#page-254---requiring-fields-to-be-set-during-instantiation)
 - [Page 358 - Using extension methods to reuse functionality](#page-358---using-extension-methods-to-reuse-functionality)
 - [Page 369 - Understanding .NET components](#page-369---understanding-net-components)
 - [Page 426 - Comparing string values](#page-426---comparing-string-values)
@@ -380,6 +381,14 @@ In the next edition, I will add a note explaining why there is no source code fi
 # Page 248 - Storing multiple values using an enum type
 
 In the **Good Practice** box, I will list the integer types that an `enum` is allowed to inherit from: `Byte`, `SByte`, `Int16`, `Int32`, `Int64`, `UInt16`, `UInt32`, `UInt64`. The new integer types `Int128` and `UInt128` are not supported.
+
+# Page 254 - Requiring fields to be set during instantiation
+
+> Thanks **Ashish** in the book's Discord channel for asking a question about this that prompted this improvement.
+
+In Step 5, I wrote, "Build the `PeopleApp` project to compile its referenced dependencies and copy the class library `.dll` to the local `bin` folder." This sentence is confusing because some readers think that they need to copy the file. You do not need to copy the file; building the project does the compiling and copying.
+
+In the next edition, I will write, "Build the `PeopleApp` project. This will compile its referenced dependencies and copy the class library `.dll` to the correct subdirectory in the local `bin` folder."
 
 # Page 358 - Using extension methods to reuse functionality
 
