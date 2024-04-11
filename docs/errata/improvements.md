@@ -1,4 +1,4 @@
-**Improvements** (22 items)
+**Improvements** (23 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -24,6 +24,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 460 - Identifying ranges with the Range type](#page-460---identifying-ranges-with-the-range-type)
 - [Page 484 - Compressing streams](#page-484---compressing-streams)
 - [Page 493 - Serializing as XML](#page-493---serializing-as-xml)
+- [Page 517 - Using SQL Server or other SQL systems](#page-517---using-sql-server-or-other-sql-systems)
 - [Page 541 - Querying EF Core models](#page-541---querying-ef-core-models)
 - [Page 727 - Understanding Swagger](#page-727---understanding-swagger)
 
@@ -601,6 +602,28 @@ I will also explain why I did not use the simplified syntax with the `compressor
 In Step 2, I wrote, "In the project file, add elements to statically and globally import the `System.Console`, `System.Environment`, and `System.IO.Path` classes."
 
 Some readers do not notice that they need to statically import `System.Environment` so in the next edition I will write, "In the project file, add elements to statically and globally import the `System.Console` (to use `ForegroundColor` and `WriteLine`), `System.Environment` (to use `CurrentDirectory`), and `System.IO.Path` classes (to use `Combine`, `GetFileName`, and `GetDirectoryName`)."
+
+# Page 517 - Using SQL Server or other SQL systems
+
+In the online instructions, I say to "add package references to the EF Core data provider for SQL Server and the ADO.NET Provider for SQL Server, and globally and statically import the `System.Console` class for all C# files, as shown in the following markup:"
+```xml
+<ItemGroup>
+  <Using Include="System.Console" Static="true" />
+</ItemGroup>
+
+<ItemGroup>
+  <PackageReference Version="5.1.1" Include="Microsoft.Data.SqlClient" />
+  <PackageReference Version="8.0.0" Include="Microsoft.EntityFrameworkCore.SqlServer" />
+</ItemGroup>
+```
+
+But Microsoft discovered a vulnerability in versions `5.1.1`, `5.1.2`, and earlier. You should always use the most recent version of packages to make sure that any bugs have been fixed. 
+
+You can check for the most recent package versions at the following links: https://www.nuget.org/packages/Microsoft.Data.SqlClient#versions-body-tab and https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/#versions-body-tab. 
+
+If you do so, then you will notice the warning about a vulnerability with the packages up to early January 2024. Since January 9, 2024 the vulnerability has been fixed with versions `4.0.5`, `5.1.3`, and `5.2.0-preview5.24024.3`, as shown in the following screenshot:
+
+![Vulnerable packages](improvement-p517.png)
 
 # Page 541 - Querying EF Core models
 
