@@ -13,11 +13,11 @@
 
   <ItemGroup>
     <!--To use SQLite-->
-    <PackageReference Version="8.0.0" Include="Microsoft.EntityFrameworkCore.Sqlite" />
+    <PackageReference Version="8.0.4" Include="Microsoft.EntityFrameworkCore.Sqlite" />
 
     <!--To use SQL Server-->
-    <PackageReference Version="8.0.0" Include="Microsoft.EntityFrameworkCore.SqlServer" />
-    <PackageReference Version="5.1.2" Include="Microsoft.Data.SqlClient" />
+    <PackageReference Version="8.0.4" Include="Microsoft.EntityFrameworkCore.SqlServer" />
+    <PackageReference Version="5.2.0" Include="Microsoft.Data.SqlClient" />
   </ItemGroup>
 
   <ItemGroup>

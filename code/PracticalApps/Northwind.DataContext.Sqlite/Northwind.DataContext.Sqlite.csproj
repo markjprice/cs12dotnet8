@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Version="8.0.0"
+    <PackageReference Version="8.0.4"
       Include="Microsoft.EntityFrameworkCore.SQLite" />
   </ItemGroup>
 
