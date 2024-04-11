@@ -232,11 +232,12 @@ Copy the path to the version of SQL Server Configuration Manager you have instal
 </ItemGroup>
 
 <ItemGroup>
-  <PackageReference Version="5.1.1" Include="Microsoft.Data.SqlClient" />
-  <PackageReference Version="8.0.0"
-    Include="Microsoft.EntityFrameworkCore.SqlServer" />
+  <PackageReference Version="5.2.0" Include="Microsoft.Data.SqlClient" />
+  <PackageReference Version="8.0.4" Include="Microsoft.EntityFrameworkCore.SqlServer" />
 </ItemGroup>
 ```
+
+> You can check for the most recent package versions at the following links: https://www.nuget.org/packages/Microsoft.Data.SqlClient#versions-body-tab and https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/#versions-body-tab.
 
 2.	Build the `WorkingWithEFCore` project to restore packages.
 3.	Add a new class file named `NorthwindDb.cs`.
