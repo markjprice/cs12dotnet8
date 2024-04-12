@@ -1,4 +1,4 @@
-**Improvements** (23 items)
+**Improvements** (24 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -25,6 +25,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 484 - Compressing streams](#page-484---compressing-streams)
 - [Page 493 - Serializing as XML](#page-493---serializing-as-xml)
 - [Page 517 - Using SQL Server or other SQL systems](#page-517---using-sql-server-or-other-sql-systems)
+- [Page 535 - Scaffolding models using an existing database](#page-535---scaffolding-models-using-an-existing-database)
 - [Page 541 - Querying EF Core models](#page-541---querying-ef-core-models)
 - [Page 727 - Understanding Swagger](#page-727---understanding-swagger)
 
@@ -605,6 +606,8 @@ Some readers do not notice that they need to statically import `System.Environme
 
 # Page 517 - Using SQL Server or other SQL systems
 
+> Thanks to [BoredNumb](https://github.com/BoredNumb) for raising this [issue on April 10, 2024](https://github.com/markjprice/cs12dotnet8/issues/33).
+
 In the online instructions, I say to "add package references to the EF Core data provider for SQL Server and the ADO.NET Provider for SQL Server, and globally and statically import the `System.Console` class for all C# files, as shown in the following markup:"
 ```xml
 <ItemGroup>
@@ -624,6 +627,12 @@ You can check for the most recent package versions at the following links: https
 If you do so, then you will notice the warning about a vulnerability with the packages up to early January 2024. Since January 9, 2024 the vulnerability has been fixed with versions `4.0.5`, `5.1.3`, and `5.2.0-preview5.24024.3`, as shown in the following screenshot:
 
 ![Vulnerable packages](improvement-p517.png)
+
+# Page 535 - Scaffolding models using an existing database
+
+> Thanks to [BoredNumb](https://github.com/BoredNumb) for raising this [issue on April 11, 2024](https://github.com/markjprice/cs12dotnet8/issues/33).
+
+The instructions in this section apply to any data provider not just SQLite. Some readers who choose to use SQL Server do not realize this, so in the next edition, I will add a note to explicitly say that whatever data provider you use, you will need to add a reference to the `Microsoft.EntityFrameworkCore.Design` package.
 
 # Page 541 - Querying EF Core models
 

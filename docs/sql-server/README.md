@@ -299,6 +299,8 @@ Provider: Microsoft.EntityFrameworkCore.SqlServer
 
 ## Scaffolding models using an existing database
 
+The instructions for this section are in the book and are the same for both SQL Server and SQLite. But the command you must enter at the command prompt or termimal is different. 
+
 For SQL Server, change the database provider and connection string, as shown in the following command:
 ```
 dotnet ef dbcontext scaffold "Data Source=.;Initial Catalog=Northwind;Integrated Security=true;Encrypt=true;TrustServerCertificate=true;" Microsoft.EntityFrameworkCore.SqlServer --table Categories --table Products --output-dir AutoGenModels --namespace WorkingWithEFCore.AutoGen --data-annotations --context NorthwindDb
