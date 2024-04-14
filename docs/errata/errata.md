@@ -1,4 +1,4 @@
-**Errata** (19 items)
+**Errata** (20 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -8,6 +8,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 50 - Exercise 1.2 – Practice C# anywhere with a browser](#page-50---exercise-12--practice-c-anywhere-with-a-browser)
 - [Page 51 - Exercise 1.5 – Explore themes of modern .NET](#page-51---exercise-15--explore-themes-of-modern-net)
 - [Page 58 - Showing the compiler version](#page-58---showing-the-compiler-version)
+- [Page 65 - Comparing programming languages to human languages](#page-65---comparing-programming-languages-to-human-languages)
 - [Page 87 - Comparing double and decimal types](#page-87---comparing-double-and-decimal-types)
 - [Page 95 - Displaying output to the user](#page-95---displaying-output-to-the-user)
 - [Page 124 - Exploring bitwise and binary shift operators](#page-124---exploring-bitwise-and-binary-shift-operators)
@@ -68,6 +69,14 @@ Microsoft appears to have stopped paying for the domain used by the following li
 # Page 58 - Showing the compiler version
 
 In Step 3, the code should have been styled as `Code` (monospace black-on-light-gray text) instead of `Command Line` (monospace white-on-black).
+
+# Page 65 - Comparing programming languages to human languages
+
+> Thanks to [zaynchoudry](https://github.com/zaynchoudry) who raised this [issue on April 14, 2024](https://github.com/markjprice/cs12dotnet8/issues/34).
+
+I wrote, "this YouTube video shows a demonstration of an Arabic programming language: https://youtu.be/dkO8cdwf6v8."
+
+That video has been removed. An alternative is available at the following link: https://www.youtube.com/watch?v=EwYIZBL4sAU.
 
 # Page 87 - Comparing double and decimal types
 
