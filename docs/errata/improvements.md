@@ -1,4 +1,4 @@
-**Improvements** (24 items)
+**Improvements** (25 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -15,6 +15,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 206 - Configuring trace listeners](#page-206---configuring-trace-listeners)
 - [Page 248 - Storing multiple values using an enum type](#page-248---storing-multiple-values-using-an-enum-type)
 - [Page 254 - Requiring fields to be set during instantiation](#page-254---requiring-fields-to-be-set-during-instantiation)
+- [Page 278 - Defining indexers](#page-278---defining-indexers)
 - [Page 358 - Using extension methods to reuse functionality](#page-358---using-extension-methods-to-reuse-functionality)
 - [Page 369 - Understanding .NET components](#page-369---understanding-net-components)
 - [Page 426 - Comparing string values](#page-426---comparing-string-values)
@@ -401,6 +402,33 @@ In the **Good Practice** box, I will list the integer types that an `enum` is al
 In Step 5, I wrote, "Build the `PeopleApp` project to compile its referenced dependencies and copy the class library `.dll` to the local `bin` folder." This sentence is confusing because some readers think that they need to copy the file. You do not need to copy the file; building the project does the compiling and copying.
 
 In the next edition, I will write, "Build the `PeopleApp` project. This will compile its referenced dependencies and copy the class library `.dll` to the correct subdirectory in the local `bin` folder."
+
+# Page 278 - Defining indexers
+
+> Thanks to **Ashish** in the Discord channel for this book for asking a question about this that prompted this improvement.
+
+In this section, I describe what an indexer is and show example code for how to define one. But it can still be a tricky concept to grasp, so in the next edition, I will add more explanation. For example:
+
+`sam[0].Name` calls the indexer aka `this` on the `Person` class because `[]` are the symbols that call an indexer. `sam.Children[0].Name` calls the indexer on the collection named `Children` which is a `List<Person>` . We have implemented the indexer on `Person` to do the same thing so we can use a shorter syntax.
+
+It's similar with `string` values. If I have `string name = "Mark";`, imagine that it has a property named `Characters` that is a `List<char>`. I could use `name.Characters[0]` to return the `M`. But since `string` has an indexer defined, I can do the same with `string[0]`.
+
+Most types do not define an indexer. It's just a way to define a property that is called using `[]` instead of a name. It can actually do anything you want. But it *should* be used to define a array/collection style getter/setter. If your type doesn't need that, it doesn't need an indexer.
+
+For any type you define, just imagine another developer using your type. What would they expect the indexer to do? For example, what if you get the first index, as shown in the following code:
+```cs
+Car car = new("Ford");
+var thing1 = car[0]; // What type is thing1? What is its value?
+
+Database db = new("Commerce");
+var thing2 = db[0]; // What type is thing2? What is its value?
+
+string name = "Mark";
+var thing3 = name[0]; // thing3 is a char. Its value is "M".
+
+List<int> numbers = new() { 27, 95, 13 };
+var thing4 = numbers[0]; // thing4 is an int. Its value is 27.
+```
 
 # Page 358 - Using extension methods to reuse functionality
 
