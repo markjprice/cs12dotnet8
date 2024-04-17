@@ -1,7 +1,8 @@
-**Improvements** (30 items)
+**Improvements** (31 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
+- [Page 54 - Understanding C# standards](#page-54---understanding-c-standards)
 - [Page 64 - Formatting code using white space](#page-64---formatting-code-using-white-space)
 - [Page 64 - Understanding C# vocabulary](#page-64---understanding-c-vocabulary)
 - [Page 79 - Raw interpolated string literals](#page-79---raw-interpolated-string-literals)
@@ -35,6 +36,18 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 535 - Scaffolding models using an existing database](#page-535---scaffolding-models-using-an-existing-database)
 - [Page 541 - Querying EF Core models](#page-541---querying-ef-core-models)
 - [Page 727 - Understanding Swagger](#page-727---understanding-swagger)
+
+# Page 54 - Understanding C# standards
+
+To make the point that C# is not just a proprietary Microsoft technology, I included a four-row table of C# versions that have been submitted to standards bodies showing the ECMA and ISO/IEC standard codes. This also highlights a limitation of standards bodies that it takes so long to get a standard approved, since the latest C# version approved is version 6.0 in 2022 despite the most recent version of C# being version 12 in 2023. 
+
+But someone gave the book a one-star Amazon review and cited this table as the only specific example of an "awful lot of nonsense". 
+
+Obviously I strongly disagree with their review! 
+
+But I am responsive to all readers, and this particular table is undeniably the least useful table in the book. In the next edition, I will remove *Table 2.1*, as shown in the following figure:
+
+![C# standards table](improvement-p54.png)
 
 # Page 64 - Formatting code using white space
 
