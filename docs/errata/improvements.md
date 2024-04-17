@@ -1,4 +1,4 @@
-**Improvements** (29 items)
+**Improvements** (30 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -15,9 +15,11 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 171 - What is automatically generated for a local function?](#page-171---what-is-automatically-generated-for-a-local-function)
 - [Page 206 - Configuring trace listeners](#page-206---configuring-trace-listeners)
 - [Page 248 - Storing multiple values using an enum type](#page-248---storing-multiple-values-using-an-enum-type)
+- [Page 251 - Making a field static](#page-251---making-a-field-static)
 - [Page 254 - Requiring fields to be set during instantiation](#page-254---requiring-fields-to-be-set-during-instantiation)
 - [Page 278 - Defining indexers](#page-278---defining-indexers)
 - [Page 289 - Defining a primary constructor for a class](#page-289---defining-a-primary-constructor-for-a-class)
+- [Page 296 - Static methods and overloading operators](#page-296---static-methods-and-overloading-operators)
 - [Page 297 - Implementing functionality using methods](#page-297---implementing-functionality-using-methods)
 - [Page 299 - Implementing functionality using methods](#page-299---implementing-functionality-using-methods)
 - [Page 358 - Using extension methods to reuse functionality](#page-358---using-extension-methods-to-reuse-functionality)
@@ -405,6 +407,14 @@ System.UnauthorizedAccessException: Access to the path 'C:\Users\<username>\Desk
 
 In the **Good Practice** box, I will list the integer types that an `enum` is allowed to inherit from: `Byte`, `SByte`, `Int16`, `Int32`, `Int64`, `UInt16`, `UInt32`, `UInt64`. The new integer types `Int128` and `UInt128` are not supported.
 
+# Page 251 - Making a field static
+
+> Thanks **Ashish** in the book's Discord channel for making a suggestion about this that prompted this improvement.
+
+At the end of this section, I wrote, "Fields are not the only members that can be static. Constructors, methods, properties, and other members can also be static."
+
+In the next edition, I will add a note to say something like, "static methods operate on classes and an object is not needed for them." I will also tell the reader that static methods are covered in Chapter 6.
+
 # Page 254 - Requiring fields to be set during instantiation
 
 > Thanks **Ashish** in the book's Discord channel for asking a question about this that prompted this improvement.
@@ -444,19 +454,27 @@ I will also add a note about the use of the `this` keyword to define the indexer
 
 # Page 289 - Defining a primary constructor for a class
 
-> Thanks to **Ashish** in the Discord channel for this book for asking a question about this that prompted this improvement.
+> Thanks to **Ashish** in the Discord channel for this book for making a suggestion about this that prompted this improvement.
 
 In Step 6, the code uses the `this` keyword to call the constructor with two parameters. In the next edition, I will add a note to explain this.
 
+# Page 296 - Static methods and overloading operators
+
+> Thanks **Ashish** in the book's Discord channel for making a suggestion about this that prompted this improvement.
+
+I wrote, "This section is specifically about methods that apply to two instances of the same type. It is not about the more general case of methods that apply to zero, one, or more than two instances." But I don't remind readers about the different nature of instance and static methods.
+
+In the next edition, I will add a note to say something like, "static methods operate on classes and an object is not needed for them."
+
 # Page 297 - Implementing functionality using methods
 
-> Thanks to **Ashish** in the Discord channel for this book for asking a question about this that prompted this improvement.
+> Thanks to **Ashish** in the Discord channel for this book for making a suggestion about this that prompted this improvement.
 
 In Step 2, the code uses the `this` keyword to pass a reference for the current object to the `Marry` method. In the next edition, I will add a note to explain this.
 
 # Page 299 - Implementing functionality using methods
 
-> Thanks to **Ashish** in the Discord channel for this book for asking a question about this that prompted this improvement.
+> Thanks to **Ashish** in the Discord channel for this book for making a suggestion about this that prompted this improvement.
 
 In the last bullet at the bottom of the page, I wrote, "It is a convention to use a different method name for related static and instance methods, for example, `Compare(x, y)` for the static method name and `x.CompareTo(y)` for the instance method name." But this is not always true.
 
