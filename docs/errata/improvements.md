@@ -1,4 +1,4 @@
-**Improvements** (28 items)
+**Improvements** (29 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -19,6 +19,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 278 - Defining indexers](#page-278---defining-indexers)
 - [Page 289 - Defining a primary constructor for a class](#page-289---defining-a-primary-constructor-for-a-class)
 - [Page 297 - Implementing functionality using methods](#page-297---implementing-functionality-using-methods)
+- [Page 299 - Implementing functionality using methods](#page-299---implementing-functionality-using-methods)
 - [Page 358 - Using extension methods to reuse functionality](#page-358---using-extension-methods-to-reuse-functionality)
 - [Page 369 - Understanding .NET components](#page-369---understanding-net-components)
 - [Page 426 - Comparing string values](#page-426---comparing-string-values)
@@ -452,6 +453,14 @@ In Step 6, the code uses the `this` keyword to call the constructor with two par
 > Thanks to **Ashish** in the Discord channel for this book for asking a question about this that prompted this improvement.
 
 In Step 2, the code uses the `this` keyword to pass a reference for the current object to the `Marry` method. In the next edition, I will add a note to explain this.
+
+# Page 299 - Implementing functionality using methods
+
+> Thanks to **Ashish** in the Discord channel for this book for asking a question about this that prompted this improvement.
+
+In the last bullet at the bottom of the page, I wrote, "It is a convention to use a different method name for related static and instance methods, for example, `Compare(x, y)` for the static method name and `x.CompareTo(y)` for the instance method name." But this is not always true.
+
+In the next edition, I will change the statement to, "It is a convention to name related static and instance methods to match standard English usage. That could mean naming both methods the same, as in the example of `Marry(x, y)` for the static method name and `x.Marry(y)` for the instance method name, or it could mean using a different method name, for example, `Procreate(x, y)` for the static method name and `x.ProcreateWith(y)` for the instance method name, or `Compare(x, y)` for the static method name and `x.CompareTo(y)` for the instance method name."
 
 # Page 358 - Using extension methods to reuse functionality
 
