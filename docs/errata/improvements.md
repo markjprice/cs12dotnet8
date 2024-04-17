@@ -39,7 +39,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 
 # Page 54 - Understanding C# standards
 
-To make the point that C# is not just a proprietary Microsoft technology, I included a four-row table of C# versions that have been submitted to standards bodies showing the ECMA and ISO/IEC standard codes. This also highlights a limitation of standards bodies that it takes so long to get a standard approved, since the latest C# version approved is version 6.0 in 2022 despite the most recent version of C# being version 12 in 2023. 
+To make the point that C# is not just a proprietary Microsoft technology, I included a small table of C# versions that have been submitted to standards bodies showing the ECMA and ISO/IEC standard codes. This also highlights a limitation of standards bodies that it takes so long to get a standard approved, since the latest C# version approved is version 6.0 in 2022 despite the most recent version of C# being version 12 in 2023. 
 
 But someone gave the book a one-star Amazon review and cited this table as the only specific example of an "awful lot of nonsense". 
 
