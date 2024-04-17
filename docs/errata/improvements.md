@@ -460,7 +460,7 @@ In Step 2, the code uses the `this` keyword to pass a reference for the current 
 
 In the last bullet at the bottom of the page, I wrote, "It is a convention to use a different method name for related static and instance methods, for example, `Compare(x, y)` for the static method name and `x.CompareTo(y)` for the instance method name." But this is not always true.
 
-In the next edition, I will change the statement to, "It is a convention to name related static and instance methods to match standard English usage. That could mean naming both methods the same, as in the example of `Marry(x, y)` for the static method name and `x.Marry(y)` for the instance method name, or it could mean using a different method name, for example, `Procreate(x, y)` for the static method name and `x.ProcreateWith(y)` for the instance method name, or `Compare(x, y)` for the static method name and `x.CompareTo(y)` for the instance method name."
+In the next edition, I will change the statement to, "It is a convention to use a different method name for related static and instance methods, but not to the extent that you would fail to match standard English usage. So that could mean naming both methods the same, as in the example of `Marry(x, y)` for the static method name and `x.Marry(y)` for the instance method name. More commonly, it could mean using a different method name, for example, `Procreate(x, y)` for the static method name and `x.ProcreateWith(y)` for the instance method name, or `Compare(x, y)` for the static method name and `x.CompareTo(y)` for the instance method name."
 
 # Page 358 - Using extension methods to reuse functionality
 
