@@ -43,7 +43,7 @@ To make the point that C# is not just a proprietary Microsoft technology, I incl
 
 But someone gave the book a one-star Amazon review and cited this table as the only specific example of an "awful lot of nonsense". 
 
-Obviously I strongly disagree with their review! 
+Obviously I strongly disagree with his review, and so do the 81% of readers who rate my book five-stars! 
 
 But I am responsive to all readers, and this particular table is undeniably the least useful table in the book. In the next edition, I will remove *Table 2.1*, as shown in the following figure:
 
