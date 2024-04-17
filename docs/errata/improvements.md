@@ -1,8 +1,9 @@
-**Improvements** (25 items)
+**Improvements** (28 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
 - [Page 64 - Formatting code using white space](#page-64---formatting-code-using-white-space)
+- [Page 64 - Understanding C# vocabulary](#page-64---understanding-c-vocabulary)
 - [Page 79 - Raw interpolated string literals](#page-79---raw-interpolated-string-literals)
 - [Page 87 - Comparing double and decimal types](#page-87---comparing-double-and-decimal-types)
 - [Page 93 - Using target-typed new to instantiate objects](#page-93---using-target-typed-new-to-instantiate-objects)
@@ -16,6 +17,8 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 248 - Storing multiple values using an enum type](#page-248---storing-multiple-values-using-an-enum-type)
 - [Page 254 - Requiring fields to be set during instantiation](#page-254---requiring-fields-to-be-set-during-instantiation)
 - [Page 278 - Defining indexers](#page-278---defining-indexers)
+- [Page 289 - Defining a primary constructor for a class](#page-289---defining-a-primary-constructor-for-a-class)
+- [Page 297 - Implementing functionality using methods](#page-297---implementing-functionality-using-methods)
 - [Page 358 - Using extension methods to reuse functionality](#page-358---using-extension-methods-to-reuse-functionality)
 - [Page 369 - Understanding .NET components](#page-369---understanding-net-components)
 - [Page 426 - Comparing string values](#page-426---comparing-string-values)
@@ -50,6 +53,12 @@ Since all four statements are all equivalent, they all have the same variable na
 Unless a step-by-step instruction tells the reader to enter code, all code examples are written to be read and understood, not entered into a code editor. Code examples should be considered to be "snippets" that are not guaranteed to compile without changes or additional statements.
 
 In the next edition, I will explicitly say that, and explain that if the reader does decide to enter the code, they would (of course) need to rename the variables. 
+
+# Page 64 - Understanding C# vocabulary
+
+> Thanks to **Ashish** in the Discord channel for this book for asking a question about this that prompted this improvement.
+
+In the list of C# keywords, I include `this`. In the next edition, I will add a note that this is used in multiple ways, including (1) to refer to the current instance of an object, (2) to call a constructor on the current object instance, and (3) to define an indexer. Later in the book, examples of all three will be covered.
 
 # Page 79 - Raw interpolated string literals
 
@@ -429,6 +438,20 @@ var thing3 = name[0]; // thing3 is a char. Its value is "M".
 List<int> numbers = new() { 27, 95, 13 };
 var thing4 = numbers[0]; // thing4 is an int. Its value is 27.
 ```
+
+I will also add a note about the use of the `this` keyword to define the indexer. It is not to be confused with the use of the `this` keyword to refer to the current instance of an object.
+
+# Page 289 - Defining a primary constructor for a class
+
+> Thanks to **Ashish** in the Discord channel for this book for asking a question about this that prompted this improvement.
+
+In Step 6, the code uses the `this` keyword to call the constructor with two parameters. In the next edition, I will add a note to explain this.
+
+# Page 297 - Implementing functionality using methods
+
+> Thanks to **Ashish** in the Discord channel for this book for asking a question about this that prompted this improvement.
+
+In Step 2, the code uses the `this` keyword to pass a reference for the current object to the `Marry` method. In the next edition, I will add a note to explain this.
 
 # Page 358 - Using extension methods to reuse functionality
 
