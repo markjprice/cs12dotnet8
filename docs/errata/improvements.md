@@ -1,4 +1,4 @@
-**Improvements** (31 items)
+**Improvements** (32 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -23,6 +23,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 296 - Static methods and overloading operators](#page-296---static-methods-and-overloading-operators)
 - [Page 297 - Implementing functionality using methods](#page-297---implementing-functionality-using-methods)
 - [Page 299 - Implementing functionality using methods](#page-299---implementing-functionality-using-methods)
+- [Page 310 - Defining and handling delegates](#page-310---defining-and-handling-delegates)
 - [Page 358 - Using extension methods to reuse functionality](#page-358---using-extension-methods-to-reuse-functionality)
 - [Page 369 - Understanding .NET components](#page-369---understanding-net-components)
 - [Page 426 - Comparing string values](#page-426---comparing-string-values)
@@ -492,6 +493,16 @@ In Step 2, the code uses the `this` keyword to pass a reference for the current 
 In the last bullet at the bottom of the page, I wrote, "It is a convention to use a different method name for related static and instance methods, for example, `Compare(x, y)` for the static method name and `x.CompareTo(y)` for the instance method name." But this is not always true.
 
 In the next edition, I will change the statement to, "It is a convention to use a different method name for related static and instance methods, but not to the extent that you would fail to match standard English usage. So that could mean naming both methods the same, as in the example of `Marry(x, y)` for the static method name and `x.Marry(y)` for the instance method name. More commonly, it would mean using a different method name, for example, `Procreate(x, y)` for the static method name and `x.ProcreateWith(y)` for the instance method name, or `Compare(x, y)` for the static method name and `x.CompareTo(y)` for the instance method name."
+
+# Page 310 - Defining and handling delegates
+
+> Thanks to **Ashish** in the Discord channel for this book for making a suggestion about this that prompted this improvement.
+
+In Step 1, the code uses `EventArgs.Empty` and the note shows the `Invoke` method. In the next edition, I will explain these two in the text before we dive into the code. For example:
+
+Some types provide "empty" values for when you need an instance but it shouldn't have a value. For example:
+- `string.Empty` is an empty string value `""`. It is better to use `string.Empty` than `""` because every time you use `""` the compile instantiated a new empty string. Think of `string.Empty` as a global single instance of an empty string. Sharing it is more efficient than creating your own new instances.
+- `EventArgs.Empty` is an empty `EventArgs` value. Use it when you must conform to the built-in event delegates that require an `EventArgs` instance to be placed as a parameter.
 
 # Page 358 - Using extension methods to reuse functionality
 
