@@ -523,10 +523,23 @@ Shout(this, EventArgs.Empty);`
 ```cs
 Shout.Invoke(this, EventArgs.Empty);`
 ```
-3. Use the `BeginInvoke` method to call it asynchronously:
+3. Use the `BeginInvoke` method to call it asynchronously, without a callback function or any state:
 ```cs
-var callback = Shout.BeginInvoke(this, EventArgs.Empty);
+IAsyncResult result = Shout.BeginInvoke(this, EventArgs.Empty, null, null);
 ```
+
+> The `BeginInvoke` method is beyond the scope of this book but I include it so that you know it exists.
+
+In Step 3, we define a method to handle the event when it is raised, as shown in the following code:
+```cs
+private static void Harry_Shout(object? sender, EventArgs e)
+```
+
+In the next edition, I will add more explanation to say that you can have as many methods as you like, named whatever you like, as long as the method signature matches the delegate signature. This means you could have 50 `Person` instances, each with their own method, or have one method that they all share.
+
+In Windows desktop development, imagine that you have three buttons, `AddButton`, `SaveButton`, and `DeleteButton`. Each button has very different functionality. You would create three methods to handle their `Click` events, named: `AddButton_Click`, `SaveButton_Click`, and `DeleteButton_Click`. Each would have different implementation code. 
+
+But now imagine you have 26 buttons, `AButton`, `BButton`, `CButton`, and so on up to `ZButton`. Each button has the same functionality: to filter a list of people by the first letter of their name. You would create one method to handle their `Click` events, named: `AtoZButtons_Click`. This method would have implementation code that would use the `sender` parameter to know which button was clicked, but otherwise would be the same for all the buttons.
 
 # Page 358 - Using extension methods to reuse functionality
 
