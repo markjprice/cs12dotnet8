@@ -504,6 +504,30 @@ Some types provide "empty" values for when you need an instance but it shouldn't
 - `string.Empty` is an empty string value `""`. It is better to use `string.Empty` than `""` because every time you use `""` the compile instantiated a new empty string. Think of `string.Empty` as a global single instance of an empty string. Sharing it is more efficient than creating your own new instances.
 - `EventArgs.Empty` is an empty `EventArgs` value. Use it when you must conform to the built-in event delegates that require an `EventArgs` instance to be placed as a parameter.
 
+```cs
+// The built-in event delegate has two parameters that must be passed in.
+public delegate void EventHandler(object? sender, EventArgs e);
+```
+
+If you have a delegate defined, as shown in the following code:
+```cs
+public EventHandler? Shout; // This field could be null.
+```
+
+Then there are multiple ways to call the delegate, as shown in the following code examples:
+1. Use its variable name: 
+```cs
+Shout(this, EventArgs.Empty);`
+```
+2. Use the `Invoke` method to call it synchronously: 
+```cs
+Shout.Invoke(this, EventArgs.Empty);`
+```
+3. Use the `BeginInvoke` method to call it asynchronously:
+```cs
+var callback = Shout.BeginInvoke(this, EventArgs.Empty);
+```
+
 # Page 358 - Using extension methods to reuse functionality
 
 In the next edition, I will add a new section explaining method chaining aka fluent style using extension methods.
