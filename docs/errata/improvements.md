@@ -500,7 +500,7 @@ In the next edition, I will change the statement to, "It is a convention to use 
 
 In Step 1, the code uses `EventArgs.Empty` and the note shows the `Invoke` method. In the next edition, I will explain these two in the text before we dive into the code. For example:
 
-Some types provide "empty" values for when you need an instance but it shouldn't have a value. For example:
+Some types provide "empty" values for when you need an instance but it doesn't need to have any particular value. For example:
 - `string.Empty` is an empty string value `""`. It is better to use `string.Empty` than `""` because every time you use `""` the compile instantiated a new empty string. Think of `string.Empty` as a global single instance of an empty string. Sharing it is more efficient than creating your own new instances.
 - `EventArgs.Empty` is an empty `EventArgs` value. Use it when you must conform to the built-in event delegates that require an `EventArgs` instance to be placed as a parameter.
 
