@@ -537,7 +537,7 @@ In Step 3, we define a method to handle the event when it is raised, as shown in
 private static void Harry_Shout(object? sender, EventArgs e)
 ```
 
-In the next edition, I will add more explanation to say that you can have as many methods as you like, named whatever you like, as long as the method signature matches the delegate signature. This means you could have 50 `Person` instances, each with their own method, or have one method that they all share. The methods can be declared at any level that makes sense for the scenario and matches the access levels set (like `protected`, `private`, `public` and so on). One of the key benefits of events is loose binding between components so maximum flexibility is desired.
+In the next edition, I will add more explanation to say that you can have as many methods as you like, named whatever you like, as long as the method signature matches the delegate signature. This means you could have 50 `Person` instances, each with their own method, or have one method that they all share. The methods can be declared at any level that makes sense for the scenario and matches the access levels set (like `protected`, `private`, `public` and so on). One of the key benefits of delegates and events is loose binding between components so maximum flexibility is desired.
 
 In Windows desktop development, imagine that you have three buttons, `AddButton`, `SaveButton`, and `DeleteButton`. Each button has very different functionality. You would create three methods to handle their `Click` events, named: `AddButton_Click`, `SaveButton_Click`, and `DeleteButton_Click`. Each would have different implementation code. 
 
@@ -545,7 +545,7 @@ But now imagine you have 26 buttons, `AButton`, `BButton`, `CButton`, and so on 
 
 Also in Step 3, the `sender` is checked to make sure it is a `Person` instance *and if it is* then it is assigned to a local variable named `p`, as shown in the following code:
 ```cs
-// If sender is not a Person, then do nothing.
+// If sender is not a Person, then do nothing
 if (sender is not Person p) return;
 WriteLine($"{p.Name} is this angry: {p.AngerLevel}.");
 ```
@@ -555,6 +555,11 @@ But the first statement does two things at once, which needs more explanation. I
 The parameter named `sender` is of type `object`. This means we cannot just say `sender.Name` or `sender.AngerLevel`. We need to cast `sender` to a local variable that is explicitly defined as `Person`. We also need to check that `sender` actually *is* a `Person`. 
 
 We can do both things at once in a single expression: `sender is not Person p`. This expression will either return `true` if `sender` is not a `Person`, and hence the statement executes `return`. Or the expression returns `false` if `sender` is a `Person`, *and* sender will be stored in the local variable named `p` which is of type `Person`. After that, we can use expressions like `p.Name` and `p.AngerLevel`.
+
+I will also add to the comment, as shown in the following code:
+```cs
+// If sender is not a Person, then do nothing and return; else assign sender to p.
+```
 
 # Page 358 - Using extension methods to reuse functionality
 
