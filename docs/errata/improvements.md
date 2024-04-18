@@ -502,7 +502,7 @@ In Step 1, the code uses `EventArgs.Empty` and the note shows the `Invoke` metho
 
 Some types provide "empty" values for when you need an instance but it doesn't need to have any particular value. For example:
 - `string.Empty` is an empty string value `""`. It is better to use `string.Empty` than `""` because every time you use `""` the compiler must instantiate a new empty string instance. You can think of `string.Empty` as a global single instance of an empty string. Sharing it is more efficient than creating your own new instances every time you need to reference an empty string value.
-- `EventArgs.Empty` is an empty `EventArgs` value. Use it when you must conform to the built-in event delegates that require an `EventArgs` instance to be passed as a parameter.
+- `EventArgs.Empty` is an empty `EventArgs` value. Use it when you must conform to the built-in event delegates that require an `EventArgs` instance to be passed as a parameter but it doesn't need any particular value because it won't be read or used in the method anyway.
 
 ```cs
 // The built-in event delegate has two parameters that must be passed in.
@@ -529,6 +529,8 @@ IAsyncResult result = Shout.BeginInvoke(this, EventArgs.Empty, null, null);
 ```
 
 > The `BeginInvoke` method is beyond the scope of this book but I include it so that you know it exists.
+
+Delegates and their method handlers have a potentially many-to-many relationship. One delegate can have one method handler. But one delegate can have many method handlers (you do this when you hook up `Shout` to both `Harry_Shout` and `Harry_Shout_2`). And many delegates can reference one method handler. Or any combination of these. 
 
 In Step 3, we define a method to handle the event when it is raised, as shown in the following code:
 ```cs
