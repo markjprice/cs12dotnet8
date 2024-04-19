@@ -192,10 +192,20 @@ public class Person : IComparable<Person>
       {
         position = 1; // this Person follows other Person.
       }
+
+      // In the book, I included the following branch, but it is not necessary.
+      // The final `else` statement will never execute because it will only
+      // execute when `this` (the current object instance) is `null`, and in
+      // that scenario, the method could not execute anyway since the object
+      // doesn't exist! When I wrote the `if`, I covered all combinations of
+      // `null` and `not null` for `other` and `this` when one of those
+      // combinations could never in practice happen.
+      /*
       else
       {
         position = 0; // this and other are at same position.
       }
+      */
     }
     else if (other is null)
     {
