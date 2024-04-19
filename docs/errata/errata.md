@@ -1,4 +1,4 @@
-**Errata** (20 items)
+**Errata** (21 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -13,6 +13,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 95 - Displaying output to the user](#page-95---displaying-output-to-the-user)
 - [Page 124 - Exploring bitwise and binary shift operators](#page-124---exploring-bitwise-and-binary-shift-operators)
 - [Page 261 - Passing optional parameters](#page-261---passing-optional-parameters)
+- [Page 316 - Comparing objects when sorting](#page-316---comparing-objects-when-sorting)
 - [Page 361 - Comparing inheritance and implementation](#page-361---comparing-inheritance-and-implementation)
 - [Page 383 - Creating a console app to publish](#page-383---creating-a-console-app-to-publish)
 - [Page 386 - Publishing a self-contained app](#page-386---publishing-a-self-contained-app)
@@ -146,6 +147,23 @@ Although extra whitespace has no effect on the compiler, in the next edition, I 
 ```cs
 public string OptionalParameters(string command = "Run!",
 ```
+
+# Page 316 - Comparing objects when sorting
+
+> Thanks to **Ashish** in the Discord channel for this book for raising this issue.
+
+In Step 9, the final `else` statement will never execute because it will only execute when `this` (the current object instance) is `null`, and in that scenario, the method could not execute anyway since the object doesn't exist! When I wrote the `if`, I covered all combinations of `null` and `not null` for `other` and `this` when one of those combinations could never in practice happen. 
+
+In the next edition, I will delete the following code from the `CompareTo` method:
+```cs
+else
+{
+  position = 0; // this and other are at same position.
+}
+```
+
+And I will add a comment in the code explaining why it is not needed. I have already done this in the code solution here:
+https://github.com/markjprice/cs12dotnet8/blob/main/code/Chapter06/PacktLibrary/Person.cs#L196
 
 # Page 361 - Comparing inheritance and implementation
 
