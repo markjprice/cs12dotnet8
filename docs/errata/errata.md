@@ -1,4 +1,4 @@
-**Errata** (21 items)
+**Errata** (22 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -23,6 +23,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 641 - Customizing the model and defining an extension method](#page-641---customizing-the-model-and-defining-an-extension-method)
 - [Page 694 - Exercise 13.3 – Enabling HTTP/3 and request decompression support](#page-694---exercise-133--enabling-http3-and-request-decompression-support)
 - [Page 714 - Route constraints](#page-714---route-constraints)
+- [Appendix - Page 1 - Exercise 1.1 – Test your knowledge](#appendix---page-1---exercise-11--test-your-knowledge)
 
 # Page 10 - Installing other extensions
 
@@ -317,3 +318,8 @@ But `minlength` is for checking the minimum length of a `string`, not the size o
 [Route("employees/{years:int:min(3)}")]
 public Employees[] GetLoyalEmployees(int years)
 ```
+# Appendix - Page 1 - Exercise 1.1 – Test your knowledge
+
+> Thanks to Ikarmus in the book's Discord channel for raising this issue.
+
+In question 1, I wrote "Interactive Development Environment (IDE)". This should be "Integrated Development Environment (IDE)".
