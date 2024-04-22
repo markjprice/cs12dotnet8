@@ -325,7 +325,7 @@ I will also add a note to tell readers that in *Chapter 4* they will learn how t
 
 # Page 127 - Pattern matching with the if statement
 
-I will rewrite this section to add a second example and mention that I will use this technique in later chapters. See also [Using is to check a type](#page-353---using-is-to-check-a-type).
+I will rewrite this section to emphasise that the statement does two things: (a) checks the type and (b) assigns if true, and include that the scope of the variable is the `if` statement. I will also note that I will use this technique in later chapters so keep this in mind. See also [Using is to check a type](#page-353---using-is-to-check-a-type).
 
 # Page 131 - Pattern matching with the switch statement
 
