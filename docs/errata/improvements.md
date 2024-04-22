@@ -1,4 +1,4 @@
-**Improvements** (33 items)
+**Improvements** (34 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -10,6 +10,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 93 - Using target-typed new to instantiate objects](#page-93---using-target-typed-new-to-instantiate-objects)
   - [What does `new` do?](#what-does-new-do)
 - [Page 96 - Formatting using numbered positional arguments \& Formatting using interpolated strings](#page-96---formatting-using-numbered-positional-arguments--formatting-using-interpolated-strings)
+- [Page 127 - Pattern matching with the if statement](#page-127---pattern-matching-with-the-if-statement)
 - [Page 131 - Pattern matching with the switch statement](#page-131---pattern-matching-with-the-switch-statement)
 - [Page 132 - Pattern matching with the switch statement](#page-132---pattern-matching-with-the-switch-statement)
 - [Page 144 - List pattern matching with arrays](#page-144---list-pattern-matching-with-arrays)
@@ -24,6 +25,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 297 - Implementing functionality using methods](#page-297---implementing-functionality-using-methods)
 - [Page 299 - Implementing functionality using methods](#page-299---implementing-functionality-using-methods)
 - [Page 310 - Defining and handling delegates](#page-310---defining-and-handling-delegates)
+- [Page 353 - Using is to check a type](#page-353---using-is-to-check-a-type)
 - [Page 358 - Using extension methods to reuse functionality](#page-358---using-extension-methods-to-reuse-functionality)
 - [Page 369 - Understanding .NET components](#page-369---understanding-net-components)
 - [Page 383 - Creating a console app to publish](#page-383---creating-a-console-app-to-publish)
@@ -321,6 +323,10 @@ And I will change the output to show dollars, of course.
 
 I will also add a note to tell readers that in *Chapter 4* they will learn how to write a function to control the culture so that they can see (1) US English by default, (2) local computer culture, (3) a specified culture. Hopefully this improvement will be the best of all worlds.
 
+# Page 127 - Pattern matching with the if statement
+
+I will rewrite this section to add a second example and mention that I will use this technique in later chapters. See also [Using is to check a type](#page-353---using-is-to-check-a-type).
+
 # Page 131 - Pattern matching with the switch statement
 
 > Thanks to Yousef Imran who raised this issue via email.
@@ -561,6 +567,19 @@ I will also add to the comment, as shown in the following code:
 ```cs
 // If sender is not a Person, then do nothing and return; else assign sender to p.
 ```
+
+# Page 353 - Using is to check a type
+
+> Thanks to **Ashish** for asking a question about this in the book's Discord channel that prompted this improvement.
+
+In Step 1, I tell the reader to wrap the explicit cast statement in an `if` statement to check the type of an object using the `is` keyword, as shown in the following code:
+```cs
+if (aliceInPerson is Employee)
+{
+  WriteLine($"{nameof(aliceInPerson)} is an Employee.");
+```
+
+In the next edition, I will add a note to remind the reader that this technique was covered earlier in the book in Chapter 3 on page 127, in the section titled: [Pattern matching with the if statement](#page-127---pattern-matching-with-the-if-statement).
 
 # Page 358 - Using extension methods to reuse functionality
 
