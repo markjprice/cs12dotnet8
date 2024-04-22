@@ -1,4 +1,4 @@
-**Improvements** (32 items)
+**Improvements** (33 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -26,6 +26,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 310 - Defining and handling delegates](#page-310---defining-and-handling-delegates)
 - [Page 358 - Using extension methods to reuse functionality](#page-358---using-extension-methods-to-reuse-functionality)
 - [Page 369 - Understanding .NET components](#page-369---understanding-net-components)
+- [Page 383 - Creating a console app to publish](#page-383---creating-a-console-app-to-publish)
 - [Page 426 - Comparing string values](#page-426---comparing-string-values)
 - [Page 457 - Initializing collections using collection expressions](#page-457---initializing-collections-using-collection-expressions)
   - [Using the spread element](#using-the-spread-element)
@@ -570,6 +571,19 @@ In the next edition, I will add a new section explaining method chaining aka flu
 > Thanks to Saeed Fathi who emailed this suggestion to me on December 6, 2023.
 
 I used the term "CoreFX" which is an old term for what is now better known as `dotnet/runtime`. In future editions, I will remove that term.
+
+# Page 383 - Creating a console app to publish
+
+> Thanks to Gökhan Kırhan aka `_drhack` for asking a question about this in a Discord channel that prompted this improvement.
+
+The build process can take a long time because the book tells you to add five runtime identifiers even though we only later review the compiled outputs of two of them. 
+
+As well as the [breaking change with the allowed names for targets](https://github.com/markjprice/cs12dotnet8/blob/main/docs/errata/errata.md#page-383---creating-a-console-app-to-publish) that means you must also change the [commands that you enter at the command prompt or terminal](https://github.com/markjprice/cs12dotnet8/blob/main/docs/errata/errata.md#page-386---publishing-a-self-contained-app), in the next edition, I will reduce the suggested runtime identifiers from five to two, as shown in the following markup:
+```xml
+<RuntimeIdentifiers>
+  win-x64;linux-x64
+</RuntimeIdentifiers>
+```
 
 # Page 426 - Comparing string values
 
