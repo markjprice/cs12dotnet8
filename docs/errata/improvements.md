@@ -848,6 +848,8 @@ In the next edition, I will add a note to explicitly say that you could have mad
 
 The real .NET development is the contents of the source code files like `.cs` and project files `.csproj` which are then compiled by the command-line interface `dotnet`. Any other tool you use is just an additional layer on top of that. 
 
+Interestingly, a future feature in .NET that Microsoft is actively looking at are "implicit project files". This would mean having a folder that contains only one or more `.cs` files and the `.csproj` file would not need to exist because it's content could be implied using defaults, e.g. default to the current SDK and its target .NET version and so on. But it gets complicated so I think it's unlikely for this year. 
+
 # Page 535 - Scaffolding models using an existing database
 
 > Thanks to [BoredNumb](https://github.com/BoredNumb) for raising this [issue on April 11, 2024](https://github.com/markjprice/cs12dotnet8/issues/33).
