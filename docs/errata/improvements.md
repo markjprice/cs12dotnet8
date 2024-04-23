@@ -844,7 +844,9 @@ Then I give instructions to use Visual Studio's **Properties** window to set the
 </ItemGroup>
 ```
 
-In the next edition, I will add a note to explicitly say that you could have made those changes to the project file manually. Any change made to the project file by any tool can also be made manually just be editing the XML. 
+In the next edition, I will add a note to explicitly say that you could have made those changes to the project file manually. In fact, *any* change made to the project file by *any* tool can also be made manually just by editing the XML. Tools like the **Properties** window just read the files in a project and show an alternative view. This is why in Chapter 1 I stressed using multiple code editors when learning .NET. If you only use Visual Studio, you start to think that Visual Studio *is* .NET development. It is not. 
+
+The real .NET development is the contents of the source code files like `.cs` and project files `.csproj` which are then compiled by the command-line interface `dotnet`. Any other tool you use is just an additional layer on top of that. 
 
 # Page 535 - Scaffolding models using an existing database
 
