@@ -1,7 +1,8 @@
-**Improvements** (34 items)
+**Improvements** (36 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
+- [Page 4 - Setting up your development environment](#page-4---setting-up-your-development-environment)
 - [Page 54 - Understanding C# standards](#page-54---understanding-c-standards)
 - [Page 64 - Formatting code using white space](#page-64---formatting-code-using-white-space)
 - [Page 64 - Understanding C# vocabulary](#page-64---understanding-c-vocabulary)
@@ -37,9 +38,16 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 484 - Compressing streams](#page-484---compressing-streams)
 - [Page 493 - Serializing as XML](#page-493---serializing-as-xml)
 - [Page 517 - Using SQL Server or other SQL systems](#page-517---using-sql-server-or-other-sql-systems)
+- [Page 520 - If you are using Visual Studio 2022](#page-520---if-you-are-using-visual-studio-2022)
 - [Page 535 - Scaffolding models using an existing database](#page-535---scaffolding-models-using-an-existing-database)
 - [Page 541 - Querying EF Core models](#page-541---querying-ef-core-models)
 - [Page 727 - Understanding Swagger](#page-727---understanding-swagger)
+
+# Page 4 - Setting up your development environment
+
+> Thanks to **Ashish** for asking a question in the Discord channel that prompted this improvement.
+
+In this section, I explain what code editors and other tools you typically use to work on .NET project. Most readers use Visual Studio 2022, which is a large and complex tool that can do many things. But for .NET developers, it likes to give its own mechanism to do as much as possible, and a developer can easily think that Visual Studio is the only way to do things. It is just a tool that does work for you that you could do manually. It just shows you a view onto what is really happening in the files you're working on. You could literally just use a plain text editor to manually edit all project files and then use the `dotnet` command-line interface to do all your .NET work. So in the next edition I will add a few paragraphs about this. 
 
 # Page 54 - Understanding C# standards
 
@@ -819,6 +827,24 @@ You can check for the most recent package versions at the following links: https
 If you do so, then you will notice the warning about a vulnerability with the packages up to early January 2024. Since January 9, 2024 the vulnerability has been fixed with versions `4.0.5`, `5.1.3`, and `5.2.0-preview5.24024.3`, as shown in the following screenshot:
 
 ![Vulnerable packages](improvement-p517.png)
+
+# Page 520 - If you are using Visual Studio 2022
+
+> Thanks to **Ashish** in the Discord channel for asking about this which prompted this improvement.
+
+In this section I wrote, "If you are using Visual Studio Code and the `dotnet run` command, the compiled application executes in the `WorkingWithEFCore` folder, allowing it to locate the database file stored therein. But if you are using Visual Studio 2022, or JetBrains Rider, then the compiled application executes in the
+`WorkingWithEFCore\bin\Debug\net8.0` folder, so it will not find the database file because it is not in that directory."
+
+Then I give instructions to use Visual Studio's **Properties** window to set the `Northwind.db` file to **Copy to Output Directory** if the file is newer. In Step 3, I tell the reader to view the project file and note the changes made, as shown in the following markup:
+```xml
+<ItemGroup>
+  <None Update="Northwind.db">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </None>
+</ItemGroup>
+```
+
+In the next edition, I will add a note to explicitly say that you could have made those changes to the project file manually. Any change made to the project file by any tool can also be made manually just be editing the XML. 
 
 # Page 535 - Scaffolding models using an existing database
 
