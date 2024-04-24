@@ -588,7 +588,7 @@ protected internal virtual void OnConfiguring(DbContextOptionsBuilder optionsBui
 }
 ```
 
-The method exists in the base class only so that subclasses can override it and then EF Core can call your code when it needs to configure the data context.
+The method exists in the base class only so that subclasses can override it and then EF Core can call your code when it needs to configure the data context. It would be a waste for your overridden method implementation to call the base implementation.
 
 # Page 353 - Using is to check a type
 
