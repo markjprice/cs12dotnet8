@@ -1,4 +1,4 @@
-**Improvements** (36 items)
+**Improvements** (37 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -26,6 +26,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 297 - Implementing functionality using methods](#page-297---implementing-functionality-using-methods)
 - [Page 299 - Implementing functionality using methods](#page-299---implementing-functionality-using-methods)
 - [Page 310 - Defining and handling delegates](#page-310---defining-and-handling-delegates)
+- [Page 347 - Overriding members](#page-347---overriding-members)
 - [Page 353 - Using is to check a type](#page-353---using-is-to-check-a-type)
 - [Page 358 - Using extension methods to reuse functionality](#page-358---using-extension-methods-to-reuse-functionality)
 - [Page 369 - Understanding .NET components](#page-369---understanding-net-components)
@@ -39,6 +40,8 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 493 - Serializing as XML](#page-493---serializing-as-xml)
 - [Page 517 - Using SQL Server or other SQL systems](#page-517---using-sql-server-or-other-sql-systems)
 - [Page 520 - If you are using Visual Studio 2022](#page-520---if-you-are-using-visual-studio-2022)
+- [Page 524 - Defining the Northwind database context class](#page-524---defining-the-northwind-database-context-class)
+- [Page 539 - Scaffolding models using an existing database](#page-539---scaffolding-models-using-an-existing-database)
 - [Page 535 - Scaffolding models using an existing database](#page-535---scaffolding-models-using-an-existing-database)
 - [Page 541 - Querying EF Core models](#page-541---querying-ef-core-models)
 - [Page 727 - Understanding Swagger](#page-727---understanding-swagger)
@@ -576,6 +579,17 @@ I will also add to the comment, as shown in the following code:
 // If sender is not a Person, then do nothing and return; else assign sender to p.
 ```
 
+# Page 347 - Overriding members
+
+In the next edition, I will add explanation about how some code editors like Visual Studio will automatically add a call to the base class member when you override a member. To decide if you need to keep the call or not, view the tooltip or definition of the member. For example, later in the book you will override a method of the `DbContext` class named `OnConfiguring`. If you hover over the method name, its tooltip tells you "The base implementation does nothing." If you **Go To Definition** (*F12*) of the method, you will see that it does nothing, as shown in the following code:
+```cs
+protected internal virtual void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+{
+}
+```
+
+The method exists in the base class only so that subclasses can override it and then EF Core can call your code when it needs to configure the data context.
+
 # Page 353 - Using is to check a type
 
 > Thanks to **Ashish** for asking a question about this in the book's Discord channel that prompted this improvement.
@@ -849,6 +863,47 @@ In the next edition, I will add a note to explicitly say that you could have mad
 The real .NET development is the contents of the source code files like `.cs` and project files `.csproj` which are then compiled by the command-line interface `dotnet`. Any other tool you use is just an additional layer on top of that. 
 
 Interestingly, a future feature in .NET that Microsoft is actively looking at are "implicit project files". This would mean having a folder that contains only one or more `.cs` files and the `.csproj` file would not need to exist because it's content could be implied using defaults, e.g. default to the current SDK and its target .NET version and so on. But it gets complicated so I think it's unlikely for this year. 
+
+# Page 524 - Defining the Northwind database context class
+
+> Thanks to **Ashish** in the Discord channel for suggesting this improvement.
+
+In Step 4, I wrote, "In `NorthwindDb.cs`, import the main namespace for EF Core, define a class named `Northwind`, and make the class inherit from `DbContext`. Then, in an `OnConfiguring` method, configure the options builder to use SQLite with an appropriate database connection string, as shown in the following code:"
+```cs
+using Microsoft.EntityFrameworkCore; // To use DbContext and so on.
+
+namespace Northwind.EntityModels;
+
+// This manages interactions with the Northwind database.
+public class NorthwindDb : DbContext
+{
+  protected override void OnConfiguring(
+    DbContextOptionsBuilder optionsBuilder)
+  {
+    string databaseFile = "Northwind.db";
+    string path = Path.Combine(
+      Environment.CurrentDirectory, databaseFile);
+
+    string connectionString = $"Data Source={path}";
+    WriteLine($"Connection: {connectionString}");
+    optionsBuilder.UseSqlite(connectionString);
+  }
+}
+```
+
+In the next edition, I will warn the reader that when you override a method from a base class like `OnConfiguring`, some code editors like Visual Studio add a call to the base class implementation automatically for you. Although this is generally good practice, it is unncecessary in this case because the base implementation does nothing, as shown in the screenshot below. 
+
+![The base implementation does nothing](improvement-p524.png)
+
+You should delete the statement to make your code match the code in the book. The same applies later in the book when you override the `OnModelCreating` method.
+
+> **Typo!** The class name should be `NorthwindDb`, not `Northwind`.
+
+I will also add a note to page 280 which is the first time that I tell the reader to override a method, and to page 347 when I go into more detail about overriding the `ToString` method. I will explain the behavior of some code editors and discuss why they do it and how you should decide to keep it or not. 
+
+# Page 539 - Scaffolding models using an existing database
+
+This section has numbered steps that span too many pages. On page 537, I will end the numbered steps after Step 5. I will renumber Step 6 to Step 1, and add a new section title: **Reviewing the generated code**
 
 # Page 535 - Scaffolding models using an existing database
 
