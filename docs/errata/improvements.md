@@ -868,7 +868,7 @@ Interestingly, a future feature in .NET that Microsoft is actively looking at ar
 
 > Thanks to **Ashish** in the Discord channel for suggesting this improvement.
 
-In Step 4, I wrote, "In `NorthwindDb.cs`, import the main namespace for EF Core, define a class named `Northwind`, and make the class inherit from `DbContext`. Then, in an `OnConfiguring` method, configure the options builder to use SQLite with an appropriate database connection string, as shown in the following code:"
+In Step 4, I wrote, "In `NorthwindDb.cs`, import the main namespace for EF Core, define a class named `Northwind` (**Typo!** The class name should be `NorthwindDb`, not `Northwind`.), and make the class inherit from `DbContext`. Then, in an `OnConfiguring` method, configure the options builder to use SQLite with an appropriate database connection string, as shown in the following code:"
 ```cs
 using Microsoft.EntityFrameworkCore; // To use DbContext and so on.
 
@@ -896,8 +896,6 @@ In the next edition, I will warn the reader that when you override a method from
 ![The base implementation does nothing](improvement-p524.png)
 
 You should delete the statement to make your code match the code in the book. The same applies later in the book when you override the `OnModelCreating` method.
-
-> **Typo!** The class name should be `NorthwindDb`, not `Northwind`.
 
 I will also add a note to page 280 which is the first time that I tell the reader to override a method, and to page 347 when I go into more detail about overriding the `ToString` method. I will explain the behavior of some code editors and discuss why they do it and how you should decide to keep it or not. 
 
