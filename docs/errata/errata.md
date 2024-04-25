@@ -1,4 +1,4 @@
-**Errata** (22 items)
+**Errata** (23 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -19,6 +19,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 386 - Publishing a self-contained app](#page-386---publishing-a-self-contained-app)
 - [Page 421 - Generating GUIDs](#page-421---generating-guids)
 - [Page 522 - Using the lightweight ADO.NET database providers](#page-522---using-the-lightweight-adonet-database-providers)
+- [Page 548 - Getting the generated SQL](#page-548---getting-the-generated-sql)
 - [Page 616 - Be careful with Count!](#page-616---be-careful-with-count)
 - [Page 641 - Customizing the model and defining an extension method](#page-641---customizing-the-model-and-defining-an-extension-method)
 - [Page 694 - Exercise 13.3 – Enabling HTTP/3 and request decompression support](#page-694---exercise-133--enabling-http3-and-request-decompression-support)
@@ -237,6 +238,14 @@ In the fourth paragraph I wrote, "The EF Core database providers for SQLite and 
 for better performance because the EF Core database providers are “closer to the metal.”"
 
 The second sentence is confusing or just wrong, and I probably meant to write, "Furthermore, ADO.NET can be used independently which will give better performance because the ADO.NET database providers are “closer to the metal.”". But even then the sentence doesn't add much so in the next edition I will remove that sentence.
+
+# Page 548 - Getting the generated SQL
+
+> Thanks to `Ashish` in the book's Discord channel for raising this issue.
+
+In Step 1, I wrote, "In the `FilteredIncludes` method" and in the GitHub solution code I do the same thing. Originally this was so that later you could see what happens when you run that method. But I'm not sure if this is necessary now because in the next section I get the reader to enable logging of SQL queries globally. It's also confusing because it happens to use a variable named `categories` so a reader might think I meant to add the statement to the `QueryCategories` method but this is not necessary. For the next edition, I might just remove this step. 
+
+In Step 3, I wrote, "Run the code, enter a minimum value for units in stock, like `99`, and view the result," but the output shows I entered `95`. In the next edition I will change the text to also say `95`.
 
 # Page 616 - Be careful with Count!
 
