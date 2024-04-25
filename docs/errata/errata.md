@@ -1,4 +1,4 @@
-**Errata** (23 items)
+**Errata** (24 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -20,6 +20,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 421 - Generating GUIDs](#page-421---generating-guids)
 - [Page 522 - Using the lightweight ADO.NET database providers](#page-522---using-the-lightweight-adonet-database-providers)
 - [Page 548 - Getting the generated SQL](#page-548---getting-the-generated-sql)
+- [Page 553 - Getting a single entity](#page-553---getting-a-single-entity)
 - [Page 616 - Be careful with Count!](#page-616---be-careful-with-count)
 - [Page 641 - Customizing the model and defining an extension method](#page-641---customizing-the-model-and-defining-an-extension-method)
 - [Page 694 - Exercise 13.3 – Enabling HTTP/3 and request decompression support](#page-694---exercise-133--enabling-http3-and-request-decompression-support)
@@ -246,6 +247,39 @@ The second sentence is confusing or just wrong, and I probably meant to write, "
 In Step 1, I wrote, "In the `FilteredIncludes` method" and in the GitHub solution code I do the same thing. Originally this was so that later you could see what happens when you run that method. But I'm not sure if this is necessary now because in the next section I get the reader to enable logging of SQL queries globally. It's also confusing because it happens to use a variable named `categories` so a reader might think I meant to add the statement to the `QueryCategories` method but this is not necessary. For the next edition, I might just remove this step. 
 
 In Step 3, I wrote, "Run the code, enter a minimum value for units in stock, like `99`, and view the result," but the output shows I entered `95`. In the next edition I will change the text to also say `95`.
+
+# Page 553 - Getting a single entity
+
+> Thanks to `Ashish` in the book's Discord channel for raising this issue.
+
+In Step 3, I show output of the logged SQL which includes `WHERE NOT ("p"."Discontinued") AND "p"."ProductId" > @__id_0`. But I do not tell the reader to add a global filter that would add the `NOT ("p"."Discontinued")` clause to the `WHERE` until the **Defining global filters** section on page 557.
+
+In the next edition, I will edit the output to remove this SQL clause, as shown in the following output:
+```
+Enter a product ID: 1
+Connection: Data Source=C:\cs12dotnet8\Chapter10\WorkingWithEFCore\bin\
+Debug\net8.0\Northwind.db
+dbug: 9/17/2023 18:04:14.210 RelationalEventId.CommandExecuting[20100]
+(Microsoft.EntityFrameworkCore.Database.Command)
+    Executing DbCommand [Parameters=[@__id_0='1'], CommandType='Text',
+CommandTimeout='30']
+    SELECT "p"."ProductId", "p"."CategoryId", "p"."UnitPrice",
+"p"."Discontinued", "p"."ProductName", "p"."UnitsInStock"
+    FROM "Products" AS "p"
+    WHERE "p"."ProductId" > @__id_0
+    LIMIT 1
+Info > First: Chang
+dbug: 9/17/2023 18:04:14.286 RelationalEventId.CommandExecuting[20100]
+(Microsoft.EntityFrameworkCore.Database.Command)
+    Executing DbCommand [Parameters=[@__id_0='1'], CommandType='Text',
+CommandTimeout='30']
+    SELECT "p"."ProductId", "p"."CategoryId", "p"."UnitPrice",
+"p"."Discontinued", "p"."ProductName", "p"."UnitsInStock"
+    FROM "Products" AS "p"
+    WHERE "p"."ProductId" > @__id_0
+    LIMIT 2
+Info > Single: Chang
+```
 
 # Page 616 - Be careful with Count!
 
