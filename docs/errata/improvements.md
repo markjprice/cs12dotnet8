@@ -972,6 +972,8 @@ On page 553, before step 2, I will add a note:
 
 > Thanks to **Ashish** for raising this issue in the Discord channel for this book.
 
+In the **Good Practice** box, I wrote, "Methods that start with `As`, like `AsEnumerable`, cast the sequence". But `AsEnumerable` is the only method that starts with `As`. In the next edition, I will change this to, "The `AsEnumerable` method casts the sequence".
+
 *Table 11.1: LINQ extension methods* is missing `AsEnumerable`, `DefaultIfEmpty`, `SequenceEqual`, `SkipLast`, and `TakeLast`. In the next edition, I will add them. I will also split the table of LINQ methods into deferred and non-deferred methods. 
 
 Method(s)|Description
