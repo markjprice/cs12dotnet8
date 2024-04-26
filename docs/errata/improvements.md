@@ -1,4 +1,4 @@
-**Improvements** (37 items)
+**Improvements** (38 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -44,6 +44,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 539 - Scaffolding models using an existing database](#page-539---scaffolding-models-using-an-existing-database)
 - [Page 535 - Scaffolding models using an existing database](#page-535---scaffolding-models-using-an-existing-database)
 - [Page 541 - Querying EF Core models](#page-541---querying-ef-core-models)
+- [Page 583 - Building LINQ expressions with the Enumerable class](#page-583---building-linq-expressions-with-the-enumerable-class)
 - [Page 727 - Understanding Swagger](#page-727---understanding-swagger)
 
 # Page 4 - Setting up your development environment
@@ -967,7 +968,19 @@ On page 553, before step 2, I will add a note:
 
 > LINQ methods that fetch a single entity (`First`, `FirstOrDefault`, `Single`, `SingleOrDefault`, `ElementAt`, `ElementAtOrDefault`) or return a single scalar value or entity like the aggregate methods (`Count`, `Sum`, `Max`, `Min`, `Average`, `All`, `Any`, and so on) are not deferred. When using the LINQ to Entities provider, any LINQ query that ends with a call to one of these methods is immediately converted to a SQL statement and executed against the database.
 
-On pages 583 to 584, I will split the table of LINQ methods into deferred and non-deferred methods. 
+# Page 583 - Building LINQ expressions with the Enumerable class
+
+> Thanks to **Ashish** for raising this issue in the Discord channel for this book.
+
+*Table 11.1: LINQ extension methods* is missing `AsEnumerable`, `DefaultIfEmpty`, `SequenceEqual`, `SkipLast`, and `TakeLast`. In the next edition, I will add them. I will also split the table of LINQ methods into deferred and non-deferred methods. 
+
+Method(s)|Description
+---|---
+`AsEnumerable`|Returns the input sequence typed as `IEnumerable<T>`. This is useful when the type has its own implementation of `Where` and you want to call the standard LINQ `Where` instead.
+`DefaultIfEmpty`|Returns the elements of an `IEnumerable<T>`, or a default valued singleton collection if the sequence is empty. For example, if the sequence is an empty `IEnumerable<int>`, it will return an `IEnumerable<int>` containing a single item `0`.
+`SequenceEqual`|Returns `true` or `false` depending on whether two sequences are equal according to an equality comparer.
+`SkipLast`|Returns a new enumerable collection that contains the elements from source with the last count elements of the source collection omitted.
+`TakeLast`|Returns a new enumerable collection that contains the last count elements from source.
 
 # Page 727 - Understanding Swagger
 
