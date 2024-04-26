@@ -978,7 +978,7 @@ In the **Good Practice** box, I wrote, "Methods that start with `As`, like `AsEn
 
 Method(s)|Description
 ---|---
-`AsEnumerable`|Returns the input sequence typed as `IEnumerable<T>`. This is useful when the type has its own implementation of `Where` and you want to call the standard LINQ `Where` instead.
+`AsEnumerable`|Returns the input sequence typed as `IEnumerable<T>`. This is useful when the type has its own implementation of any of the LINQ extension methods like `Where` and you want to call the standard LINQ `Where` method instead.
 `DefaultIfEmpty`|Returns the elements of an `IEnumerable<T>`, or a default valued singleton collection if the sequence is empty. For example, if the sequence is an empty `IEnumerable<int>`, it will return an `IEnumerable<int>` containing a single item `0`.
 `SequenceEqual`|Returns `true` or `false` depending on whether two sequences are equal according to an equality comparer.
 `SkipLast`|Returns a new enumerable collection that contains the elements from source with the last count elements of the source collection omitted.
