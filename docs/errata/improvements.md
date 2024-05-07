@@ -1,4 +1,4 @@
-**Improvements** (38 items)
+**Improvements** (39 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -45,6 +45,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 535 - Scaffolding models using an existing database](#page-535---scaffolding-models-using-an-existing-database)
 - [Page 541 - Querying EF Core models](#page-541---querying-ef-core-models)
 - [Page 583 - Building LINQ expressions with the Enumerable class](#page-583---building-linq-expressions-with-the-enumerable-class)
+- [Page 634 - Creating a class library for entity models using SQLite](#page-634---creating-a-class-library-for-entity-models-using-sqlite)
 - [Page 727 - Understanding Swagger](#page-727---understanding-swagger)
 
 # Page 4 - Setting up your development environment
@@ -983,6 +984,14 @@ Method(s)|Description
 `SequenceEqual`|Returns `true` or `false` depending on whether two sequences are equal according to an equality comparer.
 `SkipLast`|Returns a new enumerable collection that contains the elements from source with the last count elements of the source collection omitted.
 `TakeLast`|Returns a new enumerable collection that contains the last count elements from source.
+
+# Page 634 - Creating a class library for entity models using SQLite
+
+> Thanks to **Ashish** in the Discord channel for suggesting this improvement.
+
+I wrote a **Good Practice** explaining that, "You should create a separate class library project for your entity data models. This allows easier sharing between backend web servers and frontend desktop, mobile, and Blazor clients."
+
+In the next edition, I will expand this note to say, "You should create a separate class library project for your entity data models from the class library for your data context. This allows easier sharing of the entity models between backend web servers and frontend desktop, mobile, and Blazor clients, while only the backend needs to reference the data context class library."
 
 # Page 727 - Understanding Swagger
 
