@@ -1,4 +1,4 @@
-**Errata** (24 items)
+**Errata** (25 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -7,6 +7,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 43 - Configuring inline aka inlay hints](#page-43---configuring-inline-aka-inlay-hints)
 - [Page 50 - Exercise 1.2 – Practice C# anywhere with a browser](#page-50---exercise-12--practice-c-anywhere-with-a-browser)
 - [Page 51 - Exercise 1.5 – Explore themes of modern .NET](#page-51---exercise-15--explore-themes-of-modern-net)
+- [Page 54 - Understanding C# standards](#page-54---understanding-c-standards)
 - [Page 58 - Showing the compiler version](#page-58---showing-the-compiler-version)
 - [Page 65 - Comparing programming languages to human languages](#page-65---comparing-programming-languages-to-human-languages)
 - [Page 87 - Comparing double and decimal types](#page-87---comparing-double-and-decimal-types)
@@ -69,6 +70,14 @@ In the next edition, I will remove this bullet or change it to **GitHub Codespac
 > Thanks to [Emre Duman](https://github.com/Emopusta) who raised this [issue on March 11, 2024](https://github.com/markjprice/cs12dotnet8/issues/25).
 
 Microsoft appears to have stopped paying for the domain used by the following link: https://themesof.net/. In the next edition, I will remove this exercise. 
+
+# Page 54 - Understanding C# standards
+
+> Thanks to [mark23344](https://github.com/mark23344) who raised this [issue on May 10, 2024](https://github.com/markjprice/cs12dotnet8/issues/36).
+
+In the note box, I put a link to the C# specifications: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/specifications. But Microsoft changed the link without an automatic redirect so that link now returns a 404. 
+
+The new link is: https://learn.microsoft.com/en-us/dotnet/csharp/specification/.
 
 # Page 58 - Showing the compiler version
 
