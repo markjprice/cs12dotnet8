@@ -55,7 +55,15 @@ public partial class NorthwindContext : DbContext
       }
 
       path = Path.GetFullPath(path); // Convert to absolute path.
-      NorthwindContextLogger.WriteLine($"Database path: {path}");
+
+      try
+      {
+        NorthwindContextLogger.WriteLine($"Database path: {path}");
+      }
+      catch (Exception ex)
+      {
+        WriteLine(ex.Message);
+      }
 
       if (!File.Exists(path))
       {

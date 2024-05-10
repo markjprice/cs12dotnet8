@@ -1,4 +1,4 @@
-**Improvements** (39 items)
+**Improvements** (40 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -46,6 +46,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 541 - Querying EF Core models](#page-541---querying-ef-core-models)
 - [Page 583 - Building LINQ expressions with the Enumerable class](#page-583---building-linq-expressions-with-the-enumerable-class)
 - [Page 634 - Creating a class library for entity models using SQLite](#page-634---creating-a-class-library-for-entity-models-using-sqlite)
+- [Page 638 - Creating a class library for a database context using SQLite](#page-638---creating-a-class-library-for-a-database-context-using-sqlite)
 - [Page 727 - Understanding Swagger](#page-727---understanding-swagger)
 
 # Page 4 - Setting up your development environment
@@ -992,6 +993,21 @@ Method(s)|Description
 I wrote a **Good Practice** explaining that, "You should create a separate class library project for your entity data models. This allows easier sharing between backend web servers and frontend desktop, mobile, and Blazor clients."
 
 In the next edition, I will expand this note to say, "You should create a separate class library project for your entity data models from the class library for your data context. This allows easier sharing of the entity models between backend web servers and frontend desktop, mobile, and Blazor clients, while only the backend needs to reference the data context class library."
+
+# Page 638 - Creating a class library for a database context using SQLite
+
+In Step 9, the code has a statement, `NorthwindContextLogger.WriteLine($"Database path: {path}");`, that should append the database path to the text file log on your desktop. But if the file is locked by another process, this will fail. In the GitHub repository code, I have wrapped the statement in a `try-catch` block to prevent this issue, as shown in the following code:
+
+```cs
+try
+{
+  NorthwindContextLogger.WriteLine($"Database path: {path}");
+}
+catch (Exception ex)
+{
+  WriteLine(ex.Message);
+}
+```
 
 # Page 727 - Understanding Swagger
 
