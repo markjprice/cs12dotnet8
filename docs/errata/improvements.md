@@ -1,4 +1,4 @@
-**Improvements** (40 items)
+**Improvements** (41 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -47,6 +47,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 583 - Building LINQ expressions with the Enumerable class](#page-583---building-linq-expressions-with-the-enumerable-class)
 - [Page 634 - Creating a class library for entity models using SQLite](#page-634---creating-a-class-library-for-entity-models-using-sqlite)
 - [Page 638 - Creating a class library for a database context using SQLite](#page-638---creating-a-class-library-for-a-database-context-using-sqlite)
+- [Page 640 - Customizing the model and defining an extension method](#page-640---customizing-the-model-and-defining-an-extension-method)
 - [Page 727 - Understanding Swagger](#page-727---understanding-swagger)
 
 # Page 4 - Setting up your development environment
@@ -1008,6 +1009,23 @@ catch (Exception ex)
   WriteLine(ex.Message);
 }
 ```
+
+# Page 640 - Customizing the model and defining an extension method
+
+> Thanks to **Ashish** in the Discord channel for having an issue that made me add this improvement.
+
+In Step 3, I tell the reader to review the code written by the EF Core tool, for example:
+```cs
+modelBuilder.Entity<Order>(entity =>
+{
+  entity.Property(e => e.Freight).HasDefaultValueSql("0");
+});
+```
+Some readers write the code themselves and then mistakenly call the `HasDefaultValue()` instead of the `HasDefaultValueSql()` method because it comes first in the IntelliSense list of choices. Using the wrong method causes a runtime error later when you run unit tests because the client attempts to set a `double` value on a `decimal` property.
+
+In the next edition, I will add a note to explain the difference between the two methods, as follows:
+- Use `HasDefaultValue()` when you need a constant, static value as a default for a column, and the value does not depend on any conditions or need to be dynamically calculated at the time of insertion. This constant value is set at the model level and is used by EF Core to insert into the database if no other value is provided. Think of it as a data client-side default value.
+- Use `HasDefaultValueSql()` when the default value should be calculated by the database at the time of insertion, especially if it involves SQL functions or dynamic data that the database should evaluate. Think of it as a database server-side default value.
 
 # Page 727 - Understanding Swagger
 
