@@ -1024,8 +1024,9 @@ modelBuilder.Entity<Order>(entity =>
 Some readers write the code themselves and then mistakenly call the `HasDefaultValue()` instead of the `HasDefaultValueSql()` method because it comes first in the IntelliSense list of choices. Using the wrong method causes a runtime error later when you run unit tests because the client attempts to set a `double` value on a `decimal` property.
 
 In the next edition, I will add a note to explain the difference between the two methods, as follows:
-- Use `HasDefaultValue()` when you need a constant, static value as a default for a column, and the value does not depend on any conditions or need to be dynamically calculated at the time of insertion. This constant value is set at the model level and is used by EF Core to insert into the database if no other value is provided. Think of it as a data client-side default value.
-- Use `HasDefaultValueSql()` when the default value should be calculated by the database at the time of insertion, especially if it involves SQL functions or dynamic data that the database should evaluate. Think of it as a database server-side default value.
+- Use `HasDefaultValue()` when you need a constant, static value as a default for a column, and the value does not depend on any conditions or need to be dynamically calculated at the time of insertion. This constant value is set at the model level and is used by EF Core to insert into the database if no other value is provided. For the equivalent to the above example, you would use: `entity.Property(e => e.Freight).HasDefaultValue(0M);` because `0M` uses the `decimal` suffix `M`. Think of it as setting a default value on the client-side.
+- Use `HasDefaultValueSql()` when the default value should be calculated by the database at the time of insertion, especially if it involves SQL functions or dynamic data that the database should evaluate. The default is a string `"0"` because it will be added to the SQL statement, as shown: `CREATE TABLE "Orders" (
+... "Freight" "money" NULL CONSTRAINT "DF_Orders_Freight" DEFAULT (0), ... );`. Think of this as configuring the database to set a default value on the server-side.
 
 # Page 727 - Understanding Swagger
 
