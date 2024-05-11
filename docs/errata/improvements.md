@@ -1,4 +1,4 @@
-**Improvements** (41 items)
+**Improvements** (42 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -11,6 +11,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 93 - Using target-typed new to instantiate objects](#page-93---using-target-typed-new-to-instantiate-objects)
   - [What does `new` do?](#what-does-new-do)
 - [Page 96 - Formatting using numbered positional arguments \& Formatting using interpolated strings](#page-96---formatting-using-numbered-positional-arguments--formatting-using-interpolated-strings)
+- [Page 99 - Custom number formatting](#page-99---custom-number-formatting)
 - [Page 127 - Pattern matching with the if statement](#page-127---pattern-matching-with-the-if-statement)
 - [Page 131 - Pattern matching with the switch statement](#page-131---pattern-matching-with-the-switch-statement)
 - [Page 132 - Pattern matching with the switch statement](#page-132---pattern-matching-with-the-switch-statement)
@@ -337,6 +338,18 @@ CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
 And I will change the output to show dollars, of course.
 
 I will also add a note to tell readers that in *Chapter 4* they will learn how to write a function to control the culture so that they can see (1) US English by default, (2) local computer culture, (3) a specified culture. Hopefully this improvement will be the best of all worlds.
+
+# Page 99 - Custom number formatting
+
+> Thanks to [servbot007](https://github.com/servbot007) who raised [an issue on May 10, 2024](https://github.com/markjprice/cs12dotnet8/issues/37) that caused me to add this improvement.
+
+In the next edition, I will add an example of outputting the same argument with different formats, as shown in the following code:
+```cs
+decimal value = 0.325M;
+WriteLine("Currency: {0:C}, Percentage: {0:0.0%}", value);
+```
+
+I will also add the diagram from the issue comments.
 
 # Page 127 - Pattern matching with the if statement
 
