@@ -15,6 +15,11 @@ classDiagram
         +Run()
     }
     
+    class IWebHostEnvironment {
+        +IsDevelopment()
+        +EnvironmentName
+    }
+    
     class WebApplicationBuilder {
         +Build() WebApplication
         +Services : IServiceCollection
@@ -25,11 +30,6 @@ classDiagram
         +AddRazorPages()
         +AddNorthwindContext()
         +AddRequestDecompression()
-    }
-    
-    class IWebHostEnvironment {
-        +IsDevelopment()
-        +EnvironmentName
     }
 ```
 
