@@ -33,7 +33,7 @@ classDiagram
     }
 ```
 
-To create a web application in .NET, you must create and run a `WebApplication` instance, as shown in the following code:
+To create a web application in .NET, you create and run a `WebApplication` instance, as shown in the following code:
 ```cs
 WebApplication app = new();
 app.Run();
