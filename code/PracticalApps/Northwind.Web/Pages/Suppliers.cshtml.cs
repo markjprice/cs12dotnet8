@@ -11,6 +11,9 @@ public class SuppliersModel : PageModel
   public SuppliersModel(NorthwindContext db)
   {
     _db = db;
+
+    // Initialize the Supplier property to avoid null warnings in the view.
+    //Supplier = new();
   }
 
   public IEnumerable<Supplier>? Suppliers { get; set; }
@@ -25,7 +28,7 @@ public class SuppliersModel : PageModel
   }
 
   [BindProperty]
-  public Supplier? Supplier { get; set; }
+  public Supplier Supplier { get; set; }
 
   public IActionResult OnPost()
   {
