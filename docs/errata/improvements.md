@@ -484,6 +484,8 @@ Let's see some real world examples of when you would need to change an `enum` fr
 - You have game code that is set to use `byte` and `short` because you have millions of them in contiguous arrays for the game's data. You would gain a fair bit of performance doing this especially from a cache point of view.
 - You have a messaging system that marshals message `struct` types and sends them over legacy hardware with very low bandwidth. In some `struct` types, if the fields are marshalled as `Int32` and message frequency is high then it slows down. These fields are used in combination to represent some state. You could optimize and drastically reduce the size by representing each state as a single `byte` under one `enum` and use bitwise operations to combine the states together using bit masking.
 
+Some developers get pleasure from implementing micro-optimizations. Most are probably aware that those optimizations are mostly pointless, but why spoil their fun if the code isn't harmful? Why get so angry that some developers like to do it? No one is forcing you to do it too. 
+
 For those developers who object to changing any `enum` from `int` to some other integer, there is a compiler code analysis warning. If enabled, it will trigger if you set an `enum` to anything other than `int`: "CA1028: Enum storage should be Int32." This warning is not enabled by default because Microsoft knows that there are legitimate reasons why a developer might need to use it.
 
 So why would a popular and respected .NET YouTuber like Nick post a video with provocative statements like "it's irredeemable on every single level"? I don't know, but I can speculate. I think it's about the attention economy.
