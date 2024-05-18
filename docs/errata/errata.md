@@ -349,7 +349,7 @@ This is only a problem in the source code in the print book and PDF, not in the 
 
 > Thanks to [zhangjinshan1990](https://github.com/zhangjinshan1990) for raising this [issue on May 18, 2024](https://github.com/markjprice/cs10dotnet6/issues/128) in the C# 10 and .NET 6 repository.
 
-In Step 2, you bind HTML three `<input>` elements to properties of the `Supplier` class, as shown in the following markup:
+In Step 2, you bind HTML three `<input>` elements to properties of `Supplier`, as shown in the following markup:
 ```xml
 <form method="POST">
   <div>
@@ -367,14 +367,15 @@ In Step 2, you bind HTML three `<input>` elements to properties of the `Supplier
   <input type="submit" />
 </form>
 ```
-But you will see three `null` warnings, as shown in the following output:
+
+But you will see three `null` compiler warnings, as shown in the following output:
 ```
 Warning (active) CS8602	Dereference of a possibly null reference. Northwind.Web C:\cs12dotnet8\PracticalApps\Northwind.Web\Pages\Suppliers.cshtml 34
 Warning (active) CS8602	Dereference of a possibly null reference. Northwind.Web C:\cs12dotnet8\PracticalApps\Northwind.Web\Pages\Suppliers.cshtml 38
 Warning (active) CS8602	Dereference of a possibly null reference. Northwind.Web C:\cs12dotnet8\PracticalApps\Northwind.Web\Pages\Suppliers.cshtml 42
 ```
 
-To prevent this, in the Razor Page code-behind file, you should make the `Supplier` property non-nullable (by removing the `?` from `Supplier?`), and then add a statement in the constructor to initialize the `Supplier` property to a new instance, as shown in the following code:
+To prevent this, in the Razor Page code-behind file, you should make the `Supplier` property non-nullable (by removing the `?` from `Supplier?`), and then add a statement in the constructor to initialize the `Supplier` property to a new instance to avoid runtime errors and to remove the compiler error about this, as shown in the following code:
 ```cs
 // Disallow nulls to avoid null warnings in the view.
 [BindProperty]
@@ -389,6 +390,8 @@ public SuppliersModel(NorthwindContext db)
   Supplier = new();
 }
 ```
+
+> **Warning!** If you just set the `Supplier` property to `= null!;` to remove the compiler error, then runtime errors could still occur whenever the property actually is `null`.
 
 # Page 694 - Exercise 13.3 – Enabling HTTP/3 and request decompression support
 
