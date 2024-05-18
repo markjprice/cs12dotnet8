@@ -1,4 +1,4 @@
-**Errata** (25 items)
+**Errata** (26 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -24,6 +24,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 553 - Getting a single entity](#page-553---getting-a-single-entity)
 - [Page 616 - Be careful with Count!](#page-616---be-careful-with-count)
 - [Page 641 - Customizing the model and defining an extension method](#page-641---customizing-the-model-and-defining-an-extension-method)
+- [Page 684 - Defining a form to insert a new supplier](#page-684---defining-a-form-to-insert-a-new-supplier)
 - [Page 694 - Exercise 13.3 – Enabling HTTP/3 and request decompression support](#page-694---exercise-133--enabling-http3-and-request-decompression-support)
 - [Page 714 - Route constraints](#page-714---route-constraints)
 - [Appendix - Page 1 - Exercise 1.1 – Test your knowledge](#appendix---page-1---exercise-11--test-your-knowledge)
@@ -343,6 +344,49 @@ services.AddDbContext<NorthwindContext>(options =>
 ```
 
 This is only a problem in the source code in the print book and PDF, not in the GitHub repository, as shown in the following statement: https://github.com/markjprice/cs12dotnet8/blob/de8310d8aaf82510a759e196566d111c4c839c57/code/PracticalApps/Northwind.DataContext.Sqlite/NorthwindContextExtensions.cs#L33
+
+# Page 684 - Defining a form to insert a new supplier
+
+> Thanks to [zhangjinshan1990](https://github.com/zhangjinshan1990) for raising this [issue on May 18, 2024](https://github.com/markjprice/cs10dotnet6/issues/128) in the C# 10 and .NET 6 repository.
+
+In Step 2, you bind HTML three `<input>` elements to properties of the `Supplier` class, as shown in the following markup:
+```xml
+<form method="POST">
+  <div>
+    <input asp-for="Supplier.CompanyName"
+            placeholder="Company Name" />
+  </div>
+  <div>
+    <input asp-for="Supplier.Country"
+            placeholder="Country" />
+  </div>
+  <div>
+    <input asp-for="Supplier.Phone"
+            placeholder="Phone" />
+  </div>
+  <input type="submit" />
+</form>
+```
+But you will see three `null` warnings, as shown in the following output:
+```
+Warning (active) CS8602	Dereference of a possibly null reference. Northwind.Web C:\cs12dotnet8\PracticalApps\Northwind.Web\Pages\Suppliers.cshtml 34
+Warning (active) CS8602	Dereference of a possibly null reference. Northwind.Web C:\cs12dotnet8\PracticalApps\Northwind.Web\Pages\Suppliers.cshtml 38
+Warning (active) CS8602	Dereference of a possibly null reference. Northwind.Web C:\cs12dotnet8\PracticalApps\Northwind.Web\Pages\Suppliers.cshtml 42
+```
+
+To prevent this, in the Razor Page code-behind file, you should make the `Supplier` property non-nullable (by removing the `?` from `Supplier?`), and then add a statement in the constructor to initialize the `Supplier` property to a new instance, as shown in the following code:
+```cs
+[BindProperty]
+public Supplier Supplier { get; set; }
+
+public SuppliersModel(NorthwindContext db)
+{
+  _db = db;
+
+  // Initialize the Supplier property to avoid null warnings in the view.
+  Supplier = new();
+}
+```
 
 # Page 694 - Exercise 13.3 – Enabling HTTP/3 and request decompression support
 
