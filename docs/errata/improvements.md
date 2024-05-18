@@ -1,4 +1,4 @@
-**Improvements** (42 items)
+**Improvements** (43 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -18,6 +18,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 144 - List pattern matching with arrays](#page-144---list-pattern-matching-with-arrays)
 - [Page 171 - What is automatically generated for a local function?](#page-171---what-is-automatically-generated-for-a-local-function)
 - [Page 206 - Configuring trace listeners](#page-206---configuring-trace-listeners)
+- [Page 247 - Storing multiple values using an enum type](#page-247---storing-multiple-values-using-an-enum-type)
 - [Page 248 - Storing multiple values using an enum type](#page-248---storing-multiple-values-using-an-enum-type)
 - [Page 251 - Making a field static](#page-251---making-a-field-static)
 - [Page 254 - Requiring fields to be set during instantiation](#page-254---requiring-fields-to-be-set-during-instantiation)
@@ -451,6 +452,62 @@ In Steps 3 to 6, you run a console app project twice, and each time a file named
 ```
 System.UnauthorizedAccessException: Access to the path 'C:\Users\<username>\Desktop\log.txt' is denied.
 ```
+
+# Page 247 - Storing multiple values using an enum type
+
+At the bottom of the page, I wrote, "Normally, an `enum` type uses an `int` variable internally, but since we don’t need values that big,
+we can reduce memory requirements by 75%, that is, 1 byte per value instead of 4 bytes, by telling it to use a `byte` variable."
+
+And on the next page, I wrote a **Good Practice** note:
+
+> **Good Practice**: Use the `enum` values to store combinations of discrete options. Derive an `enum` type from `byte` if there are up to eight options, from `ushort` if there are up to 16 options, from `uint` if there are up to 32 options, and from `ulong` if there are up to 64 options.
+
+Note that I did not say, "Turn All Your Enums Into Bytes Now!"
+
+I didn't say that because that would be bad advice.
+
+On March 18, 2024, Nick Chapsas posted a YouTube video titled, [“Turn All Your Enums Into Bytes Now!” | Code Cop #014](https://www.youtube.com/watch?v=1gWzE9SIGkQ). This caused some readers some confusion, so let's dig into it.
+
+> **TL;DR**: Nick's complaint does not conflict with what I wrote in my book. But I will add some clarifying content to the next edition.
+
+The original designers of the C# language spent effort on implementing the ability for `enum` types to derive from other integers than just the default `int`. For example, you can use fewer bytes by using a positive integer like `byte` or `ushort`, or the same or more bytes by using a positive integer like `uint` or `ulong`. They implemented this feature because sometimes a .NET developer will need this capability. 
+
+I think it is important that my readers know that they can do it when necessary. Microsoft official guidance states, "Even though you can change this underlying type, it is not necessary or recommended for most scenarios. No significant performance gain is achieved by using a data type that is smaller than `Int32`." 
+
+This point is worth making, so one improvement I will make in the next edition is to add this Microsoft guidance as a note. 
+
+Let's see some real world examples of when you would need to change an `enum` from deriving from `int` to deriving from another integer type, taken from the comments under Nick's video:
+- You want to *increase* the size of the integer to store more than 16 options in a flag `enum`. This was mentioned in my good practice note since I listed all the integer types, highlighting that the larger ones would allow you to store more bitwise flag options. The default `int` only allows 16 options: 0, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, and 16384. Changing to `uint` would double the number of choices to 32 without using any more space in memory. Changing to `ulong` would give 64 options. Changing to `ushort` would allow the same 16 options in half the bytes.
+- You need to transfer data as a binary stream via a serial connection to an embedded device and you must carefully follow the protocol, or you are defining your own serial messaging protocol and you want to reduce the packet size to make best use of your available bandwidth.
+- You have SQL tables with millions of records where some of the columns are `enum` values. Settings those columns to `tinyint` with a matching `enum : byte` property in the C# entity class can make indexes perform better by being smaller and reducing the number of page reads from disk. Some developers will work on systems that are 30 or more years old with spinning metal disks. Not everyone is deploying to a modern 64-bit OS with modern hardware.
+- You need to reduce the size of a `struct` because it will be created 100,000 times per second on resource-constrained hardware.
+- You have game code that is set to use `byte` and `short` because you have millions of them in contiguous arrays for the game's data. You would gain a fair bit of performance doing this especially from a cache point of view.
+- You have a messaging system that marshals message `struct` types and sends them over legacy hardware with very low bandwidth. In some `struct` types, if the fields are marshalled as `Int32` and message frequency is high then it slows down. These fields are used in combination to represent some state. You could optimize and drastically reduce the size by representing each state as a single `byte` under one `enum` and use bitwise operations to combine the states together using bit masking.
+
+For those developers who object to changing any `enum` from `int` to some other integer, there is a compiler code analysis warning. If enabled, it will trigger if you set an `enum` to anything other than `int`: "CA1028: Enum storage should be Int32." This warning is not enabled by default because Microsoft knows that there are legitimate reasons why a developer might need to use it.
+
+So why would a popular and respected .NET YouTuber like Nick post a video with provocative statements like "it's irredeemable on every single level"? I don't know, but I can speculate. I think it's about the attention economy.
+
+Nick Chapsas is a .NET influencer who posts YouTube videos that contribute to the .NET community and promote his training courses on [Dometrain](https://dometrain.com/). His courses are excellent and his [YouTube videos](https://www.youtube.com/@nickchapsas) help us all to keep our .NET skills sharp and up-to-date. I recommend that all my readers subscribe to his YouTube channel. Although I've never met Nick, he seems like a great guy and I'd like to meet him one day.
+
+Nick posts on LinkedIn with his YouTube videos embedded almost daily. Anyone who is active on LinkedIn and follows a few profiles in the .NET community will have seen C# and .NET "Tip" posts. Some are good, some are okay, and some are bad. The bad ones are annoying for all of us, to say the least. But especially so for influencers like Nick who need to post regularly to promote their businesses. Nick's posts compete for attention not only with other worthy .NET influencers like Pavle Davitković, Milan Jovanović, Nick Cosentino, Dave Callan, and Andrew Lock, but also with a growing number of less-experienced and less-knowledgeable influencers (and probably bots) posting poor content.
+
+I can imagine thinking, "Why not make a video where I can rant about these poor quality tips and AI-generated comments? What tip is easy-to-explain its badness and recently annoyed me?" The particular LinkedIn post Nick chose is titled, **"C# Tip! Convert enums to byte"**. This is a perfect example of a bad tip and therefore a good choice for a video in Nick's *Code Cop* series.
+
+A YouTube video with the title, "Turn All Your Enums Into Bytes Now!" is deliberately provocative because it is designed to increase engagement for the video (and sell more Dometrain courses).
+
+Unfortunately the video caused confusion to at least one of my readers because the issues involved are nuanced and getting attention these days requires strident unsubtlety.
+
+In my book, I tell readers:
+- That they can change the derived integer type for an `enum`.
+- That doing so can save space (I say nothing about performance).
+- That if you are using an `enum` decorated with `[Flags]` to store multiple flags, then "Derive an `enum` type from `byte` if there are up to eight options, from `ushort` if there are up to 16 options, from `uint` if there are up to 32 options, and from `ulong` if there are up to 64 options." 
+
+I do *not* say to convert all enums into bytes.
+
+I will end this with a quote from one of the commenters on Nick's video: "I swear with every Code Cop video Nick becomes more and more insane" ;-)
+
+Finally, a reminder that all my readers would benefit from Nick's videos and courses. You can get the courses here: [Dometrain](https://dometrain.com/).
 
 # Page 248 - Storing multiple values using an enum type
 
