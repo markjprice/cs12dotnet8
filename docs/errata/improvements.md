@@ -455,7 +455,7 @@ System.UnauthorizedAccessException: Access to the path 'C:\Users\<username>\Desk
 
 # Page 247 - Storing multiple values using an enum type
 
-First, note that this section is about storing multiple values using an enum type. It's about `enum` types decorated with the `[Flags]` attribute that use bitwise operations to efficently store those multiple values. It is not about non-`[Flags]` `enum` types.
+First, note that this section is about storing multiple values using an `enum` type. It's about `enum` types decorated with the `[Flags]` attribute that use bitwise operations to efficiently store those multiple values. It is not about non-`[Flags]` `enum` types.
 
 At the bottom of the page, I wrote, "Normally, an `enum` type uses an `int` variable internally, but since we don’t need values that big,
 we can reduce memory requirements by 75%, that is, 1 byte per value instead of 4 bytes, by telling it to use a `byte` variable."
