@@ -457,6 +457,8 @@ System.UnauthorizedAccessException: Access to the path 'C:\Users\<username>\Desk
 
 First, note that this section is about storing multiple values using an `enum` type. It's about `enum` types decorated with the `[Flags]` attribute that use bitwise operations to efficiently store those multiple values. It is not about non-`[Flags]` `enum` types.
 
+In the code example, we have defined an `enum` for the *Wonders of the Ancient World*, so it only needs seven values (and `0` for `None`).
+
 At the bottom of the page, I wrote, "Normally, an `enum` type uses an `int` variable internally, but since we don’t need values that big,
 we can reduce memory requirements by 75%, that is, 1 byte per value instead of 4 bytes, by telling it to use a `byte` variable."
 
