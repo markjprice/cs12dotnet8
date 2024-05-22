@@ -1,8 +1,9 @@
-**Improvements** (43 items)
+**Improvements** (44 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
 - [Page 4 - Setting up your development environment](#page-4---setting-up-your-development-environment)
+- [Page 16 - Understanding intermediate language](#page-16---understanding-intermediate-language)
 - [Page 54 - Understanding C# standards](#page-54---understanding-c-standards)
 - [Page 64 - Formatting code using white space](#page-64---formatting-code-using-white-space)
 - [Page 64 - Understanding C# vocabulary](#page-64---understanding-c-vocabulary)
@@ -57,6 +58,12 @@ If you have suggestions for improvements, then please [raise an issue in this re
 > Thanks to **Ashish** for asking a question in the Discord channel that prompted this improvement.
 
 In this section, I explain what code editors and other tools you typically use to work on .NET project. Most readers use Visual Studio 2022, which is a large and complex tool that can do many things. But for .NET developers, it likes to give its own mechanism to do as much as possible, and a developer can easily think that Visual Studio is the only way to do things. It is just a tool that does work for you that you could do manually. It just shows you a view onto what is really happening in the files you're working on. You could literally just use a plain text editor to manually edit all project files and then use the `dotnet` command-line interface to do all your .NET work. So in the next edition I will add a few paragraphs about this. 
+
+# Page 16 - Understanding intermediate language
+
+I wrote, "The C# compiler (named Roslyn) used by the dotnet CLI tool converts your C# source code into intermediate language (IL) code and stores the IL in an assembly (a DLL or EXE file). IL code statements are like assembly language instructions, which are executed by .NET’s virtual machine, known as CoreCLR."
+
+In the next edition, I will add extra text at the end of the sentence, "...known as CoreCLR, the newer name for the **Common Language Runtime (CLR)** in modern .NET. The legacy .NET Framework has a CLR that is Windows-only, and modern .NET has ones for each OS, like Windows, MacOS, and Linux. These days they are all commonly referred to as CLRs."
 
 # Page 54 - Understanding C# standards
 
