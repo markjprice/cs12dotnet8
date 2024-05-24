@@ -1,4 +1,4 @@
-**Errata** (26 items)
+**Errata** (27 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -13,6 +13,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 87 - Comparing double and decimal types](#page-87---comparing-double-and-decimal-types)
 - [Page 95 - Displaying output to the user](#page-95---displaying-output-to-the-user)
 - [Page 124 - Exploring bitwise and binary shift operators](#page-124---exploring-bitwise-and-binary-shift-operators)
+- [Page 225 - Where to catch exceptions](#page-225---where-to-catch-exceptions)
 - [Page 261 - Passing optional parameters](#page-261---passing-optional-parameters)
 - [Page 316 - Comparing objects when sorting](#page-316---comparing-objects-when-sorting)
 - [Page 361 - Comparing inheritance and implementation](#page-361---comparing-inheritance-and-implementation)
@@ -146,6 +147,14 @@ I should have written `x` and `y`.
 In the last paragraph, I wrote, "The `3` result is because the 1 bits in `b` were shifted one column into the 2-and 1-bit columns."
 
 I should have written, "The `3` result is because the 1 bits in `y` were shifted one column into the 2-and 1-bit columns."
+
+# Page 225 - Where to catch exceptions
+
+> Thanks to Michael Smith for emailing me about this typo on May 22, 2024.
+
+I wrote, "You might know that calling an exception could throw one or more types of exception, ..."
+
+It should be, "You might know that calling a function could throw one or more types of exception, ..."
 
 # Page 261 - Passing optional parameters
 
