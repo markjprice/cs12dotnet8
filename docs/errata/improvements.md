@@ -1,4 +1,4 @@
-**Improvements** (44 items)
+**Improvements** (45 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -9,6 +9,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 64 - Understanding C# vocabulary](#page-64---understanding-c-vocabulary)
 - [Page 79 - Raw interpolated string literals](#page-79---raw-interpolated-string-literals)
 - [Page 87 - Comparing double and decimal types](#page-87---comparing-double-and-decimal-types)
+- [Page 89 - Storing dynamic types, Page 91 - Inferring the type of a local variable](#page-89---storing-dynamic-types-page-91---inferring-the-type-of-a-local-variable)
 - [Page 93 - Using target-typed new to instantiate objects](#page-93---using-target-typed-new-to-instantiate-objects)
   - [What does `new` do?](#what-does-new-do)
 - [Page 96 - Formatting using numbered positional arguments \& Formatting using interpolated strings](#page-96---formatting-using-numbered-positional-arguments--formatting-using-interpolated-strings)
@@ -223,6 +224,14 @@ Note the following:
 - Zero divided by any positive real number is zero.
 - Zero divided by any negative real number is negative zero.
 - `Epsilon` is slightly less than `5E-324` represented using scientific notation: https://en.wikipedia.org/wiki/Scientific_notation.
+
+# Page 89 - Storing dynamic types, Page 91 - Inferring the type of a local variable
+
+> Thanks to **Ashish** in the Discord channel who raised this issue.
+
+In the next edition, I will add a note to compare `var` with `dynamic`. For example:
+
+> Note that `var` is converted to the actual type by the compiler when you build a project. A variable declared using `var` has a specific, known, fixed data type. This is different from `dynamic` which the compiler does not change. It remains a `System.Dynamic` type that can reference any object of any data type. The actual type is only checked at runtime, so that's when an exception might be thrown if you access a member on it that does not exist.
 
 # Page 93 - Using target-typed new to instantiate objects
 
