@@ -1,4 +1,4 @@
-**Improvements** (45 items)
+**Improvements** (46 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -49,6 +49,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 535 - Scaffolding models using an existing database](#page-535---scaffolding-models-using-an-existing-database)
 - [Page 541 - Querying EF Core models](#page-541---querying-ef-core-models)
 - [Page 583 - Building LINQ expressions with the Enumerable class](#page-583---building-linq-expressions-with-the-enumerable-class)
+- [Page 634 - Creating the Northwind database](#page-634---creating-the-northwind-database)
 - [Page 634 - Creating a class library for entity models using SQLite](#page-634---creating-a-class-library-for-entity-models-using-sqlite)
 - [Page 638 - Creating a class library for a database context using SQLite](#page-638---creating-a-class-library-for-a-database-context-using-sqlite)
 - [Page 640 - Customizing the model and defining an extension method](#page-640---customizing-the-model-and-defining-an-extension-method)
@@ -1078,6 +1079,18 @@ Method(s)|Description
 `SequenceEqual`|Returns `true` or `false` depending on whether two sequences are equal according to an equality comparer.
 `SkipLast`|Returns a new enumerable collection that contains the elements from source with the last count elements of the source collection omitted.
 `TakeLast`|Returns a new enumerable collection that contains the last count elements from source.
+
+# Page 634 - Creating the Northwind database
+
+> Thanks to [Paul Marangoni](https://github.com/pmarangoni) for raising this [issue on May 30, 2024](https://github.com/markjprice/cs12dotnet8/issues/40).
+
+I wrote, "The script files for creating the Northwind database for SQLite and SQL Server are different. The script
+for SQL Server creates 13 tables as well as related views and stored procedures. The script for SQLite
+is a simplified version that only creates 10 tables because SQLite does not support as many features.
+The main projects in this book only need those 10 tables so you can complete every task in this book
+with either database."
+
+One of the differences is that the SQLite script creates an `EmployeeTerritory` table but the SQL Server one does not. This causes a difference in how the EF Core model is represented. It would be better if they were more similar and simplified. In the next edition, I will likely remove `EmployeeTerritory` table from the SQLite script.
 
 # Page 634 - Creating a class library for entity models using SQLite
 
