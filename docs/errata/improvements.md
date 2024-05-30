@@ -1090,7 +1090,7 @@ is a simplified version that only creates 10 tables because SQLite does not supp
 The main projects in this book only need those 10 tables so you can complete every task in this book
 with either database."
 
-One of the differences is that the SQLite script creates an `EmployeeTerritory` table but the SQL Server one does not. This causes a difference in how the EF Core model is represented. It would be better if they were more similar and simplified. In the next edition, I will likely remove `EmployeeTerritory` table from the SQLite script.
+One of the differences is that the SQLite script creates an `EmployeeTerritory` table but the SQL Server one does not. This causes a difference in how the EF Core model is represented. It would be better if they were more similar and simplified. In the next edition, I will likely remove `EmployeeTerritory` table from the SQLite script and any others that I do not use in my demonstrations in the book. I might also simplify the script for SQL Server too so that they match better.
 
 # Page 634 - Creating a class library for entity models using SQLite
 
