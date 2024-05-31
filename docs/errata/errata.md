@@ -1,4 +1,4 @@
-**Errata** (27 items)
+**Errata** (28 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -13,6 +13,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 87 - Comparing double and decimal types](#page-87---comparing-double-and-decimal-types)
 - [Page 95 - Displaying output to the user](#page-95---displaying-output-to-the-user)
 - [Page 124 - Exploring bitwise and binary shift operators](#page-124---exploring-bitwise-and-binary-shift-operators)
+- [Page 149 - How negative numbers are represented in binary](#page-149---how-negative-numbers-are-represented-in-binary)
 - [Page 225 - Where to catch exceptions](#page-225---where-to-catch-exceptions)
 - [Page 261 - Passing optional parameters](#page-261---passing-optional-parameters)
 - [Page 316 - Comparing objects when sorting](#page-316---comparing-objects-when-sorting)
@@ -147,6 +148,27 @@ I should have written `x` and `y`.
 In the last paragraph, I wrote, "The `3` result is because the 1 bits in `b` were shifted one column into the 2-and 1-bit columns."
 
 I should have written, "The `3` result is because the 1 bits in `y` were shifted one column into the 2-and 1-bit columns."
+
+# Page 149 - How negative numbers are represented in binary
+
+> Thanks to [Mahmoud Elnagar](https://github.com/m-ngr) for raising [this issue on May 26, 2024](https://github.com/markjprice/cs12dotnet8/issues/38).
+
+In Step 3, I wrote, "Note that all the positive binary number representations start with 0 and all the negative binary number representations start with 1. The decimal value -1 is represented by all ones in binary. That is why when you have an integer too large to fit in a 32-bit integer, it becomes -1."
+
+As Mahmoud says, it's not always the case that the result of this type of casting is -1. When casting from a wider integer data type to a narrower integer data type, the most significant extra bits gets truncated and the least significant bits represents the result of the casting. For example:
+```cs
+long x = 0b_101000101010001100100111010100101010;
+int y = (int) x;
+
+Console.WriteLine($"{x,64:B64} = {x}");
+Console.WriteLine($"{y,64:B32} = {y}");
+```
+
+The result:
+```
+0000000000000000000000000000101000101010001100100111010100101010 = 43657622826
+                                00101010001100100111010100101010 = 707949866
+```
 
 # Page 225 - Where to catch exceptions
 
