@@ -1,4 +1,4 @@
-**Errata** (28 items)
+**Errata** (29 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -16,6 +16,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 149 - How negative numbers are represented in binary](#page-149---how-negative-numbers-are-represented-in-binary)
 - [Page 225 - Where to catch exceptions](#page-225---where-to-catch-exceptions)
 - [Page 261 - Passing optional parameters](#page-261---passing-optional-parameters)
+- [Page 265 - Controlling how parameters are passed](#page-265---controlling-how-parameters-are-passed)
 - [Page 316 - Comparing objects when sorting](#page-316---comparing-objects-when-sorting)
 - [Page 361 - Comparing inheritance and implementation](#page-361---comparing-inheritance-and-implementation)
 - [Page 383 - Creating a console app to publish](#page-383---creating-a-console-app-to-publish)
@@ -191,6 +192,14 @@ Although extra whitespace has no effect on the compiler, in the next edition, I 
 ```cs
 public string OptionalParameters(string command = "Run!",
 ```
+
+# Page 265 - Controlling how parameters are passed
+
+> Thanks to [Stanislav Svystovych](https://github.com/ssvyst) for raising [this issue on June 4, 2024](https://github.com/markjprice/cs12dotnet8/issues/42).
+
+In Step 4, I wrote, "In `Program.cs`, add statements to declare some more variables, including an `out` parameter named `f` declared inline, ..."
+
+The variable name is `h` not `f`, so this should be, "In `Program.cs`, add statements to declare some more variables, including an `out` parameter named `h` declared inline, ..."
 
 # Page 316 - Comparing objects when sorting
 
