@@ -1,4 +1,4 @@
-**Improvements** (46 items)
+**Improvements** (47 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -14,6 +14,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
   - [What does `new` do?](#what-does-new-do)
 - [Page 96 - Formatting using numbered positional arguments \& Formatting using interpolated strings](#page-96---formatting-using-numbered-positional-arguments--formatting-using-interpolated-strings)
 - [Page 99 - Custom number formatting](#page-99---custom-number-formatting)
+- [Page 101 - Getting text input from the user, and Page 120 - Null-coalescing operators](#page-101---getting-text-input-from-the-user-and-page-120---null-coalescing-operators)
 - [Page 127 - Pattern matching with the if statement](#page-127---pattern-matching-with-the-if-statement)
 - [Page 131 - Pattern matching with the switch statement](#page-131---pattern-matching-with-the-switch-statement)
 - [Page 132 - Pattern matching with the switch statement](#page-132---pattern-matching-with-the-switch-statement)
@@ -368,6 +369,27 @@ WriteLine("Currency: {0:C}, Percentage: {0:0.0%}", value);
 ```
 
 I will also add the diagram from the issue comments.
+
+# Page 101 - Getting text input from the user, and Page 120 - Null-coalescing operators
+
+> Thanks to [rmantel23](https://github.com/rmantel23) for raising [this issue on June 4, 2024](https://github.com/markjprice/cs12dotnet8/issues/44).
+
+In both of these sections, I show example code that calls the `ReadLine` method of the `Console` class. This method declares that it could return a `string` value or a `null` value (`string?`). 
+
+In the next edition, I will add a little bit more explanation. For example:
+
+The `ReadLine` method reads the next line of input from the standard input stream. If the user presses *Enter* without typing anything, `ReadLine` will return an empty `string`, not `null`. In typical console apps, `ReadLine` returns `null` only if the end-of-stream (EOF) is reached. This is not something that can usually be achieved by user input in a standard console environment since EOF is typically signaled by the console being closed or redirected input being fully consumed.
+
+In the context of the following code:
+```cs
+string? authorName = ReadLine(); // Prompt user to enter an author name.
+```
+
+Here are the conditions under which `authorName` might be `null`:
+- If the standard input stream is redirected and reaches EOF.
+- If you are testing in an environment where you can simulate EOF, like some development environments or automated testing setups.
+
+However, under normal user input conditions, `null` will "never" be returned.
 
 # Page 127 - Pattern matching with the if statement
 
