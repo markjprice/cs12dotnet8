@@ -1,4 +1,4 @@
-**Errata** (29 items)
+**Errata** (30 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -12,6 +12,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 65 - Comparing programming languages to human languages](#page-65---comparing-programming-languages-to-human-languages)
 - [Page 87 - Comparing double and decimal types](#page-87---comparing-double-and-decimal-types)
 - [Page 95 - Displaying output to the user](#page-95---displaying-output-to-the-user)
+- [Page 110 - Handling platforms that do not support an API](#page-110---handling-platforms-that-do-not-support-an-api)
 - [Page 124 - Exploring bitwise and binary shift operators](#page-124---exploring-bitwise-and-binary-shift-operators)
 - [Page 149 - How negative numbers are represented in binary](#page-149---how-negative-numbers-are-represented-in-binary)
 - [Page 225 - Where to catch exceptions](#page-225---where-to-catch-exceptions)
@@ -135,6 +136,53 @@ And the same for the second code block:
 Console.WriteLine("A");
 Console.WriteLine("B");
 Console.WriteLine("C");
+```
+
+# Page 110 - Handling platforms that do not support an API
+
+> Thanks to [rmantel23](https://github.com/rmantel23) for raising [this issue on June 4, 2024](https://github.com/markjprice/cs12dotnet8/issues/43).
+
+At the top of page 110, I wrote, "Another way to handle differences in operating systems is to use the `OperatingSystem` class in the
+`System` namespace, as shown in the following code:"
+```cs
+if (OperatingSystem.IsWindows())
+{
+  // Execute code that only works on Windows.
+}
+else if (OperatingSystem.IsWindowsVersionAtLeast(major: 10))
+{
+  // Execute code that only works on Windows 10 or later.
+}
+else if (OperatingSystem.IsIOSVersionAtLeast(major: 14, minor: 5))
+{
+  // Execute code that only works on iOS 14.5 or later.
+}
+else if (OperatingSystem.IsBrowser())
+{
+  // Execute code that only works in the browser with Blazor.
+}
+```
+
+But the `if (OperatingSystem.IsWindows())` branch will always execute if the OS is Windows, and therefore the `else if (OperatingSystem.IsWindowsVersionAtLeast(major: 10))` branch will never execute! 
+
+In the next edition I will fix the logic error, as shown in the following code:
+```cs
+if (OperatingSystem.IsWindowsVersionAtLeast(major: 10))
+{
+  // Execute code that only works on Windows 10 or later.
+}
+else if (OperatingSystem.IsWindows())
+{
+  // Execute code that only works on earlier versions of Windows.
+}
+else if (OperatingSystem.IsIOSVersionAtLeast(major: 14, minor: 5))
+{
+  // Execute code that only works on iOS 14.5 or later.
+}
+else if (OperatingSystem.IsBrowser())
+{
+  // Execute code that only works in the browser with Blazor.
+}
 ```
 
 # Page 124 - Exploring bitwise and binary shift operators
