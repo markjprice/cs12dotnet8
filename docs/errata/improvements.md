@@ -376,7 +376,7 @@ I will also add the diagram from the issue comments.
 
 In both of these sections, I show example code that calls the `ReadLine` method of the `Console` class. This method declares that it could return a `string` value or a `null` value (`string?`). 
 
-In the next edition, I will add a little bit more explanation. For example:
+In the next edition, on page 120 I will change the method name to `GetAuthorName` and I will add a little bit more explanation. For example:
 
 The `ReadLine` method reads the next line of input from the standard input stream. If the user presses *Enter* without typing anything, `ReadLine` will return an empty `string`, not `null`. In typical console apps, `ReadLine` returns `null` only if the end-of-stream (EOF) is reached. This is not something that can usually be achieved by user input in a standard console environment since EOF is typically signaled by the console being closed or redirected input being fully consumed.
 
@@ -390,6 +390,11 @@ Here are the conditions under which `authorName` might be `null`:
 - If you are testing in an environment where you can simulate EOF, like some development environments or automated testing setups.
 
 However, under normal user input conditions, `null` will "never" be returned.
+
+To avoid confusion, in the next edition, I will change the code to the following:
+```cs
+string? authorName = GetAuthorName(); // A custom method.
+```
 
 # Page 127 - Pattern matching with the if statement
 
