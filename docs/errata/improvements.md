@@ -1,4 +1,4 @@
-**Improvements** (47 items)
+**Improvements** (48 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -41,6 +41,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
   - [Using the spread element](#using-the-spread-element)
   - [Collection expression limitations](#collection-expression-limitations)
 - [Page 460 - Identifying ranges with the Range type](#page-460---identifying-ranges-with-the-range-type)
+- [Page 477 - Building a stream pipeline](#page-477---building-a-stream-pipeline)
 - [Page 484 - Compressing streams](#page-484---compressing-streams)
 - [Page 493 - Serializing as XML](#page-493---serializing-as-xml)
 - [Page 517 - Using SQL Server or other SQL systems](#page-517---using-sql-server-or-other-sql-systems)
@@ -832,6 +833,14 @@ Range r7 = ..3; // From index 0 to index 3.
 ```
 
 In the next edition, I will add a note to warn the reader that the spread element `..` looks the same but means something different and refer back to it in a  new section explaining the spread element. 
+
+# Page 477 - Building a stream pipeline
+
+> Thanks to **Pampua84** in the book's Discord channel for making this suggestion.
+
+In this short section, I wrote, "It is very common to combine a helper like StreamWriter and multiple function streams like CryptoStream and GZipStream with a storage stream like FileStream into a pipeline, as shown in Figure 9.4:"
+
+In the next edition, I will add something similar to, as **Pampua84** said in the Discord channel, "the order of the pipes can significantly impact both the performance and the size of the generated file. In fact, as Stephen Toub mentioned in this article (https://learn.microsoft.com/en-us/archive/msdn-magazine/2008/february/net-matters-stream-pipeline), by changing the order of the encryption and compression tasks, substantial improvements can be achieved, if possible."
 
 # Page 484 - Compressing streams
 
