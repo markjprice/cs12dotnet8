@@ -838,9 +838,9 @@ In the next edition, I will add a note to warn the reader that the spread elemen
 
 > Thanks to **Pampua84** in the book's Discord channel for making this suggestion.
 
-In this short section, I wrote, "It is very common to combine a helper like StreamWriter and multiple function streams like CryptoStream and GZipStream with a storage stream like FileStream into a pipeline, as shown in Figure 9.4:"
+In this short section, I wrote, "It is very common to combine a helper like `StreamWriter` and multiple function streams like `CryptoStream` and `GZipStream` with a storage stream like `FileStream` into a pipeline, ..."
 
-In the next edition, I will add something similar to, as **Pampua84** said in the Discord channel, "the order of the pipes can significantly impact both the performance and the size of the generated file. In fact, as Stephen Toub mentioned in this article (https://learn.microsoft.com/en-us/archive/msdn-magazine/2008/february/net-matters-stream-pipeline), by changing the order of the encryption and compression tasks, substantial improvements can be achieved, if possible."
+In the next edition, I will add a note to say something like the following, taken from [an article by Stephen Toub](https://learn.microsoft.com/en-us/archive/msdn-magazine/2008/february/net-matters-stream-pipeline): "Good encryption will generate relatively uncompressible data. If you switch the order of the operations so that you first compress and then encrypt, not only should you end up with a smaller file, but the encryption will most likely take less time as it'll be operating on less data."
 
 # Page 484 - Compressing streams
 
