@@ -1,4 +1,4 @@
-**Improvements** (48 items)
+**Improvements** (49 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -21,6 +21,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 144 - List pattern matching with arrays](#page-144---list-pattern-matching-with-arrays)
 - [Page 171 - What is automatically generated for a local function?](#page-171---what-is-automatically-generated-for-a-local-function)
 - [Page 206 - Configuring trace listeners](#page-206---configuring-trace-listeners)
+- [Page 236 - Understanding members](#page-236---understanding-members)
 - [Page 247 - Storing multiple values using an enum type](#page-247---storing-multiple-values-using-an-enum-type)
 - [Page 248 - Storing multiple values using an enum type](#page-248---storing-multiple-values-using-an-enum-type)
 - [Page 251 - Making a field static](#page-251---making-a-field-static)
@@ -497,6 +498,16 @@ In Steps 3 to 6, you run a console app project twice, and each time a file named
 ```
 System.UnauthorizedAccessException: Access to the path 'C:\Users\<username>\Desktop\log.txt' is denied.
 ```
+
+# Page 236 - Understanding members
+
+> Thanks to [rmantel23](https://github.com/rmantel23) who raised [this issue on June 11, 2024](https://github.com/markjprice/cs12dotnet8/issues/46).
+
+In the second bullet about fields, I wrote, "**Read-only**: The data cannot change after the class is instantiated, but the data can be calculated or loaded from an external source at the time of instantiation. For example, `DateTime.UnixEpoch` is January 1, 1970."
+
+The readonly field `DateTime.UnixEpoch` was introduced with .NET Standard 2.1 and .NET Core 2.1, so if the reader tries to use this field in the .NET Standard 2.0 class library named `PacktLibraryNetStandard2`, it won't be available. 
+
+In the next edition, I will add some different examples: "`String.Empty` is `""`, `Guid.Empty` is a GUID with all zeros, `TimeSpan.Zero` is a time interval of zero, `DateTime.MinValue` is `00:00:00.0000000 UTC, January 1, 0001` in the Gregorian calendar, and `Path.DirectorySeparatorChar` is `\` on Windows. `DateTime.UnixEpoch` is `00:00:00.0000000 UTC, January 1, 1970` in the Gregorian calendar but this field was introduced after .NET Standard 2.0 so you won't be able to try it in your current class library."
 
 # Page 247 - Storing multiple values using an enum type
 
