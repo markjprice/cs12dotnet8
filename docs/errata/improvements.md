@@ -507,7 +507,13 @@ In the second bullet about fields, I wrote, "**Read-only**: The data cannot chan
 
 The readonly field `DateTime.UnixEpoch` was introduced with .NET Standard 2.1 and .NET Core 2.1, so if the reader tries to use this field in the .NET Standard 2.0 class library named `PacktLibraryNetStandard2`, it won't be available. 
 
-In the next edition, I will add some different examples: "`String.Empty` is `""`, `Guid.Empty` is a GUID with all zeros, `TimeSpan.Zero` is a time interval of zero, `DateTime.MinValue` is `00:00:00.0000000 UTC, January 1, 0001` in the Gregorian calendar, and `Path.DirectorySeparatorChar` is `\` on Windows. `DateTime.UnixEpoch` is `00:00:00.0000000 UTC, January 1, 1970` in the Gregorian calendar but this field was introduced after .NET Standard 2.0 so you won't be able to try it in your current class library."
+In the next edition, I will add some different examples and explain this limitation: "`String.Empty` is `""`, `Guid.Empty` is a GUID with all zeros, `TimeSpan.Zero` is a time interval of zero, `DateTime.MinValue` is `00:00:00.0000000 UTC, January 1, 0001` in the Gregorian calendar, and `Path.DirectorySeparatorChar` is `\` on Windows. `DateTime.UnixEpoch` is `00:00:00.0000000 UTC, January 1, 1970` in the Gregorian calendar but this field was introduced after .NET Standard 2.0 so you won't be able to try it in your current class library."
+
+In the first bullet point about fields, I wrote, "**Constant**: The data never changes. The compiler literally copies the data into any code that reads it. For example, `byte.MaxValue` is always `255`."
+
+In the next edition, I will add more text, "Constants must be set to a literal value. Literal values can only be a `string` defined with `""`, a `char` defined with single quotes, a Boolean like `true` or `false`, or a number like `3`, `3L`, `3.0`, `3.0F`, or `3.0M`. Non-literal values are not supported so you cannot have a constant date/time value."
+
+> On page 251, in the section titled, *Making a field constant*, I wrote, "If the value of a field will never ever change, you can use the `const` keyword and assign a literal value at compile time." On page 252, in the **Good Practice** box, I wrote, "Constants are not always the best choice for two important reasons: the value must be known at compile time, and it must be expressible as a literal string, Boolean, or number value." But it's best if I repeat the information that constants can only be a literal value earlier in the chapter.
 
 # Page 247 - Storing multiple values using an enum type
 
