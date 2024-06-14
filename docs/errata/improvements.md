@@ -1,4 +1,4 @@
-**Improvements** (49 items)
+**Improvements** (50 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -8,6 +8,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 64 - Formatting code using white space](#page-64---formatting-code-using-white-space)
 - [Page 64 - Understanding C# vocabulary](#page-64---understanding-c-vocabulary)
 - [Page 79 - Raw interpolated string literals](#page-79---raw-interpolated-string-literals)
+- [Page 83 - Storing real numbers](#page-83---storing-real-numbers)
 - [Page 87 - Comparing double and decimal types](#page-87---comparing-double-and-decimal-types)
 - [Page 89 - Storing dynamic types, Page 91 - Inferring the type of a local variable](#page-89---storing-dynamic-types-page-91---inferring-the-type-of-a-local-variable)
 - [Page 93 - Using target-typed new to instantiate objects](#page-93---using-target-typed-new-to-instantiate-objects)
@@ -161,6 +162,22 @@ Now it produces the following output:
 }
 ```
 In the next edition, I will add this extra explanation.
+
+# Page 83 - Storing real numbers
+
+In this section, I wrote about "how a computer represents the number `12.75` in binary notation." I also wrote, "So, `12.75` in decimal is `00001100.1100` in binary."
+
+On page 85, I wrote, "To represent `0.1` in binary, the computer stores 1 in the 1/16 column, 1 in the 1/32 column, 1 in the 1/256 column, 1 in the 1/512 column, and so on. The number `0.1` in decimal is `0.00011001100110011…` in binary, repeating forever:"
+
+But a reader got confused when I used the word "decimal" between the concept of decimal notation and the `decimal` type. Note that when refering to the `decimal` type I use a `monospace` "code" font.
+
+In future editions, I will add the word "notation" after words like "decimal" and "binary" to clarify when I am refering to a notation or numbering system.
+
+So, on page 83, I will write, "So, `12.75` in decimal notation is `00001100.1100` in binary notation." 
+
+On page 85, I will write, "To represent `0.1` in binary notation, the computer stores 1 in the 1/16 column, 1 in the 1/32 column, 1 in the 1/256 column, 1 in the 1/512 column, and so on. The number `0.1` in decimal notation is `0.00011001100110011…` in binary notation, repeating forever:"
+
+I will also change the *Figure 2.7* caption to say, "Figure 2.7: Number 0.1 in decimal notation repeating forever in binary notation"
 
 # Page 87 - Comparing double and decimal types
 
