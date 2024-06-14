@@ -169,7 +169,7 @@ In this section, I wrote about "how a computer represents the number `12.75` in 
 
 On page 85, I wrote, "To represent `0.1` in binary, the computer stores 1 in the 1/16 column, 1 in the 1/32 column, 1 in the 1/256 column, 1 in the 1/512 column, and so on. The number `0.1` in decimal is `0.00011001100110011…` in binary, repeating forever:"
 
-But a reader got confused when I used the word "decimal" between the concept of decimal notation and the `decimal` type. Note that when refering to the `decimal` type I use a `monospace` "code" font.
+But a reader got confused when I used the word "decimal" between the concept of decimal notation and the `decimal` type. Note that when referring to the `decimal` type I use a `monospace` "code" font.
 
 In future editions, I will add the word "notation" after words like "decimal" and "binary" to clarify when I am refering to a notation or numbering system.
 
