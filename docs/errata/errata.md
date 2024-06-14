@@ -1,4 +1,4 @@
-**Errata** (30 items)
+**Errata** (31 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -18,6 +18,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 225 - Where to catch exceptions](#page-225---where-to-catch-exceptions)
 - [Page 261 - Passing optional parameters](#page-261---passing-optional-parameters)
 - [Page 265 - Controlling how parameters are passed](#page-265---controlling-how-parameters-are-passed)
+- [Page 295 - Setting up a class library and console application](#page-295---setting-up-a-class-library-and-console-application)
 - [Page 316 - Comparing objects when sorting](#page-316---comparing-objects-when-sorting)
 - [Page 361 - Comparing inheritance and implementation](#page-361---comparing-inheritance-and-implementation)
 - [Page 383 - Creating a console app to publish](#page-383---creating-a-console-app-to-publish)
@@ -248,6 +249,20 @@ public string OptionalParameters(string command = "Run!",
 In Step 4, I wrote, "In `Program.cs`, add statements to declare some more variables, including an `out` parameter named `f` declared inline, ..."
 
 The variable name is `h` not `f`, so this should be, "In `Program.cs`, add statements to declare some more variables, including an `out` parameter named `h` declared inline, ..."
+
+# Page 295 - Setting up a class library and console application
+
+> Thanks to [rmantel23](https://github.com/rmantel23) for raising [this issue on June 14, 2024](https://github.com/markjprice/cs12dotnet8/issues/48).
+
+In Step 6, I defined a region for properties and meant to define three properties, but although the first two members are properties, the third is missing its getter and setter, as shown in the following code:
+```cs
+public List<Person> Children = new();
+```
+
+It should be as follows:
+```cs
+public List<Person> Children { get; set; } = new();
+```
 
 # Page 316 - Comparing objects when sorting
 

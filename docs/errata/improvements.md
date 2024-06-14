@@ -477,7 +477,9 @@ Here is the discussion about allowing trailing commas for switch expressions bac
 Even JSON serializers have an option to allow this because it is so common to use.
 https://learn.microsoft.com/en-us/dotnet/api/system.text.json.jsonserializeroptions.allowtrailingcommas
 
-In the next edition, I will move the note earlier in the book to when I first use the technique.
+In the next edition, I will move the note earlier in the book to when I first use the technique on page 144.
+
+> I also use this technique on page 281 so I will note it there too. 
 
 # Page 171 - What is automatically generated for a local function?
 
