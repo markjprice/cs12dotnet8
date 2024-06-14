@@ -466,7 +466,7 @@ static string CheckSwitch(int[] values) => values switch
   [0, _] => "Starts with 0, then one other number.",
   [0, ..] => "Starts with 0, then any range of numbers.",
   [2, .. int[] others] => $"Starts with 2, then {others.Length} more numbers.",
-  [..] => "Any items in any order.", // <-- Note the trailing comma.
+  [..] => "Any items in any order.", // <-- Note the trailing comma for easier re-ordering.
 };
 ```
 
@@ -477,9 +477,9 @@ Here is the discussion about allowing trailing commas for switch expressions bac
 Even JSON serializers have an option to allow this because it is so common to use.
 https://learn.microsoft.com/en-us/dotnet/api/system.text.json.jsonserializeroptions.allowtrailingcommas
 
-In the next edition, I will move the note earlier in the book to when I first use the technique on page 144.
+In the next edition, I will move the note earlier in the book to when I first use the technique on page 144, and I will add the comment above to all instances where I use it.
 
-> I also use this technique on page 281 so I will note it there too. 
+> I also use this technique on page 281 as noted by [rmantel23](https://github.com/rmantel23) so I will note it there too. 
 
 # Page 171 - What is automatically generated for a local function?
 
