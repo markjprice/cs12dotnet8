@@ -8,7 +8,7 @@ public class Person : IComparable<Person>
 
   public DateTimeOffset Born { get; set; }
 
-  public List<Person> Children = new();
+  public List<Person> Children { get; set; } = new();
 
   // Allow multiple spouses to be stored for a person.
   public List<Person> Spouses = new();
@@ -200,12 +200,13 @@ public class Person : IComparable<Person>
       // doesn't exist! When I wrote the `if`, I covered all combinations of
       // `null` and `not null` for `other` and `this` when one of those
       // combinations could never in practice happen.
-      /*
+      // However, if you remove the `else` statement, the C# compiler will 
+      // think that it is possible for the position not to be set and give
+      // a compiler error. So, I have left it in for completeness.
       else
       {
         position = 0; // this and other are at same position.
       }
-      */
     }
     else if (other is null)
     {
