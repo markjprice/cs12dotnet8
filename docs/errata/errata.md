@@ -295,7 +295,7 @@ In the second sentence, I failed to name the variable. The sentence should be: "
 
 In Step 9, the final `else` statement will never execute because the logic of the `if` and `else if` clauses mean it will only execute when `this` (the current object instance) is `null`. In that scenario, the method could not execute anyway since the object wouldn't exist! When I wrote the `if` statement, I exhaustively covered all combinations of `null` and `not null` for `other` and `this`, but one of those combinations could never in practice happen. 
 
-In the next edition, I will delete the following code from the `CompareTo` method:
+In the next edition, I will add a comment for the following code from the `CompareTo` method:
 ```cs
 else
 {

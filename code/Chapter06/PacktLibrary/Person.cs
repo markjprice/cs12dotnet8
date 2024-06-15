@@ -178,6 +178,8 @@ public class Person : IComparable<Person>
 
     if (other is not null)
     {
+      // If this and other are not null, then compare their names.
+
       if ((Name is not null) && (other.Name is not null))
       {
         // If both Name values are not null, then
@@ -192,18 +194,7 @@ public class Person : IComparable<Person>
       {
         position = 1; // this Person follows other Person.
       }
-
-      // In the book, I included the following branch, but it is not necessary.
-      // The final `else` statement will never execute because it will only
-      // execute when `this` (the current object instance) is `null`, and in
-      // that scenario, the method could not execute anyway since the object
-      // doesn't exist! When I wrote the `if`, I covered all combinations of
-      // `null` and `not null` for `other` and `this` when one of those
-      // combinations could never in practice happen.
-      // However, if you remove the `else` statement, the C# compiler will 
-      // think that it is possible for the position not to be set and give
-      // a compiler error. So, I have left it in for completeness.
-      else
+      else // Both names are null.
       {
         position = 0; // this and other are at same position.
       }
@@ -212,7 +203,15 @@ public class Person : IComparable<Person>
     {
       position = -1; // this Person precedes other Person.
     }
-    else
+
+    // In the book, I included the following branch, but it is not necessary.
+    // The final `else` statement will never execute because it will only
+    // execute when `this` (the current object instance) is `null`, and in
+    // that scenario, the method could not execute anyway since the object
+    // doesn't exist! When I wrote the `if`, I covered all combinations of
+    // `null` and `not null` for `other` and `this` when one of those
+    // combinations could never in practice happen.
+    else // Both this and other are null.
     {
       position = 0; // this and other are at same position.
     }
