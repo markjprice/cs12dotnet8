@@ -1,4 +1,4 @@
-**Errata** (32 items)
+**Errata** (33 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -20,6 +20,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 265 - Controlling how parameters are passed](#page-265---controlling-how-parameters-are-passed)
 - [Page 295 - Setting up a class library and console application](#page-295---setting-up-a-class-library-and-console-application)
 - [Page 296 - Implementing functionality using methods](#page-296---implementing-functionality-using-methods)
+- [Page 305 - Working with non-generic types](#page-305---working-with-non-generic-types)
 - [Page 316 - Comparing objects when sorting](#page-316---comparing-objects-when-sorting)
 - [Page 361 - Comparing inheritance and implementation](#page-361---comparing-inheritance-and-implementation)
 - [Page 383 - Creating a console app to publish](#page-383---creating-a-console-app-to-publish)
@@ -278,6 +279,15 @@ It should be as follows:
 ```cs
 public List<Person> Spouses { get; set; } = new();
 ```
+
+# Page 305 - Working with non-generic types
+
+> Thanks to [rmantel23](https://github.com/rmantel23) for raising [this issue on June 14, 2024](https://github.com/markjprice/cs12dotnet8/issues/51).
+
+After the four steps, I wrote a paragraph, "Although the code works, there is potential for mistakes because literally any type can be used for the
+key or value. If another developer used your variable named and expected all the items to be a certain type, ..."
+
+In the second sentence, I failed to name the variable. The sentence should be: "If another developer used your variable named `lookupObject` and expected all the items to be a certain type, ..." Or I might just delete the word "named". Either would make the sentence less confusing.
 
 # Page 316 - Comparing objects when sorting
 
