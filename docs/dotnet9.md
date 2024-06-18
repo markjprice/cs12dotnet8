@@ -15,14 +15,14 @@ Microsoft will release previews of .NET 9 regularly starting in February 2024 un
 - [.NET 9 Release Index](https://github.com/dotnet/core/discussions/9234)
 - February 13, 2024: [Our Vision for .NET 9](https://devblogs.microsoft.com/dotnet/our-vision-for-dotnet-9/)
 - March 12, 2024: [.NET 9 Preview 2](https://github.com/dotnet/core/discussions/9217)
-- April, 2024: .NET 9 Preview 3
-- May, 2024: .NET 9 Preview 4
-- June, 2024: .NET 9 Preview 5
+- April 11, 2024: [.NET 9 Preview 3](https://github.com/dotnet/core/discussions/9271)
+- May 21, 2024: [.NET 9 Preview 4](https://github.com/dotnet/core/discussions/9318)
+- June 11, 2024: [.NET 9 Preview 5](https://github.com/dotnet/core/discussions/9350)
 - July, 2024: .NET 9 Preview 6
 - August, 2024: .NET 9 Preview 7
 - September, 2024: .NET 9 Release Candidate 1
 - October, 2024: .NET 9 Release Candidate 2
-- November 12, 2024: .NET 9.0
+- November 12, 2024: .NET 9.0 GA (general availability)
 
 # How to switch from .NET 8 to .NET 9
 
