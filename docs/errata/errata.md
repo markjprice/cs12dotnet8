@@ -1,4 +1,4 @@
-**Errata** (33 items)
+**Errata** (34 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -22,6 +22,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 296 - Implementing functionality using methods](#page-296---implementing-functionality-using-methods)
 - [Page 305 - Working with non-generic types](#page-305---working-with-non-generic-types)
 - [Page 316 - Comparing objects when sorting](#page-316---comparing-objects-when-sorting)
+- [Page 324 - How reference and value types are stored in memory](#page-324---how-reference-and-value-types-are-stored-in-memory)
 - [Page 361 - Comparing inheritance and implementation](#page-361---comparing-inheritance-and-implementation)
 - [Page 383 - Creating a console app to publish](#page-383---creating-a-console-app-to-publish)
 - [Page 386 - Publishing a self-contained app](#page-386---publishing-a-self-contained-app)
@@ -305,6 +306,12 @@ else
 
 And I will add a comment in the code explaining why it is not needed. I have already done this in the code solution here:
 https://github.com/markjprice/cs12dotnet8/blob/main/code/Chapter06/PacktLibrary/Person.cs#L196
+
+# Page 324 - How reference and value types are stored in memory
+
+> Thanks to [rmantel23](https://github.com/rmantel23) for raising [this issue on June 17, 2024](https://github.com/markjprice/cs12dotnet8/issues/53).
+
+In the code, I used `TimeSpace.Zero`. It should be `TimeSpan.Zero`.
 
 # Page 361 - Comparing inheritance and implementation
 
