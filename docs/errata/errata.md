@@ -23,6 +23,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 305 - Working with non-generic types](#page-305---working-with-non-generic-types)
 - [Page 316 - Comparing objects when sorting](#page-316---comparing-objects-when-sorting)
 - [Page 324 - How reference and value types are stored in memory](#page-324---how-reference-and-value-types-are-stored-in-memory)
+- [Page 344 - Inheriting from classes](#page-344---inheriting-from-classes)
 - [Page 361 - Comparing inheritance and implementation](#page-361---comparing-inheritance-and-implementation)
 - [Page 383 - Creating a console app to publish](#page-383---creating-a-console-app-to-publish)
 - [Page 386 - Publishing a self-contained app](#page-386---publishing-a-self-contained-app)
