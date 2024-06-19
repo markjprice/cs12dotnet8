@@ -1,4 +1,4 @@
-**Errata** (34 items)
+**Errata** (35 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -312,6 +312,14 @@ https://github.com/markjprice/cs12dotnet8/blob/main/code/Chapter06/PacktLibrary/
 > Thanks to [rmantel23](https://github.com/rmantel23) for raising [this issue on June 17, 2024](https://github.com/markjprice/cs12dotnet8/issues/53).
 
 In the code, I used `TimeSpace.Zero`. It should be `TimeSpan.Zero`.
+
+# Page 344 - Inheriting from classes
+
+> Thanks to [rmantel23](https://github.com/rmantel23) for raising [this issue on June 18, 2024](https://github.com/markjprice/cs12dotnet8/issues/54).
+
+In Step 3, the following code statment includes an extra close-parenthesis: `TimeSpan.Zero))`. It should be: `TimeSpan.Zero)`.
+
+> The code was already correct in the GitHub repository, as shown in the following code: https://github.com/markjprice/cs12dotnet8/blob/main/code/Chapter06/PeopleApp/Program.cs#L191
 
 # Page 361 - Comparing inheritance and implementation
 
