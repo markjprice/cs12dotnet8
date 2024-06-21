@@ -1,4 +1,4 @@
-**Errata** (35 items)
+**Errata** (36 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -25,8 +25,10 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 324 - How reference and value types are stored in memory](#page-324---how-reference-and-value-types-are-stored-in-memory)
 - [Page 344 - Inheriting from classes](#page-344---inheriting-from-classes)
 - [Page 361 - Comparing inheritance and implementation](#page-361---comparing-inheritance-and-implementation)
+- [Page 375 - Revealing the location of a type](#page-375---revealing-the-location-of-a-type)
 - [Page 383 - Creating a console app to publish](#page-383---creating-a-console-app-to-publish)
 - [Page 386 - Publishing a self-contained app](#page-386---publishing-a-self-contained-app)
+- [Page 400 - Viewing source links with Visual Studio 2022](#page-400---viewing-source-links-with-visual-studio-2022)
 - [Page 421 - Generating GUIDs](#page-421---generating-guids)
 - [Page 522 - Using the lightweight ADO.NET database providers](#page-522---using-the-lightweight-adonet-database-providers)
 - [Page 548 - Getting the generated SQL](#page-548---getting-the-generated-sql)
@@ -331,6 +333,12 @@ strictly apply them to classes and interfaces respectfully."
 
 In the next edition, I will correct the word "respectfully" to "respectively", as explained at the following link: https://www.merriam-webster.com/grammar/respectively-vs-respectfully.
 
+# Page 375 - Revealing the location of a type
+
+> Thanks to [rmantel23](https://github.com/rmantel23) for raising [this issue on June 20, 2024](https://github.com/markjprice/cs12dotnet8/issues/55).
+
+In Step 1, I wrote, "In the search box, enter `navigation in source`." This should be, "In the search box, enter `navigation to source`." to match the check box label so it gets highlighted in the user interface.
+
 # Page 383 - Creating a console app to publish
 
 > Thanks to `mdj._` in the book's Discord channel for raising this issue on December 18, 2023.
@@ -375,6 +383,12 @@ dotnet publish -c Release -r osx-arm64 --self-contained
 ```
 
 I have updated the **Command Lines** summary file to use the new valid RIDs: https://github.com/markjprice/cs12dotnet8/blob/main/docs/command-lines.md#page-386---publishing-a-self-contained-app
+
+# Page 400 - Viewing source links with Visual Studio 2022
+
+> Thanks to [rmantel23](https://github.com/rmantel23) for raising [this issue on June 20, 2024](https://github.com/markjprice/cs12dotnet8/issues/55).
+
+In Step 1, I wrote, "In the search box, enter `navigation in source`." This should be, "In the search box, enter `navigation to source`." to match the check box label so it gets highlighted in the user interface.
 
 # Page 421 - Generating GUIDs
 
