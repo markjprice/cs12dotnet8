@@ -1,4 +1,4 @@
-**Improvements** (50 items)
+**Improvements** (51 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -38,6 +38,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 358 - Using extension methods to reuse functionality](#page-358---using-extension-methods-to-reuse-functionality)
 - [Page 369 - Understanding .NET components](#page-369---understanding-net-components)
 - [Page 383 - Creating a console app to publish](#page-383---creating-a-console-app-to-publish)
+- [Page 413 - Exercise 7.1 – Test your knowledge](#page-413---exercise-71--test-your-knowledge)
 - [Page 426 - Comparing string values](#page-426---comparing-string-values)
 - [Page 457 - Initializing collections using collection expressions](#page-457---initializing-collections-using-collection-expressions)
   - [Using the spread element](#using-the-spread-element)
@@ -786,6 +787,16 @@ As well as the [breaking change with the allowed names for targets](https://gith
   win-x64;linux-x64
 </RuntimeIdentifiers>
 ```
+
+# Page 413 - Exercise 7.1 – Test your knowledge
+
+> Thanks to [rmantel23](https://github.com/rmantel23) for raising [this issue on June 20, 2024](https://github.com/markjprice/cs12dotnet8/issues/56).
+
+Questions 5, 9 and 10 are about porting. In earlier editions, the information about porting was in the print book, but with the 8th edition the reader won't be able to answer these questions without first reading the online-only section about porting which is in the later Exercise 7.3.
+
+In my *Tools and Skills for .NET 8* book I have standardized the ordering of the **Practicing and exploring** sections so that online material and exercises go before the questions. I will use this same standardized ordering in future editions of all my other books too. 
+
+I will also move those three questions to the end of the online porting section and I will write three new questions for the ninth edition print book.
 
 # Page 426 - Comparing string values
 
