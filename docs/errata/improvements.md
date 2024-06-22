@@ -1,4 +1,4 @@
-**Improvements** (51 items)
+**Improvements** (52 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -59,6 +59,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 638 - Creating a class library for a database context using SQLite](#page-638---creating-a-class-library-for-a-database-context-using-sqlite)
 - [Page 640 - Customizing the model and defining an extension method](#page-640---customizing-the-model-and-defining-an-extension-method)
 - [Page 727 - Understanding Swagger](#page-727---understanding-swagger)
+- [Page 732 - Enabling HTTP logging](#page-732---enabling-http-logging)
 
 # Page 4 - Setting up your development environment
 
@@ -1228,3 +1229,42 @@ https://github.com/dotnet/aspnetcore/issues/54599
 In the next edition, I will move the sections about Swagger online to the GitHub repository, add the extra step to show how to manually add a package reference and configure it manually, and add a note to explain why the ASP.NET Core team removed it.
 
 Other references to Swagger will also be removed, for example, on pages 705, 723.
+
+# Page 732 - Enabling HTTP logging
+
+I will add a new section about configuring logging, including how to avoid the compiler warning when adding **Event Log** logging.
+
+```cs
+var builder = Host.CreateApplicationBuilder();
+```
+
+You can then use various ways to enable logging to the Windows-only **Event Log**:
+```cs
+// Option 1
+builder.Services.AddLogging(logging =>
+{
+  logging.AddEventLog();
+});
+
+// Option 2
+builder.Host.ConfigureLogging(logging =>
+{
+  logging.AddEventLog();
+});
+
+// Option 3: .NET 6 or later. Concise and recommended by Microsoft.
+builder.Logging.AddEventLog();
+```
+
+To avoid compiler warning `CA1416`, you can import the following namespace:
+```cs
+using System.Runtime.InteropServices; // To use RuntimeInformation.
+```
+
+And then check that you're running on Windows before calling `AddEventLog`:
+```cs
+if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+{
+  // Call the AddEventLog method.
+}
+```
