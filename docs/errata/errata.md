@@ -1,4 +1,4 @@
-**Errata** (37 items)
+**Errata** (38 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -39,6 +39,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 684 - Defining a form to insert a new supplier](#page-684---defining-a-form-to-insert-a-new-supplier)
 - [Page 694 - Exercise 13.3 – Enabling HTTP/3 and request decompression support](#page-694---exercise-133--enabling-http3-and-request-decompression-support)
 - [Page 714 - Route constraints](#page-714---route-constraints)
+- [Page 771 - Building a customer detail component](#page-771---building-a-customer-detail-component)
 - [Appendix - Page 1 - Exercise 1.1 – Test your knowledge](#appendix---page-1---exercise-11--test-your-knowledge)
 
 # Page 10 - Installing other extensions
@@ -586,6 +587,51 @@ But `minlength` is for checking the minimum length of a `string`, not the size o
 [Route("employees/{years:int:min(3)}")]
 public Employees[] GetLoyalEmployees(int years)
 ```
+
+# Page 771 - Building a customer detail component
+
+> Thanks to [Paul Marangoni](https://github.com/pmarangoni) for raising this [issue on June 28, 2024](https://github.com/markjprice/cs12dotnet8/issues/58)
+
+In Step 2, the markup uses the Bootstrap 4 class named `form-group`. But the Blazor project template uses Bootstrap 5.1, as shown at the following link: https://github.com/markjprice/cs12dotnet8/blob/main/code/PracticalApps/Northwind.Blazor/wwwroot/bootstrap/bootstrap.min.css
+
+In Bootstrap 5 and later, the `form-group` class has been removed and replaced with more simplified and flexible form controls. Instead of `form-group`, you can simply use the `<div>` element without any special class. Bootstrap 5 focuses on utility classes for spacing and layout. Labels and inputs should use the `form-label` and `form-control` classes respectively. For horizontal forms, Bootstrap 5.3 has new classes like `row` and `col` for layout. Use spacing utilities like `mb-3` for margin-bottom to add spacing between form elements.
+
+In the next edition, I will update the markup, as shown in the following code:
+```html
+<EditForm Model="@Customer" OnValidSubmit="@OnValidSubmit">
+  <DataAnnotationsValidator />
+  <div>
+    <label class="form-label">Customer Id</label>
+    <div>
+      <InputText class="form-control" @bind-Value="@Customer.CustomerId" />
+      <ValidationMessage For="@(() => Customer.CustomerId)" />
+    </div>
+  </div>
+  <div>
+    <label class="form-label">Company Name</label>
+    <div>
+      <InputText class="form-control" @bind-Value="@Customer.CompanyName" />
+      <ValidationMessage For="@(() => Customer.CompanyName)" />
+    </div>
+  </div>
+  <div>
+    <label class="form-label">Address</label>
+    <div>
+      <InputText class="form-control" @bind-Value="@Customer.Address" />
+      <ValidationMessage For="@(() => Customer.Address)" />
+    </div>
+  </div>
+  <div>
+    <label class="form-label">Country</label>
+    <div>
+      <InputText class="form-control" @bind-Value="@Customer.Country" />
+      <ValidationMessage For="@(() => Customer.Country)" />
+    </div>
+  </div>
+  <button class="form-control" type="submit" class="btn btn-@ButtonStyle">@ButtonText</button>
+</EditForm>
+```
+
 # Appendix - Page 1 - Exercise 1.1 – Test your knowledge
 
 > Thanks to Ikarmus in the book's Discord channel for raising this issue.
