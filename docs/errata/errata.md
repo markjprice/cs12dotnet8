@@ -1,4 +1,4 @@
-**Errata** (38 items)
+**Errata** (39 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -39,6 +39,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 684 - Defining a form to insert a new supplier](#page-684---defining-a-form-to-insert-a-new-supplier)
 - [Page 694 - Exercise 13.3 – Enabling HTTP/3 and request decompression support](#page-694---exercise-133--enabling-http3-and-request-decompression-support)
 - [Page 714 - Route constraints](#page-714---route-constraints)
+- [Page 753 - Reviewing Blazor routing, layouts, and navigation](#page-753---reviewing-blazor-routing-layouts-and-navigation)
 - [Page 771 - Building a customer detail component](#page-771---building-a-customer-detail-component)
 - [Appendix - Page 1 - Exercise 1.1 – Test your knowledge](#appendix---page-1---exercise-11--test-your-knowledge)
 
@@ -587,6 +588,10 @@ But `minlength` is for checking the minimum length of a `string`, not the size o
 [Route("employees/{years:int:min(3)}")]
 public Employees[] GetLoyalEmployees(int years)
 ```
+
+# Page 753 - Reviewing Blazor routing, layouts, and navigation
+
+In Step 6, I wrote that there are three menu items. There are only two. And in the markup, the icon class names should end with `-nav-menu`, for example, `bi-house-door-fill-nav-menu` not `bi-house-door-fill`.
 
 # Page 771 - Building a customer detail component
 
