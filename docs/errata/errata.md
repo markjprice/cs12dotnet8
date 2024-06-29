@@ -1,4 +1,4 @@
-**Errata** (39 items)
+**Errata** (40 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -40,6 +40,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 694 - Exercise 13.3 – Enabling HTTP/3 and request decompression support](#page-694---exercise-133--enabling-http3-and-request-decompression-support)
 - [Page 714 - Route constraints](#page-714---route-constraints)
 - [Page 753 - Reviewing Blazor routing, layouts, and navigation](#page-753---reviewing-blazor-routing-layouts-and-navigation)
+- [Page 761 - Using Bootstrap icons](#page-761---using-bootstrap-icons)
 - [Page 771 - Building a customer detail component](#page-771---building-a-customer-detail-component)
 - [Appendix - Page 1 - Exercise 1.1 – Test your knowledge](#appendix---page-1---exercise-11--test-your-knowledge)
 
@@ -592,6 +593,27 @@ public Employees[] GetLoyalEmployees(int years)
 # Page 753 - Reviewing Blazor routing, layouts, and navigation
 
 In Step 6, I wrote that there are three menu items. There are only two. And in the markup, the icon class names should end with `-nav-menu`, for example, `bi-house-door-fill-nav-menu` not `bi-house-door-fill`.
+
+# Page 761 - Using Bootstrap icons
+
+In Step 1, I showed the CSS for the Bootstrap icons, but the icon class names should end with `-nav-menu`, as shown in the following markup:
+```css
+.bi-house-door-fill-nav-menu {
+    background-image: url("data:image/svg+xml,...");
+}
+
+.bi-plus-square-fill-nav-menu {
+    background-image: url("data:image/svg+xml,...");
+}
+
+.bi-list-nested-nav-menu {
+    background-image: url("data:image/svg+xml,...");
+}
+```
+
+In Step 3, I wrote, "In the **Search Bootstrap Icons** box, enter `globe`, and note that six globe icons are found." 
+
+There are two input boxes on the web page, one labelled **Search Icons** and one labelled **Filter Icons**. You should enter `globe` in the **Filter Icons** box.
 
 # Page 771 - Building a customer detail component
 
