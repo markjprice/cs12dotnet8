@@ -122,12 +122,12 @@ At the bottom of page 79, I show some code that will output some JSON.
 var person = new { FirstName = "Alice", Age = 56 };
 
 string json = $$"""
-{
-  "first_name": "{{person.FirstName}}",
-  "age": {{person.Age}},
-  "calculation": "{{{ 1 + 2 }}}"
-}
-""";
+              {
+                "first_name": "{{person.FirstName}}",
+                "age": {{person.Age}},
+                "calculation": "{{{ 1 + 2 }}}"
+              }
+              """;
 
 Console.WriteLine(json);
 ```
