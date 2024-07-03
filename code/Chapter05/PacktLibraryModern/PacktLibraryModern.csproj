@@ -4,10 +4,6 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    
-    <!--Compile this library using C# 12 so we can use most
-        modern compiler features. Delete after GA in November.-->
-    <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
 </Project>

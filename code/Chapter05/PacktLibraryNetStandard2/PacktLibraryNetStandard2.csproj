@@ -7,7 +7,7 @@
 
     <!--Compile this library using C# 12 so we can use most
         modern compiler features. -->
-    <LangVersion>preview</LangVersion> <!--change to 12 after GA-->
+    <LangVersion>12</LangVersion>
 
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
