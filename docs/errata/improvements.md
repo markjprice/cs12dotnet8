@@ -146,12 +146,12 @@ If the code only used two braces then those are treated as a delimiter for the e
 var person = new { FirstName = "Alice", Age = 56 };
 
 string json = $$"""
-{
-  "first_name": "{{person.FirstName}}",
-  "age": {{person.Age}},
-  "calculation": "{{ 1 + 2 }}"
-}
-""";
+              {
+                "first_name": "{{person.FirstName}}",
+                "age": {{person.Age}},
+                "calculation": "{{ 1 + 2 }}"
+              }
+              """;
 
 Console.WriteLine(json);
 ```
