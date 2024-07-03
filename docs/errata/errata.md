@@ -220,14 +220,14 @@ As Mahmoud says, it's not always the case that the result of this type of castin
 long x = 0b_101000101010001100100111010100101010;
 int y = (int) x;
 
-Console.WriteLine($"{x,64:B64} = {x}");
-Console.WriteLine($"{y,64:B32} = {y}");
+Console.WriteLine($"{x,38:B38} = {x}");
+Console.WriteLine($"{y,38:B32} = {y}");
 ```
 
 The result:
 ```
-0000000000000000000000000000101000101010001100100111010100101010 = 43657622826
-                                00101010001100100111010100101010 = 707949866
+00101000101010001100100111010100101010 = 43657622826
+      00101010001100100111010100101010 = 707949866
 ```
 
 # Page 225 - Where to catch exceptions
