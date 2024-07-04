@@ -50,7 +50,6 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 517 - Using SQL Server or other SQL systems](#page-517---using-sql-server-or-other-sql-systems)
 - [Page 520 - If you are using Visual Studio 2022](#page-520---if-you-are-using-visual-studio-2022)
 - [Page 524 - Defining the Northwind database context class](#page-524---defining-the-northwind-database-context-class)
-- [Page 539 - Scaffolding models using an existing database](#page-539---scaffolding-models-using-an-existing-database)
 - [Page 535 - Scaffolding models using an existing database](#page-535---scaffolding-models-using-an-existing-database)
 - [Page 541 - Querying EF Core models](#page-541---querying-ef-core-models)
 - [Page 583 - Building LINQ expressions with the Enumerable class](#page-583---building-linq-expressions-with-the-enumerable-class)
@@ -1084,15 +1083,13 @@ You should delete the statement to make your code match the code in the book. Th
 
 I will also add a note to page 280 which is the first time that I tell the reader to override a method, and to page 347 when I go into more detail about overriding the `ToString` method. I will explain the behavior of some code editors and discuss why they do it and how you should decide to keep it or not. 
 
-# Page 539 - Scaffolding models using an existing database
-
-This section has numbered steps that span too many pages. On page 537, I will end the numbered steps after Step 5. I will renumber Step 6 to Step 1, and add a new section title: **Reviewing the generated code**
-
 # Page 535 - Scaffolding models using an existing database
 
 > Thanks to [BoredNumb](https://github.com/BoredNumb) for raising this [issue on April 11, 2024](https://github.com/markjprice/cs12dotnet8/issues/33).
 
 The instructions in this section apply to any data provider not just SQLite. Some readers who choose to use SQL Server do not realize this, so in the next edition, I will add a note to explicitly say that whatever data provider you use, you will need to add a reference to the `Microsoft.EntityFrameworkCore.Design` package.
+
+This section has numbered steps that span too many pages. On page 537, I will end the numbered steps after Step 5. I will renumber Step 6 to Step 1, and add a new section title: **Reviewing the generated code**
 
 # Page 541 - Querying EF Core models
 
