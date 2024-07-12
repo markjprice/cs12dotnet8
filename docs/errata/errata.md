@@ -1,4 +1,4 @@
-**Errata** (40 items)
+**Errata** (41 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -31,6 +31,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 386 - Publishing a self-contained app](#page-386---publishing-a-self-contained-app)
 - [Page 400 - Viewing source links with Visual Studio 2022](#page-400---viewing-source-links-with-visual-studio-2022)
 - [Page 421 - Generating GUIDs](#page-421---generating-guids)
+- [Page 430 - Regular expression performance improvements](#page-430---regular-expression-performance-improvements)
 - [Page 522 - Using the lightweight ADO.NET database providers](#page-522---using-the-lightweight-adonet-database-providers)
 - [Page 548 - Getting the generated SQL](#page-548---getting-the-generated-sql)
 - [Page 553 - Getting a single entity](#page-553---getting-a-single-entity)
@@ -410,6 +411,14 @@ In Step 1, I wrote, "In `Program.cs`, add statements to access the shared `Rando
 to generate random numbers, as shown in the following code:" 
 
 This should have been, "In `Program.cs`, add statements to output the value of an empty `Guid`, generate a new random `Guid` and then output its value, and finally output each individual byte of the random `Guid` value, as shown in the following code:".
+
+# Page 430 - Regular expression performance improvements
+
+> Thanks to [rmantel23](https://github.com/rmantel23) for raising [this issue on July 11, 2024](https://github.com/markjprice/cs12dotnet8/issues/61).
+
+I wrote, "The .NET types for working with regular expressions are used throughout the .NET platform and many of the apps built with it. As such, they have a significant impact on performance. But until now, they have not received much optimization attention from Microsoft."
+
+The last sentence was written for an earlier edition and not updated. In the next edition, I will update it to say, "But until .NET 5, they had not received much optimization attention from Microsoft."
 
 # Page 522 - Using the lightweight ADO.NET database providers
 
