@@ -232,11 +232,12 @@ Copy the path to the version of SQL Server Configuration Manager you have instal
 </ItemGroup>
 
 <ItemGroup>
-  <PackageReference Version="5.1.1" Include="Microsoft.Data.SqlClient" />
-  <PackageReference Version="8.0.0"
-    Include="Microsoft.EntityFrameworkCore.SqlServer" />
+  <PackageReference Version="5.2.0" Include="Microsoft.Data.SqlClient" />
+  <PackageReference Version="8.0.4" Include="Microsoft.EntityFrameworkCore.SqlServer" />
 </ItemGroup>
 ```
+
+> You can check for the most recent package versions at the following links: https://www.nuget.org/packages/Microsoft.Data.SqlClient#versions-body-tab and https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/#versions-body-tab.
 
 2.	Build the `WorkingWithEFCore` project to restore packages.
 3.	Add a new class file named `NorthwindDb.cs`.
@@ -297,6 +298,8 @@ Provider: Microsoft.EntityFrameworkCore.SqlServer
 > Note: Your connection string might be different.
 
 ## Scaffolding models using an existing database
+
+The instructions for this section are in the book and are the same for both SQL Server and SQLite. But the command you must enter at the command prompt or termimal is different. 
 
 For SQL Server, change the database provider and connection string, as shown in the following command:
 ```

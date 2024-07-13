@@ -68,8 +68,6 @@ Northwind.Blazor.Services.csproj" />
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Northwind.Blazor.Services;
 
-using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
 await builder.Build().RunAsync();
@@ -230,15 +228,15 @@ app.MapRazorComponents<App>()
   .AddInteractiveServerRenderMode()
   .AddInteractiveWebAssemblyRenderMode();
 ```
-4.	In the `Components\Pages` folder, in `CreateCustomers.razor`, at the top of the file, modify the declaration to enable client-side rendering, as shown in the following code:
+4.	In the `Components\Pages` folder, in `CreateCustomer.razor`, at the top of the file, modify the declaration to enable client-side rendering, as shown in the following code:
 ```cs
 @rendermode RenderMode.InteractiveWebAssembly
 ```
-5.	In the `Components\Pages` folder, in `EditCustomers.razor`, at the top of the file, modify the declaration to enable client-side rendering, as shown in the following code:
+5.	In the `Components\Pages` folder, in `EditCustomer.razor`, at the top of the file, modify the declaration to enable client-side rendering, as shown in the following code:
 ```cs
 @rendermode RenderMode.InteractiveWebAssembly
 ```
-6.	In the Components\Pages folder, in DeleteCustomers.razor, at the top of the file, modify the declaration to enable client-side rendering, as shown in the following code:
+6.	In the `Components\Pages` folder, in `DeleteCustomer.razor`, at the top of the file, modify the declaration to enable client-side rendering, as shown in the following code:
 ```cs
 @rendermode RenderMode.InteractiveWebAssembly
 ```

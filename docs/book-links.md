@@ -289,7 +289,7 @@
 - [Composite Formatting](https://learn.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting)
 
 ## Miscellaneous
-- [An Arabic programming language](https://www.youtube.com/watch?v=dkO8cdwf6v8)
+- [FWD: "Alb/قلب - the Arabic programming language"](https://www.youtube.com/watch?v=EwYIZBL4sAU)
 
 # Chapter 3 - Controlling Flow, Converting Types, and Handling Exceptions
 
@@ -318,7 +318,9 @@
 
 ## Coding problems in interviews
 - [Why can't programmers program?](http://blog.codinghorror.com/why-cant-programmers-program/)
-- [FizzBuzz for programming interviews](http://imranontech.com/2007/01/24/using-fizzbuzz-to-find-developers-who-grok-coding/)
+- FizzBuzz for programming interviews:
+  - [r/learnprogramming: Is fizzbuzz really still used for interviews](https://www.reddit.com/r/learnprogramming/comments/s1jsyj/is_fizzbuzz_really_still_used_for_interviews/)
+  - [r/leetcode, Question regarding Fizzbuzz](https://www.reddit.com/r/leetcode/comments/wdor3z/serious_question_regarding_fizzbuzz/)
 - [Make Better Hiring Decisions With Take-Home Coding Challenges](https://codesubmit.io)
 - [The 30-minute guide to rocking your next coding interview](https://www.freecodecamp.org/news/coding-interviews-for-dummies-5e048933b82b/)
 - [C# Interview Questions](https://www.codingdojo.com/blog/c-interview-questions)
@@ -467,6 +469,7 @@ The official announcement links are useful because they describe the most import
 - [Native AOT deployment](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/)
 - [How to make libraries compatible with native AOT](https://devblogs.microsoft.com/dotnet/creating-aot-compatible-libraries/)
 - [ASP.NET Core support for native AOT](https://devblogs.microsoft.com/dotnet/announcing-asp-net-core-in-dotnet-8/#asp-net-core-support-for-native-aot)
+- [How to make libraries compatible with native AOT](https://devblogs.microsoft.com/dotnet/creating-aot-compatible-libraries/)
 
 ## Porting from .NET Framework to modern .NET
 - [Overview of porting from .NET Framework to .NET Core](https://learn.microsoft.com/en-us/dotnet/core/porting/)
@@ -603,7 +606,7 @@ The official announcement links are useful because they describe the most import
 
 ## .NET Content Management Systems
 - [Piranha CMS](https://piranhacms.org/)
-- [Umbraco CMS](https://umbraco.com/products/umbraco-cms/umbraco-9/)
+- [Umbraco CMS](https://umbraco.com/products/umbraco-cms/umbraco-13/)
 - [Optimizely Comtent Cloud (CMS 12)](https://docs.developers.optimizely.com/content-cloud)
 - [Orchard Core](http://orchardcore.net/)
 - [OSS Spotlight - Build websites with a modern ASP.NET Core CMS – Orchard Core](https://www.youtube.com/watch?v=cKhAVWm845o)
@@ -742,6 +745,8 @@ The official announcement links are useful because they describe the most import
 - [How Polly can make your web services more reliable](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly)
 - [Use HttpClientFactory to implement resilient HTTP requests](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests)
 - [Redis](https://redis.io)
+- [Resilience and chaos engineering](https://devblogs.microsoft.com/dotnet/resilience-and-chaos-engineering/)
+- [Dev Tunnels: A Game Changer for Mobile Developers](https://devblogs.microsoft.com/dotnet/dev-tunnels-a-game-changer-for-mobile-developers/)
 
 # Chapter 15 - Building User Interfaces Using Blazor
 

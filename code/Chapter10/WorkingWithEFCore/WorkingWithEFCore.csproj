@@ -18,12 +18,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Version="8.0.0" Include="Microsoft.EntityFrameworkCore.Sqlite" />
-    <PackageReference Version="8.0.0" Include="Microsoft.EntityFrameworkCore.Proxies" />
+    <PackageReference Version="8.0.4" Include="Microsoft.EntityFrameworkCore.Sqlite" />
+    <PackageReference Version="8.0.4" Include="Microsoft.EntityFrameworkCore.Proxies" />
   </ItemGroup>
 
   <ItemGroup>

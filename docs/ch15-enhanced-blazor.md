@@ -43,7 +43,7 @@ function getColorFromStorage() {
 ```
 4.	In the `Pages` folder, in `Index.razor`, set the render mode to server and add a button and a code block that uses the Blazor JavaScript runtime dependency service to call a JavaScript function, as shown in the following code:
 ```cs
-@attribute [RenderModeServer]
+@rendermode RenderMode.InteractiveServer
 ```
 ```html
 <button type="button" class="btn btn-info" @onclick="AlertBrowser">

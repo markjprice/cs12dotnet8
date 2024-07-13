@@ -12,9 +12,9 @@
 
   <ItemGroup>
     <PackageReference
-      Include="Microsoft.Data.SqlClient" Version="5.1.2" />
+      Include="Microsoft.Data.SqlClient" Version="5.2.0" />
     <PackageReference
-      Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+      Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.4" />
   </ItemGroup>
 
   <ItemGroup>

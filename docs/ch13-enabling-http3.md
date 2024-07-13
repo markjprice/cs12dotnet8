@@ -62,20 +62,13 @@ To determine if HTTP/3 is enabled for a website project, we must set an increase
 ```
 2.	Start the website project using the `https` launch profile.
 3.	In Chrome, view Developer tools and select the **Network** tab.
-4.	Navigate to https://localhost:5131/, and note the **Response Headers** include an entry for `alt-svc` with a value of `h3` indicating HTTP/3 support, as shown in *Figure 13B.1*:
+4.	Navigate to https://localhost:5131/, and note the **Response Headers** include an entry for `alt-svc` with a value of `h3` indicating Kestrel has enabled HTTP/3 support, as shown in *Figure 13B.1*:
 
-![Chrome showing support for HTTP/3](assets/B19586_13B_01.png) 
-*Figure 13B.1: Chrome showing support for HTTP/3*
+![Kestrel enabling support for HTTP/3](assets/B19586_13B_01.png) 
+*Figure 13B.1: Kestrel enabling support for HTTP/3*
 
-5.	In the console or terminal output, note the hosting diagnostics logs, as shown in the following output:
-```
-info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
-      Request starting HTTP/3 GET https://localhost:5131/ - -
-info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
-      Request finished HTTP/3 GET https://localhost:5131/ - - - 200 - text/html;+charset=utf-8 142.0365ms
-warn: Microsoft.AspNetCore.Server.Kestrel[41]
-      One or more of the following response headers have been removed because they are invalid for HTTP/2 and HTTP/3 responses: 'Connection', 'Transfer-Encoding', 'Keep-Alive', 'Upgrade' and 'Proxy-Connection'.
-```
+5. Unfortunately, if you review the output at the command prompt or terminal, or review Chrome diagnostic tools, you will find that the connection uses HTTP/2. This is because, "Browsers don't allow self-signed certificates on HTTP/3, such as the Kestrel development certificate", as described here: https://learn.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel/http3#localhost-testing. The official documentation does not show a work around because Microsoft decided the steps are too difficult. You can read about the issue here if you want to try the complex workaround: https://github.com/dotnet/AspNetCore.Docs/issues/23700. RTD wrote more detailed instructions that you can read here: https://github.com/markjprice/cs12dotnet8/issues/15#issuecomment-1987353759.
+
 6.	Close Chrome and shut down the web server.
 
 You can learn more about .NET support for HTTP/3 at the following links:
