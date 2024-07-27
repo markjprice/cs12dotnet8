@@ -48,7 +48,8 @@ public class Course
   public int CourseId { get; set; }
 
   [Required]
-  [StringLength(60)]
+  [StringLength(60)] // For SQL Server.
+  [Column(TypeName = "text(60)")] // For SQLite.
   public string? Title { get; set; }
 
   public ICollection<Student>? Students { get; set; }
@@ -56,6 +57,8 @@ public class Course
 ```
 
 > **Good Practice**: Always decorate `string` properties in an entity model with `[StringLength]` or use Fluent API to set a maximum length. The SQL statement to create the table in the database will then use, for example, `VARCHAR(60)` instead of `VARCHAR(MAX)`. For SQLite, it does not matter since it does not set any maximum lengths anyway, but most other databases like SQL Server will use it.
+
+> **Warning!** `[StringLength(60)]` is not honored by all EF Core data providers. For example, although SQL Server honors it, SQLite does not. For SQLite, use `[Column(TypeName = "text(60)")]` instead.
 
 6.	Modify `Academy.cs`, as shown in the following code:
 ```cs
