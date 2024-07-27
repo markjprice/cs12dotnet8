@@ -25,8 +25,11 @@ First, we need to create a separate project for the Blazor WebAssembly component
     - Solution file and folder: `PracticalApps`
     - Project file and folder: `Northwind.Blazor.Wasm`
 2.	In Visual Studio 2022, choose the following options:
+    - **Framework**: **.NET 8.0 (Long Term Support)**.
     - **Configure for HTTPS**: Selected.
     - **Progressive Web Application**: Cleared.
+    - **Include sample pages**: Cleared.
+    - **Do not use top-level statements**: Cleared.
 3.	In the `Northwind.Blazor.Wasm.csproj` project file, make changes as shown in the following list, and as shown in the following markup:
     - Add entries to configure no `launchSettings.json` and default static web assets.
     - Remove the package reference for `Microsoft.AspNetCore.Components.WebAssembly.DevServer` because this project will not host the Blazor components.
@@ -44,7 +47,7 @@ First, we need to create a separate project for the Blazor WebAssembly component
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Version="8.0.0"
+    <PackageReference Version="8.0.7"
       Include="Microsoft.AspNetCore.Components.WebAssembly" />
     <PackageReference Version="8.0.0"
       Include="Microsoft.Extensions.Http" />
@@ -66,7 +69,6 @@ Northwind.Blazor.Services.csproj" />
 4.	In `Program.cs`, simplify the statements to the minimum needed for a Blazor WebAssembly project, as shown in the following code:
 ```cs
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Northwind.Blazor.Services;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
@@ -158,8 +160,9 @@ public class NorthwindServiceClientSide : INorthwindService
   }
 }
 ```
-3.	In the `Northwind.Blazor.Wasm` project, in `Program.cs`, import the namespace for setting a media type header value, as shown in the following code:
+3.	In the `Northwind.Blazor.Wasm` project, in `Program.cs`, import the namespaces for your Northwind services and for setting a media type header value, as shown in the following code:
 ```cs
+using Northwind.Blazor.Services; // To use INorthwindService and implementations.
 using System.Net.Http.Headers; // To use MediaTypeWithQualityHeaderValue.
 ```
 4.	In `Program.cs`, before calling the `Build` method, add a statement to enable `HttpClientFactory` with a named client to make calls to the Northwind Web API service using HTTPS on port 5151 and request JSON as the default response format, as shown in the following code:
@@ -195,18 +198,15 @@ By default, client-side interactions are disabled. We will switch the pages to u
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Version="8.0.0" Include=
+    <PackageReference Version="8.0.7" Include=
       "Microsoft.AspNetCore.Components.WebAssembly.Server" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- change Sqlite to SqlServer if you prefer -->
-    <ProjectReference Include="..\Northwind.DataContext.Sqlite\
-Northwind.DataContext.Sqlite.csproj" />
-    <ProjectReference Include="..\Northwind.Blazor.Services\
-Northwind.Blazor.Services.csproj" />
-    <ProjectReference Include="..\Northwind.Blazor.Wasm\
-Northwind.Blazor.Wasm.csproj" />
+    <ProjectReference Include="..\Northwind.DataContext.Sqlite\Northwind.DataContext.Sqlite.csproj" />
+    <ProjectReference Include="..\Northwind.Blazor.Services\Northwind.Blazor.Services.csproj" />
+    <ProjectReference Include="..\Northwind.Blazor.Wasm\Northwind.Blazor.Wasm.csproj" />
   </ItemGroup>
 
   <ItemGroup>
