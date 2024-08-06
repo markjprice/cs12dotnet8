@@ -6,6 +6,7 @@ Now we will implement similar functionality that runs in the browser using WebAs
 - [Creating a client-side Blazor components project](#creating-a-client-side-blazor-components-project)
 - [Creating a client-side service implementation](#creating-a-client-side-service-implementation)
 - [Enabling client-side interactions in the host project](#enabling-client-side-interactions-in-the-host-project)
+- [Disabling CORS for the web service](#disabling-cors-for-the-web-service)
 - [Testing the WebAssembly components and service](#testing-the-webassembly-components-and-service)
 
 
@@ -21,7 +22,7 @@ Since we abstracted the local dependency service in the `INorthwindService` inte
 First, we need to create a separate project for the Blazor WebAssembly components:
 
 1.	Use your preferred code editor to add a new project, as defined in the following list:
-    - Project template: **Blazor WebAssembly App Empty** / `blazorwasm-empty`
+    - Project template: **Blazor WebAssembly Standalone App** / `blazorwasm`
     - Solution file and folder: `PracticalApps`
     - Project file and folder: `Northwind.Blazor.Wasm`
 2.	In Visual Studio 2022, choose the following options:
@@ -33,7 +34,6 @@ First, we need to create a separate project for the Blazor WebAssembly component
 3.	In the `Northwind.Blazor.Wasm.csproj` project file, make changes as shown in the following list, and as shown in the following markup:
     - Add entries to configure no `launchSettings.json` and default static web assets.
     - Remove the package reference for `Microsoft.AspNetCore.Components.WebAssembly.DevServer` because this project will not host the Blazor components.
-    - Add a package reference for `Microsoft.Extensions.Http` so we can call a Web API service easily.
     - Add a project references to the Northwind entity models and services libraries.
 ```xml
 <Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
@@ -42,6 +42,8 @@ First, we need to create a separate project for the Blazor WebAssembly component
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+
+    <!-- Configure no launchSettings.json. -->
     <NoDefaultLaunchSettingsFile>true</NoDefaultLaunchSettingsFile>
     <StaticWebAssetProjectMode>Default</StaticWebAssetProjectMode>
   </PropertyGroup>
@@ -49,8 +51,6 @@ First, we need to create a separate project for the Blazor WebAssembly component
   <ItemGroup>
     <PackageReference Version="8.0.7"
       Include="Microsoft.AspNetCore.Components.WebAssembly" />
-    <PackageReference Version="8.0.0"
-      Include="Microsoft.Extensions.Http" />
   </ItemGroup>
 
   <ItemGroup>
@@ -64,8 +64,10 @@ Northwind.Blazor.Services.csproj" />
 </Project>
 ```
 3.	In the `Northwind.Blazor.Wasm` project, delete the following folders and files that are not needed because we will use the `Northwind.Blazor` project as the Blazor web project host:
-    - The `Properties` folder and the `launchSettings.json` file in it.
-    - The `App.razor` and `MainLayout.razor` files.
+    - The `Properties` folder and the `launchSettings.json` file in it because the WebAssembly components will be hosted in the `Northwind.Blazor` project that has its own launch settings configuration.
+    - The `wwwroot` folder and its contents because the WebAssembly components will be hosted in the `Northwind.Blazor` project that has its own `wwwroot` folder for static assets.
+    - The `App.razor` and `MainLayout.razor` files because the WebAssembly components will be hosted in the `Northwind.Blazor` project that has its own routes configuration and layout files.
+    - The `Pages\Home.razor` file because we already have a Blazor component registered for the `/` route in the `Northwind.Blazor` project.
 4.	In `Program.cs`, simplify the statements to the minimum needed for a Blazor WebAssembly project, as shown in the following code:
 ```cs
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -78,7 +80,7 @@ await builder.Build().RunAsync();
 
 # Creating a client-side service implementation
 
-Next, we need a web service that the client app can call to get and manage customers. You must have completed *Chapter 15, Building and Consuming Web Services*, so you have a customers service in the `Northwind.WebApi` service project that you will use:
+Next, we need a web service that the client app can call to get and manage customers. You must have completed *Chapter 14, Building and Consuming Web Services*, so you have a customers service in the `Northwind.WebApi` service project that you will use:
 
 1.	In the `Northwind.Blazor.Wasm` project, create a folder named `Services`.
 2.	In the `Services` folder, add a new file named `NorthwindServiceClientSide.cs`, and modify its contents to implement the `INorthwindService` interface by using an `HttpClient` to call the customers service, as shown in the following code:
@@ -90,49 +92,36 @@ namespace Northwind.Blazor.Services;
 
 public class NorthwindServiceClientSide : INorthwindService
 {
-  private readonly IHttpClientFactory _clientFactory;
+  private readonly HttpClient _http;
 
-  public NorthwindServiceClientSide(
-    IHttpClientFactory httpClientFactory)
+  public NorthwindServiceClientSide(HttpClient httpClient)
   {
-    _clientFactory = httpClientFactory;
+    _http = httpClient;
   }
 
   public Task<List<Customer>> GetCustomersAsync()
   {
-    HttpClient client = _clientFactory.CreateClient(
-      name: "Northwind.WebApi");
-
-    return client.GetFromJsonAsync
+    return _http.GetFromJsonAsync
       <List<Customer>>("api/customers")!;
   }
 
   public Task<List<Customer>> GetCustomersAsync(string country)
   {
-    HttpClient client = _clientFactory.CreateClient(
-      name: "Northwind.WebApi");
-
-    return client.GetFromJsonAsync
+    return _http.GetFromJsonAsync
       <List<Customer>>($"api/customers/in/{country}")!;
   }
 
   public Task<Customer?> GetCustomerAsync(string id)
   {
-    HttpClient client = _clientFactory.CreateClient(
-      name: "Northwind.WebApi");
-
-    return client.GetFromJsonAsync
+    return _http.GetFromJsonAsync
       <Customer>($"api/customers/{id}");
   }
 
   public async Task<Customer>
-    CreateCustomerAsync (Customer c)
+    CreateCustomerAsync(Customer c)
   {
-    HttpClient client = _clientFactory.CreateClient(
-      name: "Northwind.WebApi");
-
-    HttpResponseMessage response = await 
-      client.PostAsJsonAsync("api/customers", c);
+    HttpResponseMessage response = await
+      _http.PostAsJsonAsync("api/customers", c);
 
     return (await response.Content
       .ReadFromJsonAsync<Customer>())!;
@@ -140,11 +129,8 @@ public class NorthwindServiceClientSide : INorthwindService
 
   public async Task<Customer> UpdateCustomerAsync(Customer c)
   {
-    HttpClient client = _clientFactory.CreateClient(
-      name: "Northwind.WebApi");
-
-    HttpResponseMessage response = await 
-      client.PutAsJsonAsync("api/customers", c);
+    HttpResponseMessage response = await
+      _http.PutAsJsonAsync("api/customers", c);
 
     return (await response.Content
       .ReadFromJsonAsync<Customer>())!;
@@ -152,68 +138,63 @@ public class NorthwindServiceClientSide : INorthwindService
 
   public async Task DeleteCustomerAsync(string id)
   {
-    HttpClient client = _clientFactory.CreateClient(
-      name: "Northwind.WebApi");
-
-    HttpResponseMessage response = await     
-      client.DeleteAsync($"api/customers/{id}");
+    HttpResponseMessage response = await
+      _http.DeleteAsync($"api/customers/{id}");
   }
 }
 ```
-3.	In the `Northwind.Blazor.Wasm` project, in `Program.cs`, import the namespaces for your Northwind services and for setting a media type header value, as shown in the following code:
+3.	In the `Northwind.Blazor.Wasm` project, in `Program.cs`, import the namespace for your Northwind service, as shown in the following code:
 ```cs
 using Northwind.Blazor.Services; // To use INorthwindService and implementations.
-using System.Net.Http.Headers; // To use MediaTypeWithQualityHeaderValue.
 ```
-4.	In `Program.cs`, before calling the `Build` method, add a statement to enable `HttpClientFactory` with a named client to make calls to the Northwind Web API service using HTTPS on port 5151 and request JSON as the default response format, as shown in the following code:
+4.	In `Program.cs`, before calling the `Build` method, add statements to enable `HttpClient` to make calls to the Northwind Web API service using HTTPS on port 5151, and register the Northwind dependency service, as shown in the following code:
 ```cs
-builder.Services.AddHttpClient(name: "Northwind.WebApi",
-  configureClient: options =>
-  {
-    options.BaseAddress = new Uri("https://localhost:5151/");
-    options.DefaultRequestHeaders.Accept.Add(
-      new MediaTypeWithQualityHeaderValue(
-      mediaType: "application/json", quality: 1.0));
-  });
-```
+builder.Services.AddScoped(sp => new HttpClient
+{
+  BaseAddress = new Uri("https://localhost:5151/")
+});
 
-5.	In `Program.cs`, before the call to `Build`, modify the statement to register the Northwind dependency service and set up an HTTP client factory, as shown in the following code:
-```cs
 builder.Services.AddTransient<INorthwindService,
   NorthwindServiceClientSide>();
 ```
+5.  In `_Imports.razor`, add a statement to import the namespaces for your dependency services and data model entities, as shown in the following code:
+```cs
+@using Northwind.Blazor.Services @* To use INorthwindService. *@
+@using Northwind.EntityModels @* To use Northwind entities. *@
+```
+6.  Copy the following files from the `Northwind.Blazor` project to the `Northwind.Blazor.Wasm` project's `Pages` folder:
+    - `Components\CustomerDetail.razor`
+    - `Components\Pages\CreateCustomer.razor`
+    - `Components\Pages\DeleteCustomer.razor`
+    - `Components\Pages\EditCustomer.razor`
+7.	In the `Pages` folder, in `CreateCustomer.razor`, modify the declaration to enable client-side rendering and the route registration to add `wasm` to the end of the path, as shown in the following code:
+```cs
+@rendermode RenderMode.InteractiveWebAssembly
+@page "/createcustomerwasm"
+```
+8.	In the `Pages` folder, in `EditCustomer.razor`, modify the declaration to enable client-side rendering and the route registration to add `wasm` to the end of the path, as shown in the following code:
+```cs
+@rendermode RenderMode.InteractiveWebAssembly
+@page "/editcustomerwasm/{customerid}"
+```
+9.	In the `Components\Pages` folder, in `DeleteCustomer.razor`, modify the declaration to enable client-side rendering and the route registration to add `wasm` to the end of the path, as shown in the following code:
+```cs
+@rendermode RenderMode.InteractiveWebAssembly
+@page "/deletecustomerwasm/{customerid}"
+```
+
+> **Warning!** Since we have duplicates of these three Blazor components, we must differentitate the WebAssembly versions from the server-side versions by having different route paths.
 
 # Enabling client-side interactions in the host project
 
-By default, client-side interactions are disabled. We will switch the pages to use client-side interactions:
+By default, client-side interactions are disabled. We will enable the page components to use the client-side interaction versions:
 
-1.	In the `Northwind.Blazor.csproj` project file, add a package reference for `Microsoft.AspNetCore.Components.WebAssembly.Server`, and add a project reference to the `Northwind.Blazor.Wasm` project, as shown in the following markup:
+1.	In the `Northwind.Blazor.csproj` project file, add a project reference to the `Northwind.Blazor.Wasm` project, as shown in the following markup:
 ```xml
-<Project Sdk="Microsoft.NET.Sdk.Web">
-
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Version="8.0.7" Include=
-      "Microsoft.AspNetCore.Components.WebAssembly.Server" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <!-- change Sqlite to SqlServer if you prefer -->
-    <ProjectReference Include="..\Northwind.DataContext.Sqlite\Northwind.DataContext.Sqlite.csproj" />
-    <ProjectReference Include="..\Northwind.Blazor.Services\Northwind.Blazor.Services.csproj" />
+    ...
     <ProjectReference Include="..\Northwind.Blazor.Wasm\Northwind.Blazor.Wasm.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Using Include="Northwind.EntityModels" />
-  </ItemGroup>
-
-</Project>
 ```
 
 2.	In `Program.cs`, at the end of the statement that adds Razor components, add a call to a method to enable client-side interactivity, as shown in the following code:
@@ -222,23 +203,36 @@ builder.Services.AddRazorComponents()
   .AddInteractiveServerComponents()
   .AddInteractiveWebAssemblyComponents();
 ```
-3.	In `Program.cs`, at the end of the statement that maps Razor components, add a call to a method to enable server-side interactivity, as shown highlighted in the following code:
+3.	In `Program.cs`, at the end of the statement that maps Razor components, add a call to a method to enable client-side render mode, as shown highlighted in the following code:
 ```cs
 app.MapRazorComponents<App>()
   .AddInteractiveServerRenderMode()
   .AddInteractiveWebAssemblyRenderMode();
 ```
-4.	In the `Components\Pages` folder, in `CreateCustomer.razor`, at the top of the file, modify the declaration to enable client-side rendering, as shown in the following code:
+
+# Disabling CORS for the web service
+
+CORS is a security feature of web browsers that will prevent our Blazor WebAssembly components from making HTTP requests to our web service because they are hosted on different ports.
+
+1.	In the `Northwind.WebApi` project, in `Program.cs`, at the top of the file after the namespace imports, declare a `string` constant for the name of a CORS policy, as shown in the following code:
 ```cs
-@rendermode RenderMode.InteractiveWebAssembly
+const string corsPolicyName = "allowWasmClient";
 ```
-5.	In the `Components\Pages` folder, in `EditCustomer.razor`, at the top of the file, modify the declaration to enable client-side rendering, as shown in the following code:
+2.	In `Program.cs`, before the call to `Build`, add CORS and configure a policy to allow HTTP calls from clients with different port numbers from the web service itself, as shown in the following code:
 ```cs
-@rendermode RenderMode.InteractiveWebAssembly
+builder.Services.AddCors(options =>
+{
+  options.AddPolicy(name: corsPolicyName,
+    policy =>
+    {
+      policy.WithOrigins("https://localhost:5152",
+        "http://localhost:5153");
+    });
+});
 ```
-6.	In the `Components\Pages` folder, in `DeleteCustomer.razor`, at the top of the file, modify the declaration to enable client-side rendering, as shown in the following code:
+3.	In `Program.cs`, after the call to `UseHttpsRedirection`, enable CORS with the named policy, as shown in the following code:
 ```cs
-@rendermode RenderMode.InteractiveWebAssembly
+app.UseCors(corsPolicyName);
 ```
 
 # Testing the WebAssembly components and service
