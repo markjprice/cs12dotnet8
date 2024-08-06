@@ -5,6 +5,8 @@ using Northwind.WebApi.Repositories; // To use ICustomerRepository.
 using Swashbuckle.AspNetCore.SwaggerUI; // To use SubmitMethod.
 using Microsoft.AspNetCore.HttpLogging; // To use HttpLoggingFields.
 
+const string corsPolicyName = "allowWasmClient";
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddHttpLogging(options =>
@@ -14,10 +16,10 @@ builder.Services.AddHttpLogging(options =>
   options.ResponseBodyLogLimit = 4096; // Default is 32k.
 });
 
-// Add services to the container.
 builder.Services.AddSingleton<IMemoryCache>(
   new MemoryCache(new MemoryCacheOptions()));
 
+// Add services to the container.
 builder.Services.AddNorthwindContext();
 
 builder.Services.AddControllers(options =>
@@ -28,20 +30,19 @@ builder.Services.AddControllers(options =>
     OutputFormatter? mediaFormatter = formatter as OutputFormatter;
     if (mediaFormatter is null)
     {
-      WriteLine($"  {formatter.GetType().Name}");
+      WriteLine($" {formatter.GetType().Name}");
     }
     else // OutputFormatter class has SupportedMediaTypes.
     {
-      WriteLine("  {0}, Media types: {1}",
-        arg0: mediaFormatter.GetType().Name,
-        arg1: string.Join(", ",
-          mediaFormatter.SupportedMediaTypes));
+      WriteLine(" {0}, Media types: {1}",
+      arg0: mediaFormatter.GetType().Name,
+      arg1: string.Join(", ",
+      mediaFormatter.SupportedMediaTypes));
     }
   }
 })
 .AddXmlDataContractSerializerFormatters()
-.AddXmlSerializerFormatters(
-);
+.AddXmlSerializerFormatters();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -54,9 +55,21 @@ builder.Services.AddHealthChecks()
   // Execute SELECT 1 using the specified connection string.
   .AddSqlServer("Data Source=.;Initial Catalog=Northwind;Integrated Security=true;TrustServerCertificate=true;");
 
-var app = builder.Build();
+builder.Services.AddCors(options =>
+{
+  // Allow HTTP calls from the Blazor Web App project.
+  options.AddPolicy(name: corsPolicyName,
+    policy =>
+    {
+      policy.AllowAnyHeader();
+      policy.WithOrigins("https://localhost:5161",
+        "http://localhost:5160");
+    });
+});
 
 app.UseHttpLogging();
+
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -80,6 +93,8 @@ app.UseAuthorization();
 app.UseHealthChecks(path: "/howdoyoufeel");
 
 app.UseMiddleware<SecurityHeaders>();
+
+app.UseCors(corsPolicyName);
 
 app.MapControllers();
 
