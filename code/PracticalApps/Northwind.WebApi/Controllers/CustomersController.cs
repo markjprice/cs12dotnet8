@@ -32,7 +32,7 @@ public class CustomersController : ControllerBase
     else
     {
       return (await _repo.RetrieveAllAsync())
-        .Where(customer => customer.Country == country);
+      .Where(customer => customer.Country == country);
     }
   }
 
@@ -47,7 +47,7 @@ public class CustomersController : ControllerBase
     {
       return NotFound(); // 404 Resource not found.
     }
-    return Ok(c); // 200 OK with customer in body.
+    return Ok(c); // 200 OK with customer in body
   }
 
   // POST: api/customers
@@ -69,9 +69,9 @@ public class CustomersController : ControllerBase
     else
     {
       return CreatedAtRoute( // 201 Created.
-        routeName: nameof(GetCustomer),
-        routeValues: new { id = addedCustomer.CustomerId.ToLower() },
-        value: addedCustomer);
+      routeName: nameof(GetCustomer),
+      routeValues: new { id = addedCustomer.CustomerId.ToLower() },
+      value: addedCustomer);
     }
   }
 
@@ -82,7 +82,7 @@ public class CustomersController : ControllerBase
   [ProducesResponseType(400)]
   [ProducesResponseType(404)]
   public async Task<IActionResult> Update(
-    string id, [FromBody] Customer c)
+  string id, [FromBody] Customer c)
   {
     id = id.ToUpper();
     c.CustomerId = c.CustomerId.ToUpper();
@@ -133,7 +133,7 @@ public class CustomersController : ControllerBase
     else
     {
       return BadRequest( // 400 Bad request.
-        $"Customer {id} was found but failed to delete.");
+      $"Customer {id} was found but failed to delete.");
     }
   }
 }

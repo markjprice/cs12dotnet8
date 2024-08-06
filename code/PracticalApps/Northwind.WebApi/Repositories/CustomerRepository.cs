@@ -19,7 +19,7 @@ public class CustomerRepository : ICustomerRepository
   private NorthwindContext _db;
 
   public CustomerRepository(NorthwindContext db,
-    IMemoryCache memoryCache)
+  IMemoryCache memoryCache)
   {
     _db = db;
     _memoryCache = memoryCache;
@@ -28,8 +28,7 @@ public class CustomerRepository : ICustomerRepository
   public async Task<Customer?> CreateAsync(Customer c)
   {
     c.CustomerId = c.CustomerId.ToUpper(); // Normalize to uppercase.
-
-    // Add to database using EF Core.
+                                           // Add to database using EF Core.
     EntityEntry<Customer> added = await _db.Customers.AddAsync(c);
     int affected = await _db.SaveChangesAsync();
     if (affected == 1)
@@ -49,18 +48,15 @@ public class CustomerRepository : ICustomerRepository
   public Task<Customer?> RetrieveAsync(string id)
   {
     id = id.ToUpper(); // Normalize to uppercase.
-
-    // Try to get from cache first.
+                       // Try to get from the cache first.
     if (_memoryCache.TryGetValue(id, out Customer? fromCache))
       return Task.FromResult(fromCache);
-
-    // If not in cache then try to get from database.
-    Customer? fromDb = _db.Customers.FirstOrDefault(c => c.CustomerId == id);
-
-    // If not in database then return null result.
+    // If not in the cache, then try to get it from the database.
+    Customer? fromDb = _db.Customers.FirstOrDefault(c => c.CustomerId ==
+    id);
+    // If not -in database then return null result.
     if (fromDb is null) return Task.FromResult(fromDb);
-
-    // If in database then store in cache and return customer.
+    // If in the database, then store in the cache and return customer.
     _memoryCache.Set(fromDb.CustomerId, fromDb, _cacheEntryOptions);
     return Task.FromResult(fromDb)!;
   }
@@ -68,7 +64,6 @@ public class CustomerRepository : ICustomerRepository
   public async Task<Customer?> UpdateAsync(Customer c)
   {
     c.CustomerId = c.CustomerId.ToUpper();
-
     _db.Customers.Update(c);
     int affected = await _db.SaveChangesAsync();
     if (affected == 1)
@@ -82,10 +77,8 @@ public class CustomerRepository : ICustomerRepository
   public async Task<bool?> DeleteAsync(string id)
   {
     id = id.ToUpper();
-
     Customer? c = await _db.Customers.FindAsync(id);
     if (c is null) return null;
-
     _db.Customers.Remove(c);
     int affected = await _db.SaveChangesAsync();
     if (affected == 1)

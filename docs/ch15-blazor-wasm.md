@@ -219,6 +219,20 @@ app.MapRazorComponents<App>()
   .AddInteractiveServerRenderMode()
   .AddInteractiveWebAssemblyRenderMode();
 ```
+4.  In `Components\Routes.razor`, add a reference to any class in the `Northwind.Blazor.Wasm` project to enable the host project to scan that assembly for Blazor components with page route handlers defined, as shown in the following code:
+```xml
+<Router AppAssembly="typeof(Program).Assembly" 
+  AdditionalAssemblies="new[] { typeof(Northwind.Blazor.Wasm._Imports).Assembly }">
+```
+1.  In `Program.cs`, add a reference to any class in the `Northwind.Blazor.Wasm` project to enable the host project to scan that assembly for Blazor components, as shown in the following code:
+```cs
+app.MapRazorComponents<App>()
+  .AddInteractiveServerRenderMode()
+  .AddInteractiveWebAssemblyRenderMode()
+  .AddAdditionalAssemblies(typeof(Northwind.Blazor.Wasm._Imports).Assembly);
+```
+
+> **Good Practice**: Since almost all Blazor WebAssembly projects will have an `_Imports.razor` file that will compile into an `_Imports` class, it is a convention to reference that class.
 
 # Disabling CORS for the web service
 

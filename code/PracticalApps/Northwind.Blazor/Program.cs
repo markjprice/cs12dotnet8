@@ -7,7 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
   .AddInteractiveServerComponents()
   .AddInteractiveWebAssemblyComponents();
+
 builder.Services.AddNorthwindContext();
+
 builder.Services.AddTransient<INorthwindService,
   NorthwindServiceServerSide>();
 
@@ -28,6 +30,7 @@ app.UseAntiforgery();
 
 app.MapRazorComponents<App>()
   .AddInteractiveServerRenderMode()
-  .AddInteractiveWebAssemblyRenderMode();
+  .AddInteractiveWebAssemblyRenderMode()
+  .AddAdditionalAssemblies(typeof(Northwind.Blazor.Wasm._Imports).Assembly);
 
 app.Run();

@@ -8,8 +8,8 @@ namespace Northwind.WebApi.Controllers
   {
     private static readonly string[] Summaries = new[]
     {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+          "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+      };
 
     private readonly ILogger<WeatherForecastController> _logger;
 
@@ -35,7 +35,7 @@ namespace Northwind.WebApi.Controllers
         TemperatureC = Random.Shared.Next(-20, 55),
         Summary = Summaries[Random.Shared.Next(Summaries.Length)]
       })
-    .ToArray();
+      .ToArray();
     }
   }
 }

@@ -10,5 +10,5 @@
     <!-- change Sqlite to SqlServer if you prefer -->
     <ProjectReference Include="..\Northwind.EntityModels.Sqlite\Northwind.EntityModels.Sqlite.csproj" />
   </ItemGroup>
-
+  
 </Project>
