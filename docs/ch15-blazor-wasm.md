@@ -2,13 +2,23 @@
 
 Now we will implement similar functionality that runs in the browser using WebAssembly so that you can clearly see the key differences.
 
+- [Projects and port numbers](#projects-and-port-numbers)
 - [Abstracting the service](#abstracting-the-service)
 - [Creating a client-side Blazor components project](#creating-a-client-side-blazor-components-project)
 - [Creating a client-side service implementation](#creating-a-client-side-service-implementation)
 - [Enabling client-side interactions in the host project](#enabling-client-side-interactions-in-the-host-project)
 - [Disabling CORS for the web service](#disabling-cors-for-the-web-service)
 - [Testing the WebAssembly components and service](#testing-the-webassembly-components-and-service)
+- [Switching to the WebAssembly component](#switching-to-the-webassembly-component)
 
+# Projects and port numbers
+
+As a reminder, here are the projects and the port numbers they are configure to use to host on `localhost`:
+
+Project|https|http
+---|---|---
+`Northwind.WebApi`|5151|5150
+`Northwind.Blazor`|5161|5160
 
 # Abstracting the service
 
@@ -225,8 +235,10 @@ builder.Services.AddCors(options =>
   options.AddPolicy(name: corsPolicyName,
     policy =>
     {
-      policy.WithOrigins("https://localhost:5152",
-        "http://localhost:5153");
+      // Allow HTTP calls from the Blazor Web App project.
+      policy.AllowAnyHeader();
+      policy.WithOrigins("https://localhost:5161",
+        "http://localhost:5160");
     });
 });
 ```
@@ -239,25 +251,44 @@ app.UseCors(corsPolicyName);
 
 Now we can start the Web API service project and call it from the Blazor project to test if the components work with the abstracted Northwind service that calls the customers service:
 
-1.	Start the `Northwind.WebApi` web service project using the https launch profile.
-2.	Start the `Northwind.Blazor` project using the `https` launch profile.
-3.	Start Chrome, show **Developer Tools**, and select the **Network** tab.
+1.	Start the `Northwind.WebApi` web service project using the `https` launch profile.
+2.  Start Chrome and navigate to https://localhost:5151/api/customers, and note that a JSON document is returned containing customers.
+3.	Start the `Northwind.Blazor` project using the `https` launch profile.
 4.	Navigate to https://localhost:5161/.
-5.	Select the **Console** tab and note that Blazor WebAssembly has loaded .NET assemblies into the browser cache and that they take about 10.65 MB of space, as shown in *Figure 16.7*:
+5.	In the left navigation menu, click **Customers Worldwide**.
+6.	In Chrome, show **Developer Tools**, and select the **Console** tab.
+7.	Click the **+ Create New** button, and note that a WebSocket connection is established, as shown in *Figure 16.9*:
 
-![Blazor WebAssembly loading .NET assemblies into the browser cache](assets/B19586_16_07.png) 
-*Figure 16.7: Blazor WebAssembly loading .NET assemblies into the browser cache*
+![The HTTP POST request for creating a new customer](assets/createcustomer.png) 
+*Figure 16.9: Creating a new customer using the server-side component*
 
-6.	Select the **Network** tab.
-7.	In the left navigation menu, click **Customers Worldwide** and note the HTTP GET request customers with the JSON response containing all customers, as shown in *Figure 16.8*:
+8.  Complete the form, and click the **Add Customer** button.
+9.  Go to the bottom of the table of customers and note that the customer was successfully added using the server-side interactive Blazor component.
+10.	Close Chrome and shut down the web servers.
 
-![The HTTP GET request with the JSON response containing all customers](assets/B19586_16_08.png) 
-*Figure 16.8: The HTTP GET request with the JSON response containing all customers*
+# Switching to the WebAssembly component
 
-8.	Click the **+ Create New** button, complete the form, and click **Add Customer** to add a new customer as before, and note the HTTP POST request made, as shown in *Figure 16.9*:
- 
-![The HTTP POST request for creating a new customer](assets/B19586_16_09.png) 
-*Figure 16.9: The HTTP POST request for creating a new customer*
+1.  In the `Northwind.Blazor` project, in the `Components\Pages` folder, in `Customers.razor`, in the `<a>` element that becomes a button to **Create New** customer, add `wasm` to the end of the route path, as shown in the following code:
+```html
+<a class="btn btn-info" href="createcustomerwasm">
+```
+2.  Save the changes.
+3.  Start the `Northwind.WebApi` web service project using the `https` launch profile.
+4.  Start the `Northwind.Blazor` project using the `https` launch profile.
+5.  Navigate to https://localhost:5161/.
+6.  In the left navigation menu, click **Customers Worldwide**.
+7.  In Chrome, show **Developer Tools**, and select the **Console** tab.
+8.  Click the **+ Create New** button, and note that Blazor WebAssembly has loaded .NET assemblies into the browser cache and that they take about 10.65 MB of space, as shown in *Figure 16.10*:
 
-9.	Repeat the steps as before to edit and then delete the newly created customer and note the requests in the **Network** list.
-10.	Close Chrome and shut down the web server.
+![The HTTP POST request for creating a new customer](assets/createcustomerwasm.png) 
+*Figure 16.10: Creating a new customer using the client-side component*
+
+9. In **Developer Tools**, select the **Network** tab.
+10.  Complete the form, and click the **Add Customer** button.
+11.  On the **Network** tab, select the second **customers** request, and note that it is a `POST` that succeeds so it returns a `201` status code, as shown in *Figure 16.10*:
+
+![The HTTP POST request for creating a new customer](assets/createcustomer-post.png) 
+*Figure 16.11: POST request from the client-side component*
+
+11  Go to the bottom of the table of customers and note that the customer was successfully added using the client-side interactive Blazor component.
+12.	Close Chrome and shut down the web servers.
