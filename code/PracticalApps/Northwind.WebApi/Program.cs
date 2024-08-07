@@ -67,8 +67,6 @@ builder.Services.AddCors(options =>
     });
 });
 
-app.UseHttpLogging();
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -85,6 +83,8 @@ if (app.Environment.IsDevelopment())
       SubmitMethod.Put, SubmitMethod.Delete });
   });
 }
+
+app.UseHttpLogging();
 
 app.UseHttpsRedirection();
 
