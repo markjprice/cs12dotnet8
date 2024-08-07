@@ -2,6 +2,7 @@
 
 Now we will implement similar functionality that runs in the browser using WebAssembly so that you can clearly see the key differences.
 
+- [Failed to start platform and other errors](#failed-to-start-platform-and-other-errors)
 - [Projects and port numbers](#projects-and-port-numbers)
 - [Abstracting the service](#abstracting-the-service)
 - [Creating a client-side Blazor components project](#creating-a-client-side-blazor-components-project)
@@ -10,6 +11,22 @@ Now we will implement similar functionality that runs in the browser using WebAs
 - [Disabling CORS for the web service](#disabling-cors-for-the-web-service)
 - [Testing the WebAssembly components and service](#testing-the-webassembly-components-and-service)
 - [Switching to the WebAssembly component](#switching-to-the-webassembly-component)
+
+# Failed to start platform and other errors
+
+Blazor is a rapidly evolving platform and web development is messy at the best of times. Throw in Visual Studio temporary files, and you get odd errors occuring. The following are some tips that often help resolve issues:
+- If you are using a preview of .NET or Visual Studio, try using an older or newer version.
+- Clear Chrome caches:
+  - Show `Developer Tools`, press and hold the **Reload** button, and select `Empty cache and hard reload`.
+  - In `Developer Tools`, in `Storage`, right-click `Cache storage` and select `Delete`.
+- Force a package refresh in Visual Studio:
+    1. Cut the `<PackageReference>` elements from the `.csproj` project file. (Keep a copy.)
+    2. Save the `.csproj` project file and then wait for the references to update in Visual Studio.
+    3. Paste the `<PackageReference>` elements back into the `.csproj` project file.
+    4. Clean the project.
+    5. Rebuild the project.
+
+> **More Information**: Thanks to [Paul Marangoni](https://github.com/pmarangoni) for raising issues with the Blazor WebAssembly section and suggesting this link: https://github.com/dotnet/aspnetcore/issues/50755.
 
 # Projects and port numbers
 
