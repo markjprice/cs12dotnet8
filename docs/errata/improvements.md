@@ -1,7 +1,8 @@
-**Improvements** (52 items)
+**Improvements** (53 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
+- [Page 2 - Getting code solutions for this book](#page-2---getting-code-solutions-for-this-book)
 - [Page 4 - Setting up your development environment](#page-4---setting-up-your-development-environment)
 - [Page 16 - Understanding intermediate language](#page-16---understanding-intermediate-language)
 - [Page 54 - Understanding C# standards](#page-54---understanding-c-standards)
@@ -59,6 +60,14 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 640 - Customizing the model and defining an extension method](#page-640---customizing-the-model-and-defining-an-extension-method)
 - [Page 727 - Understanding Swagger](#page-727---understanding-swagger)
 - [Page 732 - Enabling HTTP logging](#page-732---enabling-http-logging)
+
+# Page 2 - Getting code solutions for this book
+
+When you access a repository using **GitHub Codespaces** (aka https://github.dev/) then the **GitHub Repositories** extension will attempt to download the repository's index. By default, the maximum size can be up to 50MB but the repository exceeds this limit, so you will be shown the following warning message:
+
+![Repository exceeds download size limit warning message](repo-index-limit.png)
+
+You can ignore this warning and click **Continue** because you are only using GitHub Codespaces to view the code in the repository.
 
 # Page 4 - Setting up your development environment
 
