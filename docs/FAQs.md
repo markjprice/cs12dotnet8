@@ -4,7 +4,7 @@
 
 You have two options to get a Packt book in PDF format:
 
-1. If you purchase any other format of book from anywhere else then you can get the PDF edition by completing a form on Packt's website with proof of purchase: https://www.packtpub.com/page/free-ebook
+1. If you purchase any other format of the book from anywhere else then you can get the PDF edition by completing a form on Packt's website with proof of purchase: https://www.packtpub.com/page/free-ebook. For example, you might buy the paperback from your local independent bookstore, or you might buy the Kindle edition from Amazon.
 
 2. If you purchase an ebook from Packt's website then you get it in PDF and EPUB formats as well as their online reader. 
  
