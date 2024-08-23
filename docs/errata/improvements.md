@@ -1220,7 +1220,7 @@ modelBuilder.Entity<Order>(entity =>
   entity.Property(e => e.Freight).HasDefaultValueSql("0");
 });
 ```
-Some readers write the code themselves and then mistakenly call the `HasDefaultValue()` instead of the `HasDefaultValueSql()` method because it comes first in the IntelliSense list of choices. Using the wrong method causes a runtime error later when you run unit tests because the client attempts to set a `double` value on a `decimal` property.
+The `dotnet-ef` tool has been updated to change the way the code is generated. And some readers write the code themselves and then mistakenly call the `HasDefaultValue()` instead of the `HasDefaultValueSql()` method because it comes first in the IntelliSense list of choices. Using the `HasDefaultValue()` method will cause a runtime error later when you run unit tests because the client attempts to set a `double` value on a `decimal` property (we improve the model by manually changing the property data type to better support money values).
 
 In the next edition, I will add a note to explain the difference between the two methods, as follows:
 - Use `HasDefaultValue()` when you need a constant, static value as a default for a column, and the value does not depend on any conditions or need to be dynamically calculated at the time of insertion. This constant value is set at the model level and is used by EF Core to insert into the database if no other value is provided. For the equivalent to the above example, you would use: `entity.Property(e => e.Freight).HasDefaultValue(0M);` because `0M` uses the `decimal` suffix `M`. Think of it as setting a default value on the client-side.
