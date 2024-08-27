@@ -1,4 +1,4 @@
-**Improvements** (53 items)
+**Improvements** (54 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -18,6 +18,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 99 - Custom number formatting](#page-99---custom-number-formatting)
 - [Page 101 - Getting text input from the user, and Page 120 - Null-coalescing operators](#page-101---getting-text-input-from-the-user-and-page-120---null-coalescing-operators)
 - [Page 127 - Pattern matching with the if statement](#page-127---pattern-matching-with-the-if-statement)
+- [Page 130 - Adding a new item to a project using Visual Studio 2022](#page-130---adding-a-new-item-to-a-project-using-visual-studio-2022)
 - [Page 131 - Pattern matching with the switch statement](#page-131---pattern-matching-with-the-switch-statement)
 - [Page 132 - Pattern matching with the switch statement](#page-132---pattern-matching-with-the-switch-statement)
 - [Page 144 - List pattern matching with arrays](#page-144---list-pattern-matching-with-arrays)
@@ -428,6 +429,16 @@ string? authorName = GetAuthorName(); // A custom method.
 # Page 127 - Pattern matching with the if statement
 
 I will rewrite this section to emphasise that the statement does two things: (a) checks the type and (b) assigns if true, and include that the scope of the variable is the `if` statement. I will also note that I will use this technique in later chapters so keep this in mind. See also [Using is to check a type](#page-353---using-is-to-check-a-type).
+
+# Page 130 - Adding a new item to a project using Visual Studio 2022
+
+> Thanks to `Obs` in the book's Discord channel for raising this issue.
+
+"I must admit I was a bit confused on page 130. The topic suddenly jumped from Switch statement to how to add an item in VS 2022 out of nowhere.
+On page 131 I see it's probably some extra info for step 1 in that excercise. 
+All good, but that bit seems a bit out of place imho."
+
+`Obs` is correct. This section is included at this point in the book because it is the first time that the reader needs to add a new item to a project. In the next edition, I will add an introductory sentence explaining that, and that the `switch` content continues after this short section.
 
 # Page 131 - Pattern matching with the switch statement
 
