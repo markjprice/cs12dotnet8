@@ -22,7 +22,7 @@ My books on Packt's website:
 
 # Where can I buy your books in my country?
 
-I live in the UK and I have no experience with buying books in your country but you probably do. Where have you bought books before in your country? Most bookstores will order a book for you if they do not have it in stock. If they cannot, then please ask the publisher where you can buy books in your country: customercare@packt.com. 
+I live in the UK and I have no experience with buying books in your country but you probably do. Where have you bought books before in your country? Most bookstores will order a book for you if they do not have it in stock. If they cannot, then please ask the publisher, Packt, where you can buy Packt books in your country: customercare@packt.com. 
 
 # Can you give me a free copy of your book?
 
