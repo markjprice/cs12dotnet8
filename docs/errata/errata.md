@@ -1,4 +1,4 @@
-**Errata** (41 items)
+**Errata** (42 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -33,6 +33,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 421 - Generating GUIDs](#page-421---generating-guids)
 - [Page 430 - Regular expression performance improvements](#page-430---regular-expression-performance-improvements)
 - [Page 522 - Using the lightweight ADO.NET database providers](#page-522---using-the-lightweight-adonet-database-providers)
+- [Page 538 - Scaffolding models using an existing database](#page-538---scaffolding-models-using-an-existing-database)
 - [Page 548 - Getting the generated SQL](#page-548---getting-the-generated-sql)
 - [Page 553 - Getting a single entity](#page-553---getting-a-single-entity)
 - [Page 616 - Be careful with Count!](#page-616---be-careful-with-count)
@@ -428,6 +429,15 @@ In the fourth paragraph I wrote, "The EF Core database providers for SQLite and 
 for better performance because the EF Core database providers are “closer to the metal.”"
 
 The second sentence is confusing or just wrong, and I probably meant to write, "Furthermore, ADO.NET can be used independently which will give better performance because the ADO.NET database providers are “closer to the metal.”". But even then the sentence doesn't add much so in the next edition I will remove that sentence.
+
+# Page 538 - Scaffolding models using an existing database
+
+> Thanks to [rmantel23](https://github.com/rmantel23) for raising [this issue on September 4, 2024](https://github.com/markjprice/cs12dotnet8/issues/66).
+
+In the fourth bullet for the notes about the code, I wrote, "The `CategoryId` property is decorated with the `[Key]` attribute to indicate that it is the
+primary key for this entity. The data type for this property is `int` for SQL Server and `long` for SQLite. We did not do this because we followed the naming primary key convention."
+
+The second sentence is the wrong way round. It should say, "The data type for this property is `int` for SQLite and `long` for SQL Server." I will fix this in the next edition.
 
 # Page 548 - Getting the generated SQL
 
