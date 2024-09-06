@@ -1,4 +1,4 @@
-**Improvements** (54 items)
+**Improvements** (55 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -54,6 +54,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 524 - Defining the Northwind database context class](#page-524---defining-the-northwind-database-context-class)
 - [Page 535 - Scaffolding models using an existing database](#page-535---scaffolding-models-using-an-existing-database)
 - [Page 541 - Querying EF Core models](#page-541---querying-ef-core-models)
+- [Page 564 - Controlling the tracking of entities](#page-564---controlling-the-tracking-of-entities)
 - [Page 583 - Building LINQ expressions with the Enumerable class](#page-583---building-linq-expressions-with-the-enumerable-class)
 - [Page 634 - Creating the Northwind database](#page-634---creating-the-northwind-database)
 - [Page 634 - Creating a class library for entity models using SQLite](#page-634---creating-a-class-library-for-entity-models-using-sqlite)
@@ -1168,6 +1169,28 @@ Product? product = db.Products?
 On page 553, before step 2, I will add a note:
 
 > LINQ methods that fetch a single entity (`First`, `FirstOrDefault`, `Single`, `SingleOrDefault`, `ElementAt`, `ElementAtOrDefault`) or return a single scalar value or entity like the aggregate methods (`Count`, `Sum`, `Max`, `Min`, `Average`, `All`, `Any`, and so on) are not deferred. When using the LINQ to Entities provider, any LINQ query that ends with a call to one of these methods is immediately converted to a SQL statement and executed against the database.
+
+# Page 564 - Controlling the tracking of entities
+
+> Thanks to [rmantel23](https://github.com/rmantel23) for raising [this issue on September 5, 2024](https://github.com/markjprice/cs12dotnet8/issues/68).
+
+I used a SQL Server code example to show the use of the `UseQueryTrackingBehavior` method, as shown in the following code:
+```cs
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+{
+  optionsBuilder.UseSqlServer(connectionString)
+    .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+}
+```
+
+It does not matter which data provider you are using since the `UseQueryTrackingBehavior` method is an EF Core client-side feature and therefore works the same way with all of them. But since all the print book code examples use SQLite, in the next edition I will show this example using SQLite, as shown in the following code:
+```cs
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+{
+  optionsBuilder.UseSqlite(connectionString)
+    .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+}
+```
 
 # Page 583 - Building LINQ expressions with the Enumerable class
 
