@@ -1,4 +1,4 @@
-**Improvements** (57 items)
+**Improvements** (58 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -6,6 +6,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 4 - Setting up your development environment](#page-4---setting-up-your-development-environment)
 - [Page 16 - Understanding intermediate language](#page-16---understanding-intermediate-language)
 - [Page 54 - Understanding C# standards](#page-54---understanding-c-standards)
+- [Page 62 - Blocks](#page-62---blocks)
 - [Page 64 - Formatting code using white space](#page-64---formatting-code-using-white-space)
 - [Page 64 - Understanding C# vocabulary](#page-64---understanding-c-vocabulary)
 - [Page 79 - Raw interpolated string literals](#page-79---raw-interpolated-string-literals)
@@ -95,6 +96,18 @@ Obviously I strongly disagree with his review, and so do the 81% of readers who 
 But I am responsive to all readers, and this particular table is undeniably the least useful table in the book. In the next edition, I will remove *Table 2.1*, as shown in the following figure:
 
 ![C# standards table](improvement-p54.png)
+
+# Page 62 - Blocks
+
+In *Figure 2.2*, I show screenshots of how Visual Studio and VS Code present collapsable blocks of statements, as shown in the following figure:
+
+![Figure 2.2: Code editors with expanded and collapsed blocks](B19586_02_02.png)
+
+Recent versions of Visual Studio have changed from the `[+]` and `[-]` icons to arrow head icons, as shown in the following figure:
+
+![Figure 2.2: Code editors with expanded and collapsed blocks](B22322_02_02.png)
+
+The new screenshot will be used in the ninth edition.
 
 # Page 64 - Formatting code using white space
 
