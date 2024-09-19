@@ -99,6 +99,8 @@ But I am responsive to all readers, and this particular table is undeniably the 
 
 # Page 62 - Blocks
 
+> Thanks to [Donald Maisey](https://github.com/donaldmaisey) who raised this [issue on September 19, 2024](https://github.com/markjprice/cs12dotnet8/issues/70).
+
 In *Figure 2.2*, I show screenshots of how Visual Studio and VS Code present collapsable blocks of statements, as shown in the following figure:
 
 ![Figure 2.2: Code editors with expanded and collapsed blocks](B19586_02_02.png)
