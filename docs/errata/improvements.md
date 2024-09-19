@@ -1,4 +1,4 @@
-**Improvements** (58 items)
+**Improvements** (59 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -36,6 +36,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 297 - Implementing functionality using methods](#page-297---implementing-functionality-using-methods)
 - [Page 299 - Implementing functionality using methods](#page-299---implementing-functionality-using-methods)
 - [Page 310 - Defining and handling delegates](#page-310---defining-and-handling-delegates)
+- [Page 323 - Understanding stack and heap memory](#page-323---understanding-stack-and-heap-memory)
 - [Page 347 - Overriding members](#page-347---overriding-members)
 - [Page 353 - Using is to check a type](#page-353---using-is-to-check-a-type)
 - [Page 358 - Using extension methods to reuse functionality](#page-358---using-extension-methods-to-reuse-functionality)
@@ -777,6 +778,25 @@ I will also add to the comment, as shown in the following code:
 ```cs
 // If sender is not a Person, then do nothing and return; else assign sender to p.
 ```
+
+# Page 323 - Understanding stack and heap memory
+
+At the start of the third paragraph, I wrote, "On Windows, for ARM64, x86, and x64 machines, the default stack size is 1 MB." 
+
+This sentence is correct. 
+
+Mark Russinovich is a Microsoft expert and he wrote a deep dive article about memory and threads that is worth reading. You can find it at the following link:
+https://learn.microsoft.com/en-us/archive/blogs/markrussinovich/pushing-the-limits-of-windows-processes-and-threads
+
+Here are some relevant highlights:
+
+![Stack size for the main thread defaults to 1MB](stack-1mb-01.png)
+
+Note that the 1MB limit is a default and that "developers can override these values". The .NET team decided to override the default so that .NET apps have 1.5 MB of stack memory, but this was a "completely accidental change", as you can read about in the following comment to a GitHub issue in the .NET repository: https://github.com/dotnet/runtime/issues/96347#issuecomment-1871528297
+
+"Prior to this change, we have been using the Windows native toolset default before that is 1MB."
+
+If this issue might affect your projects, I recommend reading the following issue: [Migration from .NET Framework 4.7.2 to .NET 8 results in StackOverflowException due to reduced stack size](https://github.com/dotnet/runtime/issues/96347).
 
 # Page 347 - Overriding members
 
