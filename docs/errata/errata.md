@@ -1,4 +1,4 @@
-**Errata** (42 items)
+**Errata** (43 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -308,6 +308,17 @@ key or value. If another developer used your variable named and expected all the
 In the second sentence, I failed to name the variable. The sentence should be: "If another developer used your variable named `lookupObject` and expected all the items to be a certain type, ..." Or I might just delete the word "named". Either would make the sentence less confusing.
 
 # Page 316 - Comparing objects when sorting
+
+> Thanks to **Obs** in the Discord channel for this book for raising this issue on October 10, 2024.
+
+In Step 5, I wrote, "In `Person.cs`, after inheriting from `object`, add a comma and enter `IComparable<Person?>`, as highlighted in the following code:
+```cs
+public class Person : IComparable<Person?>
+```
+
+That instruction was written for an earlier edition where the `Person` class explicitly inherited from `object`. For example, `Person : object`. 
+
+In the next edition, I will change Step 5 to be, "In `Person.cs`, add code to say that `Person` implements the `IComparable<Person?>` interface, ..."
 
 > Thanks to **Ashish** in the Discord channel for this book for raising this issue.
 
