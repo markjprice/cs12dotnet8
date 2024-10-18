@@ -11,10 +11,9 @@
   - [Help and learning](#help-and-learning)
 - [Chapter 2 - Speaking C#](#chapter-2---speaking-c)
   - [What's New in C#?](#whats-new-in-c)
-  - [C# language version and the journey to C# 11](#c-language-version-and-the-journey-to-c-11)
+  - [C# language version and the journey to C# 12](#c-language-version-and-the-journey-to-c-12)
   - [C# language](#c-language)
   - [C# implemented proposals](#c-implemented-proposals)
-  - [C# proposals being worked on](#c-proposals-being-worked-on)
   - [Text and number types](#text-and-number-types)
   - [Console apps and formatting](#console-apps-and-formatting)
   - [Miscellaneous](#miscellaneous)
@@ -174,6 +173,7 @@
 - [dotnet new templates](https://github.com/dotnet/templating/wiki/Available-templates-for-dotnet-new)
 
 ## .NET performance improvements
+- [Performance Improvements in .NET 8](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-8/)
 - [Arm64 Performance Improvements in .NET 7](https://devblogs.microsoft.com/dotnet/arm64-performance-improvements-in-dotnet-7/)
 - [Performance Improvements in .NET 7](https://devblogs.microsoft.com/dotnet/performance_improvements_in_net_7/)
 - [Performance Improvements in .NET 6](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-6/)
@@ -214,6 +214,8 @@
 # Chapter 2 - Speaking C#
 
 ## What's New in C#?
+- [What's new in C# 13](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-13)
+- [What's new in C# 12](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-12)
 - [What's New in C# 11 | .NET Conf 2022](https://www.youtube.com/watch?v=H18CfoinPZg)
 - [Early peek at C# 11 features](https://devblogs.microsoft.com/dotnet/early-peek-at-csharp-11-features/): Allow newlines in the “holes” of interpolated strings, List patterns, Parameter null-checking.
 - [C# 11 preview: generic math, required members, and more](https://devblogs.microsoft.com/dotnet/csharp-11-preview-august-update/)
@@ -231,7 +233,7 @@
 - [What's new in C# 3.0](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-version-history#c-version-30)
 - [What's new in C# 2.0](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-version-history#c-version-20)
 
-## C# language version and the journey to C# 11
+## C# language version and the journey to C# 12
 - [Announcing Open Source C# standardization](https://devblogs.microsoft.com/dotnet/announcing-open-source-c-standardization-standards/)
 - [Rosalyn and C# compiler versions](https://github.com/dotnet/roslyn/blob/main/docs/wiki/NuGet-packages.md)
 - [How Microsoft rewrote its C# compiler in C# and made it open source](https://medium.com/microsoft-open-source-stories/how-microsoft-rewrote-its-c-compiler-in-c-and-made-it-open-source-4ebed5646f98)
@@ -257,6 +259,8 @@
 - [Patterns (C# reference)](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/patterns)
 
 ## C# implemented proposals
+- [C# 13](https://github.com/dotnet/csharplang/tree/main/proposals/csharp-13.0)
+- [C# 12](https://github.com/dotnet/csharplang/tree/main/proposals/csharp-12.0)
 - [C# 11](https://github.com/dotnet/csharplang/tree/main/proposals/csharp-11.0)
 - [C# 10](https://github.com/dotnet/csharplang/tree/main/proposals/csharp-10.0)
 - [C# 9](https://github.com/dotnet/csharplang/tree/main/proposals/csharp-9.0)
@@ -266,11 +270,6 @@
 - [C# 7.1](https://github.com/dotnet/csharplang/tree/main/proposals/csharp-7.1)
 - [C# 7.0](https://github.com/dotnet/csharplang/tree/main/proposals/csharp-7.0)
 - [C# 6.0](https://github.com/dotnet/csharplang/tree/main/proposals/csharp-6.0)
-
-## C# proposals being worked on
-- [Champion: Simplified parameter null validation code #2145](https://github.com/dotnet/csharplang/issues/2145)
-- [Proposal: Semi-Auto-Properties; field keyword #140](https://github.com/dotnet/csharplang/issues/140)
-- [Working Set (of proposals)](https://github.com/dotnet/csharplang/milestone/19)
 
 ## Text and number types
 - [Strings (C# Programming Guide)](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/)
