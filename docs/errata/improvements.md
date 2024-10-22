@@ -1,4 +1,4 @@
-**Improvements** (59 items)
+**Improvements** (60 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -48,6 +48,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
   - [Using the spread element](#using-the-spread-element)
   - [Collection expression limitations](#collection-expression-limitations)
 - [Page 460 - Identifying ranges with the Range type](#page-460---identifying-ranges-with-the-range-type)
+- [Page 461 - Exercise 8.1 – Test your knowledge](#page-461---exercise-81--test-your-knowledge)
 - [Page 477 - Building a stream pipeline](#page-477---building-a-stream-pipeline)
 - [Page 484 - Compressing streams](#page-484---compressing-streams)
 - [Page 493 - Serializing as XML](#page-493---serializing-as-xml)
@@ -937,6 +938,10 @@ Range r7 = ..3; // From index 0 to index 3.
 ```
 
 In the next edition, I will add a note to warn the reader that the spread element `..` looks the same but means something different and refer back to it in a  new section explaining the spread element. 
+
+# Page 461 - Exercise 8.1 – Test your knowledge
+
+In question 10, I ask, "How could you check that a web service is available before calling it?" But the section about networking is not covered until *Exercise 8.4 – Working with network resources* on page 462. In all future books, including the ninth edition, I have reorganized these sections to make sure that the questions always come after any online materials and practice exercises.
 
 # Page 477 - Building a stream pipeline
 
