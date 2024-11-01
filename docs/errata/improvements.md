@@ -1,4 +1,4 @@
-**Improvements** (60 items)
+**Improvements** (61 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -52,6 +52,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 477 - Building a stream pipeline](#page-477---building-a-stream-pipeline)
 - [Page 484 - Compressing streams](#page-484---compressing-streams)
 - [Page 493 - Serializing as XML](#page-493---serializing-as-xml)
+- [Page 506 - Reading all environment variables](#page-506---reading-all-environment-variables)
 - [Page 517 - Using SQL Server or other SQL systems](#page-517---using-sql-server-or-other-sql-systems)
 - [Page 520 - If you are using Visual Studio 2022](#page-520---if-you-are-using-visual-studio-2022)
 - [Page 524 - Defining the Northwind database context class](#page-524---defining-the-northwind-database-context-class)
@@ -1063,6 +1064,35 @@ I will also explain why I did not use the simplified syntax with the `compressor
 In Step 2, I wrote, "In the project file, add elements to statically and globally import the `System.Console`, `System.Environment`, and `System.IO.Path` classes."
 
 Some readers do not notice that they need to statically import `System.Environment` so in the next edition I will write, "In the project file, add elements to statically and globally import the `System.Console` (to use `ForegroundColor` and `WriteLine`), `System.Environment` (to use `CurrentDirectory`), and `System.IO.Path` classes (to use `Combine`, `GetFileName`, and `GetDirectoryName`)."
+
+# Page 506 - Reading all environment variables
+
+> Thanks to [DJ Mann](bluewolf_78) in the book's Discord channel for raising this issue and suggesting the code to handle it.
+
+In Step 4, the code in the `DictionaryToTable` method assumes that the keys and values in the dictionary do not contain any special characters recognized by Spectre tables like the following:
+```
+GUESTFISH_PS1 - \[\e[1;32m\]><fs>\[\e[0;31m\] 
+GUESTFISH_RESTORE - \e[0m
+GUESTFISH_INIT - \e[1;34m
+GUESTFISH_OUTPUT - \e[0m
+```
+
+To handle entries like these, you can try the following code:
+```cs
+foreach (string key in dictionary.Keys)
+{
+    // Some env var values are being interpreted as markup
+    try
+    {
+        table.AddRow(key, dictionary[key]!.ToString()!);
+    }
+    catch (Exception ex)
+    {
+        table.AddRow(key, ex.Message);
+        WriteLine($"{key} - {dictionary[key]}");
+    }
+}
+```
 
 # Page 517 - Using SQL Server or other SQL systems
 
