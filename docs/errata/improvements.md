@@ -1,4 +1,4 @@
-**Improvements** (61 items)
+**Improvements** (62 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -60,6 +60,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 541 - Querying EF Core models](#page-541---querying-ef-core-models)
 - [Page 556 - Generating a random number in queries](#page-556---generating-a-random-number-in-queries)
 - [Page 564 - Controlling the tracking of entities](#page-564---controlling-the-tracking-of-entities)
+- [Page 568 - Inserting entities, Page 573 - More efficient updates and deletes](#page-568---inserting-entities-page-573---more-efficient-updates-and-deletes)
 - [Page 583 - Building LINQ expressions with the Enumerable class](#page-583---building-linq-expressions-with-the-enumerable-class)
 - [Page 634 - Creating the Northwind database](#page-634---creating-the-northwind-database)
 - [Page 634 - Creating a class library for entity models using SQLite](#page-634---creating-a-class-library-for-entity-models-using-sqlite)
@@ -1274,6 +1275,25 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 }
 ```
+
+# Page 568 - Inserting entities, Page 573 - More efficient updates and deletes
+
+> Thanks to **Obs** in the book's Discord channel for suggesting this improvement.
+
+In Step 3, I tell you to "add a method named `AddProduct`" that will insert a new product row in the `Products` table. The key statement calls the `Add` method on the `Producrts` property, as shown in the following code:
+```cs
+EntityEntry<Product> entity = db.Products.Add(p);
+```
+
+In the next edition, I will add a comment and an alternative statement, as shown in the following code:
+```cs
+// Alternatively, call Add<Product> on the data context.
+// EntityEntry<Product> entity = db.Add(p);
+```
+
+Later, on page 573, I summarize how to add, update, and delete entities, and I wrote, "To insert data, create a new instance of an entity class and then pass it as an argument to the `Add` method of the appropriate collection, for example, `db.Products.Add(product)`."
+
+In the 10th edition, I will extend this and write, "or directly on the data context, for example, `db.Add(product)`. The `Add<T>` method is generic so it knows what type of entity is being added and therefore which table to add it to."
 
 # Page 583 - Building LINQ expressions with the Enumerable class
 
