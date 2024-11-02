@@ -1280,7 +1280,7 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
 > Thanks to **Obs** in the book's Discord channel for suggesting this improvement.
 
-In Step 3, I tell you to "add a method named `AddProduct`" that will insert a new product row in the `Products` table. The key statement calls the `Add` method on the `Producrts` property, as shown in the following code:
+In Step 3, I tell you to "add a method named `AddProduct`" that will insert a new product row in the `Products` table. The key statement calls the `Add` method on the `Products` property, as shown in the following code:
 ```cs
 EntityEntry<Product> entity = db.Products.Add(p);
 ```
@@ -1293,7 +1293,7 @@ In the next edition, I will add a comment and an alternative statement, as shown
 
 Later, on page 573, I summarize how to add, update, and delete entities, and I wrote, "To insert data, create a new instance of an entity class and then pass it as an argument to the `Add` method of the appropriate collection, for example, `db.Products.Add(product)`."
 
-In the 10th edition, I will extend this and write, "or directly on the data context, for example, `db.Add(product)`. The `Add<T>` method is generic so it knows what type of entity is being added and therefore which table to add it to."
+In the next edition, I will extend this and write, "or directly on the data context, for example, `db.Add(product)`. The `Add<T>` method is generic so it knows what type of entity is being added and therefore which table to add it to."
 
 # Page 583 - Building LINQ expressions with the Enumerable class
 
