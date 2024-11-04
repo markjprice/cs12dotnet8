@@ -1,7 +1,8 @@
-**Errata** (43 items)
+**Errata** (44 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
+- [Page 5 - Choosing the appropriate tool and application type for learning](#page-5---choosing-the-appropriate-tool-and-application-type-for-learning)
 - [Page 10 - Installing other extensions](#page-10---installing-other-extensions)
 - [Page 15 - Understanding .NET runtime and .NET SDK versions](#page-15---understanding-net-runtime-and-net-sdk-versions)
 - [Page 43 - Configuring inline aka inlay hints](#page-43---configuring-inline-aka-inlay-hints)
@@ -45,6 +46,12 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 761 - Using Bootstrap icons](#page-761---using-bootstrap-icons)
 - [Page 771 - Building a customer detail component](#page-771---building-a-customer-detail-component)
 - [Appendix - Page 1 - Exercise 1.1 – Test your knowledge](#appendix---page-1---exercise-11--test-your-knowledge)
+
+# Page 5 - Choosing the appropriate tool and application type for learning
+
+> Thanks to [s3ba-b](https://github.com/s3ba-b) for raising [this issue on November 3, 2024](https://github.com/markjprice/cs12dotnet8/issues/74).
+
+The last sentence says, "Then, in Chapters 12 to 16, you will build websites, services, and web browser apps." It should have said, "Then, in Chapters 12 to 15, you will build websites, web browser apps, and web services."
 
 # Page 10 - Installing other extensions
 
