@@ -1,4 +1,4 @@
-**Improvements** (63 items)
+**Improvements** (64 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -69,6 +69,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 640 - Customizing the model and defining an extension method](#page-640---customizing-the-model-and-defining-an-extension-method)
 - [Page 727 - Understanding Swagger](#page-727---understanding-swagger)
 - [Page 732 - Enabling HTTP logging](#page-732---enabling-http-logging)
+- [Appendix - Exercise 3.1 – Test your knowledge](#appendix---exercise-31--test-your-knowledge)
 
 # Page 2 - Getting code solutions for this book
 
@@ -1426,3 +1427,11 @@ if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
   // Call the AddEventLog method.
 }
 ```
+
+# Appendix - Exercise 3.1 – Test your knowledge
+
+> Thanks to **rene**/`rene510` in the Discord channel for asking a question about this.
+
+In Question 2, "What happens when you divide a double variable by 0?", in my suggested answer I wrote, "The `double` type contains a special value of `Infinity`. Instances of floating-point numbers can have the special values of `NaN` (not a number) or, in the case of dividing by `0`, either `PositiveInfinity` or `NegativeInfinity`."
+
+In the next edition, I will add that those special values output as `8` and `-8`.
