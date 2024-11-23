@@ -1,4 +1,4 @@
-**Errata** (44 items)
+**Errata** (45 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -25,6 +25,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 305 - Working with non-generic types](#page-305---working-with-non-generic-types)
 - [Page 316 - Comparing objects when sorting](#page-316---comparing-objects-when-sorting)
 - [Page 324 - How reference and value types are stored in memory](#page-324---how-reference-and-value-types-are-stored-in-memory)
+- [Page 331 - Defining record struct types](#page-331---defining-record-struct-types)
 - [Page 344 - Inheriting from classes](#page-344---inheriting-from-classes)
 - [Page 361 - Comparing inheritance and implementation](#page-361---comparing-inheritance-and-implementation)
 - [Page 375 - Revealing the location of a type](#page-375---revealing-the-location-of-a-type)
@@ -347,6 +348,20 @@ https://github.com/markjprice/cs12dotnet8/blob/main/code/Chapter06/PacktLibrary/
 > Thanks to [rmantel23](https://github.com/rmantel23) for raising [this issue on June 17, 2024](https://github.com/markjprice/cs12dotnet8/issues/53).
 
 In the code, I used `TimeSpace.Zero`. It should be `TimeSpan.Zero`.
+
+# Page 331 - Defining record struct types
+
+> Thanks to [Vlad Alexandru Meici](https://github.com/vladmeici) for raising [this issue on November 23, 2024](https://github.com/markjprice/cs12dotnet8/issues/76).
+
+In Step 1, I wrote, "In the `DisplacementVector` type, add the `record` keyword, as highlighted in the following code:"
+```cs
+public record struct DisplacementVector(int X, int Y);
+```
+
+The statement should not end with `(int X, int Y);` Although this syntax is correct, there is a lot more code in the type as currently defined. That statement should be:
+```cs
+public record struct DisplacementVector
+```
 
 # Page 344 - Inheriting from classes
 
