@@ -105,7 +105,7 @@ Next, we will create a class library that implements the source generator:
 
 > Currently, source generators must target .NET Standard 2.0. The default C# version used for class libraries that target .NET Standard 2.0 is C# 7.3, as shown at the following link: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/configure-language-version#defaults.
 
-2.	In the project file, set the C# language version to `10` or later (so that we can use `global using` statements), enable enforce extended analyzer rules, statically and globally import the `Console` class, and add the NuGet packages `Microsoft.CodeAnalysis.Analyzers` and `Microsoft.CodeAnalysis.CSharp`, as shown in the following markup:
+2.	In the project file, set the C# language version to `12` (so that we can use `global using` statements), enable enforce extended analyzer rules, statically and globally import the `Console` class, and add the NuGet packages `Microsoft.CodeAnalysis.Analyzers` and `Microsoft.CodeAnalysis.CSharp`, as shown in the following markup:
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
 
@@ -113,7 +113,7 @@ Next, we will create a class library that implements the source generator:
     <TargetFramework>netstandard2.0</TargetFramework>
 
     <!--Must use C# 10 or later to support 'global using' statements.-->
-    <LangVersion>10</LangVersion>
+    <LangVersion>12</LangVersion>
 
     <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
     <Nullable>enable</Nullable>

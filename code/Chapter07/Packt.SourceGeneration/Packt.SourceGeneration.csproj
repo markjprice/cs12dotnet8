@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
 
     <!--Must use C# 10 or later to support 'global using' statements.-->
-    <LangVersion>preview</LangVersion>
+    <LangVersion>12</LangVersion>
 
     <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
     <Nullable>enable</Nullable>
