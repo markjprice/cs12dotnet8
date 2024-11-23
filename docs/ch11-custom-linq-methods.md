@@ -17,9 +17,19 @@ We will improve the `Average` extension method as an example. A well-educated ch
 
 Microsoft's implementation of the `Average` extension method calculates the *mean*. We might want to define our own extension methods for `Mode` and `Median`:
 
-1.	Use your preferred code editor to add a new **Class Library** / `classlib` project named `PacktLinqExtensions` that targets .NET Standard 2.0 to the `Chapter11` solution.
-1.	In the `PacktLinqExtensions` project, rename the class file `Class1.cs` to `LinqExtensions.cs`.
-2.	Modify the class, as shown in the following code:
+1.	Use your preferred code editor to add a new **Class Library** / `classlib` project named `PacktLinqExtensions` to the `Chapter11` solution that targets .NET Standard 2.0 and uses C# 12, as shown in the following markup:
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>12</LangVersion>
+  </PropertyGroup>
+
+</Project>
+```
+2.	In the `PacktLinqExtensions` project, rename the class file `Class1.cs` to `LinqExtensions.cs`.
+3.	Modify the class, as shown in the following code:
 ```cs
 namespace System.Linq; // To extend Microsoft's namespace.
 
