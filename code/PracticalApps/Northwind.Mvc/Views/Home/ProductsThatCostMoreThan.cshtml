@@ -27,10 +27,10 @@ else
       {
         <tr>
           <td>
-            @Html.DisplayFor(modelItem => p.Category.CategoryName)
+            @if (p.Category is not null) { Html.DisplayFor(modelItem => p.Category.CategoryName); }
           </td>
           <td>
-            @Html.DisplayFor(modelItem => p.Supplier.CompanyName)
+            @if (p.Supplier is not null) { Html.DisplayFor(modelItem => p.Supplier.CompanyName); }
           </td>
           <td>
             @Html.DisplayFor(modelItem => p.ProductName)

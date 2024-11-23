@@ -13,7 +13,7 @@ public class SuppliersModel : PageModel
     _db = db;
 
     // Initialize the Supplier property to avoid null warnings in the view.
-    //Supplier = new();
+    Supplier = new();
   }
 
   public IEnumerable<Supplier>? Suppliers { get; set; }
