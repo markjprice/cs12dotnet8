@@ -7,9 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Version="8.0.7"
+    <PackageReference Version="8.0.11"
       Include="Microsoft.EntityFrameworkCore.Sqlite" />
-    <PackageReference Version="8.0.7"
+    <PackageReference Version="8.0.11"
       Include="Microsoft.EntityFrameworkCore.Design">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
