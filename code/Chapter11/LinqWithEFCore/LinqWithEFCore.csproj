@@ -17,7 +17,6 @@
 
     <!--To use SQL Server-->
     <PackageReference Version="8.0.11" Include="Microsoft.EntityFrameworkCore.SqlServer" />
-    <PackageReference Version="5.2.2" Include="Microsoft.Data.SqlClient" />
   </ItemGroup>
 
   <ItemGroup>
