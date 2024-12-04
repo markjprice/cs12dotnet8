@@ -1,4 +1,4 @@
-**Improvements** (64 items)
+**Improvements** (65 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -63,6 +63,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 564 - Controlling the tracking of entities](#page-564---controlling-the-tracking-of-entities)
 - [Page 568 - Inserting entities, Page 573 - More efficient updates and deletes](#page-568---inserting-entities-page-573---more-efficient-updates-and-deletes)
 - [Page 583 - Building LINQ expressions with the Enumerable class](#page-583---building-linq-expressions-with-the-enumerable-class)
+- [Page 598 - Creating a console app for exploring LINQ to Entities](#page-598---creating-a-console-app-for-exploring-linq-to-entities)
 - [Page 634 - Creating the Northwind database](#page-634---creating-the-northwind-database)
 - [Page 634 - Creating a class library for entity models using SQLite](#page-634---creating-a-class-library-for-entity-models-using-sqlite)
 - [Page 638 - Creating a class library for a database context using SQLite](#page-638---creating-a-class-library-for-a-database-context-using-sqlite)
@@ -1326,6 +1327,32 @@ Method(s)|Description
 `SequenceEqual`|Returns `true` or `false` depending on whether two sequences are equal according to an equality comparer.
 `SkipLast`|Returns a new enumerable collection that contains the elements from source with the last count elements of the source collection omitted.
 `TakeLast`|Returns a new enumerable collection that contains the last count elements from source.
+
+# Page 598 - Creating a console app for exploring LINQ to Entities
+
+> Thanks to **Nigel Booth** for raising this issue in a LinkedIn post for one of my books.
+
+In Step 3, I wrote, "In the LinqWithEFCore project, add a package reference to the EF Core provider for SQLite
+and/or SQL Server, as shown in the following markup:"
+```xml
+<ItemGroup>
+  <!--To use SQLite-->
+  <PackageReference Version="8.0.0" Include="Microsoft.EntityFrameworkCore.Sqlite" />
+  <!--To use SQL Server-->
+  <PackageReference Version="8.0.0" Include="Microsoft.EntityFrameworkCore.SqlServer" />
+  <PackageReference Version="5.1.1" Include="Microsoft.Data.SqlClient" />
+</ItemGroup>
+```
+
+The `Microsoft.Data.SqlClient` package version has a security vulnerability so you will get warnings. You should either update the version to `5.2.0` or later, or delete the reference entirely since the package is a dependency of EF Core and therefore will be referenced already. You should also update the EF Core packages to the latest version. So, use the following markup:
+```xml
+<ItemGroup>
+  <!--To use SQLite-->
+  <PackageReference Version="8.0.11" Include="Microsoft.EntityFrameworkCore.Sqlite" />
+  <!--To use SQL Server-->
+  <PackageReference Version="8.0.11" Include="Microsoft.EntityFrameworkCore.SqlServer" />
+</ItemGroup>
+```
 
 # Page 634 - Creating the Northwind database
 
