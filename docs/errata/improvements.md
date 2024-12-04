@@ -1344,7 +1344,7 @@ and/or SQL Server, as shown in the following markup:"
 </ItemGroup>
 ```
 
-The `Microsoft.Data.SqlClient` package version has a security vulnerability so you will get warnings. You should either update the version to `5.2.0` or later, or delete the reference entirely since the package is a dependency of EF Core and therefore will be referenced already. You should also update the EF Core packages to the latest version. So, use the following markup:
+The `Microsoft.Data.SqlClient` package version `5.1.1` has a security vulnerability so you will get warnings. You should either update the version to `5.2.2` or later, or delete the reference entirely since the package is a dependency of EF Core and therefore will be referenced already. You should also update the EF Core packages to the latest version. So, use the following markup:
 ```xml
 <ItemGroup>
   <!--To use SQLite-->
