@@ -1,4 +1,4 @@
-**Errata** (45 items)
+**Errata** (46 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -31,6 +31,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 375 - Revealing the location of a type](#page-375---revealing-the-location-of-a-type)
 - [Page 383 - Creating a console app to publish](#page-383---creating-a-console-app-to-publish)
 - [Page 386 - Publishing a self-contained app](#page-386---publishing-a-self-contained-app)
+- [Page 388 - Publishing a single-file app](#page-388---publishing-a-single-file-app)
 - [Page 400 - Viewing source links with Visual Studio 2022](#page-400---viewing-source-links-with-visual-studio-2022)
 - [Page 421 - Generating GUIDs](#page-421---generating-guids)
 - [Page 430 - Regular expression performance improvements](#page-430---regular-expression-performance-improvements)
@@ -430,6 +431,15 @@ dotnet publish -c Release -r osx-arm64 --self-contained
 ```
 
 I have updated the **Command Lines** summary file to use the new valid RIDs: https://github.com/markjprice/cs12dotnet8/blob/main/docs/command-lines.md#page-386---publishing-a-self-contained-app
+
+# Page 388 - Publishing a single-file app
+
+> Thanks to [Vlad Alexandru Meici](https://github.com/vladmeici) for raising [this issue on December 8, 2024](https://github.com/markjprice/cs12dotnet8/issues/77).
+
+In the two command lines, I used `/p` to set a project property when I should have used `-p'. The complete command is:
+```
+dotnet publish -r win10-x64 -c Release --no-self-contained -p:PublishSingleFile=true
+```
 
 # Page 400 - Viewing source links with Visual Studio 2022
 
