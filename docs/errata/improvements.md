@@ -1,4 +1,4 @@
-**Improvements** (65 items)
+**Improvements** (66 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -45,6 +45,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 383 - Creating a console app to publish](#page-383---creating-a-console-app-to-publish)
 - [Page 413 - Exercise 7.1 – Test your knowledge](#page-413---exercise-71--test-your-knowledge)
 - [Page 426 - Comparing string values](#page-426---comparing-string-values)
+- [Page 432 - Splitting a complex comma-separated string](#page-432---splitting-a-complex-comma-separated-string)
 - [Page 457 - Initializing collections using collection expressions](#page-457---initializing-collections-using-collection-expressions)
   - [Using the spread element](#using-the-spread-element)
   - [Collection expression limitations](#collection-expression-limitations)
@@ -908,6 +909,38 @@ WriteLine("Compare (InvariantCultureIgnoreCase): {0}.",
 
 I have also added this example to the current edition solution code here:
 https://github.com/markjprice/cs12dotnet8/blob/0ee475706186d2c82fdb836837783aed3a4d4fd0/code/Chapter08/WorkingWithText/Program.cs#L78
+
+# Page 432 - Splitting a complex comma-separated string
+
+> Thanks to **Chip** who sent an email about this issue on December 13, 2024.
+
+In Step 1, I wrote, "Add statements to store a complex comma-separated string variable", and in the code there is a statement to sets that variable to a CSV string, as shown in the following code:
+```cs
+string films = """
+"Monsters, Inc.","I, Tonya","Lock, Stock and Two Smoking Barrels"
+""";
+```
+
+But at least one reader added extra spaces after the commas between the double-quoted movie titles, as shown in the following code:
+```cs
+string films = """
+"Monsters, Inc.", "I, Tonya", "Lock, Stock and Two Smoking Barrels"
+extra spaces ----^ ----------^
+```
+Doing this means the variable contains comma-and-space-separated values instead of purely comma-separated values. The regular expression was written to process only literally CSV values with no whitespace. (There is no formal standard for CSV so different systems will have different ways of handling it. Many CSV processors reject data with extra whitespace as malformed input.)
+
+In the next edition, I will add a warning note about this:
+
+> **Warning!** Do not add extra spaces between the comma-separated values. The regular expression is written to handle generally-accepted valid CSV, not comma-and-space-separated values.
+
+Alternatively, you could change the regular expression to handle comma-and-space-separated values, as shown in the following code:
+```cs
+[StringSyntax(StringSyntaxAttribute.Regex)]
+private const string CommaSeparatorText =
+  @"(?:^|,)\s*(?=[^\"]|(\")?)\"?\s*((?(1)(?:[^""]|\\"")*|[^,\"]*))\s*\"?(?=,|$)");
+```
+
+> **Warning!** The preceding regular expression was provided by a reader so treat it with caution.
 
 # Page 457 - Initializing collections using collection expressions
 
