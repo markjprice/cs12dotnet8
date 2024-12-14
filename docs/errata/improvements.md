@@ -1,4 +1,4 @@
-**Improvements** (66 items)
+**Improvements** (67 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -69,6 +69,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 634 - Creating a class library for entity models using SQLite](#page-634---creating-a-class-library-for-entity-models-using-sqlite)
 - [Page 638 - Creating a class library for a database context using SQLite](#page-638---creating-a-class-library-for-a-database-context-using-sqlite)
 - [Page 640 - Customizing the model and defining an extension method](#page-640---customizing-the-model-and-defining-an-extension-method)
+- [Page 711 - Creating data repositories with caching for entities](#page-711---creating-data-repositories-with-caching-for-entities)
 - [Page 727 - Understanding Swagger](#page-727---understanding-swagger)
 - [Page 732 - Enabling HTTP logging](#page-732---enabling-http-logging)
 - [Appendix - Exercise 3.1 – Test your knowledge](#appendix---exercise-31--test-your-knowledge)
@@ -1439,6 +1440,78 @@ In the next edition, I will add a note to explain the difference between the two
 - Use `HasDefaultValue()` when you need a constant, static value as a default for a column, and the value does not depend on any conditions or need to be dynamically calculated at the time of insertion. This constant value is set at the model level and is used by EF Core to insert into the database if no other value is provided. For the equivalent to the above example, you would use: `entity.Property(e => e.Freight).HasDefaultValue(0M);` because `0M` uses the `decimal` suffix `M`. Think of it as setting a default value on the client-side.
 - Use `HasDefaultValueSql()` when the default value should be calculated by the database at the time of insertion, especially if it involves SQL functions or dynamic data that the database should evaluate. The default is a string `"0"` because it will be added to the SQL statement, as shown: `CREATE TABLE "Orders" (
 ... "Freight" "money" NULL CONSTRAINT "DF_Orders_Freight" DEFAULT (0), ... );`. Think of this as configuring the database to set a default value on the server-side.
+
+# Page 711 - Creating data repositories with caching for entities
+
+In Step 7, I wrote, "Implement the `Create` method, as shown in the following code:"
+```cs
+public async Task<Customer?> CreateAsync(Customer c)
+{
+  c.CustomerId = c.CustomerId.ToUpper(); // Normalize to uppercase.
+
+  // Add to database using EF Core.
+  EntityEntry<Customer> added =
+    await _db.Customers.AddAsync(c);
+  
+  int affected = await _db.SaveChangesAsync();
+  if (affected == 1)
+  {
+    // If saved to database then store in cache.
+    _memoryCache.Set(c.CustomerId, c, _cacheEntryOptions);
+    return c;
+  }
+  return null;
+}
+```
+
+The return value of the EF Core `DbSet<Customer>.AddAsync` method is an `EntityEntry<Customer>`. The code stores this in a local vaariable named `added` but we do not do anything with it. We could simplify the code by not defining and setting the `added` variable, as shown in the following code:
+```cs
+public async Task<Customer?> CreateAsync(Customer c)
+{
+  c.CustomerId = c.CustomerId.ToUpper(); // Normalize to uppercase.
+
+  // Add to database using EF Core.
+  await _db.Customers.AddAsync(c);
+  
+  int affected = await _db.SaveChangesAsync();
+  if (affected == 1)
+  {
+    // If saved to database then store in cache.
+    _memoryCache.Set(c.CustomerId, c, _cacheEntryOptions);
+    return c;
+  }
+  return null;
+}
+```
+
+A reason you might want the local variable is to discover database-assigned values like an identifier. But the `Customers` table uses a five-character text value for its primary key column that must be supplied by client code before adding to the database so it's not necessary in this scenario.
+
+But instead of the `Customers` table, if we were adding a new entity to the `Shippers` table which has an auto-incrementing integer primary key column (or any other database-assigned value like a GUID or calculated value), then you could use the local `added` variable to read that assigned value, as shown in the following code:
+```cs
+public async Task<Shipper?> CreateAsync(Shipper s)
+{
+  // Add to database using EF Core.
+  EntityEntry<Shipper> added = await _db.Shippers.AddAsync(s);
+
+  int affected = await _db.SaveChangesAsync();
+  if (affected == 1)
+  {
+    // If saved to database then store in cache.
+    _memoryCache.Set(s.ShipperId, s, _cacheEntryOptions);
+
+    // You can also read any database-assigned values.
+    int assignedShipperId = added.Entity.ShipperId;
+
+    return s;
+  }
+  return null;
+}
+
+```
+
+In the next edition, I will add some information about this, similar to the preceding explanation. 
+
+> **More Information**: You can learn more at the following link: https://learn.microsoft.com/en-us/ef/core/change-tracking/entity-entries.
 
 # Page 727 - Understanding Swagger
 
