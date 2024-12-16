@@ -448,7 +448,9 @@ dotnet publish -r win10-x64 -c Release --no-self-contained -p:PublishSingleFile=
 
 At the end of the **Good Practice** box, I wrote, "What it doesn’t do is check if the sequence is an array and then use the `Length` property. If you have an array of any type, avoid `Count()` in favor of the `Length` property."
 
-The `System.Array` class implements `ICollection`, and in particular it implements its `Count()` method by returning the `Length` property. In the next edition, I will delete those incorrect sentences.
+The `System.Array` class implements `ICollection`, and in particular it implements its `Count` property by returning the `Length` property. In the next edition, I have replaced those two incorrect sentences with corrected information, as shown at the following link:
+
+https://github.com/markjprice/cs13net9/blob/main/docs/ch07-decompiling.md#decompiling-using-the-ilspy-extension-for-visual-studio
 
 # Page 400 - Viewing source links with Visual Studio 2022
 
