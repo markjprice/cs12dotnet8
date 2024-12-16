@@ -1,4 +1,4 @@
-**Errata** (46 items)
+**Errata** (47 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -32,6 +32,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 383 - Creating a console app to publish](#page-383---creating-a-console-app-to-publish)
 - [Page 386 - Publishing a self-contained app](#page-386---publishing-a-self-contained-app)
 - [Page 388 - Publishing a single-file app](#page-388---publishing-a-single-file-app)
+- [Page 399 - Decompiling using the ILSpy extension for Visual Studio 2022](#page-399---decompiling-using-the-ilspy-extension-for-visual-studio-2022)
 - [Page 400 - Viewing source links with Visual Studio 2022](#page-400---viewing-source-links-with-visual-studio-2022)
 - [Page 421 - Generating GUIDs](#page-421---generating-guids)
 - [Page 430 - Regular expression performance improvements](#page-430---regular-expression-performance-improvements)
@@ -440,6 +441,14 @@ In the two command lines, I used `/p` to set a project property when I should ha
 ```
 dotnet publish -r win10-x64 -c Release --no-self-contained -p:PublishSingleFile=true
 ```
+
+# Page 399 - Decompiling using the ILSpy extension for Visual Studio 2022
+
+> Thanks to **rene** in the book's Discord channel for raising this issue.
+
+At the end of the **Good Practice** box, I wrote, "What it doesn’t do is check if the sequence is an array and then use the `Length` property. If you have an array of any type, avoid `Count()` in favor of the `Length` property."
+
+The `System.Array` class implements `ICollection`, and in particular it implements its `Count()` method by returning the `Length` property. In the next edition, I will delete those incorrect sentences.
 
 # Page 400 - Viewing source links with Visual Studio 2022
 
