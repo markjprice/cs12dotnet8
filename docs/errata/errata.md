@@ -1,4 +1,4 @@
-**Errata** (47 items)
+**Errata** (48 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -36,6 +36,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 400 - Viewing source links with Visual Studio 2022](#page-400---viewing-source-links-with-visual-studio-2022)
 - [Page 421 - Generating GUIDs](#page-421---generating-guids)
 - [Page 430 - Regular expression performance improvements](#page-430---regular-expression-performance-improvements)
+- [Page 430 - Understanding the syntax of a regular expression](#page-430---understanding-the-syntax-of-a-regular-expression)
 - [Page 522 - Using the lightweight ADO.NET database providers](#page-522---using-the-lightweight-adonet-database-providers)
 - [Page 538 - Scaffolding models using an existing database](#page-538---scaffolding-models-using-an-existing-database)
 - [Page 548 - Getting the generated SQL](#page-548---getting-the-generated-sql)
@@ -474,6 +475,12 @@ This should have been, "In `Program.cs`, add statements to output the value of a
 I wrote, "The .NET types for working with regular expressions are used throughout the .NET platform and many of the apps built with it. As such, they have a significant impact on performance. But until now, they have not received much optimization attention from Microsoft."
 
 The last sentence was written for an earlier edition and not updated. In the next edition, I will update it to say, "But until .NET 5, they had not received much optimization attention from Microsoft."
+
+# Page 430 - Understanding the syntax of a regular expression
+
+> Thanks to **rene** in the book's Discord channel for raising this issue.
+
+In *Table 8.6*, the entry for `{,3}` is wrong. That is not a valid range and so it actually matches the exact string `{,3}`! To match "Up to three", you should use `{0,3}` or `{1,3}` depending on whether you want to accept zero or one as the lowest value. I will fix this in the 10th edition.
 
 # Page 522 - Using the lightweight ADO.NET database providers
 
