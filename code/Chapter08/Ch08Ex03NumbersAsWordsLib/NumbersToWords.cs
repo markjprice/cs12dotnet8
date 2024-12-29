@@ -79,8 +79,10 @@ namespace Packt.Shared
       }
 
       // write to a text file in the project folder
-      Trace.Listeners.Add(new TextWriterTraceListener(
-        File.AppendText("log.txt")));
+      using var textWriter = new TextWriterTraceListener(
+        File.AppendText("log.txt"));
+
+      Trace.Listeners.Add(textWriter);
 
       // text writer is buffered, so this option calls 
       // Flush() on all listeners after writing 
