@@ -1,4 +1,4 @@
-**Errata** (48 items)
+**Errata** (49 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -37,6 +37,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 421 - Generating GUIDs](#page-421---generating-guids)
 - [Page 430 - Regular expression performance improvements](#page-430---regular-expression-performance-improvements)
 - [Page 430 - Understanding the syntax of a regular expression](#page-430---understanding-the-syntax-of-a-regular-expression)
+- [Page 468 - Managing directories, Managing files](#page-468---managing-directories-managing-files)
 - [Page 522 - Using the lightweight ADO.NET database providers](#page-522---using-the-lightweight-adonet-database-providers)
 - [Page 538 - Scaffolding models using an existing database](#page-538---scaffolding-models-using-an-existing-database)
 - [Page 548 - Getting the generated SQL](#page-548---getting-the-generated-sql)
@@ -481,6 +482,15 @@ The last sentence was written for an earlier edition and not updated. In the nex
 > Thanks to **rene** in the book's Discord channel for raising this issue.
 
 In *Table 8.6*, the entry for `{,3}` is wrong. That is not a valid range and so it actually matches the exact string `{,3}`! To match "Up to three", you should use `{0,3}` or `{1,3}` depending on whether you want to accept zero or one as the lowest value. I will fix this in the 10th edition.
+
+# Page 468 - Managing directories, Managing files
+
+> Thanks to [Vlad Alexandru Meici](https://github.com/vladmeici) for raising [this issue on December 31, 2024](https://github.com/markjprice/cs12dotnet8/issues/80).
+
+After prompting the user to press any key to delete the directory or file, the code should have an extra statement to output a new line otherwise the next text written to the console will appear immediately at the end of the "Press any key..." text.
+
+This has been fixed in the code solutions here:
+https://github.com/markjprice/cs12dotnet8/commit/81edf105ad5ae9a18bec32abe4b07342805e95bc
 
 # Page 522 - Using the lightweight ADO.NET database providers
 
