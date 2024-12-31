@@ -88,6 +88,7 @@ CreateDirectory(newFolder);
 WriteLine($"Does it exist? {Directory.Exists(newFolder)}");
 Write("Confirm the directory exists, and then press any key.");
 ReadKey(intercept: true);
+WriteLine();
 
 WriteLine("Deleting it...");
 Delete(newFolder, recursive: true);
@@ -128,6 +129,7 @@ WriteLine(
 
 Write("Confirm the files exist, and then press any key.");
 ReadKey(intercept: true);
+WriteLine();
 
 // Delete the file.
 File.Delete(textFile);
