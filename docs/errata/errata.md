@@ -1,4 +1,4 @@
-**Errata** (50 items)
+**Errata** (51 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -26,6 +26,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 305 - Working with non-generic types](#page-305---working-with-non-generic-types)
 - [Page 316 - Comparing objects when sorting](#page-316---comparing-objects-when-sorting)
 - [Page 324 - How reference and value types are stored in memory](#page-324---how-reference-and-value-types-are-stored-in-memory)
+- [Page 324 - How reference and value types are stored in memory](#page-324---how-reference-and-value-types-are-stored-in-memory-1)
 - [Page 331 - Defining record struct types](#page-331---defining-record-struct-types)
 - [Page 344 - Inheriting from classes](#page-344---inheriting-from-classes)
 - [Page 361 - Comparing inheritance and implementation](#page-361---comparing-inheritance-and-implementation)
@@ -359,6 +360,14 @@ https://github.com/markjprice/cs12dotnet8/blob/main/code/Chapter06/PacktLibrary/
 > Thanks to [rmantel23](https://github.com/rmantel23) for raising [this issue on June 17, 2024](https://github.com/markjprice/cs12dotnet8/issues/53).
 
 In the code, I used `TimeSpace.Zero`. It should be `TimeSpan.Zero`.
+
+# Page 324 - How reference and value types are stored in memory
+
+> Thanks to [Steven Wu](https://github.com/ZhuohengWu) for raising [this issue on January 5, 2025](https://github.com/markjprice/cs12dotnet8/issues/82).
+
+In the code, I used `System.Drawing.Point location = new(x: 4, y: 5);`. 
+
+It should be `System.Drawing.Point location = new(x: 3, y: 5);` to match *Figure 6.1* (or the figure could be changed to match the code).
 
 # Page 331 - Defining record struct types
 
