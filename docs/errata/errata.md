@@ -1,4 +1,4 @@
-**Errata** (51 items)
+**Errata** (52 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -40,6 +40,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 430 - Regular expression performance improvements](#page-430---regular-expression-performance-improvements)
 - [Page 430 - Understanding the syntax of a regular expression](#page-430---understanding-the-syntax-of-a-regular-expression)
 - [Page 468 - Managing directories, Managing files](#page-468---managing-directories-managing-files)
+- [Page 509 - Expanding, setting, and getting an environment variables](#page-509---expanding-setting-and-getting-an-environment-variables)
 - [Page 522 - Using the lightweight ADO.NET database providers](#page-522---using-the-lightweight-adonet-database-providers)
 - [Page 538 - Scaffolding models using an existing database](#page-538---scaffolding-models-using-an-existing-database)
 - [Page 548 - Getting the generated SQL](#page-548---getting-the-generated-sql)
@@ -507,6 +508,36 @@ After prompting the user to press any key to delete the directory or file, the c
 
 This has been fixed in the code solutions here:
 https://github.com/markjprice/cs12dotnet8/commit/81edf105ad5ae9a18bec32abe4b07342805e95bc
+
+# Page 509 - Expanding, setting, and getting an environment variables
+
+> Thanks to `rene` in the book's Discord channel for raising this issue on January 13, 2025.
+
+In Step 5, I wrote, "get an environment variable named `MY_PASSWORD` at all three potential scope levels". But the environment variable is named `MY_SECRET`. 
+
+Also, it would be more logical to order the reading of the environment variables: process, user, and then machine, as shown in the following code:
+```cs
+string secret_key = "MY_SECRET";
+
+string? secret = GetEnvironmentVariable(secret_key,
+  EnvironmentVariableTarget.Process);
+WriteLine($"Process - {secret_key}: {secret}");
+
+secret = GetEnvironmentVariable(secret_key,
+  EnvironmentVariableTarget.User);
+WriteLine($"User - {secret_key}: {secret}");
+
+secret = GetEnvironmentVariable(secret_key,
+  EnvironmentVariableTarget.Machine);
+WriteLine($"Machine - {secret_key}: {secret}");
+```
+
+Now the environment variables are rendered in alphabetical order, as shown in the following output:
+```
+Process - MY_SECRET: Alpha
+User - MY_SECRET: Beta
+Machine - MY_SECRET: Gamma
+```
 
 # Page 522 - Using the lightweight ADO.NET database providers
 
