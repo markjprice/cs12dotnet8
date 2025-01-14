@@ -525,7 +525,7 @@ WriteLine($"Process - {secret_key}: {secret}");
 
 secret = GetEnvironmentVariable(secret_key,
   EnvironmentVariableTarget.User);
-WriteLine($"User - {secret_key}: {secret}");
+WriteLine($"User -    {secret_key}: {secret}");
 
 secret = GetEnvironmentVariable(secret_key,
   EnvironmentVariableTarget.Machine);
@@ -535,7 +535,7 @@ WriteLine($"Machine - {secret_key}: {secret}");
 Now the environment variables are rendered in alphabetical order, as shown in the following output:
 ```
 Process - MY_SECRET: Alpha
-User - MY_SECRET: Beta
+User -    MY_SECRET: Beta
 Machine - MY_SECRET: Gamma
 ```
 
