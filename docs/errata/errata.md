@@ -1,4 +1,4 @@
-**Errata** (52 items)
+**Errata** (53 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -34,6 +34,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 383 - Creating a console app to publish](#page-383---creating-a-console-app-to-publish)
 - [Page 386 - Publishing a self-contained app](#page-386---publishing-a-self-contained-app)
 - [Page 388 - Publishing a single-file app](#page-388---publishing-a-single-file-app)
+- [Page 394 - Publishing a native AOT project](#page-394---publishing-a-native-aot-project)
 - [Page 399 - Decompiling using the ILSpy extension for Visual Studio 2022](#page-399---decompiling-using-the-ilspy-extension-for-visual-studio-2022)
 - [Page 400 - Viewing source links with Visual Studio 2022](#page-400---viewing-source-links-with-visual-studio-2022)
 - [Page 421 - Generating GUIDs](#page-421---generating-guids)
@@ -460,6 +461,16 @@ In the two command lines, I used `/p` to set a project property when I should ha
 ```
 dotnet publish -r win10-x64 -c Release --no-self-contained -p:PublishSingleFile=true
 ```
+
+# Page 394 - Publishing a native AOT project
+
+> Thanks to [Nathan Wolfe](https://github.com/scotswolfie) for raising [this issue on January 14, 2025](https://github.com/markjprice/cs12dotnet8/issues/83).
+
+I wrote, "A console app that functions correctly during development when the code is untrimmed and JIT-compiled could still fail once you publish it using native AOT because then the code is trimmed and JIT-compiled and, therefore, it is a different code with different behavior."
+
+But I mistakenly repeated "JIT-compiled" when I meant "AOT-compiled". 
+
+I should have written, "A console app that functions correctly during development when the code is untrimmed and JIT-compiled could still fail once you publish it using native AOT because then the code is trimmed and AOT-compiled and, therefore, it is a different code with different behavior."
 
 # Page 399 - Decompiling using the ILSpy extension for Visual Studio 2022
 
