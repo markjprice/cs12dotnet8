@@ -55,93 +55,93 @@ To make it easier to enter commands at the prompt, this page lists all commands 
 
 ## Page 11 - Managing Visual Studio Code extensions at the command prompt
 
-```
+```shell
 code --install-extension ms-dotnettools.csdevkit
 ```
 
 ## Page 15 - Listing and removing versions of .NET
 
 Listing all installed .NET SDKS:
-```
+```shell
 dotnet --list-sdks
 ```
 
 Listing all installed .NET runtimes:
-```
+```shell
 dotnet --list-runtimes
 ```
 
 Details of all .NET installations:
-```
+```shell
 dotnet --info
 ```
 
 ## Page 21 - Understanding top-level programs
 
 If you are using the dotnet CLI at the command prompt, add a switch to generate a console app project using the legacy `Program` class with a `Main` method:
-```
+```shell
 dotnet new console --use-program-main
 ```
 
 ## Page 27 - Writing code using Visual Studio Code
 
 Using the dotnet CLI to create a new solution named `Chapter01`:
-```
+```shell
 dotnet new sln --name Chapter01
 ```
 
 Creating a new **Console App** project in a folder named `HelloCS` with a project file named `HelloCS.csproj`:
-```
+```shell
 dotnet new console --output HelloCS
 ```
 
 Adding a named project to the solution file:
-```
+```shell
 dotnet sln add HelloCS
 ```
 
 Opening Visual Studio Code in the current folder:
-```
+```shell
 code .
 ```
 
 Creating a new **Console App** project named `HelloCS` that targets a specified framework version, for example, .NET 6:
-```
+```shell
 dotnet new console -f net6.0 -o HelloCS
 ```
 
 ## Page 30 - Compiling and running code using the dotnet CLI
-```
+```shell
 dotnet run
 ```
 
 ## Page 31 - Adding a second project using Visual Studio Code
 
 Creating a project named `AboutMyEnvironment` using the legacy `Program` class with a `Main` method:
-```
+```shell
 dotnet new console -o AboutMyEnvironment --use-program-main
 ```
 
 ## Page 37 - Cloning the book solution code repository
 
-```
+```shell
 git clone https://github.com/markjprice/cs12dotnet8.git
 ```
 
 ## Page 38 - Getting help for the dotnet tool
 
 Getting help for a `dotnet` command like `build` from the documentation web page:
-```
+```shell
 dotnet help build
 ```
 
 Getting help for a `dotnet` command like `build` at the command prompt:
-```
+```shell
 dotnet build -?
 ```
 
 Getting help for a specified project template, for example, `console`:
-```
+```shell
 dotnet new console -?
 ```
 
@@ -150,26 +150,26 @@ dotnet new console -?
 ## Page 55 - How to output the SDK version
 
 Output the current version of the .NET SDK:
-```
+```shell
 dotnet --version
 ```
 
 ## Page 95 - Exploring more about console apps
 
 Example of a command line with multiple arguments:
-```
+```shell
 dotnet new console -lang "F#" --name "ExploringConsole"
 ```
 
 ## Page 106 - Passing arguments to a console app
 
 Passing four arguments when running your project:
-```
+```shell
 dotnet run firstarg second-arg third:arg "fourth arg"
 ```
 
 Setting options using arguments:
-```
+```shell
 dotnet run red yellow 50
 ```
 
@@ -178,50 +178,54 @@ dotnet run red yellow 50
 ## Page 201 - Hot reloading using Visual Studio Code and dotnet watch
 
 Starting a project using Hot Reload:
-```
+```shell
 dotnet watch
 ```
 
 ## Page 205 - Configuring trace listeners
 
 Running a project with its release configuration:
-```
+```shell
 dotnet run --configuration Release
 ```
 
 Running a project with its debug configuration:
-```
+```shell
 dotnet run --configuration Debug
 ```
 
 ## Page 207 - Adding packages to a project in Visual Studio Code
 
 Adding the `Microsoft.Extensions.Configuration.Binder` package:
-```
+```shell
 dotnet add package Microsoft.Extensions.Configuration.Binder
 ```
 
 Adding the `Microsoft.Extensions.Configuration.Json` package:
-```
+```shell
 dotnet add package Microsoft.Extensions.Configuration.Json
 ```
 
 ## Page 216 - Creating a class library that needs testing
 
 Creating a class library project and adding it to the solution file:
-```
+```shell
 dotnet new classlib -o CalculatorLib
+```
+```shell
 dotnet sln add CalculatorLib
 ```
 
 Creating an XUnit text project and adding it to the solution file:
-```
+```shell
 dotnet new xunit -o CalculatorLibUnitTests
+```
+```shell
 dotnet sln add CalculatorLibUnitTests
 ```
 
 Running a unit test project:
-```
+```shell
 dotnet test
 ```
 
@@ -230,105 +234,105 @@ dotnet test
 ## Page 369 - Checking your .NET SDKs for updates
 
 Listing the installed .NET SDKs with a column to indicate if it has a newer version that can be upgraded to:
-```
+```shell
 dotnet sdk check
 ```
 
 ## Page 378 - Creating a .NET Standard 2.0 class library
 
 Creating a new class library project that targets .NET Standard 2.0:
-```
+```shell
 dotnet new classlib -f netstandard2.0
 ```
 
 # Page 379 - Controlling the .NET SDK
 
 Listing the installed .NET SDKs:
-```
+```shell
 dotnet --list-sdks
 ```
 
 Creating a `global.json` file to control to default .NET SDK for projects created in the current folder and its descendents:
-```
+```shell
 dotnet new globaljson --sdk-version 6.0.320
 ```
 
 ## Page 384 - Understanding dotnet commands
 
 Listing available project templates using .NET 7 or later:
-```
+```shell
 dotnet new list
 ```
 
 Listing available project templates using .NET 6 or earlier:
-```
+```shell
 dotnet new --list
 ```
 
 Listing available project templates using .NET 6 or earlier (short form):
-```
+```shell
 dotnet new -l
 ```
 
 ## Page 385 - Getting information about .NET and its environment
 
 Getting detailed information about installed .NET runtimes, SDKs, and workloads:
-```
+```shell
 dotnet --info
 ```
 
 ## Page 386 - Publishing a self-contained app
 
 Build and publish the release version for Windows:
-```
+```shell
 dotnet publish -c Release -r win-x64 --self-contained
 ```
 
 Build and publish the release version for macOS on Intel:
-```
+```shell
 dotnet publish -c Release -r osx-x64 --self-contained
 ```
 
 Build and publish the release version for macOS on Apple Silicon:
-```
+```shell
 dotnet publish -c Release -r osx-arm64 --self-contained
 ```
 
 Build and publish the release version for Linux on Intel:
-```
+```shell
 dotnet publish -c Release -r linux-x64 --self-contained
 ```
 
 Build and publish the release version for Linus on ARM64:
-```
+```shell
 dotnet publish -c Release -r linux-arm64 --self-contained
 ```
 
 ## Page 388 - Publishing a single-file app
 
-```
+```shell
 dotnet publish -c Release -r win-x64 --no-self-contained /p:PublishSingleFile=true
 ```
 
-```
+```shell
 dotnet publish -c Release -r win-x64 --self-contained /p:PublishSingleFile=true
 ```
 
 ## Page 390 - Enabling assembly-level trimming
 
-```
+```shell
 dotnet publish -c Release -r win-x64 --self-contained /p:PublishSingleFile=true -p:PublishTrimmed=True
 ```
 
 ## Page 390 - Enabling type-level and member-level trimming
 
-```
+```shell
 dotnet publish -c Release -r win-x64 --self-contained /p:PublishSingleFile=true -p:PublishTrimmed=True -p:TrimMode=Link
 ```
 
 ## Page 395 - Publishing a native AOT project
 
-```
+```shell
 dotnet publish
 ```
 
@@ -338,13 +342,15 @@ dotnet publish
 
 To temporarily set an environment variable at the command prompt or terminal on macOS or Linux,
 you can use the `export` command:
-```
+```shell
 export MY_ENV_VAR=Delta
 ```
 
 To set some environment variables at the user and machine scope levels on Windows:
-```
+```shell
 setx MY_SECRET "Beta"
+```
+```shell
 setx MY_SECRET "Gamma" /M
 ```
 
@@ -353,42 +359,42 @@ setx MY_SECRET "Gamma" /M
 ## Page 518 - Setting up SQLite for macOS and Linux
 
 On Linux, you can get set up with SQLite using the following command:
-```
+```shell
 sudo apt-get install sqlite3
 ```
 
 ## Page 519 - Creating the Northwind sample database for SQLite
 
 Creating the Northwind SQLite database:
-```
+```shell
 sqlite3 Northwind.db -init Northwind4SQLite.sql
 ```
 
 ## Page 534 - Setting up the dotnet-ef tool
 
 Listing installed `dotnet` global tools:
-```
+```shell
 dotnet tool list --global
 ```
 
 Updating an older `dotnet-ef` tool:
-```
+```shell
 dotnet tool update --global dotnet-ef
 ```
 
 Installing the latest `dotnet-ef` as a global tool:
-```
+```shell
 dotnet tool install --global dotnet-ef
 ```
 
 Uninstalling an older `dotnet-ef` tool:
-```
+```shell
 dotnet tool uninstall --global dotnet-ef
 ```
 
 ## Page 536 - Scaffolding models using an existing database
 
-```
+```shell
 dotnet ef dbcontext scaffold "Data Source=Northwind.db" Microsoft.EntityFrameworkCore.Sqlite --table Categories --table Products --output-dir AutoGenModels --namespace WorkingWithEFCore.AutoGen --data-annotations --context NorthwindDb
 ```
 
@@ -407,7 +413,7 @@ Note the following:
 ## Page 598 - Creating a console app for exploring LINQ to Entities
 
 Creating the Northwind SQLite database:
-```
+```shell
 sqlite3 Northwind.db -init Northwind4Sqlite.sql
 ```
 
@@ -416,12 +422,12 @@ sqlite3 Northwind.db -init Northwind4Sqlite.sql
 ## Page 635 - Creating a class library for entity models using SQLite
 
 Creating the Northwind SQLite database:
-```
+```shell
 sqlite3 Northwind.db -init Northwind4SQLite.sql
 ```
 
 Creating the EF Core model for the Northwind database:
-```
+```shell
 dotnet ef dbcontext scaffold "Data Source=../Northwind.db" Microsoft.EntityFrameworkCore.Sqlite --namespace Northwind.EntityModels --data-annotations
 ```
 
@@ -430,36 +436,36 @@ dotnet ef dbcontext scaffold "Data Source=../Northwind.db" Microsoft.EntityFrame
 ## Page 660 - Testing and securing the website
 
 Starting an ASP.NET Core project and specifying the `https` profile:
-```
+```shell
 dotnet run --launch-profile https
 ```
 
 ## Page 675 - Using code-behind files with Razor Pages
 
 Creating a Razor Page named `Suppliers.cshtml` with a code-behind file:
-```
+```shell
 dotnet new page -n Suppliers --namespace Northwind.Web.Page
 ```
 
 # Chapter 14 - Building and Consuming Web Services
 
 Creating a Web API project using controllers:
-```
+```shell
 dotnet new webapi --use-controllers -o Northwind.WebApi
 ```
 
 Creating a Web API project using controllers (short form):
-```
+```shell
 dotnet new webapi -controllers -o Northwind.WebApi
 ```
 
 Creating a Web API project using Minimal APIs:
-```
+```shell
 dotnet new webapi --use-minimal-api -o Northwind.WebApi
 ```
 
 Creating a Web API project using Minimal APIs (short form):
-```
+```shell
 dotnet new webapi -minimal -o Northwind.WebApi
 ```
 
@@ -468,6 +474,6 @@ dotnet new webapi -minimal -o Northwind.WebApi
 ## Page 749 - Creating a Blazor Web App project
 
 Creating a new project using the Blazor Web App template with no server-side or client-side interactivity enabled by default:
-```
+```shell
 dotnet new blazor --interactivity None -o Northwind.Blazor
 ```
