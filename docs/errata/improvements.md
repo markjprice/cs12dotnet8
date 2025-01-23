@@ -1,4 +1,4 @@
-**Improvements** (67 items)
+**Improvements** (68 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -26,6 +26,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 144 - List pattern matching with arrays](#page-144---list-pattern-matching-with-arrays)
 - [Page 171 - What is automatically generated for a local function?](#page-171---what-is-automatically-generated-for-a-local-function)
 - [Page 206 - Configuring trace listeners](#page-206---configuring-trace-listeners)
+- [Page 223 - Understanding the call stack](#page-223---understanding-the-call-stack)
 - [Page 236 - Understanding members](#page-236---understanding-members)
 - [Page 247 - Storing multiple values using an enum type](#page-247---storing-multiple-values-using-an-enum-type)
 - [Page 248 - Storing multiple values using an enum type](#page-248---storing-multiple-values-using-an-enum-type)
@@ -578,6 +579,22 @@ In Steps 3 to 6, you run a console app project twice, and each time a file named
 ```
 System.UnauthorizedAccessException: Access to the path 'C:\Users\<username>\Desktop\log.txt' is denied.
 ```
+
+# Page 223 - Understanding the call stack
+
+In Step 5, the wrote, "In the `CallStackExceptionHandling` console app project, add a reference to the `CallStackExceptionHandlingLib` class library project, as shown in the following markup:
+```xml
+<ItemGroup>
+  <ProjectReference Include="..\CallStackExceptionHandlingLib\CallStackExceptionHandlingLib.csproj" />
+</ItemGroup>
+```
+
+You can also see this in the solution project here:
+https://github.com/markjprice/cs12dotnet8/blob/main/code/Chapter04/CallStackExceptionHandling/CallStackExceptionHandling.csproj
+
+But some readers do the opposite, i.e. try to reference the console app in the class library project, or they try to edit a "generated" file instead of the proper project file. In the next edition, I will change the text to say, "In the `CallStackExceptionHandling.csproj` console app project file," and I will add a warning box below Step 5:
+
+> **Warning!** Make sure that you add the project reference in the `CallStackExceptionHandling.csproj` file. Do not edit the `CallStackExceptionHandling.csproj.nuget.g.props` file because this is a file that is "generated" (that's what the ".g." in its name means). Every time you build the project this and other ".g." files are recreated so any changes will be lost. Also, do not add a project reference to the `CallStackExceptionHandling` console app project in the `CallStackExceptionHandlingLib.csproj` file. You can only reference class library projects. You cannot reference console app projects.
 
 # Page 236 - Understanding members
 
