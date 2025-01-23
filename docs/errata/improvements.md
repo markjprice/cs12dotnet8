@@ -582,7 +582,7 @@ System.UnauthorizedAccessException: Access to the path 'C:\Users\<username>\Desk
 
 # Page 223 - Understanding the call stack
 
-In Step 5, the wrote, "In the `CallStackExceptionHandling` console app project, add a reference to the `CallStackExceptionHandlingLib` class library project, as shown in the following markup:
+In Step 5, I wrote, "In the `CallStackExceptionHandling` console app project, add a reference to the `CallStackExceptionHandlingLib` class library project, as shown in the following markup:
 ```xml
 <ItemGroup>
   <ProjectReference Include="..\CallStackExceptionHandlingLib\CallStackExceptionHandlingLib.csproj" />
