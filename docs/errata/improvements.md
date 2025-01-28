@@ -1,4 +1,4 @@
-**Improvements** (68 items)
+**Improvements** (69 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -64,6 +64,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 556 - Generating a random number in queries](#page-556---generating-a-random-number-in-queries)
 - [Page 564 - Controlling the tracking of entities](#page-564---controlling-the-tracking-of-entities)
 - [Page 568 - Inserting entities, Page 573 - More efficient updates and deletes](#page-568---inserting-entities-page-573---more-efficient-updates-and-deletes)
+- [Page 570 - Inserting entities](#page-570---inserting-entities)
 - [Page 583 - Building LINQ expressions with the Enumerable class](#page-583---building-linq-expressions-with-the-enumerable-class)
 - [Page 598 - Creating a console app for exploring LINQ to Entities](#page-598---creating-a-console-app-for-exploring-linq-to-entities)
 - [Page 634 - Creating the Northwind database](#page-634---creating-the-northwind-database)
@@ -1362,6 +1363,43 @@ In the next edition, I will add a comment and an alternative statement, as shown
 Later, on page 573, I summarize how to add, update, and delete entities, and I wrote, "To insert data, create a new instance of an entity class and then pass it as an argument to the `Add` method of the appropriate collection, for example, `db.Products.Add(product)`."
 
 In the next edition, I will extend this and write, "or directly on the data context, for example, `db.Add(product)`. The `Add<T>` method is generic so it knows what type of entity is being added and therefore which table to add it to."
+
+# Page 570 - Inserting entities
+
+> Thanks to [es-moises](https://github.com/es-moises) for raising [this issue on January 28, 2025](https://github.com/markjprice/cs12dotnet8/issues/86).
+
+In Step 5, I show the output from inserting a new product using the SQLite data provider, as shown in the following output:
+```
+State: Added, ProductId: 0
+dbug: 05/03/2022 14:21:37.818 RelationalEventId.CommandExecuting[20100]
+(Microsoft.EntityFrameworkCore.Database.Command)
+Executing DbCommand [Parameters=[@p0='6', @p1='500' (Nullable =
+true), @p2='False', @p3='Bob's Burgers' (Nullable = false) (Size = 13), @
+p4=NULL (DbType = Int16)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "Products" ("CategoryId", "UnitPrice", "Discontinued",
+"ProductName", "UnitsInStock")
+      VALUES (@p0, @p1, @p2, @p3, @p4);
+      SELECT "ProductId"
+      FROM "Products"
+      WHERE changes() = 1 AND "rowid" = last_insert_rowid();
+State: Unchanged, ProductId: 78
+Add product successful with ID: 78.
+| Id | Product Name | Cost | Stock | Disc. |
+| 001 | Chai | $18.00 | 39 | False |
+| 002 | Chang | $19.00 | 17 | False |
+...
+| 078 | Bob's Burgers | $500.00 | 72 | False |
+```
+
+As you can see from the output, it was executed on 05/03/2022. Since then, the EF Core SQLite team may have improved the generated SQL, or if you use a different EF Core data provider, then the generated SQL could be different, for example, as shown in the following SQL:
+```sql
+INSERT INTO "Products" ("CategoryId", "UnitPrice", "Discontinued",
+"ProductName", "UnitsInStock")
+VALUES (@p0, @p1, @p2, @p3, @p4);
+RETURNING "ProductId";
+```
+
+In the next edition, I will add a note that the SQL could be different for multiple reasons.
 
 # Page 583 - Building LINQ expressions with the Enumerable class
 
