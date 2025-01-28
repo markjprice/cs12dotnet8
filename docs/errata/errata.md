@@ -1,4 +1,4 @@
-**Errata** (54 items)
+**Errata** (55 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -47,6 +47,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 548 - Getting the generated SQL](#page-548---getting-the-generated-sql)
 - [Page 553 - Getting a single entity](#page-553---getting-a-single-entity)
 - [Page 553 and 554 - Getting a single entity](#page-553-and-554---getting-a-single-entity)
+- [Page 574 - More efficient updates and deletes](#page-574---more-efficient-updates-and-deletes)
 - [Page 616 - Be careful with Count!](#page-616---be-careful-with-count)
 - [Page 641 - Customizing the model and defining an extension method](#page-641---customizing-the-model-and-defining-an-extension-method)
 - [Page 684 - Defining a form to insert a new supplier](#page-684---defining-a-form-to-insert-a-new-supplier)
@@ -615,6 +616,22 @@ Info > Single: Chang
 > Thanks to [es-moises](https://github.com/es-moises) for raising [this issue on January 22, 2025](https://github.com/markjprice/cs12dotnet8/issues/84).
 
 In Step 3, the output in two places shows part of the `WHERE` clause as `"p"."ProductId" > @__id_0` but both should be `"p"."ProductId" = @__id_0`.
+
+# Page 574 - More efficient updates and deletes
+
+> Thanks to **rene** in the book's Discord channel for raising this issue.
+
+I wrote, "To update all products that are not discontinued to increase their unit price by 10% due to inflation,
+use the following code:"
+```cs
+await db.Products
+  .Where(product => !product.Discontinued)
+  .ExecuteUpdateAsync(s => s.SetProperty(
+    p => p.UnitPrice, // Selects the property to update.
+    p => p.UnitPrice * 0.1)); // Sets the value to update it to.
+```
+
+But the code multiples the `UnitPrice` by `0.1` (a reduction of 90%!) intead of by `1.1` (an increase of 10%). I will fix this in the next edition.
 
 # Page 616 - Be careful with Count!
 
