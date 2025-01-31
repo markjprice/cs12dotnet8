@@ -1,4 +1,4 @@
-**Errata** (55 items)
+**Errata** (56 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -17,6 +17,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 124 - Exploring bitwise and binary shift operators](#page-124---exploring-bitwise-and-binary-shift-operators)
 - [Page 149 - How negative numbers are represented in binary](#page-149---how-negative-numbers-are-represented-in-binary)
 - [Page 162 - Throwing overflow exceptions with the checked statement](#page-162---throwing-overflow-exceptions-with-the-checked-statement)
+- [Page 196 - Using the Visual Studio Code integrated terminal during debugging](#page-196---using-the-visual-studio-code-integrated-terminal-during-debugging)
 - [Page 225 - Where to catch exceptions](#page-225---where-to-catch-exceptions)
 - [Page 241 - Inheriting from System.Object](#page-241---inheriting-from-systemobject)
 - [Page 261 - Passing optional parameters](#page-261---passing-optional-parameters)
@@ -255,6 +256,16 @@ The result:
 > Thanks to [Justin Treher](https://github.com/jtreher) for raising [this issue on January 3, 2025](https://github.com/markjprice/cs13net9/issues/7).
 
 In Step 3, I wrote, "let’s get the compiler to warn us about the overflow by wrapping the statements using a `checked` statement block", but it is not the compiler that warns us, it is the runtime that detects the overflow and throws the exception. In the next edition I will replace "compiler" with "runtime".
+
+# Page 196 - Using the Visual Studio Code integrated terminal during debugging
+
+> Thanks to **kingace9371** for asking a question about this, and to **rene** for providing the answer in the book's Discord channel.
+
+In Step 7, I wrote, "In the `launch.json` file editor, click the **Add Configuration...** button, and then select **.NET: Launch .NET Core Console App**"
+
+The name of this option is now called **.NET: Launch Executable file (Console)**, as shown in the following figure:
+
+![.NET: Launch Executable file (Console)](errata-p196.png)
 
 # Page 225 - Where to catch exceptions
 
