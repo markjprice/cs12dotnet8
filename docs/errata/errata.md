@@ -1,4 +1,4 @@
-**Errata** (56 items)
+**Errata** (57 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -51,6 +51,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 574 - More efficient updates and deletes](#page-574---more-efficient-updates-and-deletes)
 - [Page 616 - Be careful with Count!](#page-616---be-careful-with-count)
 - [Page 641 - Customizing the model and defining an extension method](#page-641---customizing-the-model-and-defining-an-extension-method)
+- [Page 656 - Creating an empty ASP.NET Core project](#page-656---creating-an-empty-aspnet-core-project)
 - [Page 684 - Defining a form to insert a new supplier](#page-684---defining-a-form-to-insert-a-new-supplier)
 - [Page 694 - Exercise 13.3 – Enabling HTTP/3 and request decompression support](#page-694---exercise-133--enabling-http3-and-request-decompression-support)
 - [Page 714 - Route constraints](#page-714---route-constraints)
@@ -697,6 +698,12 @@ services.AddDbContext<NorthwindContext>(options =>
 ```
 
 This is only a problem in the source code in the print book and PDF, not in the GitHub repository, as shown in the following statement: https://github.com/markjprice/cs12dotnet8/blob/de8310d8aaf82510a759e196566d111c4c839c57/code/PracticalApps/Northwind.DataContext.Sqlite/NorthwindContextExtensions.cs#L33
+
+# Page 656 - Creating an empty ASP.NET Core project
+
+> Thanks to **rene** in the Discord channel for this book for raising this issue on February 6, 2025.
+
+In Step 1, I describe the options when creating a new ASP.NET Core project. The option that used to be labelled **Enable Docker** is now labelled **Enable container support**. And the new option labelled **Enlist in .NET Aspire orchestration** should be cleared.
 
 # Page 684 - Defining a form to insert a new supplier
 
