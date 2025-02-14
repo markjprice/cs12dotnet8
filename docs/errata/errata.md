@@ -1,4 +1,4 @@
-**Errata** (57 items)
+**Errata** (58 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -54,6 +54,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 656 - Creating an empty ASP.NET Core project](#page-656---creating-an-empty-aspnet-core-project)
 - [Page 684 - Defining a form to insert a new supplier](#page-684---defining-a-form-to-insert-a-new-supplier)
 - [Page 694 - Exercise 13.3 – Enabling HTTP/3 and request decompression support](#page-694---exercise-133--enabling-http3-and-request-decompression-support)
+- [Page 711 - Creating data repositories with caching for entities](#page-711---creating-data-repositories-with-caching-for-entities)
 - [Page 714 - Route constraints](#page-714---route-constraints)
 - [Page 753 - Reviewing Blazor routing, layouts, and navigation](#page-753---reviewing-blazor-routing-layouts-and-navigation)
 - [Page 761 - Using Bootstrap icons](#page-761---using-bootstrap-icons)
@@ -765,6 +766,20 @@ Unfortunately, "Browsers don't allow self-signed certificates on HTTP/3, such as
 The official documentation does not show a work around because Microsoft decided the steps are too difficult. You can read about the issue here if you want to try the complex workaround: https://github.com/dotnet/AspNetCore.Docs/issues/23700. RTD wrote more detailed instructions that you can read here: https://github.com/markjprice/cs12dotnet8/issues/15#issuecomment-1987353759.
 
 In the next edition, I will add a note about this and remove the step-by-step instructions to try to test it. 
+
+# Page 711 - Creating data repositories with caching for entities
+
+> Thanks to **rene** in the book's Discord channel for raising this issue.
+
+In Step 11, in the `RetrieveAllAsync` method, at the end of the `return` statement I mistakenly typed a `.` (dot), as shown in the following code:
+```cs
+return _db.Customers.ToArrayAsync();.
+```
+
+The code should be:
+```cs
+return _db.Customers.ToArrayAsync();
+```
 
 # Page 714 - Route constraints
 
