@@ -1,4 +1,4 @@
-**Improvements** (69 items)
+**Improvements** (70 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -74,6 +74,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 711 - Creating data repositories with caching for entities](#page-711---creating-data-repositories-with-caching-for-entities)
 - [Page 727 - Understanding Swagger](#page-727---understanding-swagger)
 - [Page 732 - Enabling HTTP logging](#page-732---enabling-http-logging)
+- [Page 764 - Abstracting a service for a Blazor component](#page-764---abstracting-a-service-for-a-blazor-component)
 - [Appendix - Exercise 3.1 – Test your knowledge](#appendix---exercise-31--test-your-knowledge)
 
 # Page 2 - Getting code solutions for this book
@@ -1615,6 +1616,14 @@ if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
   // Call the AddEventLog method.
 }
 ```
+
+# Page 764 - Abstracting a service for a Blazor component
+
+> Thanks to **rene**/`rene510` in the Discord channel for asking a question about this on February 16, 2025.
+
+In this section, the reader will implement a data repository service that can create, update, and delete customers. This works if the reader creates a new customer, then updates that customer, and then deletes that customer, because that customer does not have any related data. But if the reader runs the project and attempts to delete a customer that has related orders (for example, any of the customers that are in the original database), then an exception is thrown because of a referential integrity constraint defined by a foreign key in the table.
+
+In the next edition, I will add some explanation of this and warn the reader not to try to delete a customer that has related orders. I will also note that they could implement cascading deletes by deleting related orders before deleting a customer (but you would also need to delete all the related order details rows too). So to simplify the example we just throw an exception and fail to delete the customer.
 
 # Appendix - Exercise 3.1 – Test your knowledge
 
