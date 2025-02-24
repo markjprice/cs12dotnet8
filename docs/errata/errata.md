@@ -391,7 +391,7 @@ It should be `System.Drawing.Point location = new(x: 3, y: 5);` to match *Figure
 
 > Thanks to a reader who emailed Packt about this issue.
 
-In Step 7, two statesments include a close round bracket must before the end quote that should be removed, as shown in the following code:
+In Step 7, two statements include a close round bracket before the last double-quote that should be removed, as shown in the following code:
 ```cs
 WriteLine($"dv1.Equals(dv5): {dv1.Equals(dv5)}");
 WriteLine($"dv1 == dv5: {dv1 == dv5}");
