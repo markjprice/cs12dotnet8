@@ -1,4 +1,4 @@
-**Errata** (58 items)
+**Errata** (59 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -28,6 +28,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 316 - Comparing objects when sorting](#page-316---comparing-objects-when-sorting)
 - [Page 324 - How reference and value types are stored in memory](#page-324---how-reference-and-value-types-are-stored-in-memory)
 - [Page 324 - How reference and value types are stored in memory](#page-324---how-reference-and-value-types-are-stored-in-memory-1)
+- [Page 330 - Defining struct types](#page-330---defining-struct-types)
 - [Page 331 - Defining record struct types](#page-331---defining-record-struct-types)
 - [Page 344 - Inheriting from classes](#page-344---inheriting-from-classes)
 - [Page 361 - Comparing inheritance and implementation](#page-361---comparing-inheritance-and-implementation)
@@ -385,6 +386,26 @@ In the code, I used `TimeSpace.Zero`. It should be `TimeSpan.Zero`.
 In the code, I used `System.Drawing.Point location = new(x: 4, y: 5);`. 
 
 It should be `System.Drawing.Point location = new(x: 3, y: 5);` to match *Figure 6.1* (or the figure could be changed to match the code).
+
+# Page 330 - Defining struct types
+
+> Thanks to a reader who emailed Packt about this issue.
+
+In Step 7, two statesments include a close round bracket must before the end quote that should be removed, as shown in the following code:
+```cs
+WriteLine($"dv1.Equals(dv5): {dv1.Equals(dv5)}");
+WriteLine($"dv1 == dv5: {dv1 == dv5}");
+```
+The output on page 331 showed the extra close round brackets, as shown in the following output:
+```
+dv1.Equals(dv5): True)
+dv1 == dv5: True)
+```
+Once the brackets are removed from the two statements, the output is correct, as shown in the following output:
+```
+dv1.Equals(dv5): True
+dv1 == dv5: True
+```
 
 # Page 331 - Defining record struct types
 
