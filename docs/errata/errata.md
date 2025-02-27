@@ -792,7 +792,7 @@ In the next edition, I will add a note about this and remove the step-by-step in
 
 > Thanks to **rene** in the book's Discord channel for raising this issue.
 
-In Step 11, in the `RetrieveAllAsync` method, at the end of the `return` statement I mistakenly typed a `.` (dot), as shown in the following code:
+In Step 8, in the `RetrieveAllAsync` method, at the end of the `return` statement I mistakenly typed a `.` (dot), as shown in the following code:
 ```cs
 return _db.Customers.ToArrayAsync();.
 ```
