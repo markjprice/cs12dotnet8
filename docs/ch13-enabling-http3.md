@@ -42,6 +42,18 @@ builder.WebHost.ConfigureKestrel((context, options) =>
   });
 });
 ```
+3. In the `Properties` folder, in `launchSettings.json`, make sure that the `https` entry in `applicationUrl` comes first so that it is used by default, as shown in the following markup:
+```json
+"https": {
+  "commandName": "Project",
+  "dotnetRunMessages": true,
+  "launchBrowser": true,
+  "applicationUrl": "https://localhost:5131;http://localhost:5130",
+  "environmentVariables": {
+    "ASPNETCORE_ENVIRONMENT": "Production"
+  }
+},
+```
 
 > **Good Practice**: You should enable more than just HTTP/3 since some browsers still do not support it or even HTTP/2.
 
