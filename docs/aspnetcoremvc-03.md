@@ -439,11 +439,12 @@ Now we will set the property using a route parameter:
 ## Passing a form parameter
 
 Now we will set the property using a form parameter:
-1.	In the `Views\Home` folder, in `ModelBinding.cshtml`, modify the action for the form to pass the value `1` as a form element parameter, as shown highlighted in the following markup:
+1.	In the `Views\Home` folder, in `ModelBinding.cshtml`, modify the action for the form to pass the value `1` as a form element parameter, as shown in the following markup:
 ```html
 <form method="POST" action="/home/modelbinding/2?id=3">
   <input name="id" value="1" />
   <input name="color" value="Red" />
+  <input name="email" value="test@example.com" />
   <input type="submit" />
 </form>
 ```
