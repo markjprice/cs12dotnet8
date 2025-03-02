@@ -363,8 +363,8 @@ public IActionResult ModelBinding(Thing thing)
 ```
 
 The first `ModelBinding` action method will implicitly be used for all other types of HTTP requests, like `GET`, `PUT`, `DELETE`, and so on, because the second ModelBinding action method is decorated with `[HttpPost]`.
-6.	In the `Views\Home` folder, add a new file named `ModelBinding.cshtml`.
-7.	Modify its contents, as shown in the following markup:
+
+6.	In the `Views\Home` folder, add a new file named `ModelBinding.cshtml` and modify its contents, as shown in the following markup:
 ```html
 @model HomeModelBindingViewModel 
 @{
@@ -408,19 +408,19 @@ The first `ModelBinding` action method will implicitly be used for all other typ
 }
 ```
 
-8.	In `Views/Home`, in `Index.cshtml`, in the first `<div>`, after rendering the heading, add a new paragraph with a link to the model binding page, as shown in the following markup:
+7.	In `Views/Home`, in `Index.cshtml`, in the first `<div>`, after rendering the heading, add a new paragraph with a link to the model binding page, as shown in the following markup:
 ```html
 <p><a asp-action="ModelBinding" asp-controller="Home">Binding</a></p>
 ```
 
-9.	Start the `Northwind.Mvc` website project using the `https` launch profile.
-10.	On the home page, click **Binding**.
-11.	Click the **Submit** button and note the value for the `Id` property is set from the query string parameter in the action of the form, and the values for the color and email properties are set from the form elements, as shown in **Figure 14.6**:
+8.	Start the `Northwind.Mvc` website project using the `https` launch profile.
+9.	On the home page, click **Binding**.
+10.	Click the **Submit** button and note the value for the `Id` property is set from the query string parameter in the action of the form, and the values for the color and email properties are set from the form elements, as shown in **Figure 14.6**:
 
 ![The Model Binding Demo page](assets/B19586_14_06.png) 
 *Figure 14.6: The Model Binding Demo page*
 
-12.	Close Chrome and shut down the web server.
+11.	Close Chrome and shut down the web server.
 
 ## Passing a route parameter
 
