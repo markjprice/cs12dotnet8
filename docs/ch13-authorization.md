@@ -38,12 +38,15 @@ By default, role management is not enabled in an ASP.NET Core MVC project, so we
 
 1.	In `Program.cs`, in the setup of ASP.NET Core Identity and its database, add a call to `AddRoles` to enable role management, as shown in the following code:
 ```cs
-services.AddDefaultIdentity<IdentityUser>(
+builder.Services.AddDefaultIdentity<IdentityUser>(
   options => options.SignIn.RequireConfirmedAccount = true)
   .AddRoles<IdentityRole>() // Enable role management.
   .AddEntityFrameworkStores<ApplicationDbContext>();
 ```
-2.	In the `Controllers` folder, add an empty controller class file named `RolesController.cs` and modify its contents, as shown in the following code:
+
+> Code: https://github.com/markjprice/cs12dotnet8/blob/main/code/PracticalApps/Northwind.Mvc/Program.cs#L24
+
+2.	In the `Controllers` folder, add an empty controller class file named `RolesController.cs` and modify its contents, as shown in the following code, available at the following link: https://github.com/markjprice/cs12dotnet8/blob/main/code/PracticalApps/Northwind.Mvc/Controllers/RolesController.cs
 ```cs
 using Microsoft.AspNetCore.Identity; // To use RoleManager, UserManager.
 using Microsoft.AspNetCore.Mvc; // To use Controller, IActionResult.
