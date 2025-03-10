@@ -44,7 +44,7 @@ public async Task<IActionResult> CategoryDetail(int? id)
     return BadRequest("You must pass a category ID in the route, for example, /Home/CategoryDetail/6");
   }
 
-  Category? model = await db.Categories.Include(p => p.Products)
+  Category? model = await _db.Categories.Include(p => p.Products)
     .SingleOrDefaultAsync(p => p.CategoryId == id);
 
   if (model is null)
