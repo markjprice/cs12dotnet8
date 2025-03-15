@@ -1,4 +1,4 @@
-**Improvements** (70 items)
+**Improvements** (71 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -57,6 +57,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 493 - Serializing as XML](#page-493---serializing-as-xml)
 - [Page 506 - Reading all environment variables](#page-506---reading-all-environment-variables)
 - [Page 517 - Using SQL Server or other SQL systems](#page-517---using-sql-server-or-other-sql-systems)
+- [Page 519 - Creating the Northwind sample database for SQLite](#page-519---creating-the-northwind-sample-database-for-sqlite)
 - [Page 520 - If you are using Visual Studio 2022](#page-520---if-you-are-using-visual-studio-2022)
 - [Page 524 - Defining the Northwind database context class](#page-524---defining-the-northwind-database-context-class)
 - [Page 535 - Scaffolding models using an existing database](#page-535---scaffolding-models-using-an-existing-database)
@@ -1188,6 +1189,31 @@ You can check for the most recent package versions at the following links: https
 If you do so, then you will notice the warning about a vulnerability with the packages up to early January 2024. Since January 9, 2024 the vulnerability has been fixed with versions `4.0.5`, `5.1.3`, and `5.2.0-preview5.24024.3`, as shown in the following screenshot:
 
 ![Vulnerable packages](improvement-p517.png)
+
+# Page 519 - Creating the Northwind sample database for SQLite
+
+> Thanks to **kingace9371** in the Discord channel for asking about this which prompted this improvement.
+
+In Step 4, I wrote, "Enter the command to execute the SQL script using SQLite to create the `Northwind.db` database, as shown here:"
+```
+sqlite3 Northwind.db -init Northwind4SQLite.sql
+```
+
+In Step 5, I show the successful output, "Be patient because this command might take a while to create the database structure. Eventually,
+you will see the SQLite command prompt, as shown in the following output:"
+```
+-- Loading resources from Northwind4SQLite.sql
+SQLite version 3.42.0 2023-05-16 12:36:15
+Enter ".help" for usage hints.
+sqlite>
+```
+
+Some readers either do not have the SQL script in the current directory, or enter the wrong filename, or otherwise use the wrong path, and get the following error message:
+```
+cannot open: "Northwind4SQLite.sql"
+```
+
+In the next edition, as well as showing the expected correct output, I will show the preceding error message so that reader's know that they need to fix the path to the SQL script.
 
 # Page 520 - If you are using Visual Studio 2022
 
