@@ -194,3 +194,5 @@ Primary constructors|5|Defining a primary constructor
 Interceptors|7|Method interceptors
 
 *Table 2.13: Features of C# 12 mentioned in this book*
+
+> **More Information**, The history of C#: https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-version-history
