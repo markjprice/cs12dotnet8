@@ -135,7 +135,7 @@ app.UseMiddleware<SecurityHeaders>();
 
 In *Chapter 13, Building Websites Using ASP.NET Core Razor Pages*, you learned how to enable HTTP/3 support in the Kestrel web server. Now we will see how to enable HTTP/3 on the client side:
 
-1.	In the `Northwind.WebApi` project/folder, in `appSettings.json`, add an entry to show hosting diagnostics, as shown highlighted in the following configuration:
+1.	In the `Northwind.WebApi` project/folder, in `appSettings.json`, add an entry to show hosting diagnostics, as shown in the following configuration:
 ```json
 {
   "Logging": {
