@@ -6,6 +6,4 @@ If you find any mistakes in the eighth edition, *C# 12 and .NET 8 - Modern Cross
 
 [**Improvements** (71 items)](improvements.md): Changes to text or code that would improve the content. These are optional.
 
-[**Common Mistakes** (6 items)](common-mistakes.md): These are some of the most common mistakes that a reader might encounter when trying to get code in book tasks to work, or when trying to write your own code. 
-
-All errata and improvements will be included in the 9th edition planned for publishing in November 2024. To be included they must be submitted by mid-September 2024.
+[**Common Mistakes**](https://github.com/markjprice/markjprice/blob/main/articles/common-mistakes.md): These are some of the most common mistakes that a reader might encounter when trying to get code in book tasks to work, or when trying to write your own code. (Links to the `markjprice` shared articles repository.)
