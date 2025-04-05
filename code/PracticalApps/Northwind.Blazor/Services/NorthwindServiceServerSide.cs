@@ -24,7 +24,7 @@ public class NorthwindServiceServerSide : INorthwindService
   public Task<Customer?> GetCustomerAsync(string id)
   {
     return _db.Customers.FirstOrDefaultAsync
-    (c => c.CustomerId == id);
+      (c => c.CustomerId == id);
   }
   
   public Task<Customer> CreateCustomerAsync(Customer c)
@@ -53,5 +53,11 @@ public class NorthwindServiceServerSide : INorthwindService
       _db.Customers.Remove(customer);
       return _db.SaveChangesAsync();
     }
+  }
+
+  public List<string?> GetCountries()
+  {
+    return _db.Customers.Select(c => c.Country)
+    .Distinct().OrderBy(country => country).ToList();
   }
 }

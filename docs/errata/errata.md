@@ -1,4 +1,4 @@
-**Errata** (59 items)
+**Errata** (60 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -60,6 +60,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 753 - Reviewing Blazor routing, layouts, and navigation](#page-753---reviewing-blazor-routing-layouts-and-navigation)
 - [Page 761 - Using Bootstrap icons](#page-761---using-bootstrap-icons)
 - [Page 771 - Building a customer detail component](#page-771---building-a-customer-detail-component)
+- [Page 778 - Exercise 15.3 – Practice by creating a country navigation item](#page-778---exercise-153--practice-by-creating-a-country-navigation-item)
 - [Appendix - Page 1 - Exercise 1.1 – Test your knowledge](#appendix---page-1---exercise-11--test-your-knowledge)
 
 # Page 5 - Choosing the appropriate tool and application type for learning
@@ -883,6 +884,52 @@ In the next edition, I will update the markup, as shown in the following code:
   </div>
   <button class="form-control" type="submit" class="btn btn-@ButtonStyle">@ButtonText</button>
 </EditForm>
+```
+
+# Page 778 - Exercise 15.3 – Practice by creating a country navigation item
+
+> Thanks to [es-moises](https://github.com/es-moises) for raising this [issue on April 4, 2025](https://github.com/markjprice/cs12dotnet8/issues/99)
+
+In Step 1, I wrote, "In the `Northwind.Blazor` project, in `INorthwindService.cs`" but that file is in the `Northwind.Blazor.Services` project.
+
+In Step 3, I told the reader to implement the server-side service, but I did not tell the reader to implement the client-side service, which is needed if the reader completed the BlazorWasm optional project. The method implementation in `NorthwindServiceClientSide.cs` would be something like the following code:
+```cs
+public List<string?> GetCountries()
+{
+  return _http.GetFromJsonAsync<List<string?>>("api/countries")!.Result!;
+}
+```
+
+This will need to call a new controller class in the `Northwind.WebApi` service project, `CountriesController.cs`, as shown in the following code:
+```cs
+// To use [Route], [ApiController], ControllerBase and so on.
+using Microsoft.AspNetCore.Mvc;
+using Northwind.EntityModels; // To use Customer.
+
+namespace Northwind.WebApi.Controllers;
+
+// Base address: api/countries
+[Route("api/[controller]")]
+[ApiController]
+public class CountriesController : ControllerBase
+{
+  private readonly NorthwindContext _db;
+
+  // Constructor injects repository registered in Program.cs.
+  public CountriesController(NorthwindContext db)
+  {
+    _db = db;
+  }
+
+  // GET: api/countries
+  // this will always return a list of strings (but it might be empty)
+  [HttpGet]
+  [ProducesResponseType(200, Type = typeof(IEnumerable<string?>))]
+  public IEnumerable<string?> GetCountries()
+  {
+    return _db.Customers.Select(customer => customer.Country).Distinct();
+  }
+}
 ```
 
 # Appendix - Page 1 - Exercise 1.1 – Test your knowledge

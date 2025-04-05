@@ -54,4 +54,9 @@ public class NorthwindServiceClientSide : INorthwindService
     HttpResponseMessage response = await
       _http.DeleteAsync($"api/customers/{id}");
   }
+
+  public List<string?> GetCountries()
+  {
+    return _http.GetFromJsonAsync<List<string?>>("api/countries")!.Result!;
+  }
 }
