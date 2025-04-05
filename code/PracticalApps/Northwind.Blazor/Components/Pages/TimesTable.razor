@@ -1,8 +1,8 @@
 ﻿@page "/timestable/{Number:int}/{Size:int?}"
 <PageTitle>@Number times table</PageTitle>
-<h3>@Number times table</h3>
+<h3>@Number Times Table</h3>
 <table>
-  @for (int i = 1; i <= Size; i++)
+  @for (int i = 1; i <= TableSize; i++)
   {
     <tr><td>@string.Format($"{i} x {Number} = {i * Number}")</td></tr>
   }
@@ -11,5 +11,11 @@
   [Parameter]
   public int Number { get; set; }
   [Parameter]
-  public int Size { get; set; } = 12;
+  public int? Size { get; set; } = 12;
+  public int TableSize { get; set; }
+
+  protected override void OnParametersSet()
+  {
+    TableSize = Size ?? 12;
+  }
 }
