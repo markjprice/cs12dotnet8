@@ -888,7 +888,7 @@ In the next edition, I will update the markup, as shown in the following code:
 
 # Page 778 - Exercise 15.3 – Practice by creating a country navigation item
 
-> Thanks to [es-moises](https://github.com/es-moises) for raising this [issue on April 4, 2025](https://github.com/markjprice/cs12dotnet8/issues/99)
+> Thanks to [es-moises](https://github.com/es-moises) for raising this [issue on April 4, 2025](https://github.com/markjprice/cs12dotnet8/issues/99) and this [issue on April 4, 2025](https://github.com/markjprice/cs12dotnet8/issues/100)
 
 In Step 1, I wrote, "In the `Northwind.Blazor` project, in `INorthwindService.cs`" but that file is in the `Northwind.Blazor.Services` project.
 
@@ -931,6 +931,10 @@ public class CountriesController : ControllerBase
   }
 }
 ```
+
+In Step 3, I told the reader to use a Bootstrap icon `oi oi-people` but that has not been defined. You can learn how to define Bootstrap icons on page 761 in the section, *Using Bootstrap icons*. Or reuse the `bi bi-globe-europe-africa` class that we applied to the manually defined menu for Germany, as shown in the following screenshot:
+
+![Listing countries for the navbar menu](errata-p778.png)
 
 # Appendix - Page 1 - Exercise 1.1 – Test your knowledge
 

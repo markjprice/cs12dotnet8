@@ -25,7 +25,7 @@
       <NavLink class="nav-link" href="customers"
                Match="NavLinkMatch.All">
         <span class="bi bi-globe" aria-hidden="true"></span>
-        Customers Worldwide
+        Customers&nbsp;Worldwide
       </NavLink>
     </div>
 
@@ -33,7 +33,7 @@
       <NavLink class="nav-link" href="customers/Germany">
         <span class="bi bi-globe-europe-africa"
               aria-hidden="true"></span>
-        Customers in Germany
+        Customers&nbsp;in&nbsp;Germany
       </NavLink>
     </div>
 
@@ -48,10 +48,11 @@
     @foreach (string? country in _service.GetCountries())
     {
       string countryLink = "customers/" + country;
+
       <div class="nav-item px-3">
         <NavLink class="nav-link" href="@countryLink">
-          <span class="oi oi-people" aria-hidden="true"></span>
-          Customers in @country
+          <span class="bi bi-globe-europe-africa" aria-hidden="true"></span>
+          @country
         </NavLink>
       </div>
     }
