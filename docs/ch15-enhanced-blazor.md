@@ -235,7 +235,7 @@ Even easier is the use of the `NavigationLock` component that you can put in a c
 
 Let's prevent the visitor from navigating away from the `EditCustomer` page component if they have made changes that are unsaved:
 
-1.	In the `Northwind.Blazor` project, in the `Shared` folder, in `CustomerDetail.razor`, add statements to execute event handlers when text is input into any of the four textboxes, and to set a parameter named `HasChanges`, as shown highlighted in the following partial markup:
+1.	In the `Northwind.Blazor` project, in the `Components` folder, in `CustomerDetail.razor`, add statements to execute event handlers when text is input into any of the four textboxes, and to set a parameter named `HasChanges`, as shown highlighted in the following partial markup:
 ```html
 <EditForm Model="@Customer" OnValidSubmit="@OnValidSubmit">
 ...
@@ -333,10 +333,10 @@ Let's prevent the visitor from navigating away from the `EditCustomer` page comp
 4.	Start Chrome and navigate to https://localhost:5161/.
 5.	Select **Customers in France**, and then in the **BLONP** row, click the **Edit** button.
 6.	Click in any textbox but do not make any changes.
-7.	Click **Fetch data** and note that you are not prevented from navigating to it.
+7.	Click **Update** and note that you are not prevented from navigating to it.
 8.	Select **Customers in France**, and then in the **BLONP** row, click the **Edit** button.
 9.	Change the **Address** to `42, place Kléber`.
-10.	Click **Fetch data** and note that you are prevented from navigating to it, as shown in *Figure 16A.4*:
+10.	Click **Update** and note that you are prevented from navigating to it, as shown in *Figure 16A.4*:
 
 ![Preventing a visitor from navigating away when there are unsaved changes](assets/B19586_16A_04.png) 
 *Figure 16A.4: Preventing a visitor from navigating away when there are unsaved changes*
@@ -345,10 +345,10 @@ Let's prevent the visitor from navigating away from the `EditCustomer` page comp
 12.	Select **Customers in France**, and then in the **BLONP** row, click the **Edit** button.
 13.	Note that you lost the previous change.
 14.	Change the **Address** to `24, place Kléba`.
-15.	Click **Fetch Data** and note that you are prevented from navigating to it.
+15.	Click **Update** and note that you are prevented from navigating to it.
 16.	Click **Cancel** to stay.
 17.	Click **Update**.
-18.	Click **Fetch Data** and note that you are prevented from navigating to it.
+18.	Click **Update** and note that you are prevented from navigating to it.
 19.	Click **OK** to leave.
 20.	Select **Customers in France**, and then in the **BLONP** row, note that your change was saved.
 
