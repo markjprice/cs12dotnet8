@@ -41,7 +41,7 @@ function getColorFromStorage() {
 ```html
 <script src="scripts/interop.js"></script>
 ```
-4.	In the `Pages` folder, in `Index.razor`, set the render mode to server and add a button and a code block that uses the Blazor JavaScript runtime dependency service to call a JavaScript function, as shown in the following code:
+4.	In the `Pages` folder, in `Home.razor`, set the render mode to server and add a button and a code block that uses the Blazor JavaScript runtime dependency service to call a JavaScript function, as shown in the following code:
 ```cs
 @rendermode RenderMode.InteractiveServer
 ```
