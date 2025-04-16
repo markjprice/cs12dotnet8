@@ -1600,7 +1600,7 @@ In the next edition, I will add some information about this, similar to the prec
 
 > Thanks to **kingace9371**/`kingace9371` in the Discord channel for asking a question about this on April 15, 2025 that prompted this improvement.
 
-In Steps 1 and 2, I tell the reader to send a request to thr web servoce to insert a new customer, as shown in the following code:
+In Steps 1 and 2, I tell the reader to send a request to the web service to insert a new customer, as shown in the following code:
 ```
 ### Configure a variable for the web service base address.
 @base_address = https://localhost:5151/api/customers/
@@ -1622,7 +1622,7 @@ Content-Type: application/json
 }
 ```
 
-If a reader has already sent this request then they will get an exception on subsequent sent requests: `UNIQUE constraint failed: Customers.CustomerId`. This error means they are trying to insert a new customer with a `CustomerId` value that is already in use by an existing customer. In the next edition I will add a warning about this and tell the reader to change the `ABCXY` to a value that does not already exist in the table. Or delete the existing customer.
+If a reader has already sent this request then they will get an exception on subsequent sent requests: `UNIQUE constraint failed: Customers.CustomerId`. This error means they are trying to insert a new customer with a `CustomerId` value that is already in use by an existing customer. In the next edition I will add a warning about this and tell the reader to change the `ABCXY` to a value that does not already exist in the table if they see this exception. Or delete the existing customer.
 
 # Page 727 - Understanding Swagger
 
