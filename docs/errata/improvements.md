@@ -1,4 +1,4 @@
-**Improvements** (71 items)
+**Improvements** (72 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -73,6 +73,7 @@ If you have suggestions for improvements, then please [raise an issue in this re
 - [Page 638 - Creating a class library for a database context using SQLite](#page-638---creating-a-class-library-for-a-database-context-using-sqlite)
 - [Page 640 - Customizing the model and defining an extension method](#page-640---customizing-the-model-and-defining-an-extension-method)
 - [Page 711 - Creating data repositories with caching for entities](#page-711---creating-data-repositories-with-caching-for-entities)
+- [Page 726 - Making other requests using HTTP/REST tools](#page-726---making-other-requests-using-httprest-tools)
 - [Page 727 - Understanding Swagger](#page-727---understanding-swagger)
 - [Page 732 - Enabling HTTP logging](#page-732---enabling-http-logging)
 - [Page 764 - Abstracting a service for a Blazor component](#page-764---abstracting-a-service-for-a-blazor-component)
@@ -1594,6 +1595,34 @@ public async Task<Shipper?> CreateAsync(Shipper s)
 In the next edition, I will add some information about this, similar to the preceding explanation. 
 
 > **More Information**: You can learn more at the following link: https://learn.microsoft.com/en-us/ef/core/change-tracking/entity-entries.
+
+# Page 726 - Making other requests using HTTP/REST tools
+
+> Thanks to **kingace9371**/`kingace9371` in the Discord channel for asking a question about this on April 15, 2025 that prompted this improvement.
+
+In Steps 1 and 2, I tell the reader to send a request to thr web servoce to insert a new customer, as shown in the following code:
+```
+### Configure a variable for the web service base address.
+@base_address = https://localhost:5151/api/customers/
+
+### Make a POST request to the base address.
+POST {{base_address}}
+Content-Type: application/json
+{
+  "customerID": "ABCXY",
+  "companyName": "ABC Corp",
+  "contactName": "John Smith",
+  "contactTitle": "Sir",
+  "address": "Main Street",
+  "city": "New York",
+  "region": "NY",
+  "postalCode": "90210",
+  "country": "USA",
+  "phone": "(123) 555-1234"
+}
+```
+
+If a reader has already sent this request then they will get an exception on subsequent sent requests: `UNIQUE constraint failed: Customers.CustomerId`. This error means they are trying to insert a new customer with a `CustomerId` value that is already in use by an existing customer. In the next edition I will add a warning about this and tell the reader to change the `ABCXY` to a value that does not already exist in the table. Or delete the existing customer.
 
 # Page 727 - Understanding Swagger
 
