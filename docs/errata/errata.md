@@ -1,4 +1,4 @@
-**Errata** (60 items)
+**Errata** (61 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/cs12dotnet8/issues) or email me at markjprice (at) gmail.com.
 
@@ -16,6 +16,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 65 - Comparing programming languages to human languages](#page-65---comparing-programming-languages-to-human-languages)
 - [Page 87 - Comparing double and decimal types](#page-87---comparing-double-and-decimal-types)
 - [Page 95 - Displaying output to the user](#page-95---displaying-output-to-the-user)
+- [Page 100 - Custom number formatting](#page-100---custom-number-formatting)
 - [Page 110 - Handling platforms that do not support an API](#page-110---handling-platforms-that-do-not-support-an-api)
 - [Page 124 - Exploring bitwise and binary shift operators](#page-124---exploring-bitwise-and-binary-shift-operators)
 - [Page 149 - How negative numbers are represented in binary](#page-149---how-negative-numbers-are-represented-in-binary)
@@ -176,6 +177,14 @@ Console.WriteLine("A");
 Console.WriteLine("B");
 Console.WriteLine("C");
 ```
+
+# Page 100 - Custom number formatting
+
+> Thanks to [s3ba-b](https://github.com/s3ba-b) for raising [this issue on October 9, 2025](https://github.com/markjprice/cs12dotnet8/issues/105).
+
+I wrote, "You can apply standard number formatting using simpler format codes, like `C` and `N`. They support a precision number to indicate how many digits of precision you want. The default is two."
+
+Although the default precision for the `C` and `N` format codes is two decimal places, other codes are different. In the 10th edition, I will write, "You can apply standard number formatting using simpler format codes, like `C` and `N`. They support a precision number to indicate how many digits of precision you want, for example, `C0` and `N4`. The default is 2 for `C` and `N` but are different for other format codes. For example, `D`, the default precision is the minimum number of digits required, and for `E` the default precision is 6."
 
 # Page 110 - Handling platforms that do not support an API
 
