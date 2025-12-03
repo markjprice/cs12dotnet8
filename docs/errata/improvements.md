@@ -1686,4 +1686,8 @@ In the next edition, I will add some explanation of this and warn the reader not
 
 In Question 2, "What happens when you divide a double variable by 0?", in my suggested answer I wrote, "The `double` type contains a special value of `Infinity`. Instances of floating-point numbers can have the special values of `NaN` (not a number) or, in the case of dividing by `0`, either `PositiveInfinity` or `NegativeInfinity`."
 
-In the next edition, I will add that those special values output as `8` and `-8`.
+In the 9th and 10th editions, I added that those special values output as `8` and `-8`.
+
+> Thanks to [s3ba-b](https://github.com/s3ba-b) for raising a related [issue on December 2, 2025](https://github.com/markjprice/cs12dotnet8/issues/106).
+
+In the 11th edition, I will add a link to the documentation: https://learn.microsoft.com/en-us/dotnet/api/system.dividebyzeroexception, and quote it, "Dividing a floating-point value by zero doesn't throw an exception; it results in positive infinity, negative infinity, or not a number (NaN), according to the rules of IEEE 754 arithmetic."
