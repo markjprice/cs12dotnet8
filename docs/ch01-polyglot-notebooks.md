@@ -15,9 +15,6 @@
 
 Polyglot Notebooks makes writing code even easier than top-level programs. It requires Visual Studio Code, so if you did not install it and the Polyglot Notebooks extension earlier, please install them now.
 
-Visual Studio 2022 does have its own extension for notebooks named Notebook Editor that was created by Microsoft's machine learning team. It is not as mature as the Polyglot Notebooks extension for Visual Studio Code, so I do not recommend it. You can learn more and install Notebook Editor from the following link:
-https://marketplace.visualstudio.com/items?itemName=MLNET.notebook
-
 # Creating a notebook
 
 First, we need to create a notebook:
